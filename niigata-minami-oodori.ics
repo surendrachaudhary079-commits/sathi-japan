@@ -1,0 +1,4069 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Sathi Japan//Garbage Reminder//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Sathi Japan - Garbage (Oodori (calendar code 74))
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20260928@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20260928
+DTEND;VALUE=DATE:20260929
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20260930@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20260930
+DTEND;VALUE=DATE:20261001
+SUMMARY:🔥 Burnable garbage + 🌿 Branches\, leaves & grass / जल्
+ ने फोहोर + हाँगा\, पात र घाँस
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ n🌿 Branches\, leaves & grass / हाँगा\, पात र घा
+ ँस (枝葉・草)\n- Clear or see-through bag\, 90 L or smaller.\n- 
+ ९० लिटरसम्मको पारदर्शी झोल
+ ा।\n\nNot official. Always check the city calendar:\nhttps://www.city.
+ niigata.lg.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shir
+ one/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage + 🌿 Branches\, leaves & gras
+ s / जल्ने फोहोर + हाँगा\, पात र घ
+ ाँस
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage + 🌿 Branches\, leaves &
+  grass / जल्ने फोहोर + हाँगा\, पात र
+  घाँस
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261001@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261001
+DTEND;VALUE=DATE:20261002
+SUMMARY:♻️ Plastic packaging (プラ mark) / प्लास्टि
+ क प्याकेजिङ (プラ चिन्ह भएको)
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n♻️ Plastic packaging (プラ mark) / प
+ ्लास्टिक प्याकेजिङ (プラ चिन्
+ ह भएको) (プラマーク容器包装)\n- Clear or see-through ba
+ g\, 90 L or smaller. Only items with the プラ mark.\n- ९० लिट
+ रसम्मको पारदर्शी झोला। プラ च
+ िन्ह भएका सामान मात्र।\n\nNot offici
+ al. Always check the city calendar:\nhttps://www.city.niigata.lg.jp/kurash
+ i/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: ♻️ Plastic packaging (プラ mark) / प्ला
+ स्टिक प्याकेजिङ (プラ चिन्ह भए
+ को)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: ♻️ Plastic packaging (プラ mark) / प्
+ लास्टिक प्याकेजिङ (プラ चिन्ह 
+ भएको)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261002@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261002
+DTEND;VALUE=DATE:20261003
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261003@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:🍾 Glass bottles (food\, drink\, cosmetics) + 🥫 Food & drink c
+ ans + 🔋 Special 5 items / सिसाका बोतल (खाना
+ \, पेय\, कस्मेटिक) + खाना र पेयक
+ ा क्यान + विशेष ५ वस्तु
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🍾 Glass bottles (food\, drink\, cosmetics) 
+ / सिसाका बोतल (खाना\, पेय\, कस्म
+ ेटिक) (飲食用・化粧品びん)\n- Clear or see-through bag\, 
+ 90 L or smaller.\n- ९० लिटरसम्मको पारदर
+ ्शी झोला।\n\n🥫 Food & drink cans / खाना र प
+ ेयका क्यान (飲食用缶)\n- Clear or see-through bag\, 
+ 90 L or smaller.\n- ९० लिटरसम्मको पारदर
+ ्शी झोला।\n\n🔋 Special 5 items / विशेष ५ 
+ वस्तु (特定5品目)\n- Batteries\, fluorescent tubes\, mercury
+  thermometers\, lighters\, spray cans. Clear bag\, 90 L or smaller.\n- ब
+ ्याट्री\, ट्युबलाइट\, पारो थर
+ ्मामिटर\, लाइटर\, स्प्रे क्या
+ न। ९० लिटरसम्मको पारदर्शी झ
+ ोला।\n\nNot official. Always check the city calendar:\nhttps://www
+ .city.niigata.lg.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedul
+ e/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🍾 Glass bottles (food\, drink\, cosmetics) + 🥫 
+ Food & drink cans + 🔋 Special 5 items / सिसाका बोतल
+  (खाना\, पेय\, कस्मेटिक) + खाना र 
+ पेयका क्यान + विशेष ५ वस्तु
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🍾 Glass bottles (food\, drink\, cosmetics) + 
+ 🥫 Food & drink cans + 🔋 Special 5 items / सिसाका बो
+ तल (खाना\, पेय\, कस्मेटिक) + खान
+ ा र पेयका क्यान + विशेष ५ वस्त
+ ु
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261005@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261005
+DTEND;VALUE=DATE:20261006
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261007@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261007
+DTEND;VALUE=DATE:20261008
+SUMMARY:🔥 Burnable garbage + 🌿 Branches\, leaves & grass / जल्
+ ने फोहोर + हाँगा\, पात र घाँस
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ n🌿 Branches\, leaves & grass / हाँगा\, पात र घा
+ ँस (枝葉・草)\n- Clear or see-through bag\, 90 L or smaller.\n- 
+ ९० लिटरसम्मको पारदर्शी झोल
+ ा।\n\nNot official. Always check the city calendar:\nhttps://www.city.
+ niigata.lg.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shir
+ one/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage + 🌿 Branches\, leaves & gras
+ s / जल्ने फोहोर + हाँगा\, पात र घ
+ ाँस
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage + 🌿 Branches\, leaves &
+  grass / जल्ने फोहोर + हाँगा\, पात र
+  घाँस
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261008@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261008
+DTEND;VALUE=DATE:20261009
+SUMMARY:♻️ Plastic packaging (プラ mark) / प्लास्टि
+ क प्याकेजिङ (プラ चिन्ह भएको)
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n♻️ Plastic packaging (プラ mark) / प
+ ्लास्टिक प्याकेजिङ (プラ चिन्
+ ह भएको) (プラマーク容器包装)\n- Clear or see-through ba
+ g\, 90 L or smaller. Only items with the プラ mark.\n- ९० लिट
+ रसम्मको पारदर्शी झोला। プラ च
+ िन्ह भएका सामान मात्र।\n\nNot offici
+ al. Always check the city calendar:\nhttps://www.city.niigata.lg.jp/kurash
+ i/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: ♻️ Plastic packaging (プラ mark) / प्ला
+ स्टिक प्याकेजिङ (プラ चिन्ह भए
+ को)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: ♻️ Plastic packaging (プラ mark) / प्
+ लास्टिक प्याकेजिङ (プラ चिन्ह 
+ भएको)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261009@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261009
+DTEND;VALUE=DATE:20261010
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261010@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:🧴 PET bottles + 📰 Old paper / पेट बोतल + पु
+ रानो कागज
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🧴 PET bottles / पेट बोतल (ペ
+ ットボトル)\n- Clear or see-through bag\, 90 L or smaller.\n- ९० 
+ लिटरसम्मको पारदर्शी झोला।\n\
+ n📰 Old paper / पुरानो कागज (古紙)\n- Put out at t
+ he collection point as a resource item (資源物).\n- संकलन स
+ ्थलमा स्रोत वस्तु (資源物) को रू
+ पमा राख्नुहोस्।\n\nNot official. Always check 
+ the city calendar:\nhttps://www.city.niigata.lg.jp/kurashi/gomi/gomishigen
+ /gomidasi/gomi_calemder/schedule/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🧴 PET bottles + 📰 Old paper / पेट बो
+ तल + पुरानो कागज
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🧴 PET bottles + 📰 Old paper / पेट 
+ बोतल + पुरानो कागज
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261012@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261012
+DTEND;VALUE=DATE:20261013
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261014@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261014
+DTEND;VALUE=DATE:20261015
+SUMMARY:🔥 Burnable garbage + 🌿 Branches\, leaves & grass / जल्
+ ने फोहोर + हाँगा\, पात र घाँस
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ n🌿 Branches\, leaves & grass / हाँगा\, पात र घा
+ ँस (枝葉・草)\n- Clear or see-through bag\, 90 L or smaller.\n- 
+ ९० लिटरसम्मको पारदर्शी झोल
+ ा।\n\nNot official. Always check the city calendar:\nhttps://www.city.
+ niigata.lg.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shir
+ one/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage + 🌿 Branches\, leaves & gras
+ s / जल्ने फोहोर + हाँगा\, पात र घ
+ ाँस
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage + 🌿 Branches\, leaves &
+  grass / जल्ने फोहोर + हाँगा\, पात र
+  घाँस
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261015@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261015
+DTEND;VALUE=DATE:20261016
+SUMMARY:♻️ Plastic packaging (プラ mark) / प्लास्टि
+ क प्याकेजिङ (プラ चिन्ह भएको)
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n♻️ Plastic packaging (プラ mark) / प
+ ्लास्टिक प्याकेजिङ (プラ चिन्
+ ह भएको) (プラマーク容器包装)\n- Clear or see-through ba
+ g\, 90 L or smaller. Only items with the プラ mark.\n- ९० लिट
+ रसम्मको पारदर्शी झोला। プラ च
+ िन्ह भएका सामान मात्र।\n\nNot offici
+ al. Always check the city calendar:\nhttps://www.city.niigata.lg.jp/kurash
+ i/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: ♻️ Plastic packaging (プラ mark) / प्ला
+ स्टिक प्याकेजिङ (プラ चिन्ह भए
+ को)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: ♻️ Plastic packaging (プラ mark) / प्
+ लास्टिक प्याकेजिङ (プラ चिन्ह 
+ भएको)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261016@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261016
+DTEND;VALUE=DATE:20261017
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261017@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:🧱 Non-burnable garbage + 🍾 Glass bottles (food\, drink\, cosm
+ etics) + 🥫 Food & drink cans / नजल्ने फोहोर + स
+ िसाका बोतल (खाना\, पेय\, कस्मे
+ टिक) + खाना र पेयका क्यान
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🧱 Non-burnable garbage / नजल्ने
+  फोहोर (燃やさないごみ)\n- Use the city's designated garb
+ age bag (指定袋).\n- सिटीको तोकिएको फोह
+ ोर झोला (指定袋) प्रयोग गर्नुहो
+ स्।\n\n🍾 Glass bottles (food\, drink\, cosmetics) / सिसा
+ का बोतल (खाना\, पेय\, कस्मेटिक) 
+ (飲食用・化粧品びん)\n- Clear or see-through bag\, 90 L or smalle
+ r.\n- ९० लिटरसम्मको पारदर्शी झ
+ ोला।\n\n🥫 Food & drink cans / खाना र पेयका 
+ क्यान (飲食用缶)\n- Clear or see-through bag\, 90 L or small
+ er.\n- ९० लिटरसम्मको पारदर्शी झ
+ ोला।\n\nNot official. Always check the city calendar:\nhttps://www
+ .city.niigata.lg.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedul
+ e/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🧱 Non-burnable garbage + 🍾 Glass bottles (food\
+ , drink\, cosmetics) + 🥫 Food & drink cans / नजल्ने फो
+ होर + सिसाका बोतल (खाना\, पेय\, 
+ कस्मेटिक) + खाना र पेयका क्या
+ न
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🧱 Non-burnable garbage + 🍾 Glass bottles (
+ food\, drink\, cosmetics) + 🥫 Food & drink cans / नजल्ने 
+ फोहोर + सिसाका बोतल (खाना\, पे
+ य\, कस्मेटिक) + खाना र पेयका क्
+ यान
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261019@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261019
+DTEND;VALUE=DATE:20261020
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261021@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261021
+DTEND;VALUE=DATE:20261022
+SUMMARY:🔥 Burnable garbage + 🌿 Branches\, leaves & grass / जल्
+ ने फोहोर + हाँगा\, पात र घाँस
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ n🌿 Branches\, leaves & grass / हाँगा\, पात र घा
+ ँस (枝葉・草)\n- Clear or see-through bag\, 90 L or smaller.\n- 
+ ९० लिटरसम्मको पारदर्शी झोल
+ ा।\n\nNot official. Always check the city calendar:\nhttps://www.city.
+ niigata.lg.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shir
+ one/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage + 🌿 Branches\, leaves & gras
+ s / जल्ने फोहोर + हाँगा\, पात र घ
+ ाँस
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage + 🌿 Branches\, leaves &
+  grass / जल्ने फोहोर + हाँगा\, पात र
+  घाँस
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261022@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261022
+DTEND;VALUE=DATE:20261023
+SUMMARY:♻️ Plastic packaging (プラ mark) / प्लास्टि
+ क प्याकेजिङ (プラ चिन्ह भएको)
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n♻️ Plastic packaging (プラ mark) / प
+ ्लास्टिक प्याकेजिङ (プラ चिन्
+ ह भएको) (プラマーク容器包装)\n- Clear or see-through ba
+ g\, 90 L or smaller. Only items with the プラ mark.\n- ९० लिट
+ रसम्मको पारदर्शी झोला। プラ च
+ िन्ह भएका सामान मात्र।\n\nNot offici
+ al. Always check the city calendar:\nhttps://www.city.niigata.lg.jp/kurash
+ i/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: ♻️ Plastic packaging (プラ mark) / प्ला
+ स्टिक प्याकेजिङ (プラ चिन्ह भए
+ को)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: ♻️ Plastic packaging (プラ mark) / प्
+ लास्टिक प्याकेजिङ (プラ चिन्ह 
+ भएको)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261023@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261023
+DTEND;VALUE=DATE:20261024
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261024@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:🧴 PET bottles + 📰 Old paper / पेट बोतल + पु
+ रानो कागज
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🧴 PET bottles / पेट बोतल (ペ
+ ットボトル)\n- Clear or see-through bag\, 90 L or smaller.\n- ९० 
+ लिटरसम्मको पारदर्शी झोला।\n\
+ n📰 Old paper / पुरानो कागज (古紙)\n- Put out at t
+ he collection point as a resource item (資源物).\n- संकलन स
+ ्थलमा स्रोत वस्तु (資源物) को रू
+ पमा राख्नुहोस्।\n\nNot official. Always check 
+ the city calendar:\nhttps://www.city.niigata.lg.jp/kurashi/gomi/gomishigen
+ /gomidasi/gomi_calemder/schedule/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🧴 PET bottles + 📰 Old paper / पेट बो
+ तल + पुरानो कागज
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🧴 PET bottles + 📰 Old paper / पेट 
+ बोतल + पुरानो कागज
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261026@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261026
+DTEND;VALUE=DATE:20261027
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261028@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261028
+DTEND;VALUE=DATE:20261029
+SUMMARY:🔥 Burnable garbage + 🌿 Branches\, leaves & grass / जल्
+ ने फोहोर + हाँगा\, पात र घाँस
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ n🌿 Branches\, leaves & grass / हाँगा\, पात र घा
+ ँस (枝葉・草)\n- Clear or see-through bag\, 90 L or smaller.\n- 
+ ९० लिटरसम्मको पारदर्शी झोल
+ ा।\n\nNot official. Always check the city calendar:\nhttps://www.city.
+ niigata.lg.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shir
+ one/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage + 🌿 Branches\, leaves & gras
+ s / जल्ने फोहोर + हाँगा\, पात र घ
+ ाँस
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage + 🌿 Branches\, leaves &
+  grass / जल्ने फोहोर + हाँगा\, पात र
+  घाँस
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261029@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261029
+DTEND;VALUE=DATE:20261030
+SUMMARY:♻️ Plastic packaging (プラ mark) / प्लास्टि
+ क प्याकेजिङ (プラ चिन्ह भएको)
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n♻️ Plastic packaging (プラ mark) / प
+ ्लास्टिक प्याकेजिङ (プラ चिन्
+ ह भएको) (プラマーク容器包装)\n- Clear or see-through ba
+ g\, 90 L or smaller. Only items with the プラ mark.\n- ९० लिट
+ रसम्मको पारदर्शी झोला। プラ च
+ िन्ह भएका सामान मात्र।\n\nNot offici
+ al. Always check the city calendar:\nhttps://www.city.niigata.lg.jp/kurash
+ i/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: ♻️ Plastic packaging (プラ mark) / प्ला
+ स्टिक प्याकेजिङ (プラ चिन्ह भए
+ को)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: ♻️ Plastic packaging (プラ mark) / प्
+ लास्टिक प्याकेजिङ (プラ चिन्ह 
+ भएको)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261030@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261030
+DTEND;VALUE=DATE:20261031
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261102@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261102
+DTEND;VALUE=DATE:20261103
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261104@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261104
+DTEND;VALUE=DATE:20261105
+SUMMARY:🔥 Burnable garbage + 🌿 Branches\, leaves & grass / जल्
+ ने फोहोर + हाँगा\, पात र घाँस
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ n🌿 Branches\, leaves & grass / हाँगा\, पात र घा
+ ँस (枝葉・草)\n- Clear or see-through bag\, 90 L or smaller.\n- 
+ ९० लिटरसम्मको पारदर्शी झोल
+ ा।\n\nNot official. Always check the city calendar:\nhttps://www.city.
+ niigata.lg.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shir
+ one/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage + 🌿 Branches\, leaves & gras
+ s / जल्ने फोहोर + हाँगा\, पात र घ
+ ाँस
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage + 🌿 Branches\, leaves &
+  grass / जल्ने फोहोर + हाँगा\, पात र
+  घाँस
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261105@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261105
+DTEND;VALUE=DATE:20261106
+SUMMARY:♻️ Plastic packaging (プラ mark) / प्लास्टि
+ क प्याकेजिङ (プラ चिन्ह भएको)
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n♻️ Plastic packaging (プラ mark) / प
+ ्लास्टिक प्याकेजिङ (プラ चिन्
+ ह भएको) (プラマーク容器包装)\n- Clear or see-through ba
+ g\, 90 L or smaller. Only items with the プラ mark.\n- ९० लिट
+ रसम्मको पारदर्शी झोला। プラ च
+ िन्ह भएका सामान मात्र।\n\nNot offici
+ al. Always check the city calendar:\nhttps://www.city.niigata.lg.jp/kurash
+ i/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: ♻️ Plastic packaging (プラ mark) / प्ला
+ स्टिक प्याकेजिङ (プラ चिन्ह भए
+ को)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: ♻️ Plastic packaging (プラ mark) / प्
+ लास्टिक प्याकेजिङ (プラ चिन्ह 
+ भएको)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261106@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261106
+DTEND;VALUE=DATE:20261107
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261107@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:🍾 Glass bottles (food\, drink\, cosmetics) + 🥫 Food & drink c
+ ans + 🔋 Special 5 items / सिसाका बोतल (खाना
+ \, पेय\, कस्मेटिक) + खाना र पेयक
+ ा क्यान + विशेष ५ वस्तु
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🍾 Glass bottles (food\, drink\, cosmetics) 
+ / सिसाका बोतल (खाना\, पेय\, कस्म
+ ेटिक) (飲食用・化粧品びん)\n- Clear or see-through bag\, 
+ 90 L or smaller.\n- ९० लिटरसम्मको पारदर
+ ्शी झोला।\n\n🥫 Food & drink cans / खाना र प
+ ेयका क्यान (飲食用缶)\n- Clear or see-through bag\, 
+ 90 L or smaller.\n- ९० लिटरसम्मको पारदर
+ ्शी झोला।\n\n🔋 Special 5 items / विशेष ५ 
+ वस्तु (特定5品目)\n- Batteries\, fluorescent tubes\, mercury
+  thermometers\, lighters\, spray cans. Clear bag\, 90 L or smaller.\n- ब
+ ्याट्री\, ट्युबलाइट\, पारो थर
+ ्मामिटर\, लाइटर\, स्प्रे क्या
+ न। ९० लिटरसम्मको पारदर्शी झ
+ ोला।\n\nNot official. Always check the city calendar:\nhttps://www
+ .city.niigata.lg.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedul
+ e/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🍾 Glass bottles (food\, drink\, cosmetics) + 🥫 
+ Food & drink cans + 🔋 Special 5 items / सिसाका बोतल
+  (खाना\, पेय\, कस्मेटिक) + खाना र 
+ पेयका क्यान + विशेष ५ वस्तु
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🍾 Glass bottles (food\, drink\, cosmetics) + 
+ 🥫 Food & drink cans + 🔋 Special 5 items / सिसाका बो
+ तल (खाना\, पेय\, कस्मेटिक) + खान
+ ा र पेयका क्यान + विशेष ५ वस्त
+ ु
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261109@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261109
+DTEND;VALUE=DATE:20261110
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261111@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261111
+DTEND;VALUE=DATE:20261112
+SUMMARY:🔥 Burnable garbage + 🌿 Branches\, leaves & grass / जल्
+ ने फोहोर + हाँगा\, पात र घाँस
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ n🌿 Branches\, leaves & grass / हाँगा\, पात र घा
+ ँस (枝葉・草)\n- Clear or see-through bag\, 90 L or smaller.\n- 
+ ९० लिटरसम्मको पारदर्शी झोल
+ ा।\n\nNot official. Always check the city calendar:\nhttps://www.city.
+ niigata.lg.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shir
+ one/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage + 🌿 Branches\, leaves & gras
+ s / जल्ने फोहोर + हाँगा\, पात र घ
+ ाँस
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage + 🌿 Branches\, leaves &
+  grass / जल्ने फोहोर + हाँगा\, पात र
+  घाँस
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261112@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261112
+DTEND;VALUE=DATE:20261113
+SUMMARY:♻️ Plastic packaging (プラ mark) / प्लास्टि
+ क प्याकेजिङ (プラ चिन्ह भएको)
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n♻️ Plastic packaging (プラ mark) / प
+ ्लास्टिक प्याकेजिङ (プラ चिन्
+ ह भएको) (プラマーク容器包装)\n- Clear or see-through ba
+ g\, 90 L or smaller. Only items with the プラ mark.\n- ९० लिट
+ रसम्मको पारदर्शी झोला। プラ च
+ िन्ह भएका सामान मात्र।\n\nNot offici
+ al. Always check the city calendar:\nhttps://www.city.niigata.lg.jp/kurash
+ i/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: ♻️ Plastic packaging (プラ mark) / प्ला
+ स्टिक प्याकेजिङ (プラ चिन्ह भए
+ को)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: ♻️ Plastic packaging (プラ mark) / प्
+ लास्टिक प्याकेजिङ (プラ चिन्ह 
+ भएको)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261113@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261113
+DTEND;VALUE=DATE:20261114
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261114@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:🧴 PET bottles + 📰 Old paper / पेट बोतल + पु
+ रानो कागज
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🧴 PET bottles / पेट बोतल (ペ
+ ットボトル)\n- Clear or see-through bag\, 90 L or smaller.\n- ९० 
+ लिटरसम्मको पारदर्शी झोला।\n\
+ n📰 Old paper / पुरानो कागज (古紙)\n- Put out at t
+ he collection point as a resource item (資源物).\n- संकलन स
+ ्थलमा स्रोत वस्तु (資源物) को रू
+ पमा राख्नुहोस्।\n\nNot official. Always check 
+ the city calendar:\nhttps://www.city.niigata.lg.jp/kurashi/gomi/gomishigen
+ /gomidasi/gomi_calemder/schedule/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🧴 PET bottles + 📰 Old paper / पेट बो
+ तल + पुरानो कागज
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🧴 PET bottles + 📰 Old paper / पेट 
+ बोतल + पुरानो कागज
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261116@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261116
+DTEND;VALUE=DATE:20261117
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261118@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:🔥 Burnable garbage + 🌿 Branches\, leaves & grass / जल्
+ ने फोहोर + हाँगा\, पात र घाँस
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ n🌿 Branches\, leaves & grass / हाँगा\, पात र घा
+ ँस (枝葉・草)\n- Clear or see-through bag\, 90 L or smaller.\n- 
+ ९० लिटरसम्मको पारदर्शी झोल
+ ा।\n\nNot official. Always check the city calendar:\nhttps://www.city.
+ niigata.lg.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shir
+ one/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage + 🌿 Branches\, leaves & gras
+ s / जल्ने फोहोर + हाँगा\, पात र घ
+ ाँस
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage + 🌿 Branches\, leaves &
+  grass / जल्ने फोहोर + हाँगा\, पात र
+  घाँस
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261119@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261119
+DTEND;VALUE=DATE:20261120
+SUMMARY:♻️ Plastic packaging (プラ mark) / प्लास्टि
+ क प्याकेजिङ (プラ चिन्ह भएको)
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n♻️ Plastic packaging (プラ mark) / प
+ ्लास्टिक प्याकेजिङ (プラ चिन्
+ ह भएको) (プラマーク容器包装)\n- Clear or see-through ba
+ g\, 90 L or smaller. Only items with the プラ mark.\n- ९० लिट
+ रसम्मको पारदर्शी झोला। プラ च
+ िन्ह भएका सामान मात्र।\n\nNot offici
+ al. Always check the city calendar:\nhttps://www.city.niigata.lg.jp/kurash
+ i/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: ♻️ Plastic packaging (プラ mark) / प्ला
+ स्टिक प्याकेजिङ (プラ चिन्ह भए
+ को)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: ♻️ Plastic packaging (プラ mark) / प्
+ लास्टिक प्याकेजिङ (プラ चिन्ह 
+ भएको)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261120@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261120
+DTEND;VALUE=DATE:20261121
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261121@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:🧱 Non-burnable garbage + 🍾 Glass bottles (food\, drink\, cosm
+ etics) + 🥫 Food & drink cans / नजल्ने फोहोर + स
+ िसाका बोतल (खाना\, पेय\, कस्मे
+ टिक) + खाना र पेयका क्यान
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🧱 Non-burnable garbage / नजल्ने
+  फोहोर (燃やさないごみ)\n- Use the city's designated garb
+ age bag (指定袋).\n- सिटीको तोकिएको फोह
+ ोर झोला (指定袋) प्रयोग गर्नुहो
+ स्।\n\n🍾 Glass bottles (food\, drink\, cosmetics) / सिसा
+ का बोतल (खाना\, पेय\, कस्मेटिक) 
+ (飲食用・化粧品びん)\n- Clear or see-through bag\, 90 L or smalle
+ r.\n- ९० लिटरसम्मको पारदर्शी झ
+ ोला।\n\n🥫 Food & drink cans / खाना र पेयका 
+ क्यान (飲食用缶)\n- Clear or see-through bag\, 90 L or small
+ er.\n- ९० लिटरसम्मको पारदर्शी झ
+ ोला।\n\nNot official. Always check the city calendar:\nhttps://www
+ .city.niigata.lg.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedul
+ e/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🧱 Non-burnable garbage + 🍾 Glass bottles (food\
+ , drink\, cosmetics) + 🥫 Food & drink cans / नजल्ने फो
+ होर + सिसाका बोतल (खाना\, पेय\, 
+ कस्मेटिक) + खाना र पेयका क्या
+ न
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🧱 Non-burnable garbage + 🍾 Glass bottles (
+ food\, drink\, cosmetics) + 🥫 Food & drink cans / नजल्ने 
+ फोहोर + सिसाका बोतल (खाना\, पे
+ य\, कस्मेटिक) + खाना र पेयका क्
+ यान
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261123@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261123
+DTEND;VALUE=DATE:20261124
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261125@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261125
+DTEND;VALUE=DATE:20261126
+SUMMARY:🔥 Burnable garbage + 🌿 Branches\, leaves & grass / जल्
+ ने फोहोर + हाँगा\, पात र घाँस
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ n🌿 Branches\, leaves & grass / हाँगा\, पात र घा
+ ँस (枝葉・草)\n- Clear or see-through bag\, 90 L or smaller.\n- 
+ ९० लिटरसम्मको पारदर्शी झोल
+ ा।\n\nNot official. Always check the city calendar:\nhttps://www.city.
+ niigata.lg.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shir
+ one/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage + 🌿 Branches\, leaves & gras
+ s / जल्ने फोहोर + हाँगा\, पात र घ
+ ाँस
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage + 🌿 Branches\, leaves &
+  grass / जल्ने फोहोर + हाँगा\, पात र
+  घाँस
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261126@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261126
+DTEND;VALUE=DATE:20261127
+SUMMARY:♻️ Plastic packaging (プラ mark) / प्लास्टि
+ क प्याकेजिङ (プラ चिन्ह भएको)
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n♻️ Plastic packaging (プラ mark) / प
+ ्लास्टिक प्याकेजिङ (プラ चिन्
+ ह भएको) (プラマーク容器包装)\n- Clear or see-through ba
+ g\, 90 L or smaller. Only items with the プラ mark.\n- ९० लिट
+ रसम्मको पारदर्शी झोला। プラ च
+ िन्ह भएका सामान मात्र।\n\nNot offici
+ al. Always check the city calendar:\nhttps://www.city.niigata.lg.jp/kurash
+ i/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: ♻️ Plastic packaging (プラ mark) / प्ला
+ स्टिक प्याकेजिङ (プラ चिन्ह भए
+ को)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: ♻️ Plastic packaging (プラ mark) / प्
+ लास्टिक प्याकेजिङ (プラ चिन्ह 
+ भएको)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261127@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261127
+DTEND;VALUE=DATE:20261128
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261128@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261128
+DTEND;VALUE=DATE:20261129
+SUMMARY:🧴 PET bottles + 📰 Old paper / पेट बोतल + पु
+ रानो कागज
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🧴 PET bottles / पेट बोतल (ペ
+ ットボトル)\n- Clear or see-through bag\, 90 L or smaller.\n- ९० 
+ लिटरसम्मको पारदर्शी झोला।\n\
+ n📰 Old paper / पुरानो कागज (古紙)\n- Put out at t
+ he collection point as a resource item (資源物).\n- संकलन स
+ ्थलमा स्रोत वस्तु (資源物) को रू
+ पमा राख्नुहोस्।\n\nNot official. Always check 
+ the city calendar:\nhttps://www.city.niigata.lg.jp/kurashi/gomi/gomishigen
+ /gomidasi/gomi_calemder/schedule/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🧴 PET bottles + 📰 Old paper / पेट बो
+ तल + पुरानो कागज
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🧴 PET bottles + 📰 Old paper / पेट 
+ बोतल + पुरानो कागज
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261130@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261130
+DTEND;VALUE=DATE:20261201
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261202@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261202
+DTEND;VALUE=DATE:20261203
+SUMMARY:🔥 Burnable garbage + 🌿 Branches\, leaves & grass / जल्
+ ने फोहोर + हाँगा\, पात र घाँस
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ n🌿 Branches\, leaves & grass / हाँगा\, पात र घा
+ ँस (枝葉・草)\n- Clear or see-through bag\, 90 L or smaller.\n- 
+ ९० लिटरसम्मको पारदर्शी झोल
+ ा।\n\nNot official. Always check the city calendar:\nhttps://www.city.
+ niigata.lg.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shir
+ one/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage + 🌿 Branches\, leaves & gras
+ s / जल्ने फोहोर + हाँगा\, पात र घ
+ ाँस
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage + 🌿 Branches\, leaves &
+  grass / जल्ने फोहोर + हाँगा\, पात र
+  घाँस
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261203@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261203
+DTEND;VALUE=DATE:20261204
+SUMMARY:♻️ Plastic packaging (プラ mark) / प्लास्टि
+ क प्याकेजिङ (プラ चिन्ह भएको)
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n♻️ Plastic packaging (プラ mark) / प
+ ्लास्टिक प्याकेजिङ (プラ चिन्
+ ह भएको) (プラマーク容器包装)\n- Clear or see-through ba
+ g\, 90 L or smaller. Only items with the プラ mark.\n- ९० लिट
+ रसम्मको पारदर्शी झोला। プラ च
+ िन्ह भएका सामान मात्र।\n\nNot offici
+ al. Always check the city calendar:\nhttps://www.city.niigata.lg.jp/kurash
+ i/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: ♻️ Plastic packaging (プラ mark) / प्ला
+ स्टिक प्याकेजिङ (プラ चिन्ह भए
+ को)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: ♻️ Plastic packaging (プラ mark) / प्
+ लास्टिक प्याकेजिङ (プラ चिन्ह 
+ भएको)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261204@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261204
+DTEND;VALUE=DATE:20261205
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261205@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+SUMMARY:🍾 Glass bottles (food\, drink\, cosmetics) + 🥫 Food & drink c
+ ans + 🔋 Special 5 items / सिसाका बोतल (खाना
+ \, पेय\, कस्मेटिक) + खाना र पेयक
+ ा क्यान + विशेष ५ वस्तु
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🍾 Glass bottles (food\, drink\, cosmetics) 
+ / सिसाका बोतल (खाना\, पेय\, कस्म
+ ेटिक) (飲食用・化粧品びん)\n- Clear or see-through bag\, 
+ 90 L or smaller.\n- ९० लिटरसम्मको पारदर
+ ्शी झोला।\n\n🥫 Food & drink cans / खाना र प
+ ेयका क्यान (飲食用缶)\n- Clear or see-through bag\, 
+ 90 L or smaller.\n- ९० लिटरसम्मको पारदर
+ ्शी झोला।\n\n🔋 Special 5 items / विशेष ५ 
+ वस्तु (特定5品目)\n- Batteries\, fluorescent tubes\, mercury
+  thermometers\, lighters\, spray cans. Clear bag\, 90 L or smaller.\n- ब
+ ्याट्री\, ट्युबलाइट\, पारो थर
+ ्मामिटर\, लाइटर\, स्प्रे क्या
+ न। ९० लिटरसम्मको पारदर्शी झ
+ ोला।\n\nNot official. Always check the city calendar:\nhttps://www
+ .city.niigata.lg.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedul
+ e/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🍾 Glass bottles (food\, drink\, cosmetics) + 🥫 
+ Food & drink cans + 🔋 Special 5 items / सिसाका बोतल
+  (खाना\, पेय\, कस्मेटिक) + खाना र 
+ पेयका क्यान + विशेष ५ वस्तु
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🍾 Glass bottles (food\, drink\, cosmetics) + 
+ 🥫 Food & drink cans + 🔋 Special 5 items / सिसाका बो
+ तल (खाना\, पेय\, कस्मेटिक) + खान
+ ा र पेयका क्यान + विशेष ५ वस्त
+ ु
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261207@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261207
+DTEND;VALUE=DATE:20261208
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261209@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261209
+DTEND;VALUE=DATE:20261210
+SUMMARY:🔥 Burnable garbage + 🌿 Branches\, leaves & grass / जल्
+ ने फोहोर + हाँगा\, पात र घाँस
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ n🌿 Branches\, leaves & grass / हाँगा\, पात र घा
+ ँस (枝葉・草)\n- Clear or see-through bag\, 90 L or smaller.\n- 
+ ९० लिटरसम्मको पारदर्शी झोल
+ ा।\n\nNot official. Always check the city calendar:\nhttps://www.city.
+ niigata.lg.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shir
+ one/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage + 🌿 Branches\, leaves & gras
+ s / जल्ने फोहोर + हाँगा\, पात र घ
+ ाँस
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage + 🌿 Branches\, leaves &
+  grass / जल्ने फोहोर + हाँगा\, पात र
+  घाँस
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261210@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261210
+DTEND;VALUE=DATE:20261211
+SUMMARY:♻️ Plastic packaging (プラ mark) / प्लास्टि
+ क प्याकेजिङ (プラ चिन्ह भएको)
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n♻️ Plastic packaging (プラ mark) / प
+ ्लास्टिक प्याकेजिङ (プラ चिन्
+ ह भएको) (プラマーク容器包装)\n- Clear or see-through ba
+ g\, 90 L or smaller. Only items with the プラ mark.\n- ९० लिट
+ रसम्मको पारदर्शी झोला। プラ च
+ िन्ह भएका सामान मात्र।\n\nNot offici
+ al. Always check the city calendar:\nhttps://www.city.niigata.lg.jp/kurash
+ i/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: ♻️ Plastic packaging (プラ mark) / प्ला
+ स्टिक प्याकेजिङ (プラ चिन्ह भए
+ को)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: ♻️ Plastic packaging (プラ mark) / प्
+ लास्टिक प्याकेजिङ (プラ चिन्ह 
+ भएको)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261211@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261211
+DTEND;VALUE=DATE:20261212
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261212@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261212
+DTEND;VALUE=DATE:20261213
+SUMMARY:🧴 PET bottles + 📰 Old paper / पेट बोतल + पु
+ रानो कागज
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🧴 PET bottles / पेट बोतल (ペ
+ ットボトル)\n- Clear or see-through bag\, 90 L or smaller.\n- ९० 
+ लिटरसम्मको पारदर्शी झोला।\n\
+ n📰 Old paper / पुरानो कागज (古紙)\n- Put out at t
+ he collection point as a resource item (資源物).\n- संकलन स
+ ्थलमा स्रोत वस्तु (資源物) को रू
+ पमा राख्नुहोस्।\n\nNot official. Always check 
+ the city calendar:\nhttps://www.city.niigata.lg.jp/kurashi/gomi/gomishigen
+ /gomidasi/gomi_calemder/schedule/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🧴 PET bottles + 📰 Old paper / पेट बो
+ तल + पुरानो कागज
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🧴 PET bottles + 📰 Old paper / पेट 
+ बोतल + पुरानो कागज
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261214@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261214
+DTEND;VALUE=DATE:20261215
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261216@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261216
+DTEND;VALUE=DATE:20261217
+SUMMARY:🔥 Burnable garbage + 🌿 Branches\, leaves & grass / जल्
+ ने फोहोर + हाँगा\, पात र घाँस
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ n🌿 Branches\, leaves & grass / हाँगा\, पात र घा
+ ँस (枝葉・草)\n- Clear or see-through bag\, 90 L or smaller.\n- 
+ ९० लिटरसम्मको पारदर्शी झोल
+ ा।\n\nNot official. Always check the city calendar:\nhttps://www.city.
+ niigata.lg.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shir
+ one/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage + 🌿 Branches\, leaves & gras
+ s / जल्ने फोहोर + हाँगा\, पात र घ
+ ाँस
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage + 🌿 Branches\, leaves &
+  grass / जल्ने फोहोर + हाँगा\, पात र
+  घाँस
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261217@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261217
+DTEND;VALUE=DATE:20261218
+SUMMARY:♻️ Plastic packaging (プラ mark) / प्लास्टि
+ क प्याकेजिङ (プラ चिन्ह भएको)
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n♻️ Plastic packaging (プラ mark) / प
+ ्लास्टिक प्याकेजिङ (プラ चिन्
+ ह भएको) (プラマーク容器包装)\n- Clear or see-through ba
+ g\, 90 L or smaller. Only items with the プラ mark.\n- ९० लिट
+ रसम्मको पारदर्शी झोला। プラ च
+ िन्ह भएका सामान मात्र।\n\nNot offici
+ al. Always check the city calendar:\nhttps://www.city.niigata.lg.jp/kurash
+ i/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: ♻️ Plastic packaging (プラ mark) / प्ला
+ स्टिक प्याकेजिङ (プラ चिन्ह भए
+ को)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: ♻️ Plastic packaging (プラ mark) / प्
+ लास्टिक प्याकेजिङ (プラ चिन्ह 
+ भएको)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261218@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261218
+DTEND;VALUE=DATE:20261219
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261219@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261219
+DTEND;VALUE=DATE:20261220
+SUMMARY:🧱 Non-burnable garbage + 🍾 Glass bottles (food\, drink\, cosm
+ etics) + 🥫 Food & drink cans / नजल्ने फोहोर + स
+ िसाका बोतल (खाना\, पेय\, कस्मे
+ टिक) + खाना र पेयका क्यान
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🧱 Non-burnable garbage / नजल्ने
+  फोहोर (燃やさないごみ)\n- Use the city's designated garb
+ age bag (指定袋).\n- सिटीको तोकिएको फोह
+ ोर झोला (指定袋) प्रयोग गर्नुहो
+ स्।\n\n🍾 Glass bottles (food\, drink\, cosmetics) / सिसा
+ का बोतल (खाना\, पेय\, कस्मेटिक) 
+ (飲食用・化粧品びん)\n- Clear or see-through bag\, 90 L or smalle
+ r.\n- ९० लिटरसम्मको पारदर्शी झ
+ ोला।\n\n🥫 Food & drink cans / खाना र पेयका 
+ क्यान (飲食用缶)\n- Clear or see-through bag\, 90 L or small
+ er.\n- ९० लिटरसम्मको पारदर्शी झ
+ ोला।\n\nNot official. Always check the city calendar:\nhttps://www
+ .city.niigata.lg.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedul
+ e/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🧱 Non-burnable garbage + 🍾 Glass bottles (food\
+ , drink\, cosmetics) + 🥫 Food & drink cans / नजल्ने फो
+ होर + सिसाका बोतल (खाना\, पेय\, 
+ कस्मेटिक) + खाना र पेयका क्या
+ न
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🧱 Non-burnable garbage + 🍾 Glass bottles (
+ food\, drink\, cosmetics) + 🥫 Food & drink cans / नजल्ने 
+ फोहोर + सिसाका बोतल (खाना\, पे
+ य\, कस्मेटिक) + खाना र पेयका क्
+ यान
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261221@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261221
+DTEND;VALUE=DATE:20261222
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261223@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261223
+DTEND;VALUE=DATE:20261224
+SUMMARY:🔥 Burnable garbage + 🌿 Branches\, leaves & grass / जल्
+ ने फोहोर + हाँगा\, पात र घाँस
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ n🌿 Branches\, leaves & grass / हाँगा\, पात र घा
+ ँस (枝葉・草)\n- Clear or see-through bag\, 90 L or smaller.\n- 
+ ९० लिटरसम्मको पारदर्शी झोल
+ ा।\n\nNot official. Always check the city calendar:\nhttps://www.city.
+ niigata.lg.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shir
+ one/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage + 🌿 Branches\, leaves & gras
+ s / जल्ने फोहोर + हाँगा\, पात र घ
+ ाँस
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage + 🌿 Branches\, leaves &
+  grass / जल्ने फोहोर + हाँगा\, पात र
+  घाँस
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261224@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261224
+DTEND;VALUE=DATE:20261225
+SUMMARY:♻️ Plastic packaging (プラ mark) / प्लास्टि
+ क प्याकेजिङ (プラ चिन्ह भएको)
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n♻️ Plastic packaging (プラ mark) / प
+ ्लास्टिक प्याकेजिङ (プラ चिन्
+ ह भएको) (プラマーク容器包装)\n- Clear or see-through ba
+ g\, 90 L or smaller. Only items with the プラ mark.\n- ९० लिट
+ रसम्मको पारदर्शी झोला। プラ च
+ िन्ह भएका सामान मात्र।\n\nNot offici
+ al. Always check the city calendar:\nhttps://www.city.niigata.lg.jp/kurash
+ i/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: ♻️ Plastic packaging (プラ mark) / प्ला
+ स्टिक प्याकेजिङ (プラ चिन्ह भए
+ को)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: ♻️ Plastic packaging (プラ mark) / प्
+ लास्टिक प्याकेजिङ (プラ चिन्ह 
+ भएको)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261225@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261225
+DTEND;VALUE=DATE:20261226
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261226@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261226
+DTEND;VALUE=DATE:20261227
+SUMMARY:🧴 PET bottles + 📰 Old paper / पेट बोतल + पु
+ रानो कागज
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🧴 PET bottles / पेट बोतल (ペ
+ ットボトル)\n- Clear or see-through bag\, 90 L or smaller.\n- ९० 
+ लिटरसम्मको पारदर्शी झोला।\n\
+ n📰 Old paper / पुरानो कागज (古紙)\n- Put out at t
+ he collection point as a resource item (資源物).\n- संकलन स
+ ्थलमा स्रोत वस्तु (資源物) को रू
+ पमा राख्नुहोस्।\n\nNot official. Always check 
+ the city calendar:\nhttps://www.city.niigata.lg.jp/kurashi/gomi/gomishigen
+ /gomidasi/gomi_calemder/schedule/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🧴 PET bottles + 📰 Old paper / पेट बो
+ तल + पुरानो कागज
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🧴 PET bottles + 📰 Old paper / पेट 
+ बोतल + पुरानो कागज
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261228@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261228
+DTEND;VALUE=DATE:20261229
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261230@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261230
+DTEND;VALUE=DATE:20261231
+SUMMARY:🔥 Burnable garbage + 🌿 Branches\, leaves & grass / जल्
+ ने फोहोर + हाँगा\, पात र घाँस
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ n🌿 Branches\, leaves & grass / हाँगा\, पात र घा
+ ँस (枝葉・草)\n- Clear or see-through bag\, 90 L or smaller.\n- 
+ ९० लिटरसम्मको पारदर्शी झोल
+ ा।\n\nNot official. Always check the city calendar:\nhttps://www.city.
+ niigata.lg.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shir
+ one/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage + 🌿 Branches\, leaves & gras
+ s / जल्ने फोहोर + हाँगा\, पात र घ
+ ाँस
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage + 🌿 Branches\, leaves &
+  grass / जल्ने फोहोर + हाँगा\, पात र
+  घाँस
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20261231@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Dec 31: special burnable-only collection. / डिसेम्
+ बर ३१: जल्ने फोहोर मात्र।\nPut out
+  by 08:00 / बिहान 08:00 भित्र राख्नुहो
+ स्\n\n🔥 Burnable garbage / जल्ने फोहोर (燃や
+ すごみ)\n- Use the city's designated garbage bag (指定袋).\n- सि
+ टीको तोकिएको फोहोर झोला (指定袋
+ ) प्रयोग गर्नुहोस्।\n\nNot official. Alway
+ s check the city calendar:\nhttps://www.city.niigata.lg.jp/kurashi/gomi/go
+ mishigen/gomidasi/gomi_calemder/schedule/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270104@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270104
+DTEND;VALUE=DATE:20270105
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270106@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270106
+DTEND;VALUE=DATE:20270107
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270107@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270107
+DTEND;VALUE=DATE:20270108
+SUMMARY:♻️ Plastic packaging (プラ mark) / प्लास्टि
+ क प्याकेजिङ (プラ चिन्ह भएको)
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n♻️ Plastic packaging (プラ mark) / प
+ ्लास्टिक प्याकेजिङ (プラ चिन्
+ ह भएको) (プラマーク容器包装)\n- Clear or see-through ba
+ g\, 90 L or smaller. Only items with the プラ mark.\n- ९० लिट
+ रसम्मको पारदर्शी झोला। プラ च
+ िन्ह भएका सामान मात्र।\n\nNot offici
+ al. Always check the city calendar:\nhttps://www.city.niigata.lg.jp/kurash
+ i/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: ♻️ Plastic packaging (プラ mark) / प्ला
+ स्टिक प्याकेजिङ (プラ चिन्ह भए
+ को)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: ♻️ Plastic packaging (プラ mark) / प्
+ लास्टिक प्याकेजिङ (プラ चिन्ह 
+ भएको)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270108@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270108
+DTEND;VALUE=DATE:20270109
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270109@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270109
+DTEND;VALUE=DATE:20270110
+SUMMARY:🍾 Glass bottles (food\, drink\, cosmetics) + 🥫 Food & drink c
+ ans + 🔋 Special 5 items / सिसाका बोतल (खाना
+ \, पेय\, कस्मेटिक) + खाना र पेयक
+ ा क्यान + विशेष ५ वस्तु
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🍾 Glass bottles (food\, drink\, cosmetics) 
+ / सिसाका बोतल (खाना\, पेय\, कस्म
+ ेटिक) (飲食用・化粧品びん)\n- Clear or see-through bag\, 
+ 90 L or smaller.\n- ९० लिटरसम्मको पारदर
+ ्शी झोला।\n\n🥫 Food & drink cans / खाना र प
+ ेयका क्यान (飲食用缶)\n- Clear or see-through bag\, 
+ 90 L or smaller.\n- ९० लिटरसम्मको पारदर
+ ्शी झोला।\n\n🔋 Special 5 items / विशेष ५ 
+ वस्तु (特定5品目)\n- Batteries\, fluorescent tubes\, mercury
+  thermometers\, lighters\, spray cans. Clear bag\, 90 L or smaller.\n- ब
+ ्याट्री\, ट्युबलाइट\, पारो थर
+ ्मामिटर\, लाइटर\, स्प्रे क्या
+ न। ९० लिटरसम्मको पारदर्शी झ
+ ोला।\n\nNot official. Always check the city calendar:\nhttps://www
+ .city.niigata.lg.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedul
+ e/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🍾 Glass bottles (food\, drink\, cosmetics) + 🥫 
+ Food & drink cans + 🔋 Special 5 items / सिसाका बोतल
+  (खाना\, पेय\, कस्मेटिक) + खाना र 
+ पेयका क्यान + विशेष ५ वस्तु
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🍾 Glass bottles (food\, drink\, cosmetics) + 
+ 🥫 Food & drink cans + 🔋 Special 5 items / सिसाका बो
+ तल (खाना\, पेय\, कस्मेटिक) + खान
+ ा र पेयका क्यान + विशेष ५ वस्त
+ ु
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270111@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270111
+DTEND;VALUE=DATE:20270112
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270113@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270113
+DTEND;VALUE=DATE:20270114
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270114@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270114
+DTEND;VALUE=DATE:20270115
+SUMMARY:♻️ Plastic packaging (プラ mark) / प्लास्टि
+ क प्याकेजिङ (プラ चिन्ह भएको)
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n♻️ Plastic packaging (プラ mark) / प
+ ्लास्टिक प्याकेजिङ (プラ चिन्
+ ह भएको) (プラマーク容器包装)\n- Clear or see-through ba
+ g\, 90 L or smaller. Only items with the プラ mark.\n- ९० लिट
+ रसम्मको पारदर्शी झोला। プラ च
+ िन्ह भएका सामान मात्र।\n\nNot offici
+ al. Always check the city calendar:\nhttps://www.city.niigata.lg.jp/kurash
+ i/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: ♻️ Plastic packaging (プラ mark) / प्ला
+ स्टिक प्याकेजिङ (プラ चिन्ह भए
+ को)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: ♻️ Plastic packaging (プラ mark) / प्
+ लास्टिक प्याकेजिङ (プラ चिन्ह 
+ भएको)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270115@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270115
+DTEND;VALUE=DATE:20270116
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270116@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270116
+DTEND;VALUE=DATE:20270117
+SUMMARY:🧴 PET bottles + 📰 Old paper / पेट बोतल + पु
+ रानो कागज
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🧴 PET bottles / पेट बोतल (ペ
+ ットボトル)\n- Clear or see-through bag\, 90 L or smaller.\n- ९० 
+ लिटरसम्मको पारदर्शी झोला।\n\
+ n📰 Old paper / पुरानो कागज (古紙)\n- Put out at t
+ he collection point as a resource item (資源物).\n- संकलन स
+ ्थलमा स्रोत वस्तु (資源物) को रू
+ पमा राख्नुहोस्।\n\nNot official. Always check 
+ the city calendar:\nhttps://www.city.niigata.lg.jp/kurashi/gomi/gomishigen
+ /gomidasi/gomi_calemder/schedule/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🧴 PET bottles + 📰 Old paper / पेट बो
+ तल + पुरानो कागज
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🧴 PET bottles + 📰 Old paper / पेट 
+ बोतल + पुरानो कागज
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270118@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270118
+DTEND;VALUE=DATE:20270119
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270120@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270120
+DTEND;VALUE=DATE:20270121
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270121@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270121
+DTEND;VALUE=DATE:20270122
+SUMMARY:♻️ Plastic packaging (プラ mark) / प्लास्टि
+ क प्याकेजिङ (プラ चिन्ह भएको)
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n♻️ Plastic packaging (プラ mark) / प
+ ्लास्टिक प्याकेजिङ (プラ चिन्
+ ह भएको) (プラマーク容器包装)\n- Clear or see-through ba
+ g\, 90 L or smaller. Only items with the プラ mark.\n- ९० लिट
+ रसम्मको पारदर्शी झोला। プラ च
+ िन्ह भएका सामान मात्र।\n\nNot offici
+ al. Always check the city calendar:\nhttps://www.city.niigata.lg.jp/kurash
+ i/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: ♻️ Plastic packaging (プラ mark) / प्ला
+ स्टिक प्याकेजिङ (プラ चिन्ह भए
+ को)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: ♻️ Plastic packaging (プラ mark) / प्
+ लास्टिक प्याकेजिङ (プラ चिन्ह 
+ भएको)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270122@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270122
+DTEND;VALUE=DATE:20270123
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270123@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270123
+DTEND;VALUE=DATE:20270124
+SUMMARY:🧱 Non-burnable garbage + 🍾 Glass bottles (food\, drink\, cosm
+ etics) + 🥫 Food & drink cans / नजल्ने फोहोर + स
+ िसाका बोतल (खाना\, पेय\, कस्मे
+ टिक) + खाना र पेयका क्यान
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🧱 Non-burnable garbage / नजल्ने
+  फोहोर (燃やさないごみ)\n- Use the city's designated garb
+ age bag (指定袋).\n- सिटीको तोकिएको फोह
+ ोर झोला (指定袋) प्रयोग गर्नुहो
+ स्।\n\n🍾 Glass bottles (food\, drink\, cosmetics) / सिसा
+ का बोतल (खाना\, पेय\, कस्मेटिक) 
+ (飲食用・化粧品びん)\n- Clear or see-through bag\, 90 L or smalle
+ r.\n- ९० लिटरसम्मको पारदर्शी झ
+ ोला।\n\n🥫 Food & drink cans / खाना र पेयका 
+ क्यान (飲食用缶)\n- Clear or see-through bag\, 90 L or small
+ er.\n- ९० लिटरसम्मको पारदर्शी झ
+ ोला।\n\nNot official. Always check the city calendar:\nhttps://www
+ .city.niigata.lg.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedul
+ e/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🧱 Non-burnable garbage + 🍾 Glass bottles (food\
+ , drink\, cosmetics) + 🥫 Food & drink cans / नजल्ने फो
+ होर + सिसाका बोतल (खाना\, पेय\, 
+ कस्मेटिक) + खाना र पेयका क्या
+ न
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🧱 Non-burnable garbage + 🍾 Glass bottles (
+ food\, drink\, cosmetics) + 🥫 Food & drink cans / नजल्ने 
+ फोहोर + सिसाका बोतल (खाना\, पे
+ य\, कस्मेटिक) + खाना र पेयका क्
+ यान
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270125@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270125
+DTEND;VALUE=DATE:20270126
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270127@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270127
+DTEND;VALUE=DATE:20270128
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270128@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270128
+DTEND;VALUE=DATE:20270129
+SUMMARY:♻️ Plastic packaging (プラ mark) / प्लास्टि
+ क प्याकेजिङ (プラ चिन्ह भएको)
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n♻️ Plastic packaging (プラ mark) / प
+ ्लास्टिक प्याकेजिङ (プラ चिन्
+ ह भएको) (プラマーク容器包装)\n- Clear or see-through ba
+ g\, 90 L or smaller. Only items with the プラ mark.\n- ९० लिट
+ रसम्मको पारदर्शी झोला। プラ च
+ िन्ह भएका सामान मात्र।\n\nNot offici
+ al. Always check the city calendar:\nhttps://www.city.niigata.lg.jp/kurash
+ i/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: ♻️ Plastic packaging (プラ mark) / प्ला
+ स्टिक प्याकेजिङ (プラ चिन्ह भए
+ को)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: ♻️ Plastic packaging (プラ mark) / प्
+ लास्टिक प्याकेजिङ (プラ चिन्ह 
+ भएको)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270129@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270129
+DTEND;VALUE=DATE:20270130
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270130@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270130
+DTEND;VALUE=DATE:20270131
+SUMMARY:🧴 PET bottles + 📰 Old paper / पेट बोतल + पु
+ रानो कागज
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🧴 PET bottles / पेट बोतल (ペ
+ ットボトル)\n- Clear or see-through bag\, 90 L or smaller.\n- ९० 
+ लिटरसम्मको पारदर्शी झोला।\n\
+ n📰 Old paper / पुरानो कागज (古紙)\n- Put out at t
+ he collection point as a resource item (資源物).\n- संकलन स
+ ्थलमा स्रोत वस्तु (資源物) को रू
+ पमा राख्नुहोस्।\n\nNot official. Always check 
+ the city calendar:\nhttps://www.city.niigata.lg.jp/kurashi/gomi/gomishigen
+ /gomidasi/gomi_calemder/schedule/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🧴 PET bottles + 📰 Old paper / पेट बो
+ तल + पुरानो कागज
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🧴 PET bottles + 📰 Old paper / पेट 
+ बोतल + पुरानो कागज
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270201@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270201
+DTEND;VALUE=DATE:20270202
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270203@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270203
+DTEND;VALUE=DATE:20270204
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270204@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270204
+DTEND;VALUE=DATE:20270205
+SUMMARY:♻️ Plastic packaging (プラ mark) / प्लास्टि
+ क प्याकेजिङ (プラ चिन्ह भएको)
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n♻️ Plastic packaging (プラ mark) / प
+ ्लास्टिक प्याकेजिङ (プラ चिन्
+ ह भएको) (プラマーク容器包装)\n- Clear or see-through ba
+ g\, 90 L or smaller. Only items with the プラ mark.\n- ९० लिट
+ रसम्मको पारदर्शी झोला। プラ च
+ िन्ह भएका सामान मात्र।\n\nNot offici
+ al. Always check the city calendar:\nhttps://www.city.niigata.lg.jp/kurash
+ i/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: ♻️ Plastic packaging (プラ mark) / प्ला
+ स्टिक प्याकेजिङ (プラ चिन्ह भए
+ को)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: ♻️ Plastic packaging (プラ mark) / प्
+ लास्टिक प्याकेजिङ (プラ चिन्ह 
+ भएको)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270205@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270205
+DTEND;VALUE=DATE:20270206
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270206@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270206
+DTEND;VALUE=DATE:20270207
+SUMMARY:🍾 Glass bottles (food\, drink\, cosmetics) + 🥫 Food & drink c
+ ans + 🔋 Special 5 items / सिसाका बोतल (खाना
+ \, पेय\, कस्मेटिक) + खाना र पेयक
+ ा क्यान + विशेष ५ वस्तु
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🍾 Glass bottles (food\, drink\, cosmetics) 
+ / सिसाका बोतल (खाना\, पेय\, कस्म
+ ेटिक) (飲食用・化粧品びん)\n- Clear or see-through bag\, 
+ 90 L or smaller.\n- ९० लिटरसम्मको पारदर
+ ्शी झोला।\n\n🥫 Food & drink cans / खाना र प
+ ेयका क्यान (飲食用缶)\n- Clear or see-through bag\, 
+ 90 L or smaller.\n- ९० लिटरसम्मको पारदर
+ ्शी झोला।\n\n🔋 Special 5 items / विशेष ५ 
+ वस्तु (特定5品目)\n- Batteries\, fluorescent tubes\, mercury
+  thermometers\, lighters\, spray cans. Clear bag\, 90 L or smaller.\n- ब
+ ्याट्री\, ट्युबलाइट\, पारो थर
+ ्मामिटर\, लाइटर\, स्प्रे क्या
+ न। ९० लिटरसम्मको पारदर्शी झ
+ ोला।\n\nNot official. Always check the city calendar:\nhttps://www
+ .city.niigata.lg.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedul
+ e/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🍾 Glass bottles (food\, drink\, cosmetics) + 🥫 
+ Food & drink cans + 🔋 Special 5 items / सिसाका बोतल
+  (खाना\, पेय\, कस्मेटिक) + खाना र 
+ पेयका क्यान + विशेष ५ वस्तु
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🍾 Glass bottles (food\, drink\, cosmetics) + 
+ 🥫 Food & drink cans + 🔋 Special 5 items / सिसाका बो
+ तल (खाना\, पेय\, कस्मेटिक) + खान
+ ा र पेयका क्यान + विशेष ५ वस्त
+ ु
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270208@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270208
+DTEND;VALUE=DATE:20270209
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270210@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270210
+DTEND;VALUE=DATE:20270211
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270211@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270211
+DTEND;VALUE=DATE:20270212
+SUMMARY:♻️ Plastic packaging (プラ mark) / प्लास्टि
+ क प्याकेजिङ (プラ चिन्ह भएको)
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n♻️ Plastic packaging (プラ mark) / प
+ ्लास्टिक प्याकेजिङ (プラ चिन्
+ ह भएको) (プラマーク容器包装)\n- Clear or see-through ba
+ g\, 90 L or smaller. Only items with the プラ mark.\n- ९० लिट
+ रसम्मको पारदर्शी झोला। プラ च
+ िन्ह भएका सामान मात्र।\n\nNot offici
+ al. Always check the city calendar:\nhttps://www.city.niigata.lg.jp/kurash
+ i/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: ♻️ Plastic packaging (プラ mark) / प्ला
+ स्टिक प्याकेजिङ (プラ चिन्ह भए
+ को)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: ♻️ Plastic packaging (プラ mark) / प्
+ लास्टिक प्याकेजिङ (プラ चिन्ह 
+ भएको)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270212@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270212
+DTEND;VALUE=DATE:20270213
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270213@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270213
+DTEND;VALUE=DATE:20270214
+SUMMARY:🧴 PET bottles + 📰 Old paper / पेट बोतल + पु
+ रानो कागज
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🧴 PET bottles / पेट बोतल (ペ
+ ットボトル)\n- Clear or see-through bag\, 90 L or smaller.\n- ९० 
+ लिटरसम्मको पारदर्शी झोला।\n\
+ n📰 Old paper / पुरानो कागज (古紙)\n- Put out at t
+ he collection point as a resource item (資源物).\n- संकलन स
+ ्थलमा स्रोत वस्तु (資源物) को रू
+ पमा राख्नुहोस्।\n\nNot official. Always check 
+ the city calendar:\nhttps://www.city.niigata.lg.jp/kurashi/gomi/gomishigen
+ /gomidasi/gomi_calemder/schedule/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🧴 PET bottles + 📰 Old paper / पेट बो
+ तल + पुरानो कागज
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🧴 PET bottles + 📰 Old paper / पेट 
+ बोतल + पुरानो कागज
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270215@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270215
+DTEND;VALUE=DATE:20270216
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270217@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270217
+DTEND;VALUE=DATE:20270218
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270218@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270218
+DTEND;VALUE=DATE:20270219
+SUMMARY:♻️ Plastic packaging (プラ mark) / प्लास्टि
+ क प्याकेजिङ (プラ चिन्ह भएको)
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n♻️ Plastic packaging (プラ mark) / प
+ ्लास्टिक प्याकेजिङ (プラ चिन्
+ ह भएको) (プラマーク容器包装)\n- Clear or see-through ba
+ g\, 90 L or smaller. Only items with the プラ mark.\n- ९० लिट
+ रसम्मको पारदर्शी झोला। プラ च
+ िन्ह भएका सामान मात्र।\n\nNot offici
+ al. Always check the city calendar:\nhttps://www.city.niigata.lg.jp/kurash
+ i/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: ♻️ Plastic packaging (プラ mark) / प्ला
+ स्टिक प्याकेजिङ (プラ चिन्ह भए
+ को)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: ♻️ Plastic packaging (プラ mark) / प्
+ लास्टिक प्याकेजिङ (プラ चिन्ह 
+ भएको)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270219@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270219
+DTEND;VALUE=DATE:20270220
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270220@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270220
+DTEND;VALUE=DATE:20270221
+SUMMARY:🧱 Non-burnable garbage + 🍾 Glass bottles (food\, drink\, cosm
+ etics) + 🥫 Food & drink cans / नजल्ने फोहोर + स
+ िसाका बोतल (खाना\, पेय\, कस्मे
+ टिक) + खाना र पेयका क्यान
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🧱 Non-burnable garbage / नजल्ने
+  फोहोर (燃やさないごみ)\n- Use the city's designated garb
+ age bag (指定袋).\n- सिटीको तोकिएको फोह
+ ोर झोला (指定袋) प्रयोग गर्नुहो
+ स्।\n\n🍾 Glass bottles (food\, drink\, cosmetics) / सिसा
+ का बोतल (खाना\, पेय\, कस्मेटिक) 
+ (飲食用・化粧品びん)\n- Clear or see-through bag\, 90 L or smalle
+ r.\n- ९० लिटरसम्मको पारदर्शी झ
+ ोला।\n\n🥫 Food & drink cans / खाना र पेयका 
+ क्यान (飲食用缶)\n- Clear or see-through bag\, 90 L or small
+ er.\n- ९० लिटरसम्मको पारदर्शी झ
+ ोला।\n\nNot official. Always check the city calendar:\nhttps://www
+ .city.niigata.lg.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedul
+ e/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🧱 Non-burnable garbage + 🍾 Glass bottles (food\
+ , drink\, cosmetics) + 🥫 Food & drink cans / नजल्ने फो
+ होर + सिसाका बोतल (खाना\, पेय\, 
+ कस्मेटिक) + खाना र पेयका क्या
+ न
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🧱 Non-burnable garbage + 🍾 Glass bottles (
+ food\, drink\, cosmetics) + 🥫 Food & drink cans / नजल्ने 
+ फोहोर + सिसाका बोतल (खाना\, पे
+ य\, कस्मेटिक) + खाना र पेयका क्
+ यान
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270222@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270222
+DTEND;VALUE=DATE:20270223
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270224@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270224
+DTEND;VALUE=DATE:20270225
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270225@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270225
+DTEND;VALUE=DATE:20270226
+SUMMARY:♻️ Plastic packaging (プラ mark) / प्लास्टि
+ क प्याकेजिङ (プラ चिन्ह भएको)
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n♻️ Plastic packaging (プラ mark) / प
+ ्लास्टिक प्याकेजिङ (プラ चिन्
+ ह भएको) (プラマーク容器包装)\n- Clear or see-through ba
+ g\, 90 L or smaller. Only items with the プラ mark.\n- ९० लिट
+ रसम्मको पारदर्शी झोला। プラ च
+ िन्ह भएका सामान मात्र।\n\nNot offici
+ al. Always check the city calendar:\nhttps://www.city.niigata.lg.jp/kurash
+ i/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: ♻️ Plastic packaging (プラ mark) / प्ला
+ स्टिक प्याकेजिङ (プラ चिन्ह भए
+ को)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: ♻️ Plastic packaging (プラ mark) / प्
+ लास्टिक प्याकेजिङ (プラ चिन्ह 
+ भएको)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270226@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270226
+DTEND;VALUE=DATE:20270227
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270227@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270227
+DTEND;VALUE=DATE:20270228
+SUMMARY:🧴 PET bottles + 📰 Old paper / पेट बोतल + पु
+ रानो कागज
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🧴 PET bottles / पेट बोतल (ペ
+ ットボトル)\n- Clear or see-through bag\, 90 L or smaller.\n- ९० 
+ लिटरसम्मको पारदर्शी झोला।\n\
+ n📰 Old paper / पुरानो कागज (古紙)\n- Put out at t
+ he collection point as a resource item (資源物).\n- संकलन स
+ ्थलमा स्रोत वस्तु (資源物) को रू
+ पमा राख्नुहोस्।\n\nNot official. Always check 
+ the city calendar:\nhttps://www.city.niigata.lg.jp/kurashi/gomi/gomishigen
+ /gomidasi/gomi_calemder/schedule/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🧴 PET bottles + 📰 Old paper / पेट बो
+ तल + पुरानो कागज
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🧴 PET bottles + 📰 Old paper / पेट 
+ बोतल + पुरानो कागज
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270301@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270301
+DTEND;VALUE=DATE:20270302
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270303@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270303
+DTEND;VALUE=DATE:20270304
+SUMMARY:🔥 Burnable garbage + 🌿 Branches\, leaves & grass / जल्
+ ने फोहोर + हाँगा\, पात र घाँस
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ n🌿 Branches\, leaves & grass / हाँगा\, पात र घा
+ ँस (枝葉・草)\n- Clear or see-through bag\, 90 L or smaller.\n- 
+ ९० लिटरसम्मको पारदर्शी झोल
+ ा।\n\nNot official. Always check the city calendar:\nhttps://www.city.
+ niigata.lg.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shir
+ one/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage + 🌿 Branches\, leaves & gras
+ s / जल्ने फोहोर + हाँगा\, पात र घ
+ ाँस
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage + 🌿 Branches\, leaves &
+  grass / जल्ने फोहोर + हाँगा\, पात र
+  घाँस
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270304@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270304
+DTEND;VALUE=DATE:20270305
+SUMMARY:♻️ Plastic packaging (プラ mark) / प्लास्टि
+ क प्याकेजिङ (プラ चिन्ह भएको)
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n♻️ Plastic packaging (プラ mark) / प
+ ्लास्टिक प्याकेजिङ (プラ चिन्
+ ह भएको) (プラマーク容器包装)\n- Clear or see-through ba
+ g\, 90 L or smaller. Only items with the プラ mark.\n- ९० लिट
+ रसम्मको पारदर्शी झोला। プラ च
+ िन्ह भएका सामान मात्र।\n\nNot offici
+ al. Always check the city calendar:\nhttps://www.city.niigata.lg.jp/kurash
+ i/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: ♻️ Plastic packaging (プラ mark) / प्ला
+ स्टिक प्याकेजिङ (プラ चिन्ह भए
+ को)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: ♻️ Plastic packaging (プラ mark) / प्
+ लास्टिक प्याकेजिङ (プラ चिन्ह 
+ भएको)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270305@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270305
+DTEND;VALUE=DATE:20270306
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270306@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270306
+DTEND;VALUE=DATE:20270307
+SUMMARY:🍾 Glass bottles (food\, drink\, cosmetics) + 🥫 Food & drink c
+ ans + 🔋 Special 5 items / सिसाका बोतल (खाना
+ \, पेय\, कस्मेटिक) + खाना र पेयक
+ ा क्यान + विशेष ५ वस्तु
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🍾 Glass bottles (food\, drink\, cosmetics) 
+ / सिसाका बोतल (खाना\, पेय\, कस्म
+ ेटिक) (飲食用・化粧品びん)\n- Clear or see-through bag\, 
+ 90 L or smaller.\n- ९० लिटरसम्मको पारदर
+ ्शी झोला।\n\n🥫 Food & drink cans / खाना र प
+ ेयका क्यान (飲食用缶)\n- Clear or see-through bag\, 
+ 90 L or smaller.\n- ९० लिटरसम्मको पारदर
+ ्शी झोला।\n\n🔋 Special 5 items / विशेष ५ 
+ वस्तु (特定5品目)\n- Batteries\, fluorescent tubes\, mercury
+  thermometers\, lighters\, spray cans. Clear bag\, 90 L or smaller.\n- ब
+ ्याट्री\, ट्युबलाइट\, पारो थर
+ ्मामिटर\, लाइटर\, स्प्रे क्या
+ न। ९० लिटरसम्मको पारदर्शी झ
+ ोला।\n\nNot official. Always check the city calendar:\nhttps://www
+ .city.niigata.lg.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedul
+ e/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🍾 Glass bottles (food\, drink\, cosmetics) + 🥫 
+ Food & drink cans + 🔋 Special 5 items / सिसाका बोतल
+  (खाना\, पेय\, कस्मेटिक) + खाना र 
+ पेयका क्यान + विशेष ५ वस्तु
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🍾 Glass bottles (food\, drink\, cosmetics) + 
+ 🥫 Food & drink cans + 🔋 Special 5 items / सिसाका बो
+ तल (खाना\, पेय\, कस्मेटिक) + खान
+ ा र पेयका क्यान + विशेष ५ वस्त
+ ु
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270308@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270308
+DTEND;VALUE=DATE:20270309
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270310@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270310
+DTEND;VALUE=DATE:20270311
+SUMMARY:🔥 Burnable garbage + 🌿 Branches\, leaves & grass / जल्
+ ने फोहोर + हाँगा\, पात र घाँस
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ n🌿 Branches\, leaves & grass / हाँगा\, पात र घा
+ ँस (枝葉・草)\n- Clear or see-through bag\, 90 L or smaller.\n- 
+ ९० लिटरसम्मको पारदर्शी झोल
+ ा।\n\nNot official. Always check the city calendar:\nhttps://www.city.
+ niigata.lg.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shir
+ one/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage + 🌿 Branches\, leaves & gras
+ s / जल्ने फोहोर + हाँगा\, पात र घ
+ ाँस
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage + 🌿 Branches\, leaves &
+  grass / जल्ने फोहोर + हाँगा\, पात र
+  घाँस
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270311@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270311
+DTEND;VALUE=DATE:20270312
+SUMMARY:♻️ Plastic packaging (プラ mark) / प्लास्टि
+ क प्याकेजिङ (プラ चिन्ह भएको)
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n♻️ Plastic packaging (プラ mark) / प
+ ्लास्टिक प्याकेजिङ (プラ चिन्
+ ह भएको) (プラマーク容器包装)\n- Clear or see-through ba
+ g\, 90 L or smaller. Only items with the プラ mark.\n- ९० लिट
+ रसम्मको पारदर्शी झोला। プラ च
+ िन्ह भएका सामान मात्र।\n\nNot offici
+ al. Always check the city calendar:\nhttps://www.city.niigata.lg.jp/kurash
+ i/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: ♻️ Plastic packaging (プラ mark) / प्ला
+ स्टिक प्याकेजिङ (プラ चिन्ह भए
+ को)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: ♻️ Plastic packaging (プラ mark) / प्
+ लास्टिक प्याकेजिङ (プラ चिन्ह 
+ भएको)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270312@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270312
+DTEND;VALUE=DATE:20270313
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270313@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270313
+DTEND;VALUE=DATE:20270314
+SUMMARY:🧴 PET bottles + 📰 Old paper / पेट बोतल + पु
+ रानो कागज
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🧴 PET bottles / पेट बोतल (ペ
+ ットボトル)\n- Clear or see-through bag\, 90 L or smaller.\n- ९० 
+ लिटरसम्मको पारदर्शी झोला।\n\
+ n📰 Old paper / पुरानो कागज (古紙)\n- Put out at t
+ he collection point as a resource item (資源物).\n- संकलन स
+ ्थलमा स्रोत वस्तु (資源物) को रू
+ पमा राख्नुहोस्।\n\nNot official. Always check 
+ the city calendar:\nhttps://www.city.niigata.lg.jp/kurashi/gomi/gomishigen
+ /gomidasi/gomi_calemder/schedule/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🧴 PET bottles + 📰 Old paper / पेट बो
+ तल + पुरानो कागज
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🧴 PET bottles + 📰 Old paper / पेट 
+ बोतल + पुरानो कागज
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270315@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270315
+DTEND;VALUE=DATE:20270316
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270317@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270317
+DTEND;VALUE=DATE:20270318
+SUMMARY:🔥 Burnable garbage + 🌿 Branches\, leaves & grass / जल्
+ ने फोहोर + हाँगा\, पात र घाँस
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ n🌿 Branches\, leaves & grass / हाँगा\, पात र घा
+ ँस (枝葉・草)\n- Clear or see-through bag\, 90 L or smaller.\n- 
+ ९० लिटरसम्मको पारदर्शी झोल
+ ा।\n\nNot official. Always check the city calendar:\nhttps://www.city.
+ niigata.lg.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shir
+ one/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage + 🌿 Branches\, leaves & gras
+ s / जल्ने फोहोर + हाँगा\, पात र घ
+ ाँस
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage + 🌿 Branches\, leaves &
+  grass / जल्ने फोहोर + हाँगा\, पात र
+  घाँस
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270318@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270318
+DTEND;VALUE=DATE:20270319
+SUMMARY:♻️ Plastic packaging (プラ mark) / प्लास्टि
+ क प्याकेजिङ (プラ चिन्ह भएको)
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n♻️ Plastic packaging (プラ mark) / प
+ ्लास्टिक प्याकेजिङ (プラ चिन्
+ ह भएको) (プラマーク容器包装)\n- Clear or see-through ba
+ g\, 90 L or smaller. Only items with the プラ mark.\n- ९० लिट
+ रसम्मको पारदर्शी झोला। プラ च
+ िन्ह भएका सामान मात्र।\n\nNot offici
+ al. Always check the city calendar:\nhttps://www.city.niigata.lg.jp/kurash
+ i/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: ♻️ Plastic packaging (プラ mark) / प्ला
+ स्टिक प्याकेजिङ (プラ चिन्ह भए
+ को)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: ♻️ Plastic packaging (プラ mark) / प्
+ लास्टिक प्याकेजिङ (プラ चिन्ह 
+ भएको)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270319@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270319
+DTEND;VALUE=DATE:20270320
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270320@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270320
+DTEND;VALUE=DATE:20270321
+SUMMARY:🧱 Non-burnable garbage + 🍾 Glass bottles (food\, drink\, cosm
+ etics) + 🥫 Food & drink cans / नजल्ने फोहोर + स
+ िसाका बोतल (खाना\, पेय\, कस्मे
+ टिक) + खाना र पेयका क्यान
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🧱 Non-burnable garbage / नजल्ने
+  फोहोर (燃やさないごみ)\n- Use the city's designated garb
+ age bag (指定袋).\n- सिटीको तोकिएको फोह
+ ोर झोला (指定袋) प्रयोग गर्नुहो
+ स्।\n\n🍾 Glass bottles (food\, drink\, cosmetics) / सिसा
+ का बोतल (खाना\, पेय\, कस्मेटिक) 
+ (飲食用・化粧品びん)\n- Clear or see-through bag\, 90 L or smalle
+ r.\n- ९० लिटरसम्मको पारदर्शी झ
+ ोला।\n\n🥫 Food & drink cans / खाना र पेयका 
+ क्यान (飲食用缶)\n- Clear or see-through bag\, 90 L or small
+ er.\n- ९० लिटरसम्मको पारदर्शी झ
+ ोला।\n\nNot official. Always check the city calendar:\nhttps://www
+ .city.niigata.lg.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedul
+ e/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🧱 Non-burnable garbage + 🍾 Glass bottles (food\
+ , drink\, cosmetics) + 🥫 Food & drink cans / नजल्ने फो
+ होर + सिसाका बोतल (खाना\, पेय\, 
+ कस्मेटिक) + खाना र पेयका क्या
+ न
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🧱 Non-burnable garbage + 🍾 Glass bottles (
+ food\, drink\, cosmetics) + 🥫 Food & drink cans / नजल्ने 
+ फोहोर + सिसाका बोतल (खाना\, पे
+ य\, कस्मेटिक) + खाना र पेयका क्
+ यान
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270322@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270322
+DTEND;VALUE=DATE:20270323
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270324@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270324
+DTEND;VALUE=DATE:20270325
+SUMMARY:🔥 Burnable garbage + 🌿 Branches\, leaves & grass / जल्
+ ने फोहोर + हाँगा\, पात र घाँस
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ n🌿 Branches\, leaves & grass / हाँगा\, पात र घा
+ ँस (枝葉・草)\n- Clear or see-through bag\, 90 L or smaller.\n- 
+ ९० लिटरसम्मको पारदर्शी झोल
+ ा।\n\nNot official. Always check the city calendar:\nhttps://www.city.
+ niigata.lg.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shir
+ one/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage + 🌿 Branches\, leaves & gras
+ s / जल्ने फोहोर + हाँगा\, पात र घ
+ ाँस
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage + 🌿 Branches\, leaves &
+  grass / जल्ने फोहोर + हाँगा\, पात र
+  घाँस
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270325@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270325
+DTEND;VALUE=DATE:20270326
+SUMMARY:♻️ Plastic packaging (プラ mark) / प्लास्टि
+ क प्याकेजिङ (プラ चिन्ह भएको)
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n♻️ Plastic packaging (プラ mark) / प
+ ्लास्टिक प्याकेजिङ (プラ चिन्
+ ह भएको) (プラマーク容器包装)\n- Clear or see-through ba
+ g\, 90 L or smaller. Only items with the プラ mark.\n- ९० लिट
+ रसम्मको पारदर्शी झोला। プラ च
+ िन्ह भएका सामान मात्र।\n\nNot offici
+ al. Always check the city calendar:\nhttps://www.city.niigata.lg.jp/kurash
+ i/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: ♻️ Plastic packaging (プラ mark) / प्ला
+ स्टिक प्याकेजिङ (プラ चिन्ह भए
+ को)
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: ♻️ Plastic packaging (プラ mark) / प्
+ लास्टिक प्याकेजिङ (プラ चिन्ह 
+ भएको)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270326@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270326
+DTEND;VALUE=DATE:20270327
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270327@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270327
+DTEND;VALUE=DATE:20270328
+SUMMARY:🧴 PET bottles + 📰 Old paper / पेट बोतल + पु
+ रानो कागज
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🧴 PET bottles / पेट बोतल (ペ
+ ットボトル)\n- Clear or see-through bag\, 90 L or smaller.\n- ९० 
+ लिटरसम्मको पारदर्शी झोला।\n\
+ n📰 Old paper / पुरानो कागज (古紙)\n- Put out at t
+ he collection point as a resource item (資源物).\n- संकलन स
+ ्थलमा स्रोत वस्तु (資源物) को रू
+ पमा राख्नुहोस्।\n\nNot official. Always check 
+ the city calendar:\nhttps://www.city.niigata.lg.jp/kurashi/gomi/gomishigen
+ /gomidasi/gomi_calemder/schedule/shirone/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🧴 PET bottles + 📰 Old paper / पेट बो
+ तल + पुरानो कागज
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🧴 PET bottles + 📰 Old paper / पेट 
+ बोतल + पुरानो कागज
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270329@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270329
+DTEND;VALUE=DATE:20270330
+SUMMARY:🔥 Burnable garbage / जल्ने फोहोर
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ nNot official. Always check the city calendar:\nhttps://www.city.niigata.l
+ g.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodor
+ i.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage / जल्ने फोहो
+ र
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage / जल्ने फो
+ होर
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:niigata-minami-oodori-20270331@sathijapan.com
+DTSTAMP:20260927T030651Z
+DTSTART;VALUE=DATE:20270331
+DTEND;VALUE=DATE:20270401
+SUMMARY:🔥 Burnable garbage + 🌿 Branches\, leaves & grass / जल्
+ ने फोहोर + हाँगा\, पात र घाँस
+DESCRIPTION:Put out by 08:00 / बिहान 08:00 भित्र रा
+ ख्नुहोस्\n\n🔥 Burnable garbage / जल्ने फो
+ होर (燃やすごみ)\n- Use the city's designated garbage bag (指
+ 定袋).\n- सिटीको तोकिएको फोहोर झ
+ ोला (指定袋) प्रयोग गर्नुहोस्।\n\
+ n🌿 Branches\, leaves & grass / हाँगा\, पात र घा
+ ँस (枝葉・草)\n- Clear or see-through bag\, 90 L or smaller.\n- 
+ ९० लिटरसम्मको पारदर्शी झोल
+ ा।\n\nNot official. Always check the city calendar:\nhttps://www.city.
+ niigata.lg.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shir
+ one/oodori.html
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT4H
+DESCRIPTION:Tomorrow: 🔥 Burnable garbage + 🌿 Branches\, leaves & gras
+ s / जल्ने फोहोर + हाँगा\, पात र घ
+ ाँस
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:PT6H30M
+DESCRIPTION:Today by 8:00: 🔥 Burnable garbage + 🌿 Branches\, leaves &
+  grass / जल्ने फोहोर + हाँगा\, पात र
+  घाँस
+END:VALARM
+END:VEVENT
+END:VCALENDAR

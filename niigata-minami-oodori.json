@@ -1,0 +1,1173 @@
+{
+ "area_id": "niigata-minami-oodori",
+ "city": {
+  "en": "Niigata City",
+  "ne": "निगाता सिटी",
+  "ja": "新潟市"
+ },
+ "ward": {
+  "en": "Minami-ku",
+  "ne": "मिनामी-कु",
+  "ja": "南区"
+ },
+ "calendar": {
+  "en": "Oodori (calendar code 74)",
+  "ne": "ओओदोरी (क्यालेन्डर नम्बर ७४)",
+  "ja": "大通（カレンダーコード74）"
+ },
+ "towns_covered_ja": [
+  "大通西",
+  "大通1丁目～2丁目",
+  "大通黄金1丁目～7丁目",
+  "大通南1丁目～6丁目",
+  "鷲ノ木新田（鷲ノ木大通川より西側。鷲巻桜町地区を除き、1666番地1を含む）"
+ ],
+ "fiscal_year": {
+  "label": "令和8年度 (FY2026)",
+  "start": "2026-04-01",
+  "end": "2027-03-31"
+ },
+ "put_out_by": "08:00",
+ "sources": [
+  {
+   "title": "新潟市 ごみ出しスケジュール（Web版）大通",
+   "url": "https://www.city.niigata.lg.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodori.html"
+  },
+  {
+   "title": "新潟市 令和8年度版ごみカレンダー（南区）町名一覧",
+   "url": "https://www.city.niigata.lg.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/minami.html"
+  },
+  {
+   "title": "令和8年度版 家庭ごみカレンダー 大通 (PDF)",
+   "url": "https://www.city.niigata.lg.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/minami.files/oodoori.pdf"
+  }
+ ],
+ "last_checked": "2026-09-27",
+ "recheck": [
+  "Every April (new fiscal-year calendar)",
+  "Every December (New Year schedule)"
+ ],
+ "categories": [
+  {
+   "id": "burnable",
+   "icon": "🔥",
+   "color": "#E4572E",
+   "ja": "燃やすごみ",
+   "en": "Burnable garbage",
+   "ne": "जल्ने फोहोर",
+   "rule": {
+    "type": "weekly",
+    "weekdays": [
+     0,
+     2,
+     4
+    ]
+   },
+   "rule_text": {
+    "en": "Every Mon, Wed, Fri",
+    "ne": "हरेक सोमबार, बुधबार, शुक्रबार",
+    "ja": "毎週 月・水・金"
+   },
+   "how": {
+    "en": "Use the city's designated garbage bag (指定袋).",
+    "ne": "सिटीको तोकिएको फोहोर झोला (指定袋) प्रयोग गर्नुहोस्।"
+   }
+  },
+  {
+   "id": "nonburnable",
+   "icon": "🧱",
+   "color": "#6C757D",
+   "ja": "燃やさないごみ",
+   "en": "Non-burnable garbage",
+   "ne": "नजल्ने फोहोर",
+   "rule": {
+    "type": "nth_weekday",
+    "weekday": 5,
+    "nth": [
+     3
+    ]
+   },
+   "rule_text": {
+    "en": "3rd Saturday of the month",
+    "ne": "महिनाको तेस्रो शनिबार",
+    "ja": "毎月 第3土曜"
+   },
+   "how": {
+    "en": "Use the city's designated garbage bag (指定袋).",
+    "ne": "सिटीको तोकिएको फोहोर झोला (指定袋) प्रयोग गर्नुहोस्।"
+   },
+   "january_shift": true
+  },
+  {
+   "id": "plastic",
+   "icon": "♻️",
+   "color": "#2A9D8F",
+   "ja": "プラマーク容器包装",
+   "en": "Plastic packaging (プラ mark)",
+   "ne": "प्लास्टिक प्याकेजिङ (プラ चिन्ह भएको)",
+   "rule": {
+    "type": "weekly",
+    "weekdays": [
+     3
+    ]
+   },
+   "rule_text": {
+    "en": "Every Thursday",
+    "ne": "हरेक बिहीबार",
+    "ja": "毎週 木曜"
+   },
+   "how": {
+    "en": "Clear or see-through bag, 90 L or smaller. Only items with the プラ mark.",
+    "ne": "९० लिटरसम्मको पारदर्शी झोला। プラ चिन्ह भएका सामान मात्र।"
+   }
+  },
+  {
+   "id": "pet",
+   "icon": "🧴",
+   "color": "#3A86FF",
+   "ja": "ペットボトル",
+   "en": "PET bottles",
+   "ne": "पेट बोतल",
+   "rule": {
+    "type": "nth_weekday",
+    "weekday": 5,
+    "nth": [
+     2,
+     4
+    ]
+   },
+   "rule_text": {
+    "en": "2nd & 4th Saturday",
+    "ne": "दोस्रो र चौथो शनिबार",
+    "ja": "毎月 第2・第4土曜"
+   },
+   "how": {
+    "en": "Clear or see-through bag, 90 L or smaller.",
+    "ne": "९० लिटरसम्मको पारदर्शी झोला।"
+   },
+   "january_shift": true
+  },
+  {
+   "id": "paper",
+   "icon": "📰",
+   "color": "#8D6E63",
+   "ja": "古紙",
+   "en": "Old paper",
+   "ne": "पुरानो कागज",
+   "rule": {
+    "type": "nth_weekday",
+    "weekday": 5,
+    "nth": [
+     2,
+     4
+    ]
+   },
+   "rule_text": {
+    "en": "2nd & 4th Saturday",
+    "ne": "दोस्रो र चौथो शनिबार",
+    "ja": "毎月 第2・第4土曜"
+   },
+   "how": {
+    "en": "Put out at the collection point as a resource item (資源物).",
+    "ne": "संकलन स्थलमा स्रोत वस्तु (資源物) को रूपमा राख्नुहोस्।"
+   },
+   "january_shift": true
+  },
+  {
+   "id": "glass",
+   "icon": "🍾",
+   "color": "#43AA8B",
+   "ja": "飲食用・化粧品びん",
+   "en": "Glass bottles (food, drink, cosmetics)",
+   "ne": "सिसाका बोतल (खाना, पेय, कस्मेटिक)",
+   "rule": {
+    "type": "nth_weekday",
+    "weekday": 5,
+    "nth": [
+     1,
+     3
+    ]
+   },
+   "rule_text": {
+    "en": "1st & 3rd Saturday",
+    "ne": "पहिलो र तेस्रो शनिबार",
+    "ja": "毎月 第1・第3土曜"
+   },
+   "how": {
+    "en": "Clear or see-through bag, 90 L or smaller.",
+    "ne": "९० लिटरसम्मको पारदर्शी झोला।"
+   },
+   "january_shift": true
+  },
+  {
+   "id": "cans",
+   "icon": "🥫",
+   "color": "#F4A261",
+   "ja": "飲食用缶",
+   "en": "Food & drink cans",
+   "ne": "खाना र पेयका क्यान",
+   "rule": {
+    "type": "nth_weekday",
+    "weekday": 5,
+    "nth": [
+     1,
+     3
+    ]
+   },
+   "rule_text": {
+    "en": "1st & 3rd Saturday",
+    "ne": "पहिलो र तेस्रो शनिबार",
+    "ja": "毎月 第1・第3土曜"
+   },
+   "how": {
+    "en": "Clear or see-through bag, 90 L or smaller.",
+    "ne": "९० लिटरसम्मको पारदर्शी झोला।"
+   },
+   "january_shift": true
+  },
+  {
+   "id": "special5",
+   "icon": "🔋",
+   "color": "#D62828",
+   "ja": "特定5品目",
+   "en": "Special 5 items",
+   "ne": "विशेष ५ वस्तु",
+   "rule": {
+    "type": "nth_weekday",
+    "weekday": 5,
+    "nth": [
+     1
+    ]
+   },
+   "rule_text": {
+    "en": "1st Saturday",
+    "ne": "पहिलो शनिबार",
+    "ja": "毎月 第1土曜"
+   },
+   "how": {
+    "en": "Batteries, fluorescent tubes, mercury thermometers, lighters, spray cans. Clear bag, 90 L or smaller.",
+    "ne": "ब्याट्री, ट्युबलाइट, पारो थर्मामिटर, लाइटर, स्प्रे क्यान। ९० लिटरसम्मको पारदर्शी झोला।"
+   },
+   "january_shift": true
+  },
+  {
+   "id": "branches",
+   "icon": "🌿",
+   "color": "#588157",
+   "ja": "枝葉・草",
+   "en": "Branches, leaves & grass",
+   "ne": "हाँगा, पात र घाँस",
+   "rule": {
+    "type": "weekly",
+    "weekdays": [
+     2
+    ],
+    "skip_months": [
+     1,
+     2
+    ]
+   },
+   "rule_text": {
+    "en": "Every Wednesday (no collection in Jan & Feb)",
+    "ne": "हरेक बुधबार (जनवरी र फेब्रुअरीमा संकलन हुँदैन)",
+    "ja": "毎週 水曜（1月・2月は休み）"
+   },
+   "how": {
+    "en": "Clear or see-through bag, 90 L or smaller.",
+    "ne": "९० लिटरसम्मको पारदर्शी झोला।"
+   }
+  }
+ ],
+ "bulky": {
+  "en": "Large items (sofa, bicycle, etc.) need a booking with the Bulky Garbage Center. Phone 025-290-5353 (Mon–Sat 9:00–17:00, not holidays or Dec 29–Jan 3) or book online.",
+  "ne": "ठूला सामान (सोफा, साइकल आदि) फाल्न पहिले बुकिङ चाहिन्छ। फोन 025-290-5353 (सोम–शनि ९:००–१७:००, बिदा र डिसेम्बर २९–जनवरी ३ बाहेक) वा अनलाइन बुक गर्नुहोस्।",
+  "url": "https://www.sodai.city.niigata.jp/eco/view/niigata/top.html"
+ },
+ "schedule": {
+  "2026-04-01": [
+   "burnable",
+   "branches"
+  ],
+  "2026-04-02": [
+   "plastic"
+  ],
+  "2026-04-03": [
+   "burnable"
+  ],
+  "2026-04-04": [
+   "glass",
+   "cans",
+   "special5"
+  ],
+  "2026-04-06": [
+   "burnable"
+  ],
+  "2026-04-08": [
+   "burnable",
+   "branches"
+  ],
+  "2026-04-09": [
+   "plastic"
+  ],
+  "2026-04-10": [
+   "burnable"
+  ],
+  "2026-04-11": [
+   "pet",
+   "paper"
+  ],
+  "2026-04-13": [
+   "burnable"
+  ],
+  "2026-04-15": [
+   "burnable",
+   "branches"
+  ],
+  "2026-04-16": [
+   "plastic"
+  ],
+  "2026-04-17": [
+   "burnable"
+  ],
+  "2026-04-18": [
+   "nonburnable",
+   "glass",
+   "cans"
+  ],
+  "2026-04-20": [
+   "burnable"
+  ],
+  "2026-04-22": [
+   "burnable",
+   "branches"
+  ],
+  "2026-04-23": [
+   "plastic"
+  ],
+  "2026-04-24": [
+   "burnable"
+  ],
+  "2026-04-25": [
+   "pet",
+   "paper"
+  ],
+  "2026-04-27": [
+   "burnable"
+  ],
+  "2026-04-29": [
+   "burnable",
+   "branches"
+  ],
+  "2026-04-30": [
+   "plastic"
+  ],
+  "2026-05-01": [
+   "burnable"
+  ],
+  "2026-05-02": [
+   "glass",
+   "cans",
+   "special5"
+  ],
+  "2026-05-04": [
+   "burnable"
+  ],
+  "2026-05-06": [
+   "burnable",
+   "branches"
+  ],
+  "2026-05-07": [
+   "plastic"
+  ],
+  "2026-05-08": [
+   "burnable"
+  ],
+  "2026-05-09": [
+   "pet",
+   "paper"
+  ],
+  "2026-05-11": [
+   "burnable"
+  ],
+  "2026-05-13": [
+   "burnable",
+   "branches"
+  ],
+  "2026-05-14": [
+   "plastic"
+  ],
+  "2026-05-15": [
+   "burnable"
+  ],
+  "2026-05-16": [
+   "nonburnable",
+   "glass",
+   "cans"
+  ],
+  "2026-05-18": [
+   "burnable"
+  ],
+  "2026-05-20": [
+   "burnable",
+   "branches"
+  ],
+  "2026-05-21": [
+   "plastic"
+  ],
+  "2026-05-22": [
+   "burnable"
+  ],
+  "2026-05-23": [
+   "pet",
+   "paper"
+  ],
+  "2026-05-25": [
+   "burnable"
+  ],
+  "2026-05-27": [
+   "burnable",
+   "branches"
+  ],
+  "2026-05-28": [
+   "plastic"
+  ],
+  "2026-05-29": [
+   "burnable"
+  ],
+  "2026-06-01": [
+   "burnable"
+  ],
+  "2026-06-03": [
+   "burnable",
+   "branches"
+  ],
+  "2026-06-04": [
+   "plastic"
+  ],
+  "2026-06-05": [
+   "burnable"
+  ],
+  "2026-06-06": [
+   "glass",
+   "cans",
+   "special5"
+  ],
+  "2026-06-08": [
+   "burnable"
+  ],
+  "2026-06-10": [
+   "burnable",
+   "branches"
+  ],
+  "2026-06-11": [
+   "plastic"
+  ],
+  "2026-06-12": [
+   "burnable"
+  ],
+  "2026-06-13": [
+   "pet",
+   "paper"
+  ],
+  "2026-06-15": [
+   "burnable"
+  ],
+  "2026-06-17": [
+   "burnable",
+   "branches"
+  ],
+  "2026-06-18": [
+   "plastic"
+  ],
+  "2026-06-19": [
+   "burnable"
+  ],
+  "2026-06-20": [
+   "nonburnable",
+   "glass",
+   "cans"
+  ],
+  "2026-06-22": [
+   "burnable"
+  ],
+  "2026-06-24": [
+   "burnable",
+   "branches"
+  ],
+  "2026-06-25": [
+   "plastic"
+  ],
+  "2026-06-26": [
+   "burnable"
+  ],
+  "2026-06-27": [
+   "pet",
+   "paper"
+  ],
+  "2026-06-29": [
+   "burnable"
+  ],
+  "2026-07-01": [
+   "burnable",
+   "branches"
+  ],
+  "2026-07-02": [
+   "plastic"
+  ],
+  "2026-07-03": [
+   "burnable"
+  ],
+  "2026-07-04": [
+   "glass",
+   "cans",
+   "special5"
+  ],
+  "2026-07-06": [
+   "burnable"
+  ],
+  "2026-07-08": [
+   "burnable",
+   "branches"
+  ],
+  "2026-07-09": [
+   "plastic"
+  ],
+  "2026-07-10": [
+   "burnable"
+  ],
+  "2026-07-11": [
+   "pet",
+   "paper"
+  ],
+  "2026-07-13": [
+   "burnable"
+  ],
+  "2026-07-15": [
+   "burnable",
+   "branches"
+  ],
+  "2026-07-16": [
+   "plastic"
+  ],
+  "2026-07-17": [
+   "burnable"
+  ],
+  "2026-07-18": [
+   "nonburnable",
+   "glass",
+   "cans"
+  ],
+  "2026-07-20": [
+   "burnable"
+  ],
+  "2026-07-22": [
+   "burnable",
+   "branches"
+  ],
+  "2026-07-23": [
+   "plastic"
+  ],
+  "2026-07-24": [
+   "burnable"
+  ],
+  "2026-07-25": [
+   "pet",
+   "paper"
+  ],
+  "2026-07-27": [
+   "burnable"
+  ],
+  "2026-07-29": [
+   "burnable",
+   "branches"
+  ],
+  "2026-07-30": [
+   "plastic"
+  ],
+  "2026-07-31": [
+   "burnable"
+  ],
+  "2026-08-01": [
+   "glass",
+   "cans",
+   "special5"
+  ],
+  "2026-08-03": [
+   "burnable"
+  ],
+  "2026-08-05": [
+   "burnable",
+   "branches"
+  ],
+  "2026-08-06": [
+   "plastic"
+  ],
+  "2026-08-07": [
+   "burnable"
+  ],
+  "2026-08-08": [
+   "pet",
+   "paper"
+  ],
+  "2026-08-10": [
+   "burnable"
+  ],
+  "2026-08-12": [
+   "burnable",
+   "branches"
+  ],
+  "2026-08-13": [
+   "plastic"
+  ],
+  "2026-08-14": [
+   "burnable"
+  ],
+  "2026-08-15": [
+   "nonburnable",
+   "glass",
+   "cans"
+  ],
+  "2026-08-17": [
+   "burnable"
+  ],
+  "2026-08-19": [
+   "burnable",
+   "branches"
+  ],
+  "2026-08-20": [
+   "plastic"
+  ],
+  "2026-08-21": [
+   "burnable"
+  ],
+  "2026-08-22": [
+   "pet",
+   "paper"
+  ],
+  "2026-08-24": [
+   "burnable"
+  ],
+  "2026-08-26": [
+   "burnable",
+   "branches"
+  ],
+  "2026-08-27": [
+   "plastic"
+  ],
+  "2026-08-28": [
+   "burnable"
+  ],
+  "2026-08-31": [
+   "burnable"
+  ],
+  "2026-09-02": [
+   "burnable",
+   "branches"
+  ],
+  "2026-09-03": [
+   "plastic"
+  ],
+  "2026-09-04": [
+   "burnable"
+  ],
+  "2026-09-05": [
+   "glass",
+   "cans",
+   "special5"
+  ],
+  "2026-09-07": [
+   "burnable"
+  ],
+  "2026-09-09": [
+   "burnable",
+   "branches"
+  ],
+  "2026-09-10": [
+   "plastic"
+  ],
+  "2026-09-11": [
+   "burnable"
+  ],
+  "2026-09-12": [
+   "pet",
+   "paper"
+  ],
+  "2026-09-14": [
+   "burnable"
+  ],
+  "2026-09-16": [
+   "burnable",
+   "branches"
+  ],
+  "2026-09-17": [
+   "plastic"
+  ],
+  "2026-09-18": [
+   "burnable"
+  ],
+  "2026-09-19": [
+   "nonburnable",
+   "glass",
+   "cans"
+  ],
+  "2026-09-21": [
+   "burnable"
+  ],
+  "2026-09-23": [
+   "burnable",
+   "branches"
+  ],
+  "2026-09-24": [
+   "plastic"
+  ],
+  "2026-09-25": [
+   "burnable"
+  ],
+  "2026-09-26": [
+   "pet",
+   "paper"
+  ],
+  "2026-09-28": [
+   "burnable"
+  ],
+  "2026-09-30": [
+   "burnable",
+   "branches"
+  ],
+  "2026-10-01": [
+   "plastic"
+  ],
+  "2026-10-02": [
+   "burnable"
+  ],
+  "2026-10-03": [
+   "glass",
+   "cans",
+   "special5"
+  ],
+  "2026-10-05": [
+   "burnable"
+  ],
+  "2026-10-07": [
+   "burnable",
+   "branches"
+  ],
+  "2026-10-08": [
+   "plastic"
+  ],
+  "2026-10-09": [
+   "burnable"
+  ],
+  "2026-10-10": [
+   "pet",
+   "paper"
+  ],
+  "2026-10-12": [
+   "burnable"
+  ],
+  "2026-10-14": [
+   "burnable",
+   "branches"
+  ],
+  "2026-10-15": [
+   "plastic"
+  ],
+  "2026-10-16": [
+   "burnable"
+  ],
+  "2026-10-17": [
+   "nonburnable",
+   "glass",
+   "cans"
+  ],
+  "2026-10-19": [
+   "burnable"
+  ],
+  "2026-10-21": [
+   "burnable",
+   "branches"
+  ],
+  "2026-10-22": [
+   "plastic"
+  ],
+  "2026-10-23": [
+   "burnable"
+  ],
+  "2026-10-24": [
+   "pet",
+   "paper"
+  ],
+  "2026-10-26": [
+   "burnable"
+  ],
+  "2026-10-28": [
+   "burnable",
+   "branches"
+  ],
+  "2026-10-29": [
+   "plastic"
+  ],
+  "2026-10-30": [
+   "burnable"
+  ],
+  "2026-11-02": [
+   "burnable"
+  ],
+  "2026-11-04": [
+   "burnable",
+   "branches"
+  ],
+  "2026-11-05": [
+   "plastic"
+  ],
+  "2026-11-06": [
+   "burnable"
+  ],
+  "2026-11-07": [
+   "glass",
+   "cans",
+   "special5"
+  ],
+  "2026-11-09": [
+   "burnable"
+  ],
+  "2026-11-11": [
+   "burnable",
+   "branches"
+  ],
+  "2026-11-12": [
+   "plastic"
+  ],
+  "2026-11-13": [
+   "burnable"
+  ],
+  "2026-11-14": [
+   "pet",
+   "paper"
+  ],
+  "2026-11-16": [
+   "burnable"
+  ],
+  "2026-11-18": [
+   "burnable",
+   "branches"
+  ],
+  "2026-11-19": [
+   "plastic"
+  ],
+  "2026-11-20": [
+   "burnable"
+  ],
+  "2026-11-21": [
+   "nonburnable",
+   "glass",
+   "cans"
+  ],
+  "2026-11-23": [
+   "burnable"
+  ],
+  "2026-11-25": [
+   "burnable",
+   "branches"
+  ],
+  "2026-11-26": [
+   "plastic"
+  ],
+  "2026-11-27": [
+   "burnable"
+  ],
+  "2026-11-28": [
+   "pet",
+   "paper"
+  ],
+  "2026-11-30": [
+   "burnable"
+  ],
+  "2026-12-02": [
+   "burnable",
+   "branches"
+  ],
+  "2026-12-03": [
+   "plastic"
+  ],
+  "2026-12-04": [
+   "burnable"
+  ],
+  "2026-12-05": [
+   "glass",
+   "cans",
+   "special5"
+  ],
+  "2026-12-07": [
+   "burnable"
+  ],
+  "2026-12-09": [
+   "burnable",
+   "branches"
+  ],
+  "2026-12-10": [
+   "plastic"
+  ],
+  "2026-12-11": [
+   "burnable"
+  ],
+  "2026-12-12": [
+   "pet",
+   "paper"
+  ],
+  "2026-12-14": [
+   "burnable"
+  ],
+  "2026-12-16": [
+   "burnable",
+   "branches"
+  ],
+  "2026-12-17": [
+   "plastic"
+  ],
+  "2026-12-18": [
+   "burnable"
+  ],
+  "2026-12-19": [
+   "nonburnable",
+   "glass",
+   "cans"
+  ],
+  "2026-12-21": [
+   "burnable"
+  ],
+  "2026-12-23": [
+   "burnable",
+   "branches"
+  ],
+  "2026-12-24": [
+   "plastic"
+  ],
+  "2026-12-25": [
+   "burnable"
+  ],
+  "2026-12-26": [
+   "pet",
+   "paper"
+  ],
+  "2026-12-28": [
+   "burnable"
+  ],
+  "2026-12-30": [
+   "burnable",
+   "branches"
+  ],
+  "2026-12-31": [
+   "burnable"
+  ],
+  "2027-01-04": [
+   "burnable"
+  ],
+  "2027-01-06": [
+   "burnable"
+  ],
+  "2027-01-07": [
+   "plastic"
+  ],
+  "2027-01-08": [
+   "burnable"
+  ],
+  "2027-01-09": [
+   "glass",
+   "cans",
+   "special5"
+  ],
+  "2027-01-11": [
+   "burnable"
+  ],
+  "2027-01-13": [
+   "burnable"
+  ],
+  "2027-01-14": [
+   "plastic"
+  ],
+  "2027-01-15": [
+   "burnable"
+  ],
+  "2027-01-16": [
+   "pet",
+   "paper"
+  ],
+  "2027-01-18": [
+   "burnable"
+  ],
+  "2027-01-20": [
+   "burnable"
+  ],
+  "2027-01-21": [
+   "plastic"
+  ],
+  "2027-01-22": [
+   "burnable"
+  ],
+  "2027-01-23": [
+   "nonburnable",
+   "glass",
+   "cans"
+  ],
+  "2027-01-25": [
+   "burnable"
+  ],
+  "2027-01-27": [
+   "burnable"
+  ],
+  "2027-01-28": [
+   "plastic"
+  ],
+  "2027-01-29": [
+   "burnable"
+  ],
+  "2027-01-30": [
+   "pet",
+   "paper"
+  ],
+  "2027-02-01": [
+   "burnable"
+  ],
+  "2027-02-03": [
+   "burnable"
+  ],
+  "2027-02-04": [
+   "plastic"
+  ],
+  "2027-02-05": [
+   "burnable"
+  ],
+  "2027-02-06": [
+   "glass",
+   "cans",
+   "special5"
+  ],
+  "2027-02-08": [
+   "burnable"
+  ],
+  "2027-02-10": [
+   "burnable"
+  ],
+  "2027-02-11": [
+   "plastic"
+  ],
+  "2027-02-12": [
+   "burnable"
+  ],
+  "2027-02-13": [
+   "pet",
+   "paper"
+  ],
+  "2027-02-15": [
+   "burnable"
+  ],
+  "2027-02-17": [
+   "burnable"
+  ],
+  "2027-02-18": [
+   "plastic"
+  ],
+  "2027-02-19": [
+   "burnable"
+  ],
+  "2027-02-20": [
+   "nonburnable",
+   "glass",
+   "cans"
+  ],
+  "2027-02-22": [
+   "burnable"
+  ],
+  "2027-02-24": [
+   "burnable"
+  ],
+  "2027-02-25": [
+   "plastic"
+  ],
+  "2027-02-26": [
+   "burnable"
+  ],
+  "2027-02-27": [
+   "pet",
+   "paper"
+  ],
+  "2027-03-01": [
+   "burnable"
+  ],
+  "2027-03-03": [
+   "burnable",
+   "branches"
+  ],
+  "2027-03-04": [
+   "plastic"
+  ],
+  "2027-03-05": [
+   "burnable"
+  ],
+  "2027-03-06": [
+   "glass",
+   "cans",
+   "special5"
+  ],
+  "2027-03-08": [
+   "burnable"
+  ],
+  "2027-03-10": [
+   "burnable",
+   "branches"
+  ],
+  "2027-03-11": [
+   "plastic"
+  ],
+  "2027-03-12": [
+   "burnable"
+  ],
+  "2027-03-13": [
+   "pet",
+   "paper"
+  ],
+  "2027-03-15": [
+   "burnable"
+  ],
+  "2027-03-17": [
+   "burnable",
+   "branches"
+  ],
+  "2027-03-18": [
+   "plastic"
+  ],
+  "2027-03-19": [
+   "burnable"
+  ],
+  "2027-03-20": [
+   "nonburnable",
+   "glass",
+   "cans"
+  ],
+  "2027-03-22": [
+   "burnable"
+  ],
+  "2027-03-24": [
+   "burnable",
+   "branches"
+  ],
+  "2027-03-25": [
+   "plastic"
+  ],
+  "2027-03-26": [
+   "burnable"
+  ],
+  "2027-03-27": [
+   "pet",
+   "paper"
+  ],
+  "2027-03-29": [
+   "burnable"
+  ],
+  "2027-03-31": [
+   "burnable",
+   "branches"
+  ]
+ }
+}

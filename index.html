@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sathi Japan – Garbage Days</title>
+<meta name="description" content="Garbage collection days in English and Nepali. Niigata Minami-ku, Oodori area.">
+<meta name="theme-color" content="#1B4965">
+<style>
+  :root{--bg:#F6F4EF;--card:#fff;--ink:#1d2327;--muted:#5f6b73;--line:#e3e0d8;--brand:#1B4965;--accent:#E4572E}
+  @media (prefers-color-scheme:dark){:root{--bg:#121619;--card:#1c2226;--ink:#eef1f3;--muted:#9aa6ae;--line:#2b3338;--brand:#8ec5e8}}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.5 system-ui,-apple-system,"Segoe UI","Noto Sans Devanagari","Noto Sans JP",sans-serif}
+  main{max-width:560px;margin:0 auto;padding:16px}
+  header{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:4px}
+  h1{font-size:24px;margin:0;color:var(--brand)}
+  .area{color:var(--muted);font-size:15px;margin:0 0 16px}
+  .lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;flex-shrink:0}
+  .lang button{border:0;background:transparent;color:var(--ink);padding:8px 12px;font:inherit;font-size:15px;cursor:pointer}
+  .lang button[aria-pressed=true]{background:var(--brand);color:var(--bg)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:12px}
+  .label{font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin:0 0 6px}
+  .big{display:flex;flex-direction:column;gap:8px}
+  .item{display:flex;align-items:center;gap:12px;font-size:22px;font-weight:600}
+  .icon{font-size:30px;width:44px;height:44px;display:grid;place-items:center;border-radius:12px;flex-shrink:0}
+  .none{font-size:20px;color:var(--muted)}
+  .by{margin:10px 0 0;font-size:15px;color:var(--accent);font-weight:600}
+  .week{list-style:none;margin:0;padding:0}
+  .week li{display:flex;gap:12px;padding:8px 0;border-top:1px solid var(--line);font-size:16px}
+  .week li:first-child{border-top:0}
+  .week .d{width:92px;flex-shrink:0;color:var(--muted)}
+  details{border-top:1px solid var(--line);padding:10px 0}
+  details:first-of-type{border-top:0}
+  summary{cursor:pointer;font-weight:600;list-style:none;display:flex;gap:10px;align-items:center}
+  summary::-webkit-details-marker{display:none}
+  details p{margin:6px 0 0 40px;font-size:15px;color:var(--muted)}
+  .btn{display:block;text-align:center;background:var(--brand);color:var(--bg);text-decoration:none;padding:14px;border-radius:12px;font-weight:700}
+  .small{font-size:13px;color:var(--muted)}
+  .small a{color:inherit}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Sathi Japan</h1>
+    <div class="lang" role="group" aria-label="Language">
+      <button data-l="en" aria-pressed="true">EN</button>
+      <button data-l="ne" aria-pressed="false">नेपाली</button>
+    </div>
+  </header>
+  <p class="area" id="area"></p>
+
+  <section class="card"><p class="label" data-t="today"></p><div class="big" id="today"></div><p class="by" id="by"></p></section>
+  <section class="card"><p class="label" data-t="tomorrow"></p><div class="big" id="tomorrow"></div></section>
+  <section class="card"><p class="label" data-t="next"></p><ul class="week" id="week"></ul></section>
+
+  <a class="btn" id="ics" href="niigata-minami-oodori.ics" data-t="add"></a>
+  <p class="small" data-t="addhelp"></p>
+
+  <section class="card" style="margin-top:16px"><p class="label" data-t="guide"></p><div id="guide"></div></section>
+  <section class="card"><p class="label" data-t="bulky"></p><p id="bulky" style="margin:0;font-size:15px"></p></section>
+
+  <p class="small"><span data-t="disclaimer"></span> <a id="src" target="_blank" rel="noopener"></a> · <span data-t="checked"></span> <span id="checked"></span></p>
+</main>
+
+<script>
+const T = {
+  en:{today:"Today",tomorrow:"Tomorrow",next:"Next 7 days",none:"No collection",by:"Put it out by 8:00 AM",
+      add:"📅 Add reminders to my phone calendar",addhelp:"Reminder at 8 PM the evening before and 6:30 AM on the day (iPhone). On Google Calendar, set your own notification time.",
+      guide:"Garbage types",bulky:"Large items",disclaimer:"Not an official city service. Always check the city's calendar:",src:"Niigata City (official)",checked:"Last checked:",
+      days:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]},
+  ne:{today:"आज",tomorrow:"भोलि",next:"अर्को ७ दिन",none:"आज संकलन छैन",by:"बिहान ८:०० भित्र बाहिर राख्नुहोस्",
+      add:"📅 मेरो फोनको क्यालेन्डरमा रिमाइन्डर थप्नुहोस्",addhelp:"अघिल्लो दिन बेलुका ८ बजे र त्यही दिन बिहान ६:३० मा रिमाइन्डर (iPhone)। Google Calendar मा आफैं सूचना समय मिलाउनुहोस्।",
+      guide:"फोहोरका प्रकार",bulky:"ठूला सामान",disclaimer:"यो सिटीको आधिकारिक सेवा होइन। सधैं सिटीको क्यालेन्डर जाँच गर्नुहोस्:",src:"निगाता सिटी (आधिकारिक)",checked:"अन्तिम जाँच:",
+      days:["आइत","सोम","मंगल","बुध","बिही","शुक्र","शनि"]}
+};
+let lang = (()=>{try{return localStorage.getItem("lang")||"en"}catch(e){return "en"}})();
+let D;
+
+// Today's date in Japan time, as YYYY-MM-DD
+function jpDate(offset=0){
+  const d=new Date(Date.now()+9*3600e3+offset*864e5);
+  return d.toISOString().slice(0,10);
+}
+function cat(id){return D.categories.find(c=>c.id===id)}
+function items(ids){
+  if(!ids||!ids.length) return `<div class="none">${T[lang].none}</div>`;
+  return ids.map(id=>{const c=cat(id);return `<div class="item"><span class="icon" style="background:${c.color}22">${c.icon}</span><span>${c[lang]}<br><span class="small">${c.ja}</span></span></div>`}).join("");
+}
+function render(){
+  const t=T[lang];
+  document.documentElement.lang=lang;
+  document.querySelectorAll("[data-t]").forEach(e=>e.textContent=t[e.dataset.t]);
+  document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.l===lang));
+  document.getElementById("area").textContent=`${D.city[lang]} · ${D.ward[lang]} · ${D.calendar[lang]}`;
+  const s=D.schedule, today=jpDate(0), tom=jpDate(1);
+  document.getElementById("today").innerHTML=items(s[today]);
+  document.getElementById("by").textContent=s[today]?t.by:"";
+  document.getElementById("tomorrow").innerHTML=items(s[tom]);
+  let w="";
+  for(let i=2;i<9;i++){
+    const k=jpDate(i), d=new Date(k+"T00:00:00Z");
+    const ids=s[k];
+    w+=`<li><span class="d">${t.days[d.getUTCDay()]} ${d.getUTCMonth()+1}/${d.getUTCDate()}</span><span>${ids?ids.map(id=>cat(id).icon+" "+cat(id)[lang]).join(", "):"—"}</span></li>`;
+  }
+  document.getElementById("week").innerHTML=w;
+  document.getElementById("guide").innerHTML=D.categories.map(c=>
+    `<details><summary><span class="icon" style="background:${c.color}22;width:32px;height:32px;font-size:20px">${c.icon}</span><span>${c[lang]}<br><span class="small" style="font-weight:400">${c.rule_text[lang]}</span></span></summary><p>${c.how[lang]}<br>${c.ja}</p></details>`).join("");
+  document.getElementById("bulky").innerHTML=`${D.bulky[lang]} <a href="${D.bulky.url}" target="_blank" rel="noopener">↗</a>`;
+  const src=document.getElementById("src"); src.href=D.sources[0].url; src.textContent=t.src;
+  document.getElementById("checked").textContent=D.last_checked;
+}
+document.querySelectorAll(".lang button").forEach(b=>b.onclick=()=>{lang=b.dataset.l;try{localStorage.setItem("lang",lang)}catch(e){}render()});
+fetch("data/niigata-minami-oodori.json").then(r=>r.json()).then(j=>{D=j;render()});
+</script>
+</body>
+</html>
