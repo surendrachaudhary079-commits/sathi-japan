@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sathi Japan – Visa Renewal Guide</title>
+<meta name="theme-color" content="#1B4965">
+<style>
+  :root{--bg:#F6F4EF;--card:#fff;--ink:#1d2327;--muted:#5f6b73;--line:#e3e0d8;--brand:#1B4965;--ok:#2A9D8F;--late:#D62828;--soon:#E9A23B;--wait:#6C757D}
+  @media (prefers-color-scheme:dark){:root{--bg:#121619;--card:#1c2226;--ink:#eef1f3;--muted:#9aa6ae;--line:#2b3338;--brand:#8ec5e8}}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.5 system-ui,-apple-system,"Segoe UI","Noto Sans Devanagari","Noto Sans JP",sans-serif}
+  main{max-width:560px;margin:0 auto;padding:16px}
+  header{display:flex;justify-content:space-between;align-items:center;gap:12px}
+  h1{font-size:22px;margin:0;color:var(--brand)}
+  h2{font-size:18px;margin:0 0 10px}
+  a{color:var(--brand)}
+  a.back{color:var(--muted);font-size:15px;text-decoration:none}
+  .lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;flex-shrink:0}
+  .lang button{border:0;background:transparent;color:var(--ink);padding:8px 12px;font:inherit;font-size:15px;cursor:pointer}
+  .lang button[aria-pressed=true]{background:var(--brand);color:var(--bg)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin:12px 0}
+  .label{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin:0 0 6px}
+  input[type=date]{font:inherit;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);width:100%}
+  .check{display:flex;gap:10px;align-items:flex-start;margin-top:10px;font-size:16px}
+  .check input{width:22px;height:22px;margin-top:2px;flex-shrink:0}
+  .status{border-radius:14px;padding:14px;color:#fff;font-weight:700;font-size:20px;margin-top:12px}
+  .status small{display:block;font-weight:400;font-size:15px;margin-top:4px;opacity:.95}
+  .tl{list-style:none;margin:12px 0 0;padding:0}
+  .tl li{display:flex;gap:12px;padding:10px 0;border-top:1px solid var(--line)}
+  .tl li:first-child{border-top:0}
+  .tl .d{width:110px;flex-shrink:0;font-weight:700}
+  .tl .past{color:var(--muted);text-decoration:line-through}
+  .btn{display:block;width:100%;text-align:center;background:var(--brand);color:var(--bg);border:0;padding:14px;border-radius:12px;font:inherit;font-weight:700;cursor:pointer;margin-top:12px;text-decoration:none}
+  ol.steps{margin:0;padding-left:22px}
+  ol.steps li{margin:0 0 12px}
+  ol.steps li:last-child{margin:0}
+  .sub{font-size:15px;color:var(--muted)}
+  ul.docs{margin:6px 0 0;padding-left:20px;font-size:16px}
+  table{border-collapse:collapse;width:100%;font-size:15px}
+  th,td{border-top:1px solid var(--line);padding:7px 4px;text-align:left}
+  th{font-size:13px;color:var(--muted);font-weight:600;border-top:0}
+  td.n{text-align:right;font-variant-numeric:tabular-nums}
+  .warn{background:#fdecea;color:#8a1c1c;border-radius:10px;padding:10px 12px;font-size:15px;margin-top:10px}
+  .info{background:#e8f3f1;color:#14524a;border-radius:10px;padding:10px 12px;font-size:15px;margin-top:10px}
+  @media (prefers-color-scheme:dark){.warn{background:#4a1d1d;color:#ffd6d6}.info{background:#173d38;color:#cfeee8}}
+  .small{font-size:13px;color:var(--muted)}
+  select{width:100%;font:inherit;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}
+  .row2{display:flex;gap:10px}
+  .btn.half{flex:1}
+  .btn.alt{background:transparent;color:var(--brand);box-shadow:inset 0 0 0 2px var(--brand)}
+</style>
+</head>
+<body>
+<main>
+  <a class="back" href="./" data-t="back"></a>
+  <header>
+    <h1 data-t="title"></h1>
+    <div class="lang" role="group" aria-label="Language">
+      <button data-l="en" aria-pressed="true">EN</button>
+      <button data-l="ne" aria-pressed="false">नेपाली</button>
+    </div>
+  </header>
+
+  <!-- 1. Expiry date and timeline -->
+  <section class="card">
+    <p class="label" data-t="expLabel"></p>
+    <input type="date" id="exp">
+    <label class="check"><input type="checkbox" id="short"><span data-t="shortStay"></span></label>
+    <p class="small" data-t="savedLocal"></p>
+    <div id="status"></div>
+    <ol class="tl" id="tl"></ol>
+    <button class="btn" id="ics" hidden data-t="addCal"></button>
+  </section>
+
+  <!-- 2. Renewal or change? -->
+  <section class="card">
+    <h2 data-t="whichH"></h2>
+    <p style="margin:0" data-t="whichP"></p>
+    <div class="info" data-t="whichInfo"></div>
+  </section>
+
+  <!-- 3. Steps -->
+  <section class="card">
+    <h2 data-t="stepsH"></h2>
+    <ol class="steps" id="steps"></ol>
+  </section>
+
+  <!-- 4. Documents -->
+  <section class="card">
+    <h2 data-t="docsH"></h2>
+    <p class="sub" style="margin:0" data-t="docsAll"></p>
+    <ul class="docs" id="docs"></ul>
+    <p class="sub" data-t="docsMore"></p>
+    <a href="https://www.moj.go.jp/isa/applications/procedures/16-3.html" target="_blank" rel="noopener" data-t="docsLink"></a>
+  </section>
+
+  <!-- 4b. Forms -->
+  <section class="card">
+    <h2 data-t="formH"></h2>
+    <p class="sub" style="margin-top:0" data-t="formP"></p>
+    <div class="row2" style="margin-bottom:10px">
+      <button class="btn half" id="kRenew" style="margin-top:0" data-t="kRenew"></button>
+      <button class="btn half alt" id="kChange" style="margin-top:0" data-t="kChange"></button>
+    </div>
+    <select id="ftype"></select>
+    <div class="row2">
+      <a class="btn half" id="fpdf" target="_blank" rel="noopener">PDF</a>
+      <a class="btn half alt" id="fxls" target="_blank" rel="noopener">Excel</a>
+    </div>
+    <ul class="docs" id="ftips"></ul>
+    <a href="https://www.moj.go.jp/isa/applications/procedures/16-3-1.html" target="_blank" rel="noopener" data-t="formAll"></a>
+  </section>
+
+  <!-- 5. Fees -->
+  <section class="card">
+    <h2 data-t="feeH"></h2>
+    <p class="sub" style="margin-top:0" data-t="feeP"></p>
+    <table>
+      <thead><tr><th data-t="feePeriod"></th><th style="text-align:right" data-t="feeCounter"></th><th style="text-align:right" data-t="feeOnline"></th></tr></thead>
+      <tbody id="fees"></tbody>
+    </table>
+    <div class="warn" data-t="scam"></div>
+  </section>
+
+  <!-- 6. Help -->
+  <section class="card">
+    <h2 data-t="helpH"></h2>
+    <p style="margin:0" data-t="helpP"></p>
+    <a class="btn" href="tel:0570013904" data-t="call"></a>
+    <p class="sub" data-t="office"></p>
+    <div class="info" data-t="legal"></div>
+  </section>
+
+  <p class="small"><span data-t="disclaimer"></span></p>
+</main>
+
+<script>
+const T={
+en:{
+ back:"← Home",title:"🪪 Visa renewal guide",
+ expLabel:"Expiry date on your residence card",
+ shortStay:"My period of stay is less than 6 months",
+ savedLocal:"Saved only on this phone. We never ask for your card number.",
+ addCal:"📅 Add renewal reminders to my calendar",
+ st:{
+  none:["Enter your expiry date","We will show when you can apply."],
+  early:["Too early to apply",d=>`You can apply from ${d}.`],
+  open:["You can apply now",d=>`Apply soon – don't wait until the last weeks. Last day: ${d}.`],
+  urgent:["Apply now – time is short",d=>`Last day to apply: ${d}. Online applications cannot be sent on the last day.`],
+  expired:["Your period of stay has ended",()=>"If you applied before it ended, check the back of your card for 申請中 (application pending) – you are in the special period. If you did NOT apply, contact Immigration today."]
+ },
+ tlOpen:"Applications open",tlRec:"Recommended: apply by",tlLast:"Last day to apply (expiry)",tlSpecial:"If you applied in time, you may stay until the decision, up to",
+ whichH:"Renewal or change of status?",
+ whichP:"Renewal (在留期間更新) is for doing the SAME kind of activity. If your activity changed – for example student → company job, or a new job outside your visa type – you need a change of status (在留資格変更) instead.",
+ whichInfo:"Changed jobs? Make sure you notified Immigration within 14 days (see Life checklists → Changing jobs).",
+ stepsH:"Steps",
+ steps:[
+  ["Check your details","Is your passport valid? Has your job, school, address or family changed? Have you paid resident tax, health insurance and pension?"],
+  ["Prepare documents","Ask your company or school early – some documents come from them. Get tax certificates from the ward office."],
+  ["Apply","Online (with My Number card) or at the immigration office. Weekdays 9:00–12:00 and 13:00–16:00 at the counter."],
+  ["Wait 2 weeks – 1 month","Keep your residence card. After a counter application, the back of the card shows 申請中 (pending)."],
+  ["Get the result","You get a postcard or email. Pay the fee (revenue stamp at the counter, or bank/convenience store for online) and receive your new card."]
+ ],
+ docsH:"Documents",
+ docsAll:"Everyone needs:",
+ docs:["Application form (在留期間更新許可申請書)","1 photo, 4 cm × 3 cm, taken within 6 months","Passport and residence card"],
+ docsMore:"More documents depend on your visa type and, for work visas, your company's category (1–4). For example, some work-visa holders also need resident tax certificates (課税証明書・納税証明書). Ask your HR which category your company is.",
+ docsLink:"Official list for your visa type (Immigration Services Agency) ↗",
+
+ formH:"Download your application form",
+ formP:"Choose your visa type. These are the official forms from the Immigration Services Agency – you fill them in yourself.",
+ formAll:"All visa types – official form page ↗",
+ kRenew:"Renewal",kChange:"Change of status",
+ ftypes:["Engineer / Specialist in Humanities / International Services","Skilled Labor (e.g. cook)","Student","Dependent (family)","Specified Skilled Worker","Spouse of Japanese / Spouse of PR / Long-term Resident","Business Manager"],
+ ftips:["Print it, or fill in the Excel file on a computer and print.","The form has a part for you (申請人等作成用) and a part for your company or school (所属機関等作成用) – give that part to them to fill in.","Download a new copy each time – old versions may not be accepted.","Online application uses an online form instead – no printing needed."],
+ feeH:"Fee (new from 1 Oct 2026)",
+ feeP:"The fee depends on the period of stay you are GIVEN, and you pay it only when the renewal is approved. Applications received before 1 Oct 2026 use the old fee (¥6,000 counter / ¥5,500 online).",
+ feePeriod:"Period granted",feeCounter:"Counter",feeOnline:"Online*",
+ periods:["Up to 3 months","3–6 months","6 months – under 1 year","1 year","1–3 years","3–5 years","Over 5 years"],
+ scam:"⚠️ *Online fees are paid by bank transfer or at a convenience store after approval, plus a small processing fee (¥330–¥550). Payment emails come only from @service-dgft.com and confirmation from @veritrans.jp – anything else is a scam.",
+ helpH:"Need help?",
+ helpP:"The Immigration Services Agency information center answers questions in Nepali, English and other languages. Weekdays 8:30–17:15.",
+ call:"📞 Call 0570-013904",
+ office:"Niigata Prefecture: Niigata Branch Office, Niigata Airport Terminal Building, 3710 Matsuhama-cho, Higashi-ku, Niigata · 025-275-4735 · weekdays 9:00–16:00.",
+ legal:"Sathi Japan explains and reminds only. We do not fill in or submit applications. For paid help with your application, use a licensed gyoseishoshi (行政書士) or immigration lawyer.",
+ disclaimer:"General information, not immigration or legal advice. Rules and fees can change – always check the Immigration Services Agency website. Checked: 3 Oct 2026.",
+ ics:["Visa renewal: applications open","Visa renewal: apply now (1 month left)","Visa renewal: LAST 2 WEEKS"]
+},
+ne:{
+ back:"← होम",title:"🪪 भिसा नवीकरण गाइड",
+ expLabel:"रेसिडेन्स कार्डमा लेखिएको म्याद सकिने मिति",
+ shortStay:"मेरो बसाइ अवधि ६ महिनाभन्दा कम छ",
+ savedLocal:"यो फोनमा मात्र सेभ हुन्छ। हामी कहिल्यै कार्ड नम्बर माग्दैनौं।",
+ addCal:"📅 नवीकरण रिमाइन्डर क्यालेन्डरमा थप्नुहोस्",
+ st:{
+  none:["म्याद सकिने मिति राख्नुहोस्","कहिलेदेखि आवेदन दिन मिल्छ भनेर देखाउँछौं।"],
+  early:["आवेदन दिन अझै चाँडो छ",d=>`${d} देखि आवेदन दिन सक्नुहुन्छ।`],
+  open:["अब आवेदन दिन सक्नुहुन्छ",d=>`चाँडै आवेदन दिनुहोस् – अन्तिम हप्तासम्म नपर्खनुहोस्। अन्तिम दिन: ${d}।`],
+  urgent:["अहिले नै आवेदन दिनुहोस् – समय कम छ",d=>`आवेदनको अन्तिम दिन: ${d}। अन्तिम दिन अनलाइन आवेदन पठाउन मिल्दैन।`],
+  expired:["तपाईंको बसाइ अवधि सकियो",()=>"म्याद सकिनुअघि आवेदन दिनुभएको भए, कार्डको पछाडि 申請中 (प्रक्रियामा) हेर्नुहोस् – तपाईं विशेष अवधिमा हुनुहुन्छ। आवेदन दिनुभएको छैन भने आजै इमिग्रेसनमा सम्पर्क गर्नुहोस्।"]
+ },
+ tlOpen:"आवेदन खुल्ने दिन",tlRec:"सिफारिस: यो मितिसम्म आवेदन दिनुहोस्",tlLast:"आवेदनको अन्तिम दिन (म्याद सकिने)",tlSpecial:"समयमै आवेदन दिनुभएको भए, निर्णय नआउन्जेल बस्न मिल्छ, बढीमा",
+ whichH:"नवीकरण कि भिसा परिवर्तन?",
+ whichP:"नवीकरण (在留期間更新) उही प्रकारको काम वा पढाइ जारी राख्नेका लागि हो। काम बदलिएको छ भने – जस्तै विद्यार्थीबाट कम्पनीको जागिर, वा भिसा प्रकारभन्दा बाहिरको नयाँ काम – भिसा परिवर्तन (在留資格変更) चाहिन्छ।",
+ whichInfo:"जागिर बदल्नुभयो? १४ दिनभित्र इमिग्रेसनलाई सूचना दिनुभएको पक्का गर्नुहोस् (जीवन चेकलिस्ट → जागिर बदल्दै हेर्नुहोस्)।",
+ stepsH:"चरणहरू",
+ steps:[
+  ["आफ्नो विवरण जाँच्नुहोस्","पासपोर्टको म्याद बाँकी छ? जागिर, स्कूल, ठेगाना वा परिवार बदलिएको छ? नगर कर, स्वास्थ्य बीमा र पेन्सन तिर्नुभएको छ?"],
+  ["कागजात तयार गर्नुहोस्","कम्पनी वा स्कूललाई चाँडै सोध्नुहोस् – केही कागज उनीहरूबाट आउँछ। कर प्रमाणपत्र वार्ड कार्यालयबाट लिनुहोस्।"],
+  ["आवेदन दिनुहोस्","अनलाइन (My Number कार्ड सहित) वा इमिग्रेसन कार्यालयमा। काउन्टर: कार्यदिन ९:००–१२:०० र १३:००–१६:००।"],
+  ["२ हप्ता – १ महिना पर्खनुहोस्","रेसिडेन्स कार्ड आफूसँग राख्नुहोस्। काउन्टरमा आवेदन दिएपछि कार्डको पछाडि 申請中 (प्रक्रियामा) लेखिन्छ।"],
+  ["नतिजा लिनुहोस्","पोस्टकार्ड वा इमेल आउँछ। शुल्क तिर्नुहोस् (काउन्टरमा राजस्व टिकट, अनलाइनमा बैंक/कन्बिनी) र नयाँ कार्ड लिनुहोस्।"]
+ ],
+ docsH:"कागजात",
+ docsAll:"सबैलाई चाहिने:",
+ docs:["आवेदन फारम (在留期間更新許可申請書)","६ महिनाभित्र खिचेको ४ से.मि. × ३ से.मि. को फोटो १ वटा","पासपोर्ट र रेसिडेन्स कार्ड"],
+ docsMore:"अरू कागजात भिसा प्रकार र, कामको भिसामा, कम्पनीको वर्ग (१–४) अनुसार फरक हुन्छ। जस्तै, कामको भिसा भएका कतिपयलाई नगर कर प्रमाणपत्र (課税証明書・納税証明書) पनि चाहिन्छ। आफ्नो कम्पनी कुन वर्गमा पर्छ HR लाई सोध्नुहोस्।",
+ docsLink:"आफ्नो भिसा प्रकारको आधिकारिक सूची (इमिग्रेसन) ↗",
+
+ formH:"आफ्नो आवेदन फारम डाउनलोड गर्नुहोस्",
+ formP:"आफ्नो भिसा प्रकार छान्नुहोस्। यी इमिग्रेसनका आधिकारिक फारम हुन् – आफैं भर्नुहोस्।",
+ formAll:"सबै भिसा प्रकार – आधिकारिक फारम पेज ↗",
+ kRenew:"नवीकरण",kChange:"भिसा परिवर्तन",
+ ftypes:["Engineer / Specialist in Humanities / International Services (技人国)","Skilled Labor (技能, जस्तै कुक)","विद्यार्थी (留学)","परिवार (家族滞在)","Specified Skilled Worker (特定技能)","जापानीको श्रीमान/श्रीमती / PR को श्रीमान/श्रीमती / Long-term Resident","Business Manager (経営・管理)"],
+ ftips:["प्रिन्ट गर्नुहोस्, वा कम्प्युटरमा Excel फाइल भरेर प्रिन्ट गर्नुहोस्।","फारममा तपाईंले भर्ने भाग (申請人等作成用) र कम्पनी वा स्कूलले भर्ने भाग (所属機関等作成用) छन् – त्यो भाग उनीहरूलाई दिनुहोस्।","हरेक पटक नयाँ फारम डाउनलोड गर्नुहोस् – पुरानो संस्करण नलिन सक्छन्।","अनलाइन आवेदनमा अनलाइन फारम नै भरिन्छ – प्रिन्ट गर्नु पर्दैन।"],
+ feeH:"शुल्क (२०२६ अक्टोबर १ देखि नयाँ)",
+ feeP:"शुल्क तपाईंलाई दिइने बसाइ अवधिअनुसार हुन्छ, र नवीकरण स्वीकृत भएपछि मात्र तिर्नुपर्छ। २०२६ अक्टोबर १ अघि बुझाइएका आवेदनमा पुरानो शुल्क (काउन्टर ¥६,००० / अनलाइन ¥५,५००) लाग्छ।",
+ feePeriod:"दिइने अवधि",feeCounter:"काउन्टर",feeOnline:"अनलाइन*",
+ periods:["३ महिनासम्म","३–६ महिना","६ महिना – १ वर्षभन्दा कम","१ वर्ष","१–३ वर्ष","३–५ वर्ष","५ वर्षभन्दा बढी"],
+ scam:"⚠️ *अनलाइन शुल्क स्वीकृतिपछि बैंक ट्रान्सफर वा कन्बिनीबाट तिरिन्छ, साथमा सानो सेवा शुल्क (¥३३०–¥५५०)। भुक्तानी इमेल @service-dgft.com बाट र पुष्टि @veritrans.jp बाट मात्र आउँछ – अरू ठेगानाबाट आए ठगी हो।",
+ helpH:"मद्दत चाहियो?",
+ helpP:"इमिग्रेसनको सूचना केन्द्रले नेपाली, अंग्रेजी र अन्य भाषामा प्रश्नको जवाफ दिन्छ। कार्यदिन ८:३०–१७:१५।",
+ call:"📞 0570-013904 मा फोन गर्नुहोस्",
+ office:"निगाता प्रिफेक्चर: निगाता शाखा कार्यालय, निगाता एयरपोर्ट टर्मिनल भवन, 3710 Matsuhama-cho, Higashi-ku, Niigata · 025-275-4735 · कार्यदिन ९:००–१६:००।",
+ legal:"Sathi Japan ले बुझाउने र सम्झाउने काम मात्र गर्छ। हामी आवेदन भर्दैनौं वा बुझाउँदैनौं। आवेदनमा सशुल्क मद्दत चाहिए लाइसेन्स भएका 行政書士 वा इमिग्रेसन वकिल प्रयोग गर्नुहोस्।",
+ disclaimer:"सामान्य जानकारी मात्र, भिसा वा कानुनी सल्लाह होइन। नियम र शुल्क बदलिन सक्छन् – सधैं इमिग्रेसनको वेबसाइट जाँच गर्नुहोस्। जाँच गरिएको: २०२६ अक्टोबर ३।",
+ ics:["भिसा नवीकरण: आवेदन खुल्यो","भिसा नवीकरण: अहिले आवेदन दिनुहोस् (१ महिना बाँकी)","भिसा नवीकरण: अन्तिम २ हप्ता"]
+}};
+// Fees from 1 Oct 2026 (ISA). Online = before the ¥330–¥550 processing fee. null = not available online.
+const FEES=[[10000,null],[18000,15000],[25000,21000],[33000,27000],[48000,42000],[64000,56000],[75000,65000]];
+// Official renewal forms (ISA form download page 16-3-1), checked 2026-10-03
+const FORMS=[["930004094.pdf","930004095.xlsx"],["930004094.pdf","930004095.xlsx"],["930004106.pdf","930004107.xlsx"],["930004110.pdf","930004111.xlsx"],["930003875.pdf","930003861.xlsx"],["930004114.pdf","930004115.xlsx"],["930004098.pdf","930004099.xlsx"]];
+// Change of status forms (ISA page 16-2-1), same order
+const FORMS_CHANGE=[["930004064.pdf","930004065.xlsx"],["930004064.pdf","930004065.xlsx"],["930004076.pdf","930004077.xlsx"],["930004080.pdf","930004081.xlsx"],["930003874.pdf","930003860.xlsx"],["930004084.pdf","930004085.xlsx"],["930004068.pdf","930004069.xlsx"]];
+const FPAGE={r:"https://www.moj.go.jp/isa/applications/procedures/16-3-1.html",c:"https://www.moj.go.jp/isa/applications/procedures/16-2-1.html"};
+const FBASE="https://www.moj.go.jp/isa/content/";
+const SRC="https://www.moj.go.jp/isa/applications/procedures/16-3.html";
+
+const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+let lang=store.get("lang")||"en";
+const $=id=>document.getElementById(id);
+$("exp").value=store.get("visa_exp")||"";
+$("short").checked=store.get("visa_short")==="1";
+
+const jpToday=()=>new Date(new Date(Date.now()+9*3600e3).toISOString().slice(0,10)+"T00:00:00Z");
+const D=iso=>new Date(iso+"T00:00:00Z");
+function addM(d,m){const r=new Date(d);const day=r.getUTCDate();r.setUTCDate(1);r.setUTCMonth(r.getUTCMonth()+m);const last=new Date(Date.UTC(r.getUTCFullYear(),r.getUTCMonth()+1,0)).getUTCDate();r.setUTCDate(Math.min(day,last));return r}
+function addD(d,n){const r=new Date(d);r.setUTCDate(r.getUTCDate()+n);return r}
+const fmt=d=>lang==="ne"?`${d.getUTCFullYear()}/${d.getUTCMonth()+1}/${d.getUTCDate()}`:d.toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric",timeZone:"UTC"});
+const yen=n=>n==null?"—":"¥"+n.toLocaleString("en");
+
+function dates(){
+  const v=$("exp").value; if(!v) return null;
+  const exp=D(v), short=$("short").checked;
+  return {exp, open: short?null:addM(exp,-3), rec:addM(exp,-1), urgent:addD(exp,-14), special:addM(exp,2)};
+}
+function render(){
+  const t=T[lang]; document.documentElement.lang=lang;
+  document.querySelectorAll("[data-t]").forEach(e=>e.textContent=t[e.dataset.t]);
+  document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.l===lang));
+  $("steps").innerHTML=t.steps.map(s=>`<li><strong>${s[0]}</strong><br><span class="sub">${s[1]}</span></li>`).join("");
+  $("docs").innerHTML=t.docs.map(d=>`<li>${d}</li>`).join("");
+  const fi=+(store.get("visa_form")||0);
+  $("ftype").innerHTML=t.ftypes.map((n,i)=>`<option value="${i}" ${i===fi?"selected":""}>${n}</option>`).join("");
+  const fk=store.get("visa_kind")||"r", FS=fk==="c"?FORMS_CHANGE:FORMS;
+  $("fpdf").href=FBASE+FS[fi][0]; $("fxls").href=FBASE+FS[fi][1];
+  $("kRenew").classList.toggle("alt",fk!=="r"); $("kChange").classList.toggle("alt",fk!=="c");
+  document.querySelector('a[data-t="formAll"]').href=FPAGE[fk];
+  $("ftips").innerHTML=t.ftips.map(x=>`<li>${x}</li>`).join("");
+  $("fees").innerHTML=FEES.map((f,i)=>`<tr><td>${t.periods[i]}</td><td class="n">${yen(f[0])}</td><td class="n">${yen(f[1])}</td></tr>`).join("");
+
+  const x=dates(), today=jpToday();
+  let key="none", arg="";
+  if(x){
+    if(today>x.exp){key="expired"}
+    else if(x.open&&today<x.open){key="early";arg=fmt(x.open)}
+    else if(today>=x.urgent){key="urgent";arg=fmt(x.exp)}
+    else {key="open";arg=fmt(x.exp)}
+  }
+  const col={none:"var(--wait)",early:"var(--ok)",open:"var(--soon)",urgent:"var(--late)",expired:"var(--late)"}[key];
+  const s=t.st[key]; const sub=typeof s[1]==="function"?s[1](arg):s[1];
+  $("status").innerHTML=`<div class="status" style="background:${col}">${s[0]}<small>${sub}</small></div>`;
+  if(x){
+    const rows=[];
+    if(x.open) rows.push([x.open,t.tlOpen]);
+    rows.push([x.rec,t.tlRec],[x.exp,t.tlLast],[x.special,t.tlSpecial]);
+    $("tl").innerHTML=rows.map(r=>`<li><span class="d ${r[0]<today?"past":""}">${fmt(r[0])}</span><span>${r[1]}</span></li>`).join("");
+    $("ics").hidden=false;
+  }else{$("tl").innerHTML="";$("ics").hidden=true}
+}
+
+// Build a calendar file on the phone itself – nothing is sent anywhere
+function ics(){
+  const x=dates(); if(!x) return;
+  const t=T[lang], ymd=d=>d.toISOString().slice(0,10).replace(/-/g,"");
+  const stamp=new Date().toISOString().replace(/[-:]/g,"").slice(0,15)+"Z";
+  const ev=[[x.open,t.ics[0]],[x.rec,t.ics[1]],[x.urgent,t.ics[2]]].filter(e=>e[0]&&e[0]>=jpToday());
+  const L=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Sathi Japan//Visa Reminder//EN","CALSCALE:GREGORIAN"];
+  ev.forEach((e,i)=>L.push("BEGIN:VEVENT",`UID:visa-${ymd(x.exp)}-${i}@sathijapan.com`,`DTSTAMP:${stamp}`,
+    `DTSTART;VALUE=DATE:${ymd(e[0])}`,`DTEND;VALUE=DATE:${ymd(addD(e[0],1))}`,`SUMMARY:🪪 ${e[1]}`,
+    `DESCRIPTION:Expiry ${ymd(x.exp)} – ${SRC}`,"BEGIN:VALARM","ACTION:DISPLAY","TRIGGER:PT9H",`DESCRIPTION:${e[1]}`,"END:VALARM","END:VEVENT"));
+  L.push("END:VCALENDAR");
+  const blob=new Blob([L.join("\r\n")+"\r\n"],{type:"text/calendar"});
+  const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="sathi-visa-reminder.ics";document.body.appendChild(a);a.click();a.remove();
+}
+$("ics").onclick=ics;
+$("kRenew").onclick=()=>{store.set("visa_kind","r");render()};
+$("kChange").onclick=()=>{store.set("visa_kind","c");render()};
+$("ftype").onchange=e=>{store.set("visa_form",e.target.value);render()};
+$("exp").onchange=()=>{store.set("visa_exp",$("exp").value);render()};
+$("short").onchange=()=>{store.set("visa_short",$("short").checked?"1":"0");render()};
+document.querySelectorAll(".lang button").forEach(b=>b.onclick=()=>{lang=b.dataset.l;store.set("lang",lang);render()});
+render();
+</script>
+</body>
+</html>
