@@ -1,6 +1,6 @@
 # Sathi Japan – Complete Guide
 
-Version: 3 October 2026 · Area: Niigata City, Minami-ku (Oodori calendar, code 74)
+Version: 3 October 2026 · Areas: Niigata City Minami-ku (Oodori, code 74) and all of Shinjuku, Tokyo
 Website: https://sathi-japan.vercel.app
 
 ---
@@ -9,7 +9,8 @@ Website: https://sathi-japan.vercel.app
 
 | File | What it is | Shown as |
 |---|---|---|
-| `index.html` | Home page: today/tomorrow garbage, next 7 days, garbage types, buttons to the other pages. Garbage data is built in. | `/` |
+| `index.html` | Home page: area picker, today/tomorrow garbage, next 7 days, garbage types, buttons to the other pages. | `/` |
+| `areas.js` | **All garbage areas**: Niigata Minami-ku (Oodori), all 171 Shinjuku towns, and official links for 11 other cities. Built from `data-src/`. | used by index.html |
 | `niigata-minami-oodori.ics` | Calendar file with every garbage day (to add reminders to a phone). | "Add reminders" button |
 | `niigata-minami-oodori.json` | The same garbage data as a separate file (backup / for future use). | – |
 | `checklists.html` | Life checklists page (arrival, moving, job change, leaving Japan). | "✅ Life checklists" button |

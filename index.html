@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sathi Japan – Garbage days, visa and life in Japan, in Nepali and English</title>
-<meta name="description" content="Garbage days, visa renewal reminders and step-by-step checklists for life in Japan – in Nepali and English. Free.">
+<meta name="description" content="Garbage days for your town, visa renewal reminders and step-by-step checklists for life in Japan – in Nepali and English. Free.">
 <meta name="theme-color" content="#0B2E6B">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -113,6 +113,29 @@
     .hero .live{animation:in .5s ease-out both}
     @keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
   }
+
+  /* Area picker */
+  .area button.link{border:0;background:none;padding:0;font:inherit;color:var(--ink);font-weight:700;text-decoration:underline;text-underline-offset:3px;cursor:pointer;margin-left:6px}
+  .sheet{position:fixed;inset:0;background:rgba(8,20,45,.45);display:flex;align-items:flex-end;justify-content:center;z-index:20}
+  .sheet[hidden]{display:none}
+  .panel{background:var(--surface);width:100%;max-width:620px;max-height:92vh;overflow:auto;border-radius:22px 22px 0 0;padding:20px 20px 28px}
+  @media (min-width:700px){.sheet{align-items:center}.panel{border-radius:22px}}
+  .panel h2{font-size:26px;margin:0 0 4px}
+  .panel .close{float:right;border:0;background:var(--soft);color:var(--ink);font:inherit;font-weight:700;border-radius:999px;padding:6px 14px;cursor:pointer}
+  .cities{display:grid;gap:8px;margin:16px 0}
+  .cities button{display:block;text-align:left;border:1px solid var(--line);background:var(--paper);color:var(--text);border-radius:14px;padding:12px 14px;font:inherit;cursor:pointer}
+  .cities button b{display:block;color:var(--ink);font-size:18px}
+  .cities button span{font-size:15px;color:var(--muted)}
+  .cities button[aria-pressed=true]{border-color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
+  .search{width:100%;font:inherit;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--text)}
+  .towns{list-style:none;margin:10px 0 0;padding:0}
+  .towns button{display:block;width:100%;text-align:left;border:0;border-top:1px solid var(--line);background:none;color:var(--text);font:inherit;padding:10px 4px;cursor:pointer}
+  .towns button b{font-weight:700;color:var(--ink)}
+  .towns button small{display:block;color:var(--muted);font-size:14px}
+  .towns .empty{color:var(--muted);padding:10px 4px}
+  .links{list-style:none;padding:0;margin:12px 0 0}
+  .links a{display:block;padding:10px 4px;border-top:1px solid var(--line);font-weight:700;text-decoration:none}
+  .hint{font-size:15px;color:var(--muted);margin:8px 0 0}
 </style>
 </head>
 <body>
@@ -132,14 +155,10 @@
         <h1 id="headline"></h1>
         <div class="icons" id="icons" aria-hidden="true"></div>
         <p class="lead" id="lead"></p>
-        <p class="area"><span data-t="areaLabel"></span> <strong id="area"></strong></p>
-        <div class="actions">
-          <a class="btn primary" href="niigata-minami-oodori.ics" data-t="addCal"></a>
-          <a class="btn quiet" href="#garbage" data-t="howTo"></a>
-        </div>
+        <p class="area" id="areaLine"></p>
+        <div class="actions" id="actions"></div>
       </div>
-      <div class="week" aria-labelledby="weekTitle">
-        <h2 id="weekTitle" class="sr" style="position:absolute;left:-9999px" data-t="weekTitle"></h2>
+      <div class="week" id="weekBox">
         <ol id="week"></ol>
       </div>
     </div>
@@ -157,7 +176,7 @@
 
     <section id="garbage">
       <h2 data-t="garbH"></h2>
-      <p class="intro" data-t="garbP"></p>
+      <p class="intro" id="garbP"></p>
       <div class="types" id="types"></div>
       <div class="bulky" id="bulky"></div>
     </section>
@@ -174,107 +193,234 @@
 
   <footer>
     <p data-t="foot1"></p>
-    <p><span data-t="foot2"></span> <a id="src" target="_blank" rel="noopener"></a>. <span data-t="checked"></span> <span id="checked"></span>.</p>
+    <p id="srcLine"></p>
   </footer>
 </div>
 
-<script>window.SATHI_DATA={"area_id":"niigata-minami-oodori","city":{"en":"Niigata City","ne":"निगाता सिटी","ja":"新潟市"},"ward":{"en":"Minami-ku","ne":"मिनामी-कु","ja":"南区"},"calendar":{"en":"Oodori (calendar code 74)","ne":"ओओदोरी (क्यालेन्डर नम्बर ७४)","ja":"大通（カレンダーコード74）"},"towns_covered_ja":["大通西","大通1丁目～2丁目","大通黄金1丁目～7丁目","大通南1丁目～6丁目","鷲ノ木新田（鷲ノ木大通川より西側。鷲巻桜町地区を除き、1666番地1を含む）"],"fiscal_year":{"label":"令和8年度 (FY2026)","start":"2026-04-01","end":"2027-03-31"},"put_out_by":"08:00","sources":[{"title":"新潟市 ごみ出しスケジュール（Web版）大通","url":"https://www.city.niigata.lg.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/schedule/shirone/oodori.html"},{"title":"新潟市 令和8年度版ごみカレンダー（南区）町名一覧","url":"https://www.city.niigata.lg.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/minami.html"},{"title":"令和8年度版 家庭ごみカレンダー 大通 (PDF)","url":"https://www.city.niigata.lg.jp/kurashi/gomi/gomishigen/gomidasi/gomi_calemder/minami.files/oodoori.pdf"}],"last_checked":"2026-09-27","recheck":["Every April (new fiscal-year calendar)","Every December (New Year schedule)"],"categories":[{"id":"burnable","icon":"🔥","color":"#E4572E","ja":"燃やすごみ","en":"Burnable garbage","ne":"जल्ने फोहोर","rule":{"type":"weekly","weekdays":[0,2,4]},"rule_text":{"en":"Every Mon, Wed, Fri","ne":"हरेक सोमबार, बुधबार, शुक्रबार","ja":"毎週 月・水・金"},"how":{"en":"Use the city's designated garbage bag (指定袋).","ne":"सिटीको तोकिएको फोहोर झोला (指定袋) प्रयोग गर्नुहोस्।"}},{"id":"nonburnable","icon":"🧱","color":"#6C757D","ja":"燃やさないごみ","en":"Non-burnable garbage","ne":"नजल्ने फोहोर","rule":{"type":"nth_weekday","weekday":5,"nth":[3]},"rule_text":{"en":"3rd Saturday of the month","ne":"महिनाको तेस्रो शनिबार","ja":"毎月 第3土曜"},"how":{"en":"Use the city's designated garbage bag (指定袋).","ne":"सिटीको तोकिएको फोहोर झोला (指定袋) प्रयोग गर्नुहोस्।"},"january_shift":true},{"id":"plastic","icon":"♻️","color":"#2A9D8F","ja":"プラマーク容器包装","en":"Plastic packaging (プラ mark)","ne":"प्लास्टिक प्याकेजिङ (プラ चिन्ह भएको)","rule":{"type":"weekly","weekdays":[3]},"rule_text":{"en":"Every Thursday","ne":"हरेक बिहीबार","ja":"毎週 木曜"},"how":{"en":"Clear or see-through bag, 90 L or smaller. Only items with the プラ mark.","ne":"९० लिटरसम्मको पारदर्शी झोला। プラ चिन्ह भएका सामान मात्र।"}},{"id":"pet","icon":"🧴","color":"#3A86FF","ja":"ペットボトル","en":"PET bottles","ne":"पेट बोतल","rule":{"type":"nth_weekday","weekday":5,"nth":[2,4]},"rule_text":{"en":"2nd & 4th Saturday","ne":"दोस्रो र चौथो शनिबार","ja":"毎月 第2・第4土曜"},"how":{"en":"Clear or see-through bag, 90 L or smaller.","ne":"९० लिटरसम्मको पारदर्शी झोला।"},"january_shift":true},{"id":"paper","icon":"📰","color":"#8D6E63","ja":"古紙","en":"Old paper","ne":"पुरानो कागज","rule":{"type":"nth_weekday","weekday":5,"nth":[2,4]},"rule_text":{"en":"2nd & 4th Saturday","ne":"दोस्रो र चौथो शनिबार","ja":"毎月 第2・第4土曜"},"how":{"en":"Put out at the collection point as a resource item (資源物).","ne":"संकलन स्थलमा स्रोत वस्तु (資源物) को रूपमा राख्नुहोस्।"},"january_shift":true},{"id":"glass","icon":"🍾","color":"#43AA8B","ja":"飲食用・化粧品びん","en":"Glass bottles (food, drink, cosmetics)","ne":"सिसाका बोतल (खाना, पेय, कस्मेटिक)","rule":{"type":"nth_weekday","weekday":5,"nth":[1,3]},"rule_text":{"en":"1st & 3rd Saturday","ne":"पहिलो र तेस्रो शनिबार","ja":"毎月 第1・第3土曜"},"how":{"en":"Clear or see-through bag, 90 L or smaller.","ne":"९० लिटरसम्मको पारदर्शी झोला।"},"january_shift":true},{"id":"cans","icon":"🥫","color":"#F4A261","ja":"飲食用缶","en":"Food & drink cans","ne":"खाना र पेयका क्यान","rule":{"type":"nth_weekday","weekday":5,"nth":[1,3]},"rule_text":{"en":"1st & 3rd Saturday","ne":"पहिलो र तेस्रो शनिबार","ja":"毎月 第1・第3土曜"},"how":{"en":"Clear or see-through bag, 90 L or smaller.","ne":"९० लिटरसम्मको पारदर्शी झोला।"},"january_shift":true},{"id":"special5","icon":"🔋","color":"#D62828","ja":"特定5品目","en":"Special 5 items","ne":"विशेष ५ वस्तु","rule":{"type":"nth_weekday","weekday":5,"nth":[1]},"rule_text":{"en":"1st Saturday","ne":"पहिलो शनिबार","ja":"毎月 第1土曜"},"how":{"en":"Batteries, fluorescent tubes, mercury thermometers, lighters, spray cans. Clear bag, 90 L or smaller.","ne":"ब्याट्री, ट्युबलाइट, पारो थर्मामिटर, लाइटर, स्प्रे क्यान। ९० लिटरसम्मको पारदर्शी झोला।"},"january_shift":true},{"id":"branches","icon":"🌿","color":"#588157","ja":"枝葉・草","en":"Branches, leaves & grass","ne":"हाँगा, पात र घाँस","rule":{"type":"weekly","weekdays":[2],"skip_months":[1,2]},"rule_text":{"en":"Every Wednesday (no collection in Jan & Feb)","ne":"हरेक बुधबार (जनवरी र फेब्रुअरीमा संकलन हुँदैन)","ja":"毎週 水曜（1月・2月は休み）"},"how":{"en":"Clear or see-through bag, 90 L or smaller.","ne":"९० लिटरसम्मको पारदर्शी झोला।"}}],"bulky":{"en":"Large items (sofa, bicycle, etc.) need a booking with the Bulky Garbage Center. Phone 025-290-5353 (Mon–Sat 9:00–17:00, not holidays or Dec 29–Jan 3) or book online.","ne":"ठूला सामान (सोफा, साइकल आदि) फाल्न पहिले बुकिङ चाहिन्छ। फोन 025-290-5353 (सोम–शनि ९:००–१७:००, बिदा र डिसेम्बर २९–जनवरी ३ बाहेक) वा अनलाइन बुक गर्नुहोस्।","url":"https://www.sodai.city.niigata.jp/eco/view/niigata/top.html"},"schedule":{"2026-04-01":["burnable","branches"],"2026-04-02":["plastic"],"2026-04-03":["burnable"],"2026-04-04":["glass","cans","special5"],"2026-04-06":["burnable"],"2026-04-08":["burnable","branches"],"2026-04-09":["plastic"],"2026-04-10":["burnable"],"2026-04-11":["pet","paper"],"2026-04-13":["burnable"],"2026-04-15":["burnable","branches"],"2026-04-16":["plastic"],"2026-04-17":["burnable"],"2026-04-18":["nonburnable","glass","cans"],"2026-04-20":["burnable"],"2026-04-22":["burnable","branches"],"2026-04-23":["plastic"],"2026-04-24":["burnable"],"2026-04-25":["pet","paper"],"2026-04-27":["burnable"],"2026-04-29":["burnable","branches"],"2026-04-30":["plastic"],"2026-05-01":["burnable"],"2026-05-02":["glass","cans","special5"],"2026-05-04":["burnable"],"2026-05-06":["burnable","branches"],"2026-05-07":["plastic"],"2026-05-08":["burnable"],"2026-05-09":["pet","paper"],"2026-05-11":["burnable"],"2026-05-13":["burnable","branches"],"2026-05-14":["plastic"],"2026-05-15":["burnable"],"2026-05-16":["nonburnable","glass","cans"],"2026-05-18":["burnable"],"2026-05-20":["burnable","branches"],"2026-05-21":["plastic"],"2026-05-22":["burnable"],"2026-05-23":["pet","paper"],"2026-05-25":["burnable"],"2026-05-27":["burnable","branches"],"2026-05-28":["plastic"],"2026-05-29":["burnable"],"2026-06-01":["burnable"],"2026-06-03":["burnable","branches"],"2026-06-04":["plastic"],"2026-06-05":["burnable"],"2026-06-06":["glass","cans","special5"],"2026-06-08":["burnable"],"2026-06-10":["burnable","branches"],"2026-06-11":["plastic"],"2026-06-12":["burnable"],"2026-06-13":["pet","paper"],"2026-06-15":["burnable"],"2026-06-17":["burnable","branches"],"2026-06-18":["plastic"],"2026-06-19":["burnable"],"2026-06-20":["nonburnable","glass","cans"],"2026-06-22":["burnable"],"2026-06-24":["burnable","branches"],"2026-06-25":["plastic"],"2026-06-26":["burnable"],"2026-06-27":["pet","paper"],"2026-06-29":["burnable"],"2026-07-01":["burnable","branches"],"2026-07-02":["plastic"],"2026-07-03":["burnable"],"2026-07-04":["glass","cans","special5"],"2026-07-06":["burnable"],"2026-07-08":["burnable","branches"],"2026-07-09":["plastic"],"2026-07-10":["burnable"],"2026-07-11":["pet","paper"],"2026-07-13":["burnable"],"2026-07-15":["burnable","branches"],"2026-07-16":["plastic"],"2026-07-17":["burnable"],"2026-07-18":["nonburnable","glass","cans"],"2026-07-20":["burnable"],"2026-07-22":["burnable","branches"],"2026-07-23":["plastic"],"2026-07-24":["burnable"],"2026-07-25":["pet","paper"],"2026-07-27":["burnable"],"2026-07-29":["burnable","branches"],"2026-07-30":["plastic"],"2026-07-31":["burnable"],"2026-08-01":["glass","cans","special5"],"2026-08-03":["burnable"],"2026-08-05":["burnable","branches"],"2026-08-06":["plastic"],"2026-08-07":["burnable"],"2026-08-08":["pet","paper"],"2026-08-10":["burnable"],"2026-08-12":["burnable","branches"],"2026-08-13":["plastic"],"2026-08-14":["burnable"],"2026-08-15":["nonburnable","glass","cans"],"2026-08-17":["burnable"],"2026-08-19":["burnable","branches"],"2026-08-20":["plastic"],"2026-08-21":["burnable"],"2026-08-22":["pet","paper"],"2026-08-24":["burnable"],"2026-08-26":["burnable","branches"],"2026-08-27":["plastic"],"2026-08-28":["burnable"],"2026-08-31":["burnable"],"2026-09-02":["burnable","branches"],"2026-09-03":["plastic"],"2026-09-04":["burnable"],"2026-09-05":["glass","cans","special5"],"2026-09-07":["burnable"],"2026-09-09":["burnable","branches"],"2026-09-10":["plastic"],"2026-09-11":["burnable"],"2026-09-12":["pet","paper"],"2026-09-14":["burnable"],"2026-09-16":["burnable","branches"],"2026-09-17":["plastic"],"2026-09-18":["burnable"],"2026-09-19":["nonburnable","glass","cans"],"2026-09-21":["burnable"],"2026-09-23":["burnable","branches"],"2026-09-24":["plastic"],"2026-09-25":["burnable"],"2026-09-26":["pet","paper"],"2026-09-28":["burnable"],"2026-09-30":["burnable","branches"],"2026-10-01":["plastic"],"2026-10-02":["burnable"],"2026-10-03":["glass","cans","special5"],"2026-10-05":["burnable"],"2026-10-07":["burnable","branches"],"2026-10-08":["plastic"],"2026-10-09":["burnable"],"2026-10-10":["pet","paper"],"2026-10-12":["burnable"],"2026-10-14":["burnable","branches"],"2026-10-15":["plastic"],"2026-10-16":["burnable"],"2026-10-17":["nonburnable","glass","cans"],"2026-10-19":["burnable"],"2026-10-21":["burnable","branches"],"2026-10-22":["plastic"],"2026-10-23":["burnable"],"2026-10-24":["pet","paper"],"2026-10-26":["burnable"],"2026-10-28":["burnable","branches"],"2026-10-29":["plastic"],"2026-10-30":["burnable"],"2026-11-02":["burnable"],"2026-11-04":["burnable","branches"],"2026-11-05":["plastic"],"2026-11-06":["burnable"],"2026-11-07":["glass","cans","special5"],"2026-11-09":["burnable"],"2026-11-11":["burnable","branches"],"2026-11-12":["plastic"],"2026-11-13":["burnable"],"2026-11-14":["pet","paper"],"2026-11-16":["burnable"],"2026-11-18":["burnable","branches"],"2026-11-19":["plastic"],"2026-11-20":["burnable"],"2026-11-21":["nonburnable","glass","cans"],"2026-11-23":["burnable"],"2026-11-25":["burnable","branches"],"2026-11-26":["plastic"],"2026-11-27":["burnable"],"2026-11-28":["pet","paper"],"2026-11-30":["burnable"],"2026-12-02":["burnable","branches"],"2026-12-03":["plastic"],"2026-12-04":["burnable"],"2026-12-05":["glass","cans","special5"],"2026-12-07":["burnable"],"2026-12-09":["burnable","branches"],"2026-12-10":["plastic"],"2026-12-11":["burnable"],"2026-12-12":["pet","paper"],"2026-12-14":["burnable"],"2026-12-16":["burnable","branches"],"2026-12-17":["plastic"],"2026-12-18":["burnable"],"2026-12-19":["nonburnable","glass","cans"],"2026-12-21":["burnable"],"2026-12-23":["burnable","branches"],"2026-12-24":["plastic"],"2026-12-25":["burnable"],"2026-12-26":["pet","paper"],"2026-12-28":["burnable"],"2026-12-30":["burnable","branches"],"2026-12-31":["burnable"],"2027-01-04":["burnable"],"2027-01-06":["burnable"],"2027-01-07":["plastic"],"2027-01-08":["burnable"],"2027-01-09":["glass","cans","special5"],"2027-01-11":["burnable"],"2027-01-13":["burnable"],"2027-01-14":["plastic"],"2027-01-15":["burnable"],"2027-01-16":["pet","paper"],"2027-01-18":["burnable"],"2027-01-20":["burnable"],"2027-01-21":["plastic"],"2027-01-22":["burnable"],"2027-01-23":["nonburnable","glass","cans"],"2027-01-25":["burnable"],"2027-01-27":["burnable"],"2027-01-28":["plastic"],"2027-01-29":["burnable"],"2027-01-30":["pet","paper"],"2027-02-01":["burnable"],"2027-02-03":["burnable"],"2027-02-04":["plastic"],"2027-02-05":["burnable"],"2027-02-06":["glass","cans","special5"],"2027-02-08":["burnable"],"2027-02-10":["burnable"],"2027-02-11":["plastic"],"2027-02-12":["burnable"],"2027-02-13":["pet","paper"],"2027-02-15":["burnable"],"2027-02-17":["burnable"],"2027-02-18":["plastic"],"2027-02-19":["burnable"],"2027-02-20":["nonburnable","glass","cans"],"2027-02-22":["burnable"],"2027-02-24":["burnable"],"2027-02-25":["plastic"],"2027-02-26":["burnable"],"2027-02-27":["pet","paper"],"2027-03-01":["burnable"],"2027-03-03":["burnable","branches"],"2027-03-04":["plastic"],"2027-03-05":["burnable"],"2027-03-06":["glass","cans","special5"],"2027-03-08":["burnable"],"2027-03-10":["burnable","branches"],"2027-03-11":["plastic"],"2027-03-12":["burnable"],"2027-03-13":["pet","paper"],"2027-03-15":["burnable"],"2027-03-17":["burnable","branches"],"2027-03-18":["plastic"],"2027-03-19":["burnable"],"2027-03-20":["nonburnable","glass","cans"],"2027-03-22":["burnable"],"2027-03-24":["burnable","branches"],"2027-03-25":["plastic"],"2027-03-26":["burnable"],"2027-03-27":["pet","paper"],"2027-03-29":["burnable"],"2027-03-31":["burnable","branches"]}};</script>
+<!-- Area picker -->
+<div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="pickTitle">
+  <div class="panel">
+    <button class="close" id="closePick" data-t="close"></button>
+    <h2 id="pickTitle" data-t="pickH"></h2>
+    <p class="hint" data-t="pickP"></p>
+    <div class="cities" id="cities"></div>
+    <div id="pickBody"></div>
+  </div>
+</div>
+
+<script src="areas.js"></script>
 <script>
 const T={
 en:{
- areaLabel:"Showing:",addCal:"📅 Add garbage reminders",howTo:"How to sort",weekTitle:"Next 7 days",
- morning:"This morning, by 8:00",tomorrow:"Tomorrow",nothing:"Tomorrow",
- hMorning:c=>c,hTomorrow:c=>c,hNone:"No collection.",
- lMorning:"Put it out at your collection point before 8:00 AM.",
- lTomorrow:"Get the bag ready tonight and put it out by 8:00 AM tomorrow.",
- lNone:(d,c)=>`Next collection: ${d} – ${c}.`,
- today:"Today",tmr:"Tomorrow",none:"No collection",
- toolsH:"What Sathi can help with",
- toolsP:"Japanese paperwork and rules, explained simply in Nepali and English. Free, no sign-up.",
- t1:"Garbage days",s1:"What to put out, when, and how – with phone reminders.",
+ areaLabel:"Showing:",change:"Change",addCal:"📅 Add garbage reminders",howTo:"How to sort",choose:"📍 Choose my area",
+ welcome:"Welcome",hChoose:"Which town do you live in?",lChoose:"Choose your town once. We'll show your garbage days and remember it on this phone.",
+ morning:"This morning, by 8:00",tomorrow:"Tomorrow",
+ hNone:"No collection.",lMorning:"Put it out at your collection point before 8:00 AM.",
+ lTomorrow:"Get the bag ready tonight and put it out by 8:00 AM tomorrow.",lNone:(d,c)=>`Next collection: ${d} – ${c}.`,
+ hSpecial:"Your area has its own collection days",lSpecial:(o,t)=>`Collection is different in this busy area. Ask the ${o}: ${t}.`,
+ call:"📞 Call",today:"Today",tmr:"Tomorrow",none:"No collection",
+ pickH:"Choose your area",pickP:"Pick your city, then your town (町名). Your choice is saved only on this phone.",close:"Close",
+ search:"Type your town, e.g. Okubo or 大久保",noMatch:"No town found. Check the spelling or try the Japanese name.",
+ otherH:"Other city",otherP:"We don't cover your city yet. Here is your city's official garbage page:",
+ otherS:"Official garbage pages for other cities",notCovered:"Your town is not on the list? Use the city's official page:",
+ every:"Every",and:" & ",nth:["","1st","2nd","3rd","4th","5th"],ofMonth:"of the month",noJan3:"No collection 31 Dec – 3 Jan.",
+ toolsH:"What Sathi can help with",toolsP:"Japanese paperwork and rules, explained simply in Nepali and English. Free, no sign-up.",
+ t1:"Garbage days",s1:"What to put out, when, and how – with phone reminders. Niigata (Oodori) and all of Shinjuku.",
  t2:"Life checklists",s2:"Arriving, moving house, changing jobs, having a baby, leaving Japan – every step with its deadline and form.",
  t3:"Visa renewal",s3:"When to apply, what to prepare, the official forms and the new fees.",
- t4:"Letter explainer",s4:"Photograph a Japanese letter and get it explained.",
- open:"Open",soon:"Coming soon",
+ t4:"Letter explainer",s4:"Photograph a Japanese letter and get it explained.",open:"Open",soon:"Coming soon",
  garbH:"How to sort your garbage",garbP:"Your area's rules, from the city's official calendar. Tap a type to see how to put it out.",
+ garbChoose:"Choose your area to see its garbage types and days.",guideNe:"Official guide in Nepali (PDF)",guideEn:"Official guide in English (PDF)",book:"Book online",
  promH:"Our promises",
  p1h:"Official sources only",p1:"Every rule links to the city, Immigration or pension office it came from, with the date we last checked it.",
- p2h:"Your data stays with you",p2:"Dates and ticks are saved only on your phone. We never ask for your residence card or My Number.",
+ p2h:"Your data stays with you",p2:"Your area, dates and ticks are saved only on your phone. We never ask for your residence card or My Number.",
  p3h:"We explain, you decide",p3:"Sathi Japan is not legal, tax or immigration advice, and we never fill in applications for you.",
  foot1:"Sathi Japan is not an official government or city service. Made in Niigata.",
- foot2:"Garbage data:",src:"Niigata City official calendar",checked:"Last checked",
+ src:"Garbage data:",official:"official schedule",checked:"Last checked",
  days:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],months:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
 },
 ne:{
- areaLabel:"देखाइएको क्षेत्र:",addCal:"📅 फोहोर रिमाइन्डर थप्नुहोस्",howTo:"छुट्याउने तरिका",weekTitle:"अर्को ७ दिन",
- morning:"आज बिहान ८:०० भित्र",tomorrow:"भोलि",nothing:"भोलि",
- hMorning:c=>c,hTomorrow:c=>c,hNone:"संकलन छैन।",
- lMorning:"बिहान ८:०० भन्दा अघि संकलन स्थलमा राख्नुहोस्।",
- lTomorrow:"आज राति झोला तयार गर्नुहोस् र भोलि बिहान ८:०० भित्र राख्नुहोस्।",
- lNone:(d,c)=>`अर्को संकलन: ${d} – ${c}।`,
- today:"आज",tmr:"भोलि",none:"संकलन छैन",
- toolsH:"साथीले के-के मद्दत गर्छ",
- toolsP:"जापानका कागजी काम र नियम, नेपाली र अंग्रेजीमा सजिलो गरी। निःशुल्क, दर्ता चाहिँदैन।",
- t1:"फोहोर फाल्ने दिन",s1:"के, कहिले र कसरी फाल्ने – फोन रिमाइन्डरसहित।",
+ areaLabel:"देखाइएको क्षेत्र:",change:"बदल्नुहोस्",addCal:"📅 फोहोर रिमाइन्डर थप्नुहोस्",howTo:"छुट्याउने तरिका",choose:"📍 मेरो क्षेत्र छान्नुहोस्",
+ welcome:"स्वागत छ",hChoose:"तपाईं कुन टाउनमा बस्नुहुन्छ?",lChoose:"एकपटक आफ्नो टाउन छान्नुहोस्। हामी फोहोर फाल्ने दिन देखाउँछौं र यो फोनमा सम्झिन्छौं।",
+ morning:"आज बिहान ८:०० भित्र",tomorrow:"भोलि",
+ hNone:"संकलन छैन।",lMorning:"बिहान ८:०० भन्दा अघि संकलन स्थलमा राख्नुहोस्।",
+ lTomorrow:"आज राति झोला तयार गर्नुहोस् र भोलि बिहान ८:०० भित्र राख्नुहोस्।",lNone:(d,c)=>`अर्को संकलन: ${d} – ${c}।`,
+ hSpecial:"तपाईंको क्षेत्रको संकलन दिन फरक छ",lSpecial:(o,t)=>`यो व्यस्त क्षेत्रमा संकलन फरक हुन्छ। ${o} लाई सोध्नुहोस्: ${t}।`,
+ call:"📞 फोन गर्नुहोस्",today:"आज",tmr:"भोलि",none:"संकलन छैन",
+ pickH:"आफ्नो क्षेत्र छान्नुहोस्",pickP:"पहिले सिटी, त्यसपछि टाउन (町名) छान्नुहोस्। तपाईंको छनोट यो फोनमा मात्र सेभ हुन्छ।",close:"बन्द गर्नुहोस्",
+ search:"टाउनको नाम लेख्नुहोस्, जस्तै Okubo वा 大久保",noMatch:"टाउन भेटिएन। हिज्जे जाँच्नुहोस् वा जापानी नाम प्रयोग गर्नुहोस्।",
+ otherH:"अन्य सिटी",otherP:"हामीले तपाईंको सिटी अझै समेटेका छैनौं। तपाईंको सिटीको आधिकारिक फोहोर पेज:",
+ otherS:"अन्य सिटीका आधिकारिक फोहोर पेज",notCovered:"तपाईंको टाउन सूचीमा छैन? सिटीको आधिकारिक पेज हेर्नुहोस्:",
+ every:"हरेक",and:" र ",nth:["","पहिलो","दोस्रो","तेस्रो","चौथो","पाँचौं"],ofMonth:"(महिनाको)",noJan3:"डिसेम्बर ३१ – जनवरी ३ संकलन हुँदैन।",
+ toolsH:"साथीले के-के मद्दत गर्छ",toolsP:"जापानका कागजी काम र नियम, नेपाली र अंग्रेजीमा सजिलो गरी। निःशुल्क, दर्ता चाहिँदैन।",
+ t1:"फोहोर फाल्ने दिन",s1:"के, कहिले र कसरी फाल्ने – फोन रिमाइन्डरसहित। निगाता (ओओदोरी) र सम्पूर्ण सिन्जुकु।",
  t2:"जीवन चेकलिस्ट",s2:"जापान आउँदा, घर सर्दा, जागिर बदल्दा, बच्चा जन्मँदा, जापान छोड्दा – हरेक चरण, अन्तिम मिति र फारम।",
  t3:"भिसा नवीकरण",s3:"कहिले आवेदन दिने, के तयार गर्ने, आधिकारिक फारम र नयाँ शुल्क।",
- t4:"चिठी बुझाउने",s4:"जापानी चिठीको फोटो खिच्नुहोस्, सजिलो व्याख्या पाउनुहोस्।",
- open:"खोल्नुहोस्",soon:"छिट्टै आउँदै",
+ t4:"चिठी बुझाउने",s4:"जापानी चिठीको फोटो खिच्नुहोस्, सजिलो व्याख्या पाउनुहोस्।",open:"खोल्नुहोस्",soon:"छिट्टै आउँदै",
  garbH:"फोहोर कसरी छुट्याउने",garbP:"सिटीको आधिकारिक क्यालेन्डरबाट तपाईंको क्षेत्रको नियम। प्रकारमा थिच्नुहोस्।",
+ garbChoose:"फोहोरका प्रकार र दिन हेर्न आफ्नो क्षेत्र छान्नुहोस्।",guideNe:"नेपाली भाषामा आधिकारिक गाइड (PDF)",guideEn:"अंग्रेजीमा आधिकारिक गाइड (PDF)",book:"अनलाइन बुकिङ",
  promH:"हाम्रो वाचा",
  p1h:"आधिकारिक स्रोत मात्र",p1:"हरेक नियममा सिटी, इमिग्रेसन वा पेन्सन कार्यालयको लिंक र अन्तिम जाँच मिति हुन्छ।",
- p2h:"तपाईंको डाटा तपाईंसँगै",p2:"मिति र ठीक चिन्ह तपाईंको फोनमा मात्र सेभ हुन्छ। रेसिडेन्स कार्ड वा My Number कहिल्यै माग्दैनौं।",
+ p2h:"तपाईंको डाटा तपाईंसँगै",p2:"तपाईंको क्षेत्र, मिति र ठीक चिन्ह फोनमा मात्र सेभ हुन्छ। रेसिडेन्स कार्ड वा My Number कहिल्यै माग्दैनौं।",
  p3h:"हामी बुझाउँछौं, निर्णय तपाईंको",p3:"Sathi Japan कानुनी, कर वा भिसा सल्लाह होइन, र हामी तपाईंको आवेदन भर्दैनौं।",
  foot1:"Sathi Japan सरकार वा सिटीको आधिकारिक सेवा होइन। निगातामा बनाइएको।",
- foot2:"फोहोर डाटा:",src:"निगाता सिटीको आधिकारिक क्यालेन्डर",checked:"अन्तिम जाँच",
+ src:"फोहोर डाटा:",official:"आधिकारिक तालिका",checked:"अन्तिम जाँच",
  days:["आइत","सोम","मंगल","बुध","बिही","शुक्र","शनि"],months:["जनवरी","फेब्रुअरी","मार्च","अप्रिल","मे","जुन","जुलाई","अगस्ट","सेप्टेम्बर","अक्टोबर","नोभेम्बर","डिसेम्बर"]
 }};
-const D=window.SATHI_DATA;
+const A=window.SATHI_AREAS;
 const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
 let lang=store.get("lang")||"en";
+// Saved area: {c: city id, t: town index}. Earlier testers (Oodori) keep working.
+let sel=null;try{sel=JSON.parse(store.get("area")||"null")}catch(e){}
+let pickCity=sel?sel.c:null;
 const $=id=>document.getElementById(id);
-const cat=id=>D.categories.find(c=>c.id===id);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const city=()=>sel&&A.cities.find(c=>c.id===sel.c);
+const town=()=>{const c=city();return c&&c.towns[sel.t]};
+const cat=id=>city().categories.find(c=>c.id===id);
 
-// Japan time
+// Dates in Japan time
 function jpNow(){return new Date(Date.now()+9*3600e3)}
 function iso(off){const d=jpNow();d.setUTCDate(d.getUTCDate()+off);return d.toISOString().slice(0,10)}
+function idsFor(k){
+  const c=city(),t=town(); if(!c||!t||t.special) return null;
+  if(k>c.validUntil) return null;
+  if(c.type==="dated") return c.schedule[k]||[];
+  const d=new Date(k+"T00:00:00Z"),wd=d.getUTCDay(),md=k.slice(5);
+  if(c.noCollection.includes(md)) return [];
+  const out=[];
+  if(t.res.includes(wd)) out.push("res");
+  if(t.burn.includes(wd)) out.push("burn");
+  if(t.metal.wd===wd&&t.metal.nth.includes(Math.ceil(d.getUTCDate()/7))) out.push("metal");
+  return out;
+}
 function names(ids){return ids.map(i=>cat(i)[lang]).join(lang==="ne"?" र ":" and ")}
+function dayList(ws){const t=T[lang];return ws.map(w=>t.days[w]).join(t.and)}
+function ruleText(cg){
+  const c=city(),t=T[lang];
+  if(c.type==="dated") return cg.rule_text[lang];
+  const tw=town(); if(cg.id==="metal") return `${tw.metal.nth.map(n=>t.nth[n]).join(t.and)} ${t.days[tw.metal.wd]} ${t.ofMonth}`;
+  return `${t.every} ${dayList(cg.id==="res"?tw.res:tw.burn)}`;
+}
+function townLabel(c,tw){return lang==="ne"?`${tw.ro} (${tw.ja})`:`${tw.ro} (${tw.ja})`}
 
 function render(){
   const t=T[lang]; document.documentElement.lang=lang;
   document.querySelectorAll("[data-t]").forEach(e=>e.textContent=t[e.dataset.t]);
   document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.l===lang));
-  $("area").textContent=`${D.calendar[lang].replace(/ ?\(.*\)/,"")}, ${D.ward[lang]}, ${D.city[lang]}`;
-
-  // Live hero: before 8:00 → today's collection; otherwise → tomorrow's
-  const s=D.schedule, hour=jpNow().getUTCHours(), today=s[iso(0)], tmr=s[iso(1)];
-  let when,head,lead,ids;
-  if(hour<8&&today){when=t.morning;ids=today;head=names(ids);lead=t.lMorning}
-  else if(tmr){when=t.tomorrow;ids=tmr;head=names(ids);lead=t.lTomorrow}
-  else{
-    when=t.nothing;ids=[];head=t.hNone;
-    let k=2,nx=null;while(k<15&&!(nx=s[iso(k)]))k++;
-    const d=new Date(iso(k)+"T00:00:00Z");
-    lead=nx?t.lNone(`${t.days[d.getUTCDay()]} ${d.getUTCDate()} ${t.months[d.getUTCMonth()]}`,names(nx)):"";
+  const c=city(),tw=town();
+  let when="",head="",lead="",ids=[],actions="";
+  if(!c||!tw){
+    when=t.welcome;head=t.hChoose;lead=t.lChoose;
+    actions=`<button class="btn primary" id="openPick">${t.choose}</button>`;
+    $("areaLine").innerHTML="";
+  }else{
+    $("areaLine").innerHTML=`<span>${t.areaLabel}</span> <strong>${esc(tw.ro)}, ${esc(c.name[lang])}</strong><button class="link" id="openPick2">${t.change}</button>`;
+    if(tw.special){
+      const o=c.offices[tw.office];
+      when=t.welcome;head=t.hSpecial;lead=t.lSpecial(lang==="ne"?o.ja:o.en,o.tel);
+      actions=`<a class="btn primary" href="tel:${o.tel.replace(/-/g,"")}">${t.call} ${o.tel}</a>`;
+    }else{
+      const hour=jpNow().getUTCHours(),today=idsFor(iso(0)),tmr=idsFor(iso(1));
+      if(hour<8&&today&&today.length){when=t.morning;ids=today;head=names(ids);lead=t.lMorning}
+      else if(tmr&&tmr.length){when=t.tomorrow;ids=tmr;head=names(ids);lead=t.lTomorrow}
+      else{
+        when=t.tomorrow;head=t.hNone;let k=2,nx=null;while(k<20&&!((nx=idsFor(iso(k)))&&nx.length))k++;
+        const d=new Date(iso(k)+"T00:00:00Z");
+        lead=nx&&nx.length?t.lNone(`${t.days[d.getUTCDay()]} ${d.getUTCDate()} ${t.months[d.getUTCMonth()]}`,names(nx)):"";
+      }
+      actions=`<button class="btn primary" id="ics">${t.addCal}</button><a class="btn quiet" href="#garbage">${t.howTo}</a>`;
+    }
   }
-  $("when").textContent=when;$("headline").textContent=head;$("headline").classList.toggle("long",ids.length>1);$("lead").textContent=lead;
+  $("when").textContent=when;$("headline").textContent=head;$("lead").textContent=lead;
+  $("headline").classList.toggle("long",ids.length>1||head.length>34);
   $("icons").innerHTML=ids.map(i=>`<span>${cat(i).icon}</span>`).join("");
+  $("actions").innerHTML=actions;
+  ["openPick","openPick2"].forEach(id=>{const b=$(id);if(b)b.onclick=openPicker});
+  if($("ics")) $("ics").onclick=downloadIcs;
 
   // Week strip
-  let w="";
-  for(let i=0;i<7;i++){
-    const k=iso(i),d=new Date(k+"T00:00:00Z"),x=s[k];
-    const label=i===0?t.today:i===1?t.tmr:t.days[d.getUTCDay()];
-    w+=`<li class="${i===0?"now":""}"><span class="d"><b>${label}</b>${d.getUTCDate()} ${t.months[d.getUTCMonth()]}</span><span class="c">${x?x.map(id=>`<i aria-hidden="true">${cat(id).icon}</i>${cat(id)[lang]}`).join("<br>"):`<span class="none">${t.none}</span>`}</span></li>`;
+  const showWeek=c&&tw&&!tw.special;
+  $("weekBox").hidden=!showWeek;
+  if(showWeek){
+    let w="";
+    for(let i=0;i<7;i++){
+      const k=iso(i),d=new Date(k+"T00:00:00Z"),x=idsFor(k);
+      const label=i===0?t.today:i===1?t.tmr:t.days[d.getUTCDay()];
+      w+=`<li class="${i===0?"now":""}"><span class="d"><b>${label}</b>${d.getUTCDate()} ${t.months[d.getUTCMonth()]}</span><span class="c">${x&&x.length?x.map(id=>`<i aria-hidden="true">${cat(id).icon}</i>${cat(id)[lang]}`).join("<br>"):`<span class="none">${t.none}</span>`}</span></li>`;
+    }
+    $("week").innerHTML=w;
   }
-  $("week").innerHTML=w;
 
   // Garbage guide
-  $("types").innerHTML=D.categories.map(c=>`<details><summary><span class="ic" aria-hidden="true">${c.icon}</span><span><b>${c[lang]}</b><small>${c.rule_text[lang]}</small></span></summary><p>${c.how[lang]}<br>${c.ja}</p></details>`).join("");
-  $("bulky").innerHTML=`${D.bulky[lang]} <a href="${D.bulky.url}" target="_blank" rel="noopener">${lang==="ne"?"अनलाइन बुकिङ":"Book online"}</a>`;
-  const src=$("src");src.href=D.sources[0].url;src.textContent=t.src;
-  $("checked").textContent=D.last_checked;
+  if(showWeek){
+    $("garbP").textContent=t.garbP;
+    $("types").innerHTML=c.categories.map(cg=>`<details><summary><span class="ic" aria-hidden="true">${cg.icon}</span><span><b>${cg[lang]}</b><small>${ruleText(cg)}</small></span></summary><p>${cg.how[lang]}<br>${cg.ja}</p></details>`).join("");
+    let b=`${c.bulky[lang]} <a href="${c.bulky.url}" target="_blank" rel="noopener">${t.book}</a>`;
+    if(c.noCollection) b+=`<br>${t.noJan3}`;
+    if(c.guideNe) b+=`<br><a href="${c.guideNe}" target="_blank" rel="noopener">${t.guideNe}</a> · <a href="${c.guideEn}" target="_blank" rel="noopener">${t.guideEn}</a>`;
+    $("bulky").innerHTML=b;$("bulky").hidden=false;
+    $("srcLine").innerHTML=`${t.src} <a href="${c.source}" target="_blank" rel="noopener">${esc(c.name[lang])} ${t.official}</a>. ${t.checked} ${c.lastChecked}.`;
+  }else{
+    $("garbP").textContent=t.garbChoose;$("types").innerHTML="";$("bulky").hidden=true;$("srcLine").innerHTML="";
+  }
+  if(!$("sheet").hidden) renderPicker();
 }
+
+// ---------- Picker ----------
+let query="";
+function norm(s){return s.toLowerCase().normalize("NFKC").replace(/[^a-z0-9\u3040-\u30ff\u4e00-\u9fff]/g,"").replace(/ou/g,"o").replace(/oo/g,"o").replace(/uu/g,"u")}
+function openPicker(){$("sheet").hidden=false;renderPicker();setTimeout(()=>{const s=$("q");if(s)s.focus()},50)}
+function closePicker(){$("sheet").hidden=true}
+function renderPicker(){
+  const t=T[lang];
+  const opts=A.cities.map(c=>`<button data-c="${c.id}" aria-pressed="${pickCity===c.id}"><b>${esc(c.name[lang])}</b><span>${esc(c.coverage[lang])}</span></button>`).join("")
+    +`<button data-c="other" aria-pressed="${pickCity==="other"}"><b>${t.otherH}</b><span>${t.otherS}</span></button>`;
+  $("cities").innerHTML=opts;
+  $("cities").querySelectorAll("button").forEach(b=>b.onclick=()=>{pickCity=b.dataset.c;query="";renderPicker();const s=$("q");if(s)s.focus()});
+  let body="";
+  if(pickCity==="other"){
+    body=`<p class="hint">${t.otherP}</p><ul class="links">${A.links.map(l=>`<li><a href="${l.url}" target="_blank" rel="noopener">${esc(l[lang])} ↗</a></li>`).join("")}</ul>`;
+  }else if(pickCity){
+    const c=A.cities.find(x=>x.id===pickCity);
+    const q=norm(query);
+    const list=c.towns.map((tw,i)=>({tw,i})).filter(({tw})=>!q||norm(tw.ro).includes(q)||norm(tw.ja).includes(q));
+    body=`<input class="search" id="q" type="search" placeholder="${t.search}" value="${esc(query)}" autocomplete="off">
+      <ul class="towns">${list.length?list.map(({tw,i})=>`<li><button data-i="${i}"><b>${esc(tw.ro)}</b> ${esc(tw.ja.replace(/（.*$/,""))}${tw.note?`<small>${esc(tw.note)}</small>`:""}</button></li>`).join(""):`<li class="empty">${t.noMatch}</li>`}</ul>`;
+    if(c.otherAreasUrl) body+=`<p class="hint">${t.notCovered} <a href="${c.otherAreasUrl}" target="_blank" rel="noopener">${esc(c.name[lang])} ↗</a></p>`;
+  }
+  $("pickBody").innerHTML=body;
+  const q=$("q");
+  if(q){q.oninput=e=>{query=e.target.value;const pos=e.target.selectionStart;renderPicker();const n=$("q");n.focus();n.setSelectionRange(pos,pos)}}
+  $("pickBody").querySelectorAll("button[data-i]").forEach(b=>b.onclick=()=>{
+    sel={c:pickCity,t:+b.dataset.i};store.set("area",JSON.stringify(sel));closePicker();render();window.scrollTo({top:0,behavior:"smooth"});
+  });
+}
+$("closePick").onclick=closePicker;
+$("sheet").onclick=e=>{if(e.target.id==="sheet")closePicker()};
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!$("sheet").hidden)closePicker()});
+
+// ---------- Calendar file (made on the phone) ----------
+function fold(line){const enc=new TextEncoder();let out=[],cur="",lim=75;for(const ch of line){if(enc.encode(cur+ch).length>lim){out.push(cur);cur=" "+ch;lim=75}else cur+=ch}out.push(cur);return out.join("\r\n")}
+
+function downloadIcs(){
+  const c=city(),tw=town(),t=T.en,stamp=new Date().toISOString().replace(/[-:]/g,"").slice(0,15)+"Z";
+  const esc2=s=>s.replace(/\\/g,"\\\\").replace(/;/g,"\\;").replace(/,/g,"\\,");
+  const L=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Sathi Japan//Garbage//EN","CALSCALE:GREGORIAN",`X-WR-CALNAME:Sathi Japan – Garbage (${esc2(tw.ro)})`];
+  for(let i=0;i<200;i++){
+    const k=iso(i),x=idsFor(k);if(x===null)break;if(!x.length)continue;
+    const ymd=k.replace(/-/g,""),nd=new Date(k+"T00:00:00Z");nd.setUTCDate(nd.getUTCDate()+1);
+    const sum=x.map(id=>`${cat(id).icon} ${cat(id).en}`).join(" + ")+" / "+x.map(id=>cat(id).ne).join(" + ");
+    L.push("BEGIN:VEVENT",`UID:${c.id}-${sel.t}-${ymd}@sathijapan.com`,`DTSTAMP:${stamp}`,`DTSTART;VALUE=DATE:${ymd}`,
+      `DTEND;VALUE=DATE:${nd.toISOString().slice(0,10).replace(/-/g,"")}`,`SUMMARY:${esc2(sum)}`,
+      `DESCRIPTION:${esc2("Put out by 8:00 / बिहान ८:०० भित्र. Source: "+c.source)}`,"TRANSP:TRANSPARENT",
+      "BEGIN:VALARM","ACTION:DISPLAY","TRIGGER:-PT4H",`DESCRIPTION:${esc2("Tomorrow: "+sum)}`,"END:VALARM","END:VEVENT");
+  }
+  L.push("END:VCALENDAR");
+  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([L.map(fold).join("\r\n")+"\r\n"],{type:"text/calendar"}));
+  a.download=`sathi-garbage-${c.id}.ics`;document.body.appendChild(a);a.click();a.remove();
+}
+
 document.querySelectorAll(".lang button").forEach(b=>b.onclick=()=>{lang=b.dataset.l;store.set("lang",lang);render()});
 render();
 </script>
