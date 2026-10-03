@@ -417,6 +417,149 @@ window.CHECKLISTS = [
   ]
  },
  {
+  "id": "baby",
+  "icon": "👶",
+  "title": {
+   "en": "Having a baby",
+   "ne": "बच्चा जन्मँदा"
+  },
+  "keyDate": {
+   "en": "Baby's date of birth",
+   "ne": "बच्चाको जन्म मिति"
+  },
+  "steps": [
+   {
+    "id": "birth",
+    "offset": 13,
+    "en": "Register the birth (出生届) at the ward office within 14 days, counting the birth day. Bring the birth form signed by the hospital (出生証明書), the Maternal and Child Health Handbook (母子健康手帳), your residence card and a bank card. Ask for a birth acceptance certificate (出生届受理証明書) – you need it for Immigration and your embassy.",
+    "ne": "जन्मेको दिनसमेत गनेर १४ दिनभित्र वार्ड कार्यालयमा जन्म दर्ता (出生届) गर्नुहोस्। अस्पतालले हस्ताक्षर गरेको जन्म फारम (出生証明書), मातृ-शिशु स्वास्थ्य पुस्तिका (母子健康手帳), रेसिडेन्स कार्ड र बैंक कार्ड लैजानुहोस्। जन्म दर्ता प्रमाणपत्र (出生届受理証明書) माग्नुहोस् – इमिग्रेसन र दूतावासमा चाहिन्छ।",
+    "src": "https://www.city.niigata.lg.jp/kurashi/todokede/kosekinado/koseki/syussei.html",
+    "forms": [
+     {
+      "kind": "counter",
+      "label": {
+       "en": "The birth form is given by the hospital; the rest is filled in at the ward office",
+       "ne": "जन्म फारम अस्पतालले दिन्छ; बाँकी वार्ड कार्यालयमा भरिन्छ"
+      }
+     }
+    ]
+   },
+   {
+    "id": "insurance",
+    "offset": 14,
+    "en": "Add the baby to health insurance. Company insurance: tell your employer. National Health Insurance: join at the ward office within 14 days.",
+    "ne": "बच्चालाई स्वास्थ्य बीमामा थप्नुहोस्। कम्पनीको बीमा भए: कम्पनीलाई भन्नुहोस्। राष्ट्रिय स्वास्थ्य बीमा भए: १४ दिनभित्र वार्ड कार्यालयमा भर्ना गर्नुहोस्।",
+    "src": "https://www.city.niigata.lg.jp/kurashi/hoken/kokuho/konnatoki/todokede.html",
+    "forms": [
+     {
+      "kind": "counter",
+      "label": {
+       "en": "National Health Insurance: form at the ward office counter",
+       "ne": "राष्ट्रिय स्वास्थ्य बीमा: फारम वार्ड कार्यालयको काउन्टरमा"
+      }
+     }
+    ]
+   },
+   {
+    "id": "allowance",
+    "offset": 15,
+    "en": "Apply for Child Allowance (児童手当) within 15 days from the day after the birth. If you are late, you lose the months before you apply. You can do it at the same visit as the birth registration.",
+    "ne": "जन्मेको भोलिपल्टदेखि १५ दिनभित्र बाल भत्ता (児童手当) को आवेदन दिनुहोस्। ढिला भए आवेदनअघिका महिनाको भत्ता पाइँदैन। जन्म दर्ता गर्दा उही पटक गर्न सकिन्छ।",
+    "src": "https://www.city.niigata.lg.jp/kosodate/ninshin/shien/teate/jidoteate/jukyuu.html",
+    "forms": [
+     {
+      "kind": "pdf",
+      "url": "https://www.city.niigata.lg.jp/kosodate/ninshin/shien/teate/jidoteate/jukyuu.files/20240716ninntei.pdf",
+      "label": {
+       "en": "Child Allowance application form",
+       "ne": "बाल भत्ता आवेदन फारम"
+      }
+     }
+    ]
+   },
+   {
+    "id": "medical",
+    "offset": 15,
+    "en": "Apply for the child medical subsidy (こども医療費助成) at the ward office – it lowers your baby's hospital costs. Do it together with the Child Allowance.",
+    "ne": "वार्ड कार्यालयमा बाल उपचार खर्च सहायता (こども医療費助成) को आवेदन दिनुहोस् – यसले बच्चाको अस्पताल खर्च घटाउँछ। बाल भत्तासँगै गर्नुहोस्।",
+    "src": "https://www.city.niigata.lg.jp/kosodate/ninshin/shien/kenko_iryo/kodomoiryo/kodomoiryou.html",
+    "forms": [
+     {
+      "kind": "counter",
+      "label": {
+       "en": "Form at the ward office counter",
+       "ne": "फारम वार्ड कार्यालयको काउन्टरमा"
+      }
+     }
+    ]
+   },
+   {
+    "id": "status",
+    "offset": 29,
+    "en": "Apply for your baby's status of residence at Immigration within 30 days of the birth (free). A baby born in Japan can stay 60 days without a status – to stay longer you MUST apply in time. Bring the birth acceptance certificate, residence record (住民票), your residence card, and the baby's passport if you already have it.",
+    "ne": "जन्मेको ३० दिनभित्र इमिग्रेसनमा बच्चाको भिसा (在留資格) को आवेदन दिनुहोस् (निःशुल्क)। जापानमा जन्मेको बच्चा भिसा बिना ६० दिन बस्न सक्छ – बढी बस्न समयमै आवेदन अनिवार्य छ। जन्म दर्ता प्रमाणपत्र, 住民票, आफ्नो रेसिडेन्स कार्ड, र बच्चाको पासपोर्ट भए त्यो पनि लैजानुहोस्।",
+    "src": "https://www.moj.go.jp/isa/applications/procedures/16-10.html",
+    "forms": [
+     {
+      "kind": "pdf",
+      "url": "https://www.moj.go.jp/isa/content/930004120.pdf",
+      "label": {
+       "en": "Application to acquire status of residence (在留資格取得許可申請書)",
+       "ne": "भिसा प्राप्ति आवेदन फारम (在留資格取得許可申請書)"
+      }
+     },
+     {
+      "kind": "page",
+      "url": "https://www.moj.go.jp/isa/applications/procedures/16-10.html",
+      "label": {
+       "en": "Official page: documents for each visa type",
+       "ne": "आधिकारिक पेज: भिसा प्रकारअनुसार कागजात"
+      }
+     }
+    ]
+   },
+   {
+    "id": "embassy",
+    "offset": 34,
+    "en": "Nepali parents: register the birth at the Embassy of Nepal in Tokyo within 35 days (free; ¥4,000 after that). A parent must go in person. Then apply for the baby's Nepali passport. Other nationalities: ask your own embassy.",
+    "ne": "नेपाली अभिभावक: ३५ दिनभित्र टोकियोस्थित नेपाली दूतावासमा जन्म दर्ता गर्नुहोस् (निःशुल्क; त्यसपछि ¥४,०००)। अभिभावक आफैं उपस्थित हुनुपर्छ। त्यसपछि बच्चाको नेपाली पासपोर्टको आवेदन दिनुहोस्। अन्य देशका नागरिक: आफ्नो दूतावासमा सोध्नुहोस्।",
+    "src": "https://jp.nepalembassy.gov.np/content/9/information-regarding-personal-event-registration--birth-registration-/",
+    "forms": [
+     {
+      "kind": "page",
+      "url": "https://jp.nepalembassy.gov.np/content/9/information-regarding-personal-event-registration--birth-registration-/",
+      "label": {
+       "en": "Embassy birth registration notice and form",
+       "ne": "दूतावासको जन्म दर्ता सूचना र फारम"
+      }
+     },
+     {
+      "kind": "page",
+      "url": "https://jp.nepalembassy.gov.np/pages/passport-2/",
+      "label": {
+       "en": "Embassy passport information",
+       "ne": "दूतावासको पासपोर्ट जानकारी"
+      }
+     }
+    ]
+   },
+   {
+    "id": "lump",
+    "offset": null,
+    "en": "Childbirth costs: your health insurance pays a childbirth lump-sum (出産育児一時金). Ask the hospital before the birth if they use the direct payment system (直接支払制度), so you only pay the difference.",
+    "ne": "सुत्केरी खर्च: स्वास्थ्य बीमाले सुत्केरी एकमुष्ट रकम (出産育児一時金) दिन्छ। जन्मअघि नै अस्पताललाई प्रत्यक्ष भुक्तानी प्रणाली (直接支払制度) छ कि सोध्नुहोस्, ताकि फरक रकम मात्र तिर्नुपरोस्।",
+    "src": "https://www.mhlw.go.jp/bunya/iryouhoken/iryouhoken09/07-1.html"
+   },
+   {
+    "id": "visit",
+    "offset": null,
+    "en": "Newborn home visit: send the birth contact card (出生連絡票) from the Maternal and Child Health Handbook. A city nurse visits for free to check the baby and answer questions.",
+    "ne": "नवजात घर भ्रमण: मातृ-शिशु स्वास्थ्य पुस्तिकाको जन्म सम्पर्क कार्ड (出生連絡票) पठाउनुहोस्। सिटीको नर्सले निःशुल्क घरमा आएर बच्चा जाँच्छन् र प्रश्नको जवाफ दिन्छन्।",
+    "src": "https://www.city.niigata.lg.jp/kosodate/ninshin/life_stage/akachan/todokede_tetsuduki/index.html"
+   }
+  ]
+ },
+ {
   "id": "leaving",
   "icon": "🧳",
   "title": {
