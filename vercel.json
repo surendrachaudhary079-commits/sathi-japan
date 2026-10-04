@@ -19,17 +19,9 @@
       ]
     }
   ],
-  "functions": {
-    "api/remind.js": {
-      "includeFiles": "areas.js"
-    },
-    "api/subscribe.js": {
-      "includeFiles": "areas.js"
-    }
-  },
   "crons": [
     {
-      "path": "/api/remind?hour=20",
+      "path": "/api/remind",
       "schedule": "0 11 * * *"
     }
   ]
