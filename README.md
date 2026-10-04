@@ -1,6 +1,6 @@
 # Sathi Japan – Complete Guide
 
-Version: 3 October 2026 · Areas: Niigata City Minami-ku (Oodori, code 74) and all of Shinjuku, Tokyo
+Version: 4 October 2026 · Areas: Niigata City Minami-ku (Oodori, code 74) and all of Shinjuku, Tokyo
 Website: https://sathi-japan.vercel.app
 
 ---
@@ -16,11 +16,16 @@ Website: https://sathi-japan.vercel.app
 | `checklists.html` | Life checklists page (arrival, moving, job change, leaving Japan). | "✅ Life checklists" button |
 | `checklists-data.js` | All checklist steps, deadlines, official links and forms. **Edit this file when a rule changes.** | used by checklists.html |
 | `visa.html` | Visa renewal guide: expiry reminder, steps, documents, forms, fees, help. | "🪪 Visa renewal" button |
-| `vercel.json` | A small setting for Vercel (calendar file type). Do not delete. | – |
+| `vercel.json` | Vercel settings: calendar file type and the **evening reminder job (20:00–21:00 JST)**. Do not delete. | – |
+| `api/` folder | Server code for reminders: `subscribe.js`, `unsubscribe.js`, `remind.js`, `_lib.js`. | runs on Vercel |
+| `sw.js` | Shows the reminder notification on the phone. | – |
+| `manifest.json`, `icon-192.png`, `icon-512.png`, `apple-touch-icon.png` | App name and icon (for "Add to Home Screen"). | – |
+| `privacy.html` | "What we save" page (English + Nepali). **Add your contact email.** | footer link |
+| `supabase-setup.sql` | Creates the reminder table in Supabase (run once). | – |
 | `later-ai-letter/` | AI letter explainer – **do NOT upload yet** (needs a paid Claude API key). See section 6. | – |
 
-All files sit at the top level (no folders) so the GitHub website upload works.
-Nothing in the app needs a database or a paid service. Personal dates and ticks are saved only on each user's phone.
+Everything sits at the top level except the `api/` folder. Personal dates and ticks stay on each user's phone.
+Only the evening reminders use a database (Supabase, free plan) – see section 10.
 
 ---
 
@@ -121,3 +126,39 @@ Needs a Claude API key (pay-per-use, about ¥2 per letter – your Claude chat p
 | A form link is broken | Tell Claude – the government changed the file; Claude finds the new one |
 
 Not an official government or city service.
+
+---
+
+## 10. Evening push reminders – one-time setup (about 20 minutes)
+
+You need: the file `sathi-secret-keys.txt` (sent separately – keep it private, never upload it).
+
+**A. Supabase (database)**
+1. supabase.com → **New project** → name `sathi-japan` → choose region **Northeast Asia (Tokyo)** → set a database password → Create.
+2. Left menu → **SQL Editor** → **New query** → paste everything from `supabase-setup.sql` → **Run**. You should see "Success".
+3. Left menu → **Project Settings → API / API Keys**. Copy the **Project URL** and the **secret (service_role) key**.
+   The secret key is like a master password – only put it in Vercel, never in GitHub.
+
+**B. Vercel (settings)**
+1. Vercel → project → **Settings → Environment Variables**. Add 6 variables:
+   `VAPID_PUBLIC_KEY`, `VAPID_PRIVATE_KEY`, `VAPID_SUBJECT`, `CRON_SECRET` (from the keys file),
+   `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY` (from Supabase).
+   In `VAPID_SUBJECT` replace YOUR-EMAIL-HERE with your contact email (e.g. `mailto:you@gmail.com`).
+
+**C. GitHub (upload)**
+1. Repo → **Add file → Upload files**.
+2. From the unzipped folder, drag in **all files AND the `api` folder itself** (drag the folder, don't open it).
+   Do NOT upload `later-ai-letter`, `data-src` or the keys file.
+3. Before committing, check the list shows `api/subscribe.js`, `api/remind.js`, `api/unsubscribe.js`, `api/_lib.js`.
+   If they appear without `api/` in front, cancel and use **Add file → Create new file**, type the name `api/_lib.js`, paste the file's contents, commit – repeat for the other 3.
+4. **Commit changes** → Vercel → **Deployments → ⋯ → Redeploy** (so it uses the new settings).
+
+**D. Test**
+1. Android: open the site in Chrome → choose your area → **🔔 Remind me every evening** → Allow. A "Reminders are on ✅" message should arrive within seconds.
+2. iPhone: Safari → Share → **Add to Home Screen** → open it from the Home Screen → tap the button → Allow.
+3. Vercel → project → **Settings → Cron Jobs** should list `/api/remind`. You can press **Run** to test it now (it only sends if tomorrow has a collection).
+4. Problems? Vercel → **Logs** shows errors in plain text – send me a screenshot.
+
+**E. Before you share it widely**
+- Put your contact email in `privacy.html` (replace both "[add your contact email]").
+- Reminders arrive between 20:00 and 21:00 (free plan timing).
