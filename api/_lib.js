@@ -4,16 +4,27 @@ const fs = require("fs");
 const path = require("path");
 const vm = require("vm");
 
-// ---------- Garbage areas (same file the website uses) ----------
+// ---------- Garbage areas (same areas.js file the website uses) ----------
+// Read from the project files if available, otherwise download it from the website itself.
 let AREAS = null;
-function areas() {
-  if (!AREAS) {
-    const ctx = { window: {} };
-    vm.runInNewContext(fs.readFileSync(path.join(process.cwd(), "areas.js"), "utf8"), ctx);
-    AREAS = ctx.window.SATHI_AREAS;
+async function loadAreas(host) {
+  if (AREAS) return AREAS;
+  let code = null;
+  for (const p of [path.join(process.cwd(), "areas.js"), path.join(__dirname, "..", "areas.js")]) {
+    try { code = fs.readFileSync(p, "utf8"); break; } catch (_) {}
   }
+  if (!code) {
+    const base = host ? `https://${host}` : `https://${env("VERCEL_PROJECT_PRODUCTION_URL") || "sathi-japan.vercel.app"}`;
+    const r = await fetch(`${base}/areas.js`);
+    if (!r.ok) throw new Error("cannot load areas.js: " + r.status);
+    code = await r.text();
+  }
+  const ctx = { window: {} };
+  vm.runInNewContext(code, ctx);
+  AREAS = ctx.window.SATHI_AREAS;
   return AREAS;
 }
+function areas() { if (!AREAS) throw new Error("call loadAreas first"); return AREAS; }
 function findTown(cityId, townIndex) {
   const city = areas().cities.find(c => c.id === cityId);
   const town = city && city.towns[townIndex];
@@ -120,4 +131,4 @@ function validSub(s) {
   } catch { return false; }
 }
 
-module.exports = { HOURS, env, keyKind, areas, findTown, idsFor, jpDate, message, sendPush, encrypt, vapidHeader, sb, validSub, b64u, unb64u };
+module.exports = { HOURS, env, keyKind, loadAreas, areas, findTown, idsFor, jpDate, message, sendPush, encrypt, vapidHeader, sb, validSub, b64u, unb64u };
