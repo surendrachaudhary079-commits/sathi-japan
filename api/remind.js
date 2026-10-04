@@ -2,7 +2,7 @@
 // Sends to the phones whose chosen time is this hour (Japan time).
 //   06:00 / 07:00  → today's garbage ("Garbage day today")
 //   18:00 – 22:00  → tomorrow's garbage ("Garbage day tomorrow")
-const { HOURS, findTown, idsFor, jpDate, message, sendPush, sb } = require("./_lib");
+const { HOURS, loadAreas, findTown, idsFor, jpDate, message, sendPush, sb } = require("./_lib");
 
 module.exports = async function handler(req, res) {
   // Only the schedulers (or you, with the secret) may run this
@@ -14,6 +14,7 @@ module.exports = async function handler(req, res) {
   const hour = req.headers["x-vercel-cron-schedule"] ? 20 : (req.query && req.query.hour ? Number(req.query.hour) : jp.getUTCHours());
   if (!HOURS.includes(hour)) return res.status(200).json({ hour, note: "no reminders at this hour" });
 
+  try { await loadAreas((req.headers || {}).host); } catch (e) { console.error(e); return res.status(500).json({ error: "areas_unavailable" }); }
   const morning = hour < 12;
   const today = jpDate(0), target = morning ? today : jpDate(1);
   let sent = 0, skipped = 0, removed = 0, failed = 0, already = 0;
