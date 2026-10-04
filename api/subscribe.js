@@ -1,5 +1,5 @@
 // Turn reminders on (or update area/language). Saves: push address, area, language. Nothing else.
-const { env, keyKind, findTown, sb, validSub, sendPush, HOURS } = require("./_lib");
+const { env, keyKind, loadAreas, findTown, sb, validSub, sendPush, HOURS } = require("./_lib");
 
 module.exports = async function handler(req, res) {
   if (req.method === "GET") {
@@ -13,6 +13,7 @@ module.exports = async function handler(req, res) {
         CRON_SECRET: !!env("CRON_SECRET"),
         SUPABASE_URL: /^https:\/\/[a-z0-9]+\.supabase\.co/.test(env("SUPABASE_URL")) ? "ok" : (env("SUPABASE_URL") ? "looks wrong" : "missing"),
         SUPABASE_KEY: keyKind() };
+      try { await loadAreas((req.headers || {}).host); out.check.areas = "ok"; } catch (e) { out.check.areas = "error: " + e.message; }
       try {
         const r = await sb("push_subs?select=id&limit=1");
         out.check.database = r.ok ? "ok" : `error ${r.status}: ${(await r.text()).slice(0, 120)}`;
@@ -22,6 +23,7 @@ module.exports = async function handler(req, res) {
   }
   if (req.method !== "POST") return res.status(405).json({ error: "POST only" });
 
+  try { await loadAreas((req.headers || {}).host); } catch (e) { console.error(e); return res.status(500).json({ error: "areas_unavailable" }); }
   const { sub, city, town, lang = "en", hour = 20, test = false } = req.body || {};
   if (!validSub(sub)) return res.status(400).json({ error: "bad_subscription" });
   const place = findTown(city, Number(town));
