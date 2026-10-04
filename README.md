@@ -16,12 +16,12 @@ Website: https://sathi-japan.vercel.app
 | `checklists.html` | Life checklists page (arrival, moving, job change, leaving Japan). | "✅ Life checklists" button |
 | `checklists-data.js` | All checklist steps, deadlines, official links and forms. **Edit this file when a rule changes.** | used by checklists.html |
 | `visa.html` | Visa renewal guide: expiry reminder, steps, documents, forms, fees, help. | "🪪 Visa renewal" button |
-| `vercel.json` | Vercel settings: calendar file type and the **evening reminder job (20:00–21:00 JST)**. Do not delete. | – |
+| `vercel.json` | Vercel settings: calendar file type and a daily backup reminder job (20:00). Do not delete. | – |
 | `api/` folder | Server code for reminders: `subscribe.js`, `unsubscribe.js`, `remind.js`, `_lib.js`. | runs on Vercel |
 | `sw.js` | Shows the reminder notification on the phone. | – |
 | `manifest.json`, `icon-192.png`, `icon-512.png`, `apple-touch-icon.png` | App name and icon (for "Add to Home Screen"). | – |
 | `privacy.html` | "What we save" page (English + Nepali). **Add your contact email.** | footer link |
-| `supabase-setup.sql` | Creates the reminder table in Supabase (run once). | – |
+| `supabase-setup.sql` | Creates the reminder table and the **hourly reminder scheduler** in Supabase. Put your CRON_SECRET in it before running. | – |
 | `later-ai-letter/` | AI letter explainer – **do NOT upload yet** (needs a paid Claude API key). See section 6. | – |
 
 Everything sits at the top level except the `api/` folder. Personal dates and ticks stay on each user's phone.
@@ -161,4 +161,5 @@ You need: the file `sathi-secret-keys.txt` (sent separately – keep it private,
 
 **E. Before you share it widely**
 - Put your contact email in `privacy.html` (replace both "[add your contact email]").
-- Reminders arrive between 20:00 and 21:00 (free plan timing).
+- Users choose their reminder time: 18:00–22:00 (evening before) or 6:00 / 7:00 (same morning).
+- The hourly scheduler runs inside Supabase (pg_cron). Check it: Supabase → Integrations/Database → Cron → job `sathi-remind` → history.

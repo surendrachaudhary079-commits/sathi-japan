@@ -141,6 +141,8 @@
   .links a{display:block;padding:10px 4px;border-top:1px solid var(--line);font-weight:700;text-decoration:none}
   .hint{font-size:15px;color:var(--muted);margin:8px 0 0}
   .pstatus{font-size:16px;margin:12px 0 0;color:var(--ink);font-weight:500}
+  .when-pick{display:flex;align-items:center;gap:10px;flex-basis:100%;font-size:16px;color:var(--muted)}
+  .when-pick select{font:inherit;font-size:16px;color:var(--ink);font-weight:700;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
   .pstatus:empty{display:none}
   .privacy{font-size:15px;color:var(--muted);margin:10px 0 0}
   ol.steps{margin:14px 0 0;padding-left:22px}
@@ -233,12 +235,12 @@
 <script>
 const T={
 en:{
- areaLabel:"Showing:",remind:"🔔 Remind me every evening",remindOff:"🔕 Turn off reminders",calQuiet:"📅 Add to calendar",
+ areaLabel:"Showing:",remind:"🔔 Turn on reminders",remindOff:"🔕 Turn off reminders",calQuiet:"📅 Add to calendar",
  pOn:"Reminders are on. A test message is on its way.",pOff:"Reminders are off. Your data was deleted.",pUpd:"Reminders updated.",
  pBlocked:"Notifications are blocked. Allow them for this site in your phone settings, then try again.",pNo:"This browser can't send reminders. Use “Add to calendar” instead.",
- pErr:"Couldn't turn on reminders. Check your internet and try again.",pWait:"Turning on…",privacy:"What we save",
+ pErr:"Couldn't turn on reminders. Check your internet and try again.",pWait:"Turning on…",privacy:"What we save",remindAt:"⏰ Remind me at",eve:"Evening before",morn:"Same morning",pTime:h=>`Reminder time changed to ${h}.`,
  iosH:"iPhone: one more step",iosP:"iPhone only sends website reminders after you add Sathi Japan to your Home Screen.",
- iosSteps:["In Safari, tap the Share button (□↑).","Tap “Add to Home Screen”, then “Add”.","Open Sathi Japan from your Home Screen.","Tap “🔔 Remind me every evening” again and allow notifications."],
+ iosSteps:["In Safari, tap the Share button (□↑).","Tap “Add to Home Screen”, then “Add”.","Open Sathi Japan from your Home Screen.","Tap “🔔 Turn on reminders” again and allow notifications."],
  iosNote:"Needs iOS 16.4 or newer.",change:"Change",addCal:"📅 Add garbage reminders",howTo:"How to sort",choose:"📍 Choose my area",
  welcome:"Welcome",hChoose:"Which town do you live in?",lChoose:"Choose your town once. We'll show your garbage days and remember it on this phone.",
  morning:"This morning, by 8:00",tomorrow:"Tomorrow",
@@ -267,12 +269,12 @@ en:{
  days:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],months:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
 },
 ne:{
- areaLabel:"देखाइएको क्षेत्र:",remind:"🔔 हरेक बेलुका सम्झाउनुहोस्",remindOff:"🔕 रिमाइन्डर बन्द गर्नुहोस्",calQuiet:"📅 क्यालेन्डरमा थप्नुहोस्",
+ areaLabel:"देखाइएको क्षेत्र:",remind:"🔔 रिमाइन्डर सक्रिय गर्नुहोस्",remindOff:"🔕 रिमाइन्डर बन्द गर्नुहोस्",calQuiet:"📅 क्यालेन्डरमा थप्नुहोस्",
  pOn:"रिमाइन्डर सक्रिय भयो। परीक्षण सन्देश आउँदैछ।",pOff:"रिमाइन्डर बन्द भयो। तपाईंको डाटा मेटाइयो।",pUpd:"रिमाइन्डर अपडेट भयो।",
  pBlocked:"सूचना (notification) रोकिएको छ। फोनको सेटिङमा यो साइटलाई अनुमति दिनुहोस्, अनि फेरि प्रयास गर्नुहोस्।",pNo:"यो ब्राउजरले रिमाइन्डर पठाउन सक्दैन। “क्यालेन्डरमा थप्नुहोस्” प्रयोग गर्नुहोस्।",
- pErr:"रिमाइन्डर सक्रिय गर्न सकिएन। इन्टरनेट जाँचेर फेरि प्रयास गर्नुहोस्।",pWait:"सक्रिय गर्दै…",privacy:"हामी के सेभ गर्छौं",
+ pErr:"रिमाइन्डर सक्रिय गर्न सकिएन। इन्टरनेट जाँचेर फेरि प्रयास गर्नुहोस्।",pWait:"सक्रिय गर्दै…",privacy:"हामी के सेभ गर्छौं",remindAt:"⏰ सम्झाउने समय",eve:"अघिल्लो बेलुका",morn:"त्यही दिन बिहान",pTime:h=>`रिमाइन्डर समय ${h} मा बदलियो।`,
  iosH:"iPhone: अर्को एक चरण",iosP:"iPhone ले Sathi Japan लाई Home Screen मा थपेपछि मात्र वेबसाइटको रिमाइन्डर पठाउँछ।",
- iosSteps:["Safari मा Share बटन (□↑) थिच्नुहोस्।","“Add to Home Screen” अनि “Add” थिच्नुहोस्।","Home Screen बाट Sathi Japan खोल्नुहोस्।","फेरि “🔔 हरेक बेलुका सम्झाउनुहोस्” थिच्नुहोस् र notification लाई अनुमति दिनुहोस्।"],
+ iosSteps:["Safari मा Share बटन (□↑) थिच्नुहोस्।","“Add to Home Screen” अनि “Add” थिच्नुहोस्।","Home Screen बाट Sathi Japan खोल्नुहोस्।","फेरि “🔔 रिमाइन्डर सक्रिय गर्नुहोस्” थिच्नुहोस् र notification लाई अनुमति दिनुहोस्।"],
  iosNote:"iOS 16.4 वा नयाँ चाहिन्छ।",change:"बदल्नुहोस्",addCal:"📅 फोहोर रिमाइन्डर थप्नुहोस्",howTo:"छुट्याउने तरिका",choose:"📍 मेरो क्षेत्र छान्नुहोस्",
  welcome:"स्वागत छ",hChoose:"तपाईं कुन टाउनमा बस्नुहुन्छ?",lChoose:"एकपटक आफ्नो टाउन छान्नुहोस्। हामी फोहोर फाल्ने दिन देखाउँछौं र यो फोनमा सम्झिन्छौं।",
  morning:"आज बिहान ८:०० भित्र",tomorrow:"भोलि",
@@ -371,7 +373,12 @@ function render(){
   $("actions").innerHTML=actions;
   ["openPick","openPick2"].forEach(id=>{const b=$(id);if(b)b.onclick=openPicker});
   if($("ics")) $("ics").onclick=downloadIcs;
-  if($("remind")){ $("remind").onclick=toggleRemind; $("actions").insertAdjacentHTML("beforeend",`<p class="privacy" style="flex-basis:100%;margin:0"><a href="privacy.html">${t.privacy}</a></p>`); }
+  if($("remind")){
+    $("remind").onclick=toggleRemind;
+    const hr=remindHour(),opt=x=>`<option value="${x}" ${x===hr?"selected":""}>${x}:00</option>`;
+    $("actions").insertAdjacentHTML("beforeend",`<label class="when-pick">${t.remindAt}<select id="hour"><optgroup label="${t.eve}">${[18,19,20,21,22].map(opt).join("")}</optgroup><optgroup label="${t.morn}">${[6,7].map(opt).join("")}</optgroup></select></label><p class="privacy" style="flex-basis:100%;margin:0"><a href="privacy.html">${t.privacy}</a></p>`);
+    $("hour").onchange=async e=>{store.set("remindHour",e.target.value);if(remindOn()){await updateRemind();$("pushStatus").textContent=t.pTime(e.target.value+":00")}};
+  }
   $("iosSteps").innerHTML=t.iosSteps.map(s=>`<li>${s}</li>`).join("");
 
   // Week strip
@@ -461,12 +468,13 @@ const pushOK="serviceWorker" in navigator&&"PushManager" in window&&"Notificatio
 const isIOS=/iPhone|iPad|iPod/.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
 const standalone=window.matchMedia("(display-mode: standalone)").matches||navigator.standalone===true;
 const remindOn=()=>store.get("remind")==="1";
+const remindHour=()=>{const x=+(store.get("remindHour")||20);return [6,7,18,19,20,21,22].includes(x)?x:20};
 function pstatus(k){$("pushStatus").textContent=k?T[lang][k]:""}
 if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(()=>{});
 function keyBytes(b){const p="=".repeat((4-b.length%4)%4),s=atob((b+p).replace(/-/g,"+").replace(/_/g,"/"));return Uint8Array.from(s,c=>c.charCodeAt(0))}
 async function sendSub(sub,test){
-  const r=await fetch("/api/subscribe",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({sub:sub.toJSON(),city:sel.c,town:sel.t,lang,test})});
-  if(!r.ok) throw new Error("save "+r.status);
+  const r=await fetch("/api/subscribe",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({sub:sub.toJSON(),city:sel.c,town:sel.t,lang,hour:remindHour(),test})});
+  if(!r.ok){let j={};try{j=await r.json()}catch(_){}throw new Error((j.error||"server")+" "+(j.status||r.status))}
 }
 async function toggleRemind(){
   if(remindOn()) return turnOff();
@@ -480,7 +488,7 @@ async function toggleRemind(){
     const sub=(await reg.pushManager.getSubscription())||await reg.pushManager.subscribe({userVisibleOnly:true,applicationServerKey:keyBytes(publicKey)});
     await sendSub(sub,true);
     store.set("remind","1");render();pstatus("pOn");
-  }catch(e){console.error(e);pstatus("pErr")}
+  }catch(e){console.error(e);pstatus("pErr");$("pushStatus").textContent+=` (${String(e.message||e.name||e).slice(0,80)})`}
 }
 async function turnOff(){
   try{
