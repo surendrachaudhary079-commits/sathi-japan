@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sathi Japan – Life in Japan, explained in Nepali and English</title>
+<meta name="description" content="Garbage days, visa renewal, spouse visa and city-hall checklists for foreign residents in Japan – official rules in plain Nepali and English. Free.">
+<meta name="theme-color" content="#0B2E6B">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* Sathi Japan landing.
+   Layout: left-aligned headline beside one "explained form" sheet (the memorable element),
+   then a plain list of tools, then three promises. Colours from the Nepal flag: crimson + navy. */
+:root{
+  --paper:#F5F7FB; --sheet:#FFFFFF; --ink:#0E1A33; --muted:#56637C; --line:#DCE2EE;
+  --navy:#0B2E6B; --crimson:#C8102E; --tint:#E9EEF8;
+  --f:"Mukta","Noto Sans Devanagari",system-ui,sans-serif;
+  --jp:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root{
+  --paper:#0B1222; --sheet:#121C31; --ink:#E8EDF7; --muted:#9AA7BE; --line:#26334C;
+  --navy:#A9C4F5; --crimson:#FF5A6E; --tint:#17233D; color-scheme:dark}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 18px/1.6 var(--f)}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:20px}
+:focus-visible{outline:3px solid var(--crimson);outline-offset:3px;border-radius:6px}
+
+/* Top bar */
+.top{display:flex;align-items:center;gap:16px;padding-block:18px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:auto}
+.brand svg{width:26px;height:30px;flex:none}
+.brand b{font-size:21px;font-weight:800;letter-spacing:-.01em;color:var(--navy)}
+.brand span{font-size:16px;color:var(--muted);font-weight:500}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--sheet)}
+.lang button{border:0;background:none;color:var(--ink);font:inherit;font-size:15px;padding:5px 13px;border-radius:999px;cursor:pointer}
+.lang button[aria-pressed=true]{background:var(--navy);color:var(--sheet)}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding-block:40px 56px}
+.hero h1{font-size:clamp(36px,5.4vw,60px);line-height:1.04;font-weight:800;letter-spacing:-.025em;margin:0;color:var(--ink);text-wrap:balance;max-width:14ch}
+:lang(ne) .hero h1{line-height:1.22;letter-spacing:0;max-width:16ch}
+.hero p.lead{font-size:20px;color:var(--muted);margin:20px 0 0;max-width:34em}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 22px;border-radius:12px;font:inherit;font-weight:700;font-size:17px;text-decoration:none;cursor:pointer;border:0}
+.btn.main{background:var(--navy);color:var(--sheet)}
+.btn.ghost{background:transparent;color:var(--navy);box-shadow:inset 0 0 0 2px var(--line)}
+.btn.ghost:hover{box-shadow:inset 0 0 0 2px var(--navy)}
+.facts{display:flex;flex-wrap:wrap;gap:6px 22px;margin:26px 0 0;padding:0;list-style:none;font-size:16px;color:var(--muted)}
+.facts li::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--crimson);margin-right:8px;vertical-align:2px}
+
+/* The explained form */
+.formwrap{position:relative}
+.sheetdoc{background:var(--sheet);border:1px solid var(--line);border-radius:6px;padding:26px 26px 22px;box-shadow:0 1px 0 var(--line),0 24px 48px -28px rgba(11,46,107,.35);position:relative}
+.sheetdoc::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:var(--navy);border-radius:6px 6px 0 0}
+.docjp{padding-right:84px;font-family:var(--jp);font-weight:700;font-size:clamp(22px,2.6vw,28px);letter-spacing:.02em;margin:6px 0 2px;color:var(--ink);line-height:1.35}
+.docro{font-size:14px;color:var(--muted);margin:0 0 16px;padding-right:84px}
+.field{display:grid;grid-template-columns:120px 1fr;gap:12px;padding:11px 0;border-top:1px dashed var(--line);font-size:17px}
+.field dt{color:var(--muted);font-size:15px}
+.field dd{margin:0;font-weight:500}
+.stamp{position:absolute;right:20px;top:18px;width:74px;height:74px;border:3px solid var(--crimson);border-radius:50%;color:var(--crimson);display:grid;place-items:center;transform:rotate(-12deg);font-weight:800;font-size:19px;line-height:1;opacity:.92;text-align:center}
+.stamp small{display:block;font-size:10px;font-weight:600;margin-top:3px;font-family:var(--jp)}
+.picker{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.picker button{font:inherit;font-size:15px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);border-radius:999px;padding:6px 14px;cursor:pointer}
+.picker button[aria-pressed=true]{border-color:var(--navy);box-shadow:inset 0 0 0 1px var(--navy);color:var(--navy);font-weight:700}
+.sheetdoc.swap{animation:swap .28s ease-out}
+@keyframes swap{from{opacity:.2;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.sheetdoc.swap{animation:none}}
+
+/* Personal reminders (only when the person has saved something) */
+.mine{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin:8px 0 0}
+.mine a{display:block;text-decoration:none;background:var(--tint);border-radius:12px;padding:14px 16px}
+.mine .k{font-size:14px;color:var(--muted);display:block}
+.mine .v{font-size:19px;font-weight:700;color:var(--navy)}
+
+/* Sections */
+section{padding-block:44px;border-top:1px solid var(--line)}
+section h2{font-size:clamp(26px,3vw,34px);line-height:1.15;letter-spacing:-.015em;margin:0 0 6px;font-weight:800}
+section > p.sub{color:var(--muted);margin:0 0 26px;max-width:40em}
+
+/* Tools */
+.tools{display:grid;grid-template-columns:1fr 1fr;gap:0 48px;list-style:none;margin:0;padding:0}
+.tools li{border-bottom:1px solid var(--line)}
+.tools a,.tools .off{display:grid;grid-template-columns:44px 1fr auto;gap:16px;align-items:start;padding:20px 0;text-decoration:none}
+.tools svg{width:40px;height:40px;stroke:var(--navy);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.tools .t{display:block;font-size:21px;font-weight:700;line-height:1.25;color:var(--ink)}
+.tools .s{display:block;color:var(--muted);font-size:16px;margin-top:3px}
+.tools .where{display:block;font-size:14px;color:var(--navy);margin-top:6px;font-weight:600}
+.tools .tag{font-size:13px;font-weight:700;border-radius:999px;padding:3px 10px;white-space:nowrap;margin-top:4px}
+.tools .tag.live{background:var(--tint);color:var(--navy)}
+.tools .tag.soon{border:1px solid var(--line);color:var(--muted)}
+.tools a:hover .t{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:2px}
+.tools .off{opacity:.7}
+
+/* Promises */
+.prom{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.prom h3{font-size:19px;margin:0 0 6px;color:var(--ink)}
+.prom p{margin:0;color:var(--muted);font-size:16px}
+.prom div{border-top:3px solid var(--crimson);padding-top:14px}
+
+/* Help */
+.help{display:flex;flex-wrap:wrap;gap:16px 32px;align-items:center;justify-content:space-between;background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:22px 24px}
+.help p{margin:0;max-width:40em}
+.help b{display:block;font-size:20px}
+.tel{font-size:26px;font-weight:800;color:var(--navy);text-decoration:none;font-variant-numeric:tabular-nums;white-space:nowrap}
+
+footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--muted);font-size:15px}
+footer p{margin:0 0 6px;max-width:60em}
+footer a{color:var(--navy)}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;gap:36px;padding-block:20px 40px}
+  .tools{grid-template-columns:1fr}
+  .prom{grid-template-columns:1fr;gap:22px}
+}
+@media (max-width:420px){
+  .wrap{padding-inline:16px}
+  .brand span{display:none}
+  .field{grid-template-columns:1fr;gap:2px}
+  .stamp{width:62px;height:62px;font-size:16px;right:14px}
+  .docjp,.docro{padding-right:66px}
+  .sheetdoc{padding:24px 18px 18px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="./" aria-label="Sathi Japan">
+      <svg viewBox="0 0 26 30" aria-hidden="true"><path d="M2 1 L24 15 L11 15 L24 29 L2 29 Z" fill="#C8102E" stroke="#0B2E6B" stroke-width="2" stroke-linejoin="round"/></svg>
+      <b>Sathi Japan</b><span>साथी</span>
+    </a>
+    <div class="lang" role="group" aria-label="Language">
+      <button data-l="en" aria-pressed="true">English</button>
+      <button data-l="ne" aria-pressed="false">नेपाली</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="mine" id="mine" hidden></div>
+    <div class="hero">
+      <div>
+        <h1 data-t="h1"></h1>
+        <p class="lead" data-t="lead"></p>
+        <div class="cta">
+          <a class="btn main" href="#tools" data-t="cta1"></a>
+          <a class="btn ghost" href="garbage.html" data-t="cta2"></a>
+        </div>
+        <ul class="facts" id="facts"></ul>
+      </div>
+      <div class="formwrap">
+        <div class="sheetdoc" id="doc" aria-live="polite">
+          <div class="stamp" aria-hidden="true"><span>साथी<small>説明済</small></span></div>
+          <p class="docjp" id="docjp"></p>
+          <p class="docro" id="docro"></p>
+          <dl id="docfields" style="margin:0"></dl>
+        </div>
+        <div class="picker" id="picker" role="group" aria-label="Examples"></div>
+      </div>
+    </div>
+
+    <section id="tools">
+      <h2 data-t="toolsH"></h2>
+      <p class="sub" data-t="toolsP"></p>
+      <ul class="tools" id="toolList"></ul>
+    </section>
+
+    <section>
+      <h2 data-t="promH"></h2>
+      <p class="sub" data-t="promP"></p>
+      <div class="prom" id="prom"></div>
+    </section>
+
+    <section>
+      <div class="help">
+        <p><b data-t="helpH"></b><span data-t="helpP"></span></p>
+        <a class="tel" href="tel:0570013904">0570-013904</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p data-t="foot1"></p>
+    <p><a href="privacy.html" data-t="privacy"></a> · <span data-t="foot2"></span></p>
+  </footer>
+</div>
+
+<script>
+const ICON={
+ bin:'<svg viewBox="0 0 40 40" aria-hidden="true"><path d="M9 12h22M16 12V8h8v4M12 12l2 21h12l2-21M18 17v11M22 17v11"/></svg>',
+ card:'<svg viewBox="0 0 40 40" aria-hidden="true"><rect x="5" y="9" width="30" height="22" rx="3"/><circle cx="14" cy="19" r="3.5"/><path d="M9 27c1.5-3 8.5-3 10 0M23 16h8M23 21h8M23 26h5"/></svg>',
+ rings:'<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="15" cy="23" r="8"/><circle cx="25" cy="23" r="8"/><path d="M12 9l3-3 3 3M15 6v9"/></svg>',
+ list:'<svg viewBox="0 0 40 40" aria-hidden="true"><rect x="8" y="6" width="24" height="29" rx="3"/><path d="M13 14l2 2 4-4M13 22l2 2 4-4M22 15h6M22 23h6M13 30h15"/></svg>',
+ mail:'<svg viewBox="0 0 40 40" aria-hidden="true"><rect x="5" y="10" width="30" height="21" rx="2"/><path d="M5 12l15 11 15-11"/></svg>'
+};
+const T={
+en:{
+ h1:"Life in Japan, explained in your language.",
+ lead:"Garbage days, visa renewal, bringing your spouse, city-hall paperwork. Sathi Japan turns official Japanese rules into plain Nepali and English, with the dates and documents you need.",
+ cta1:"See all tools",cta2:"Check my garbage day",
+ facts:["Free, no account","Nepali and English","Every rule linked to its official source"],
+ docs:[
+  {tab:"Visa renewal",jp:"在留期間更新許可申請書",ro:"zairyū kikan kōshin kyoka shinseisho",f:[["What it is","Application to extend your period of stay"],["When","From 3 months before your card expires"],["You need","Form, photo 4×3 cm, passport, residence card, plus documents for your visa type"]]},
+  {tab:"Garbage calendar",jp:"家庭ごみ収集カレンダー",ro:"katei gomi shūshū karendā",f:[["What it is","Your area's garbage collection days"],["Rule","Put it out by 8:00 AM on the day – some areas until noon"],["Sathi does","Reminds you the evening before, on your phone"]]},
+  {tab:"Spouse visa",jp:"在留資格認定証明書交付申請書",ro:"zairyū shikaku nintei shōmeisho kōfu shinseisho",f:[["What it is","Certificate of Eligibility – the first step to bring your spouse to Japan"],["Who applies","You, at the immigration office in Japan. Free"],["Nepal","Your spouse needs a TB certificate from an approved clinic first"]]}
+ ],
+ toolsH:"What you can do here",toolsP:"Each tool shows the rule, the deadline and the exact document names – then links to the official page.",
+ tools:[
+  {i:"bin",t:"Garbage days",s:"What to put out and when, with a reminder the evening before or the same morning.",w:"All of Niigata City · All of Shinjuku",href:"garbage.html",live:1},
+  {i:"card",t:"Visa renewal",s:"When you can apply, a checklist of documents for your visa type, the official forms and the new fees.",w:"All visa types",href:"visa.html",live:1},
+  {i:"rings",t:"Spouse visa",s:"Bring your husband or wife from Nepal, or change or renew their visa – step by step.",w:"Family Stay · Spouse of Japanese",href:"spouse.html",live:1},
+  {i:"list",t:"Life checklists",s:"Arriving, moving house, changing jobs, having a baby, leaving Japan – every step with its deadline and form.",w:"5 checklists",href:"checklists.html",live:1},
+  {i:"mail",t:"Letter explainer",s:"Take a photo of a Japanese letter from the city or tax office and get it explained.",w:"",href:"",live:0}
+ ],
+ live:"Live",soon:"Coming soon",
+ promH:"How Sathi works",promP:"Built by a Nepali engineer living in Niigata, for people like us.",
+ prom:[["Official sources only","Every rule links to the city, Immigration or pension office page it came from, with the date we last checked it."],["Your data stays on your phone","Your area, dates and ticks are saved on your phone. We never ask for your residence card or My Number."],["We explain, you decide","Sathi is not legal or immigration advice, and we never fill in or submit applications for you."]],
+ helpH:"Questions about your visa?",helpP:"The Immigration information center answers in Nepali, English and other languages, weekdays 8:30–17:15.",
+ foot1:"Sathi Japan is not an official government or city service. Information can change – always check the official page linked on each tool.",
+ privacy:"What we save",foot2:"Made in Niigata",
+ mineGarb:a=>`Garbage · ${a}`,mineVisa:"Your visa",tomorrow:"Tomorrow",today:"Today",none:"No collection",
+ visaLeft:(d,open)=>open?`Apply now – ${d} days left`:`${d} days left`
+},
+ne:{
+ h1:"जापानको जीवन, तपाईंकै भाषामा।",
+ lead:"फोहोर फाल्ने दिन, भिसा नवीकरण, श्रीमान/श्रीमती बोलाउने, सिटी अफिसका कागजी काम। Sathi Japan ले जापानका आधिकारिक नियमलाई सजिलो नेपाली र अंग्रेजीमा बुझाउँछ, चाहिने मिति र कागजातसहित।",
+ cta1:"सबै सुविधा हेर्नुहोस्",cta2:"मेरो फोहोरको दिन हेर्नुहोस्",
+ facts:["निःशुल्क, खाता चाहिँदैन","नेपाली र अंग्रेजी","हरेक नियमको आधिकारिक स्रोत लिंक"],
+ docs:[
+  {tab:"भिसा नवीकरण",jp:"在留期間更新許可申請書",ro:"zairyū kikan kōshin kyoka shinseisho",f:[["यो के हो","बसाइ अवधि थप्ने आवेदन"],["कहिले","कार्डको म्याद सकिनुभन्दा ३ महिना अघिदेखि"],["चाहिने","फारम, ४×३ से.मि. फोटो, पासपोर्ट, रेसिडेन्स कार्ड, र भिसा प्रकारअनुसार कागजात"]]},
+  {tab:"फोहोर क्यालेन्डर",jp:"家庭ごみ収集カレンダー",ro:"katei gomi shūshū karendā",f:[["यो के हो","तपाईंको क्षेत्रको फोहोर उठाउने दिन"],["नियम","त्यस दिन बिहान ८:०० भित्र राख्नुहोस् – कतै दिउँसोसम्म"],["साथीले","अघिल्लो बेलुका फोनमा सम्झाउँछ"]]},
+  {tab:"श्रीमान/श्रीमती भिसा",jp:"在留資格認定証明書交付申請書",ro:"zairyū shikaku nintei shōmeisho kōfu shinseisho",f:[["यो के हो","Certificate of Eligibility – श्रीमान/श्रीमतीलाई जापान बोलाउने पहिलो चरण"],["कसले","तपाईं, जापानको इमिग्रेसन कार्यालयमा। निःशुल्क"],["नेपाल","पहिले तोकिएको क्लिनिकबाट TB प्रमाणपत्र चाहिन्छ"]]}
+ ],
+ toolsH:"यहाँ के-के गर्न सकिन्छ",toolsP:"हरेक सुविधाले नियम, अन्तिम मिति र कागजातको सही नाम देखाउँछ – अनि आधिकारिक पेजको लिंक दिन्छ।",
+ tools:[
+  {i:"bin",t:"फोहोर फाल्ने दिन",s:"के र कहिले फाल्ने, अघिल्लो बेलुका वा त्यही बिहान रिमाइन्डरसहित।",w:"सम्पूर्ण निगाता सिटी · सम्पूर्ण सिन्जुकु",href:"garbage.html",live:1},
+  {i:"card",t:"भिसा नवीकरण",s:"कहिले आवेदन दिने, भिसा प्रकारअनुसार कागजात चेकलिस्ट, आधिकारिक फारम र नयाँ शुल्क।",w:"सबै भिसा प्रकार",href:"visa.html",live:1},
+  {i:"rings",t:"श्रीमान/श्रीमती भिसा",s:"नेपालबाट श्रीमान/श्रीमती बोलाउने, वा उहाँको भिसा परिवर्तन/नवीकरण – चरणबद्ध।",w:"Family Stay · जापानीको श्रीमान/श्रीमती",href:"spouse.html",live:1},
+  {i:"list",t:"जीवन चेकलिस्ट",s:"जापान आउँदा, घर सर्दा, जागिर बदल्दा, बच्चा जन्मँदा, जापान छोड्दा – हरेक चरण, अन्तिम मिति र फारम।",w:"५ वटा चेकलिस्ट",href:"checklists.html",live:1},
+  {i:"mail",t:"चिठी बुझाउने",s:"सिटी वा कर कार्यालयको जापानी चिठीको फोटो खिच्नुहोस्, सजिलो व्याख्या पाउनुहोस्।",w:"",href:"",live:0}
+ ],
+ live:"चालू",soon:"छिट्टै आउँदै",
+ promH:"साथीले कसरी काम गर्छ",promP:"निगातामा बस्ने एक नेपाली इन्जिनियरले, हामीजस्तैका लागि बनाएको।",
+ prom:[["आधिकारिक स्रोत मात्र","हरेक नियममा सिटी, इमिग्रेसन वा पेन्सन कार्यालयको लिंक र अन्तिम जाँच मिति हुन्छ।"],["डाटा तपाईंकै फोनमा","क्षेत्र, मिति र ठीक चिन्ह फोनमै सेभ हुन्छ। रेसिडेन्स कार्ड वा My Number कहिल्यै माग्दैनौं।"],["हामी बुझाउँछौं, निर्णय तपाईंको","साथी कानुनी वा भिसा सल्लाह होइन, र हामी तपाईंको आवेदन भर्दैनौं वा बुझाउँदैनौं।"]],
+ helpH:"भिसाबारे प्रश्न छ?",helpP:"इमिग्रेसन सूचना केन्द्रले नेपाली, अंग्रेजी र अन्य भाषामा जवाफ दिन्छ, कार्यदिन ८:३०–१७:१५।",
+ foot1:"Sathi Japan सरकार वा सिटीको आधिकारिक सेवा होइन। जानकारी बदलिन सक्छ – सधैं हरेक सुविधामा दिइएको आधिकारिक पेज हेर्नुहोस्।",
+ privacy:"हामी के सेभ गर्छौं",foot2:"निगातामा बनाइएको",
+ mineGarb:a=>`फोहोर · ${a}`,mineVisa:"तपाईंको भिसा",tomorrow:"भोलि",today:"आज",none:"संकलन छैन",
+ visaLeft:(d,open)=>open?`अहिले आवेदन दिनुहोस् – ${d} दिन बाँकी`:`${d} दिन बाँकी`
+}};
+const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+let lang=store.get("lang")||"en", docI=0;
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function renderDoc(anim){
+  const d=T[lang].docs[docI];
+  $("docjp").textContent=d.jp; $("docjp").lang="ja"; $("docro").textContent=d.ro;
+  $("docfields").innerHTML=d.f.map(f=>`<div class="field"><dt>${esc(f[0])}</dt><dd>${esc(f[1])}</dd></div>`).join("");
+  $("picker").innerHTML=T[lang].docs.map((x,i)=>`<button data-i="${i}" aria-pressed="${i===docI}">${esc(x.tab)}</button>`).join("");
+  $("picker").querySelectorAll("button").forEach(b=>b.onclick=()=>{docI=+b.dataset.i;renderDoc(true)});
+  if(anim){const el=$("doc");el.classList.remove("swap");void el.offsetWidth;el.classList.add("swap")}
+}
+function render(){
+  const t=T[lang]; document.documentElement.lang=lang;
+  document.querySelectorAll("[data-t]").forEach(e=>e.textContent=t[e.dataset.t]);
+  document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.l===lang));
+  $("facts").innerHTML=t.facts.map(f=>`<li>${esc(f)}</li>`).join("");
+  $("toolList").innerHTML=t.tools.map(x=>{
+    const inner=`${ICON[x.i]}<span><span class="t">${esc(x.t)}</span><span class="s">${esc(x.s)}</span>${x.w?`<span class="where">${esc(x.w)}</span>`:""}</span><span class="tag ${x.live?"live":"soon"}">${x.live?t.live:t.soon}</span>`;
+    return `<li>${x.live?`<a href="${x.href}">${inner}</a>`:`<div class="off">${inner}</div>`}</li>`}).join("");
+  $("prom").innerHTML=t.prom.map(p=>`<div><h3>${esc(p[0])}</h3><p>${esc(p[1])}</p></div>`).join("");
+  renderDoc(false); renderMine();
+}
+
+// Personal strip: only from what this phone already saved (garbage area, visa expiry)
+const jpISO=o=>{const d=new Date(Date.now()+9*3600e3);d.setUTCDate(d.getUTCDate()+o);return d.toISOString().slice(0,10)};
+const SHIFT=["nonburnable","pet","paper","glass","cans","special5"];
+const hit=(r,wd,dd)=>r.c.some(cl=>cl.d.includes(wd)&&(!cl.n||cl.n.includes(Math.ceil(dd/7))));
+function ids(c,tw,k){
+  if(!c||!tw||tw.special||k>c.validUntil) return null;
+  const dt=new Date(k+"T00:00:00Z"),m=dt.getUTCMonth()+1,d=dt.getUTCDate(),wd=dt.getUTCDay();
+  if(c.type==="dated") return c.schedule[k]||[];
+  if(c.type==="cal"){const cal=c.calendars[tw.cal];
+    if(m===1&&d<=3) return []; if(m===12&&d===31) return ["burnable"];
+    let sh=false; if(cal.jan&&m===1) for(let x=1;x<=3;x++){const w=new Date(Date.UTC(dt.getUTCFullYear(),0,x)).getUTCDay();if(SHIFT.some(id=>cal.r[id]&&hit(cal.r[id],w,x)))sh=true}
+    return c.categories.filter(cg=>{const r=cal.r[cg.id];if(!r||(r.off&&r.off.includes(m)))return false;let dd=d;if(sh&&SHIFT.includes(cg.id)){dd=d-7;if(dd<1)return false}return hit(r,wd,dd)}).map(cg=>cg.id)}
+  if(c.noCollection.includes(k.slice(5))) return [];
+  const o=[]; if(tw.res.includes(wd))o.push("res"); if(tw.burn.includes(wd))o.push("burn");
+  if(tw.metal.wd===wd&&tw.metal.nth.includes(Math.ceil(d/7)))o.push("metal"); return o;
+}
+let areasLoaded=false;
+function renderMine(){
+  const t=T[lang], out=[];
+  let sel=null;try{sel=JSON.parse(store.get("area")||"null")}catch(e){}
+  if(sel&&window.SATHI_AREAS){
+    const A=window.SATHI_AREAS;let c=A.cities.find(x=>x.id===sel.c),ti=sel.t;
+    if(!c){const nc=A.cities.find(x=>x.legacy&&x.legacy[sel.c]);if(nc){c=nc;ti=nc.legacy[sel.c][sel.t]}}
+    const tw=c&&c.towns[ti];
+    if(tw){const hr=new Date(Date.now()+9*3600e3).getUTCHours(),off=hr<8?0:1,x=ids(c,tw,jpISO(off));
+      if(x){const name=(tw.ro||tw.ja).replace(/（.*$/,"");
+        const v=x.length?x.map(id=>{const cg=c.categories.find(q=>q.id===id);return cg.icon+" "+cg[lang]}).join(", "):t.none;
+        out.push(`<a href="garbage.html"><span class="k">${esc(t.mineGarb(name))} – ${off?t.tomorrow:t.today}</span><span class="v">${esc(v)}</span></a>`)}}
+  }else if(sel&&!areasLoaded){areasLoaded=true;const s=document.createElement("script");s.src="areas.js";s.onload=renderMine;document.head.appendChild(s)}
+  const exp=store.get("visa_exp");
+  if(exp){const days=Math.round((new Date(exp+"T00:00:00Z")-new Date(jpISO(0)+"T00:00:00Z"))/864e5);
+    if(days>=0) out.push(`<a href="visa.html"><span class="k">${esc(t.mineVisa)}</span><span class="v">${esc(t.visaLeft(days,days<=92))}</span></a>`)}
+  $("mine").innerHTML=out.join(""); $("mine").hidden=!out.length;
+}
+document.querySelectorAll(".lang button").forEach(b=>b.onclick=()=>{lang=b.dataset.l;store.set("lang",lang);render()});
+render();
+if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(()=>{});
+</script>
+</body>
+</html>

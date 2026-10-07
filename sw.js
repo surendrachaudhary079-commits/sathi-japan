@@ -5,7 +5,7 @@ self.addEventListener("push", e => {
   let d = {};
   try { d = e.data ? e.data.json() : {}; } catch (_) { d = { body: e.data && e.data.text() }; }
   e.waitUntil(self.registration.showNotification(d.title || "Sathi Japan", {
-    body: d.body || "", icon: "icon-192.png", badge: "icon-192.png", tag: "sathi-garbage", data: { url: d.url || "/" }
+    body: d.body || "", icon: "icon-192.png", badge: "icon-192.png", tag: "sathi-garbage", data: { url: (!d.url || d.url === "/") ? "/garbage.html" : d.url }
   }));
 });
 self.addEventListener("notificationclick", e => {
