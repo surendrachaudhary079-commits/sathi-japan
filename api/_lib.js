@@ -26,6 +26,9 @@ async function loadAreas(host) {
 }
 function areas() { if (!AREAS) throw new Error("call loadAreas first"); return AREAS; }
 function findTown(cityId, townIndex) {
+  // Old Oodori-only ids (before all of Niigata was added) map to the new list
+  const legacy = areas().cities.find(c => c.legacy && c.legacy[cityId]);
+  if (legacy) { townIndex = legacy.legacy[cityId][townIndex]; cityId = legacy.id; }
   const city = areas().cities.find(c => c.id === cityId);
   const town = city && city.towns[townIndex];
   return city && town ? { city, town } : null;
@@ -34,12 +37,34 @@ function findTown(cityId, townIndex) {
 function idsFor(city, town, iso) {
   if (town.special || iso > city.validUntil) return [];
   if (city.type === "dated") return city.schedule[iso] || [];
+  if (city.type === "cal") return calIds(city.calendars[town.cal], iso, city.categories);
   const d = new Date(iso + "T00:00:00Z"), wd = d.getUTCDay();
   if (city.noCollection.includes(iso.slice(5))) return [];
   const out = [];
   if (town.res.includes(wd)) out.push("res");
   if (town.burn.includes(wd)) out.push("burn");
   if (town.metal.wd === wd && town.metal.nth.includes(Math.ceil(d.getUTCDate() / 7))) out.push("metal");
+  return out;
+}
+// Niigata City calendars: 1–3 Jan none; 31 Dec burnable only; in January the six monthly
+// items move one week later when one of them falls on 1–3 Jan (calendars that say so).
+const SHIFT = ["nonburnable", "pet", "paper", "glass", "cans", "special5"];
+const hit = (r, wd, dd) => r.c.some(cl => cl.d.includes(wd) && (!cl.n || cl.n.includes(Math.ceil(dd / 7))));
+function calIds(cal, iso, cats) {
+  const dt = new Date(iso + "T00:00:00Z"), m = dt.getUTCMonth() + 1, d = dt.getUTCDate(), wd = dt.getUTCDay();
+  if (m === 1 && d <= 3) return [];
+  if (m === 12 && d === 31) return ["burnable"];
+  let shift = false;
+  if (cal.jan && m === 1) for (let x = 1; x <= 3; x++) {
+    const w = new Date(Date.UTC(dt.getUTCFullYear(), 0, x)).getUTCDay();
+    if (SHIFT.some(id => cal.r[id] && hit(cal.r[id], w, x))) shift = true;
+  }
+  const out = [];
+  for (const cg of cats) {
+    const r = cal.r[cg.id]; if (!r || (r.off && r.off.includes(m))) continue;
+    let dd = d; if (shift && SHIFT.includes(cg.id)) { dd = d - 7; if (dd < 1) continue; }
+    if (hit(r, wd, dd)) out.push(cg.id);
+  }
   return out;
 }
 function jpDate(offsetDays) {
@@ -49,12 +74,15 @@ function jpDate(offsetDays) {
 }
 // Times a user can choose (Japan time). Before noon = same morning, otherwise = evening before.
 const HOURS = [6, 7, 18, 19, 20, 21, 22];
-function message(city, ids, lang, morning = false) {
+const TIMES = { "08:00": ["8:00 AM", "बिहान ८:००"], "08:30": ["8:30 AM", "बिहान ८:३०"], "12:00": ["noon", "दिउँसो १२:००"] };
+function message(city, ids, lang, morning = false, town = null) {
   const cat = id => city.categories.find(c => c.id === id);
+  const put = city.type === "cal" && town ? city.calendars[town.cal].put : "08:00";
+  const tm = TIMES[put] || TIMES["08:00"];
   if (lang === "ne") {
-    return { title: morning ? "आज फोहोर फाल्ने दिन" : "भोलि फोहोर फाल्ने दिन", body: ids.map(i => `${cat(i).icon} ${cat(i).ne}`).join(" + ") + " – बिहान ८:०० भित्र राख्नुहोस्।" };
+    return { title: morning ? "आज फोहोर फाल्ने दिन" : "भोलि फोहोर फाल्ने दिन", body: ids.map(i => `${cat(i).icon} ${cat(i).ne}`).join(" + ") + ` – ${tm[1]} भित्र राख्नुहोस्।` };
   }
-  return { title: morning ? "Garbage day today" : "Garbage day tomorrow", body: ids.map(i => `${cat(i).icon} ${cat(i).en}`).join(" + ") + " – put it out by 8:00 AM." };
+  return { title: morning ? "Garbage day today" : "Garbage day tomorrow", body: ids.map(i => `${cat(i).icon} ${cat(i).en}`).join(" + ") + ` – put it out by ${tm[0]}.` };
 }
 
 // ---------- Web Push (RFC 8291 encryption + VAPID), no extra packages ----------
@@ -131,4 +159,4 @@ function validSub(s) {
   } catch { return false; }
 }
 
-module.exports = { HOURS, env, keyKind, loadAreas, areas, findTown, idsFor, jpDate, message, sendPush, encrypt, vapidHeader, sb, validSub, b64u, unb64u };
+module.exports = { calIds, HOURS, env, keyKind, loadAreas, areas, findTown, idsFor, jpDate, message, sendPush, encrypt, vapidHeader, sb, validSub, b64u, unb64u };
