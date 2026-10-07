@@ -131,6 +131,9 @@
   .cities button b{display:block;color:var(--ink);font-size:18px}
   .cities button span{font-size:15px;color:var(--muted)}
   .cities button[aria-pressed=true]{border-color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
+  .wards{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}
+  .wards button{border:1px solid var(--line);background:var(--paper);color:var(--text);border-radius:999px;padding:6px 12px;font:inherit;font-size:15px;cursor:pointer}
+  .wards button[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
   .search{width:100%;font:inherit;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--text)}
   .towns{list-style:none;margin:10px 0 0;padding:0}
   .towns button{display:block;width:100%;text-align:left;border:0;border-top:1px solid var(--line);background:none;color:var(--text);font:inherit;padding:10px 4px;cursor:pointer}
@@ -243,18 +246,19 @@ en:{
  iosSteps:["In Safari, tap the Share button (□↑).","Tap “Add to Home Screen”, then “Add”.","Open Sathi Japan from your Home Screen.","Tap “🔔 Turn on reminders” again and allow notifications."],
  iosNote:"Needs iOS 16.4 or newer.",change:"Change",addCal:"📅 Add garbage reminders",howTo:"How to sort",choose:"📍 Choose my area",
  welcome:"Welcome",hChoose:"Which town do you live in?",lChoose:"Choose your town once. We'll show your garbage days and remember it on this phone.",
- morning:"This morning, by 8:00",tomorrow:"Tomorrow",
- hNone:"No collection.",lMorning:"Put it out at your collection point before 8:00 AM.",
- lTomorrow:"Get the bag ready tonight and put it out by 8:00 AM tomorrow.",lNone:(d,c)=>`Next collection: ${d} – ${c}.`,
+ morning:tm=>`This morning, by ${tm}`,tomorrow:"Tomorrow",
+ hNone:"No collection.",lMorning:tm=>`Put it out at your collection point by ${tm}.`,
+ lTomorrow:tm=>`Get the bag ready tonight and put it out by ${tm} tomorrow.`,lNone:(d,c)=>`Next collection: ${d} – ${c}.`,
  hSpecial:"Your area has its own collection days",lSpecial:(o,t)=>`Collection is different in this busy area. Ask the ${o}: ${t}.`,
  call:"📞 Call",today:"Today",tmr:"Tomorrow",none:"No collection",
  pickH:"Choose your area",pickP:"Pick your city, then your town (町名). Your choice is saved only on this phone.",close:"Close",
  search:"Type your town, e.g. Okubo or 大久保",noMatch:"No town found. Check the spelling or try the Japanese name.",
  otherH:"Other city",otherP:"We don't cover your city yet. Here is your city's official garbage page:",
  otherS:"Official garbage pages for other cities",notCovered:"Your town is not on the list? Use the city's official page:",
- every:"Every",and:" & ",nth:["","1st","2nd","3rd","4th","5th"],ofMonth:"of the month",noJan3:"No collection 31 Dec – 3 Jan.",
+ every:"Every",and:" & ",nth:["","1st","2nd","3rd","4th","5th"],ofMonth:"of the month",noJan3:"No collection 31 Dec – 3 Jan.",nigNY:"No collection 1–3 Jan. On 31 Dec only burnable garbage is collected.",nigJan:"In January, the monthly items move one week later if their day falls on 1–3 Jan.",offJF:"not Jan–Feb",
+ wardAll:"All wards",calNo:"Calendar",multi:"This town has more than one calendar. Pick the one whose number matches your paper calendar.",wardTel:(w,n)=>`${w} office: ${n}.`,emap:"Find your number on the city map",chk:"From the city's 2025 list – please check with your paper calendar.",yourCal:"Your calendar",searchNig:"Type your town in Japanese (as on your residence card), e.g. 大通西, or your calendar number, e.g. 13-1",more:n=>`${n} more – type to narrow the list.`,times:{"08:00":"8:00 AM","08:30":"8:30 AM","12:00":"noon"},
  toolsH:"What Sathi can help with",toolsP:"Japanese paperwork and rules, explained simply in Nepali and English. Free, no sign-up.",
- t1:"Garbage days",s1:"What to put out, when, and how – with phone reminders. Niigata (Oodori) and all of Shinjuku.",
+ t1:"Garbage days",s1:"What to put out, when, and how – with phone reminders. All of Niigata City and all of Shinjuku.",
  t2:"Life checklists",s2:"Arriving, moving house, changing jobs, having a baby, leaving Japan – every step with its deadline and form.",
  t3:"Visa renewal",s3:"When to apply, what to prepare, the official forms and the new fees.",
  t4:"Letter explainer",s4:"Photograph a Japanese letter and get it explained.",open:"Open",soon:"Coming soon",
@@ -277,18 +281,19 @@ ne:{
  iosSteps:["Safari मा Share बटन (□↑) थिच्नुहोस्।","“Add to Home Screen” अनि “Add” थिच्नुहोस्।","Home Screen बाट Sathi Japan खोल्नुहोस्।","फेरि “🔔 रिमाइन्डर सक्रिय गर्नुहोस्” थिच्नुहोस् र notification लाई अनुमति दिनुहोस्।"],
  iosNote:"iOS 16.4 वा नयाँ चाहिन्छ।",change:"बदल्नुहोस्",addCal:"📅 फोहोर रिमाइन्डर थप्नुहोस्",howTo:"छुट्याउने तरिका",choose:"📍 मेरो क्षेत्र छान्नुहोस्",
  welcome:"स्वागत छ",hChoose:"तपाईं कुन टाउनमा बस्नुहुन्छ?",lChoose:"एकपटक आफ्नो टाउन छान्नुहोस्। हामी फोहोर फाल्ने दिन देखाउँछौं र यो फोनमा सम्झिन्छौं।",
- morning:"आज बिहान ८:०० भित्र",tomorrow:"भोलि",
- hNone:"संकलन छैन।",lMorning:"बिहान ८:०० भन्दा अघि संकलन स्थलमा राख्नुहोस्।",
- lTomorrow:"आज राति झोला तयार गर्नुहोस् र भोलि बिहान ८:०० भित्र राख्नुहोस्।",lNone:(d,c)=>`अर्को संकलन: ${d} – ${c}।`,
+ morning:tm=>`आज ${tm} भित्र`,tomorrow:"भोलि",
+ hNone:"संकलन छैन।",lMorning:tm=>`${tm} भित्र संकलन स्थलमा राख्नुहोस्।`,
+ lTomorrow:tm=>`आज राति झोला तयार गर्नुहोस् र भोलि ${tm} भित्र राख्नुहोस्।`,lNone:(d,c)=>`अर्को संकलन: ${d} – ${c}।`,
  hSpecial:"तपाईंको क्षेत्रको संकलन दिन फरक छ",lSpecial:(o,t)=>`यो व्यस्त क्षेत्रमा संकलन फरक हुन्छ। ${o} लाई सोध्नुहोस्: ${t}।`,
  call:"📞 फोन गर्नुहोस्",today:"आज",tmr:"भोलि",none:"संकलन छैन",
  pickH:"आफ्नो क्षेत्र छान्नुहोस्",pickP:"पहिले सिटी, त्यसपछि टाउन (町名) छान्नुहोस्। तपाईंको छनोट यो फोनमा मात्र सेभ हुन्छ।",close:"बन्द गर्नुहोस्",
  search:"टाउनको नाम लेख्नुहोस्, जस्तै Okubo वा 大久保",noMatch:"टाउन भेटिएन। हिज्जे जाँच्नुहोस् वा जापानी नाम प्रयोग गर्नुहोस्।",
  otherH:"अन्य सिटी",otherP:"हामीले तपाईंको सिटी अझै समेटेका छैनौं। तपाईंको सिटीको आधिकारिक फोहोर पेज:",
  otherS:"अन्य सिटीका आधिकारिक फोहोर पेज",notCovered:"तपाईंको टाउन सूचीमा छैन? सिटीको आधिकारिक पेज हेर्नुहोस्:",
- every:"हरेक",and:" र ",nth:["","पहिलो","दोस्रो","तेस्रो","चौथो","पाँचौं"],ofMonth:"(महिनाको)",noJan3:"डिसेम्बर ३१ – जनवरी ३ संकलन हुँदैन।",
+ every:"हरेक",and:" र ",nth:["","पहिलो","दोस्रो","तेस्रो","चौथो","पाँचौं"],ofMonth:"(महिनाको)",noJan3:"डिसेम्बर ३१ – जनवरी ३ संकलन हुँदैन।",nigNY:"जनवरी १–३ संकलन हुँदैन। डिसेम्बर ३१ मा जल्ने फोहोर मात्र उठाइन्छ।",nigJan:"जनवरीमा, महिनामा एक-दुई पटक उठ्ने फोहोरको दिन जनवरी १–३ मा पर्यो भने एक हप्ता पछि सर्छ।",offJF:"जनवरी–फेब्रुअरी बाहेक",
+ wardAll:"सबै वार्ड",calNo:"क्यालेन्डर",multi:"यो टाउनमा एकभन्दा बढी क्यालेन्डर छन्। तपाईंको कागजी क्यालेन्डरको नम्बरसँग मिल्ने छान्नुहोस्।",wardTel:(w,n)=>`${w} कार्यालय: ${n}।`,emap:"सिटीको नक्सामा आफ्नो नम्बर हेर्नुहोस्",chk:"सिटीको २०२५ को सूचीबाट – कृपया कागजी क्यालेन्डरसँग मिलाउनुहोस्।",yourCal:"तपाईंको क्यालेन्डर",searchNig:"टाउनको नाम जापानीमा लेख्नुहोस् (रेसिडेन्स कार्डमा जस्तै), जस्तै 大通西, वा क्यालेन्डर नम्बर, जस्तै 13-1",more:n=>`अरू ${n} – सूची छोट्याउन टाइप गर्नुहोस्।`,times:{"08:00":"बिहान ८:००","08:30":"बिहान ८:३०","12:00":"दिउँसो १२:००"},
  toolsH:"साथीले के-के मद्दत गर्छ",toolsP:"जापानका कागजी काम र नियम, नेपाली र अंग्रेजीमा सजिलो गरी। निःशुल्क, दर्ता चाहिँदैन।",
- t1:"फोहोर फाल्ने दिन",s1:"के, कहिले र कसरी फाल्ने – फोन रिमाइन्डरसहित। निगाता (ओओदोरी) र सम्पूर्ण सिन्जुकु।",
+ t1:"फोहोर फाल्ने दिन",s1:"के, कहिले र कसरी फाल्ने – फोन रिमाइन्डरसहित। सम्पूर्ण निगाता सिटी र सम्पूर्ण सिन्जुकु।",
  t2:"जीवन चेकलिस्ट",s2:"जापान आउँदा, घर सर्दा, जागिर बदल्दा, बच्चा जन्मँदा, जापान छोड्दा – हरेक चरण, अन्तिम मिति र फारम।",
  t3:"भिसा नवीकरण",s3:"कहिले आवेदन दिने, के तयार गर्ने, आधिकारिक फारम र नयाँ शुल्क।",
  t4:"चिठी बुझाउने",s4:"जापानी चिठीको फोटो खिच्नुहोस्, सजिलो व्याख्या पाउनुहोस्।",open:"खोल्नुहोस्",soon:"छिट्टै आउँदै",
@@ -307,7 +312,10 @@ const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},se
 let lang=store.get("lang")||"en";
 // Saved area: {c: city id, t: town index}. Earlier testers (Oodori) keep working.
 let sel=null;try{sel=JSON.parse(store.get("area")||"null")}catch(e){}
-let pickCity=sel?sel.c:null;
+// Old Oodori-only choice → same town in the all-Niigata list
+if(sel){const nc=A.cities.find(c=>c.legacy&&c.legacy[sel.c]);if(nc&&nc.legacy[sel.c][sel.t]!=null){sel={c:nc.id,t:nc.legacy[sel.c][sel.t]};store.set("area",JSON.stringify(sel))}}
+if(sel&&!A.cities.some(c=>c.id===sel.c))sel=null;
+let pickCity=sel?sel.c:null,pickWard="";
 const $=id=>document.getElementById(id);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const city=()=>sel&&A.cities.find(c=>c.id===sel.c);
@@ -321,6 +329,7 @@ function idsFor(k){
   const c=city(),t=town(); if(!c||!t||t.special) return null;
   if(k>c.validUntil) return null;
   if(c.type==="dated") return c.schedule[k]||[];
+  if(c.type==="cal") return calIds(c.calendars[t.cal],k,c.categories);
   const d=new Date(k+"T00:00:00Z"),wd=d.getUTCDay(),md=k.slice(5);
   if(c.noCollection.includes(md)) return [];
   const out=[];
@@ -329,12 +338,36 @@ function idsFor(k){
   if(t.metal.wd===wd&&t.metal.nth.includes(Math.ceil(d.getUTCDate()/7))) out.push("metal");
   return out;
 }
+// Niigata City calendars (same rules as api/_lib.js):
+// 1–3 Jan no collection; 31 Dec burnable only; in January the six monthly items move one
+// week later when one of them falls on 1–3 Jan (only calendars whose page says so).
+const SHIFT=["nonburnable","pet","paper","glass","cans","special5"];
+function hit(r,wd,dd){return r.c.some(cl=>cl.d.includes(wd)&&(!cl.n||cl.n.includes(Math.ceil(dd/7))))}
+function calIds(cal,k,cats){
+  const dt=new Date(k+"T00:00:00Z"),m=dt.getUTCMonth()+1,d=dt.getUTCDate(),wd=dt.getUTCDay();
+  if(m===1&&d<=3) return [];
+  if(m===12&&d===31) return ["burnable"];
+  let shift=false;
+  if(cal.jan&&m===1) for(let x=1;x<=3;x++){const w=new Date(Date.UTC(dt.getUTCFullYear(),0,x)).getUTCDay();if(SHIFT.some(id=>cal.r[id]&&hit(cal.r[id],w,x)))shift=true}
+  const out=[];
+  for(const cg of cats){const r=cal.r[cg.id];if(!r||(r.off&&r.off.includes(m)))continue;
+    let dd=d;if(shift&&SHIFT.includes(cg.id)){dd=d-7;if(dd<1)continue}
+    if(hit(r,wd,dd))out.push(cg.id)}
+  return out;
+}
+const tname=tw=>tw.ro||tw.ja.replace(/（.*$/,"");
+function putTime(){const c=city(),tw=town();return c&&c.type==="cal"&&tw?c.calendars[tw.cal].put:"08:00"}
 function names(ids){return ids.map(i=>cat(i)[lang]).join(lang==="ne"?" र ":" and ")}
 function dayList(ws){const t=T[lang];return ws.map(w=>t.days[w]).join(t.and)}
 function ruleText(cg){
   const c=city(),t=T[lang];
   if(c.type==="dated") return cg.rule_text[lang];
-  const tw=town(); if(cg.id==="metal") return `${tw.metal.nth.map(n=>t.nth[n]).join(t.and)} ${t.days[tw.metal.wd]} ${t.ofMonth}`;
+  const tw=town();
+  if(c.type==="cal"){
+    const r=c.calendars[tw.cal].r[cg.id];
+    const s=r.c.map(cl=>cl.n?`${cl.n.map(n=>t.nth[n]).join(t.and)} ${t.days[cl.d[0]]} ${t.ofMonth}`:`${t.every} ${dayList(cl.d)}`).join(" / ");
+    return s+(r.off?` (${t.offJF})`:"");
+  } if(cg.id==="metal") return `${tw.metal.nth.map(n=>t.nth[n]).join(t.and)} ${t.days[tw.metal.wd]} ${t.ofMonth}`;
   return `${t.every} ${dayList(cg.id==="res"?tw.res:tw.burn)}`;
 }
 function townLabel(c,tw){return lang==="ne"?`${tw.ro} (${tw.ja})`:`${tw.ro} (${tw.ja})`}
@@ -350,15 +383,15 @@ function render(){
     actions=`<button class="btn primary" id="openPick">${t.choose}</button>`;
     $("areaLine").innerHTML="";
   }else{
-    $("areaLine").innerHTML=`<span>${t.areaLabel}</span> <strong>${esc(tw.ro)}, ${esc(c.name[lang])}</strong><button class="link" id="openPick2">${t.change}</button>`;
+    $("areaLine").innerHTML=`<span>${t.areaLabel}</span> <strong>${esc(tname(tw))}, ${esc(c.name[lang])}</strong><button class="link" id="openPick2">${t.change}</button>`;
     if(tw.special){
       const o=c.offices[tw.office];
       when=t.welcome;head=t.hSpecial;lead=t.lSpecial(lang==="ne"?o.ja:o.en,o.tel);
       actions=`<a class="btn primary" href="tel:${o.tel.replace(/-/g,"")}">${t.call} ${o.tel}</a>`;
     }else{
-      const hour=jpNow().getUTCHours(),today=idsFor(iso(0)),tmr=idsFor(iso(1));
-      if(hour<8&&today&&today.length){when=t.morning;ids=today;head=names(ids);lead=t.lMorning}
-      else if(tmr&&tmr.length){when=t.tomorrow;ids=tmr;head=names(ids);lead=t.lTomorrow}
+      const pt=putTime(),tm=t.times[pt],now=jpNow(),mins=now.getUTCHours()*60+now.getUTCMinutes(),today=idsFor(iso(0)),tmr=idsFor(iso(1));
+      if(mins<+pt.slice(0,2)*60+ +pt.slice(3)&&today&&today.length){when=t.morning(tm);ids=today;head=names(ids);lead=t.lMorning(tm)}
+      else if(tmr&&tmr.length){when=t.tomorrow;ids=tmr;head=names(ids);lead=t.lTomorrow(tm)}
       else{
         when=t.tomorrow;head=t.hNone;let k=2,nx=null;while(k<20&&!((nx=idsFor(iso(k)))&&nx.length))k++;
         const d=new Date(iso(k)+"T00:00:00Z");
@@ -397,12 +430,17 @@ function render(){
   // Garbage guide
   if(showWeek){
     $("garbP").textContent=t.garbP;
-    $("types").innerHTML=c.categories.map(cg=>`<details><summary><span class="ic" aria-hidden="true">${cg.icon}</span><span><b>${cg[lang]}</b><small>${ruleText(cg)}</small></span></summary><p>${cg.how[lang]}<br>${cg.ja}</p></details>`).join("");
+    const cats=c.type==="cal"?c.categories.filter(cg=>c.calendars[tw.cal].r[cg.id]):c.categories;
+    $("types").innerHTML=cats.map(cg=>`<details><summary><span class="ic" aria-hidden="true">${cg.icon}</span><span><b>${cg[lang]}</b><small>${ruleText(cg)}</small></span></summary><p>${cg.how[lang]}<br>${cg.ja}</p></details>`).join("");
     let b=`${c.bulky[lang]} <a href="${c.bulky.url}" target="_blank" rel="noopener">${t.book}</a>`;
     if(c.noCollection) b+=`<br>${t.noJan3}`;
+    if(c.type==="cal"){const cl=c.calendars[tw.cal];b+=`<br>${t.nigNY}${cl.jan?" "+t.nigJan:""}`;
+      const wd=c.wards.find(w=>w.id===tw.w);
+      if(tw.multi) b+=`<br><b>⚠️ ${t.multi}</b>${wd.tel?` ${t.wardTel(lang==="ne"?wd.ne:wd.en,wd.tel)}`:""} <a href="${c.emap}" target="_blank" rel="noopener">${t.emap} ↗</a>`;if(tw.chk) b+=`<br>${t.chk}`;}
     if(c.guideNe) b+=`<br><a href="${c.guideNe}" target="_blank" rel="noopener">${t.guideNe}</a> · <a href="${c.guideEn}" target="_blank" rel="noopener">${t.guideEn}</a>`;
     $("bulky").innerHTML=b;$("bulky").hidden=false;
-    $("srcLine").innerHTML=`${t.src} <a href="${c.source}" target="_blank" rel="noopener">${esc(c.name[lang])} ${t.official}</a>. ${t.checked} ${c.lastChecked}.`;
+    const srcUrl=c.type==="cal"?c.calendars[tw.cal].url:c.source,srcName=c.type==="cal"?`${c.name[lang]} – ${t.calNo} ${c.calendars[tw.cal].name}`:c.name[lang];
+    $("srcLine").innerHTML=`${t.src} <a href="${srcUrl}" target="_blank" rel="noopener">${esc(srcName)} ${t.official}</a>. ${t.checked} ${c.lastChecked}.`;
   }else{
     $("garbP").textContent=t.garbChoose;$("types").innerHTML="";$("bulky").hidden=true;$("srcLine").innerHTML="";
   }
@@ -426,14 +464,31 @@ function renderPicker(){
   }else if(pickCity){
     const c=A.cities.find(x=>x.id===pickCity);
     const q=norm(query);
+    if(c.type==="cal"){
+      // Niigata: ward chips + Japanese name / calendar-number search
+      const W=Object.fromEntries(c.wards.map(w=>[w.id,w]));
+      const list=c.towns.map((tw,i)=>({tw,i})).filter(({tw})=>(!pickWard||tw.w===pickWard)&&(!q||norm(tw.ja).includes(q)||norm(c.calendars[tw.cal].name)===q||norm(tw.area||"").includes(q)));
+      const shown=list.slice(0,150);
+      body=`<div class="wards" id="wards"><button data-w="" aria-pressed="${!pickWard}">${t.wardAll}</button>${c.wards.map(w=>`<button data-w="${w.id}" aria-pressed="${pickWard===w.id}">${esc(lang==="ne"?w.ne:w.en)} ${w.ja}</button>`).join("")}</div>
+      <input class="search" id="q" type="search" placeholder="${t.searchNig}" value="${esc(query)}" autocomplete="off" lang="ja">
+      <ul class="towns">${shown.length?shown.map(({tw,i})=>{const cl=c.calendars[tw.cal],w=W[tw.w];
+        return `<li><button data-i="${i}"><b>${esc(tw.ja)}</b><small>${esc(lang==="ne"?w.ne:w.en)}${tw.area?" · "+esc(tw.area):""} · ${t.calNo} ${esc(cl.name)} · ${t.times[cl.put]}${tw.multi?` · ⚠️ ${lang==="ne"?"धेरै क्यालेन्डर":"several calendars"}`:""}${tw.note?`<br>${esc(tw.note)}`:""}</small></button></li>`}).join(""):`<li class="empty">${t.noMatch}</li>`}</ul>
+      ${list.length>shown.length?`<p class="hint">${t.more(list.length-shown.length)}</p>`:""}
+      ${c.gap&&(!pickWard||pickWard===c.gap.w)?`<p class="hint">⚠️ ${esc(c.gap[lang])} <a href="${W[c.gap.w].url}" target="_blank" rel="noopener">${W[c.gap.w].ja} ↗</a></p>`:""}
+      <p class="hint">${t.notCovered} ${c.wards.filter(w=>!pickWard||w.id===pickWard).map(w=>`<a href="${w.url}" target="_blank" rel="noopener">${w.ja} ↗</a>`).join(" · ")}</p>`;
+    }else{
     const list=c.towns.map((tw,i)=>({tw,i})).filter(({tw})=>!q||norm(tw.ro).includes(q)||norm(tw.ja).includes(q));
     body=`<input class="search" id="q" type="search" placeholder="${t.search}" value="${esc(query)}" autocomplete="off">
       <ul class="towns">${list.length?list.map(({tw,i})=>`<li><button data-i="${i}"><b>${esc(tw.ro)}</b> ${esc(tw.ja.replace(/（.*$/,""))}${tw.note?`<small>${esc(tw.note)}</small>`:""}</button></li>`).join(""):`<li class="empty">${t.noMatch}</li>`}</ul>`;
     if(c.otherAreasUrl) body+=`<p class="hint">${t.notCovered} <a href="${c.otherAreasUrl}" target="_blank" rel="noopener">${esc(c.name[lang])} ↗</a></p>`;
+    }
   }
   $("pickBody").innerHTML=body;
+  $("pickBody").querySelectorAll("#wards button").forEach(b=>b.onclick=()=>{pickWard=b.dataset.w;renderPicker()});
   const q=$("q");
-  if(q){q.oninput=e=>{query=e.target.value;const pos=e.target.selectionStart;renderPicker();const n=$("q");n.focus();n.setSelectionRange(pos,pos)}}
+  // Japanese keyboards (IME): wait until the word is confirmed before updating the list
+  if(q){const upd=e=>{query=e.target.value;const pos=e.target.selectionStart;renderPicker();const n=$("q");n.focus();n.setSelectionRange(pos,pos)};
+    q.oninput=e=>{if(e.isComposing)return;upd(e)};q.addEventListener("compositionend",upd)}
   $("pickBody").querySelectorAll("button[data-i]").forEach(b=>b.onclick=()=>{
     sel={c:pickCity,t:+b.dataset.i};store.set("area",JSON.stringify(sel));closePicker();render();window.scrollTo({top:0,behavior:"smooth"});updateRemind();
   });
@@ -448,14 +503,14 @@ function fold(line){const enc=new TextEncoder();let out=[],cur="",lim=75;for(con
 function downloadIcs(){
   const c=city(),tw=town(),t=T.en,stamp=new Date().toISOString().replace(/[-:]/g,"").slice(0,15)+"Z";
   const esc2=s=>s.replace(/\\/g,"\\\\").replace(/;/g,"\\;").replace(/,/g,"\\,");
-  const L=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Sathi Japan//Garbage//EN","CALSCALE:GREGORIAN",`X-WR-CALNAME:Sathi Japan – Garbage (${esc2(tw.ro)})`];
+  const L=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Sathi Japan//Garbage//EN","CALSCALE:GREGORIAN",`X-WR-CALNAME:Sathi Japan – Garbage (${esc2(tname(tw))})`];
   for(let i=0;i<200;i++){
     const k=iso(i),x=idsFor(k);if(x===null)break;if(!x.length)continue;
     const ymd=k.replace(/-/g,""),nd=new Date(k+"T00:00:00Z");nd.setUTCDate(nd.getUTCDate()+1);
     const sum=x.map(id=>`${cat(id).icon} ${cat(id).en}`).join(" + ")+" / "+x.map(id=>cat(id).ne).join(" + ");
     L.push("BEGIN:VEVENT",`UID:${c.id}-${sel.t}-${ymd}@sathijapan.com`,`DTSTAMP:${stamp}`,`DTSTART;VALUE=DATE:${ymd}`,
       `DTEND;VALUE=DATE:${nd.toISOString().slice(0,10).replace(/-/g,"")}`,`SUMMARY:${esc2(sum)}`,
-      `DESCRIPTION:${esc2("Put out by 8:00 / बिहान ८:०० भित्र. Source: "+c.source)}`,"TRANSP:TRANSPARENT",
+      `DESCRIPTION:${esc2(`Put out by ${T.en.times[putTime()]} / ${T.ne.times[putTime()]} भित्र. Source: `+(c.type==="cal"?c.calendars[tw.cal].url:c.source))}`,"TRANSP:TRANSPARENT",
       "BEGIN:VALARM","ACTION:DISPLAY","TRIGGER:-PT4H",`DESCRIPTION:${esc2("Tomorrow: "+sum)}`,"END:VALARM","END:VEVENT");
   }
   L.push("END:VCALENDAR");
