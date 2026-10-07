@@ -32,7 +32,7 @@ module.exports = async function handler(req, res) {
         const ids = place ? idsFor(place.city, place.town, target) : [];
         if (!ids.length) { skipped++; return; }
         try {
-          const status = await sendPush(row, { ...message(place.city, ids, row.lang, morning), url: "/" });
+          const status = await sendPush(row, { ...message(place.city, ids, row.lang, morning, place.town), url: "/" });
           if (status === 404 || status === 410) {            // phone removed the permission → forget it
             await sb(`push_subs?id=eq.${row.id}`, { method: "DELETE" }); removed++;
           } else if (status >= 200 && status < 300) { sent++; done.push(row.id); }
