@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sathi Japan – What we save (privacy)</title>
+<meta name="theme-color" content="#0B2E6B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#F4F6FA;--surface:#fff;--ink:#0B2E6B;--text:#1B2333;--muted:#5B6B82;--line:#DCE2EC;--soft:#E8EDF6}
+  @media (prefers-color-scheme:dark){:root{--paper:#0C1424;--surface:#131E33;--ink:#A9C4F5;--text:#E7ECF5;--muted:#93A2BA;--line:#26344D;--soft:#1A2741}}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--text);font:400 18px/1.6 "Mukta","Noto Sans Devanagari","Hiragino Sans","Noto Sans JP",system-ui,sans-serif}
+  main{max-width:680px;margin:0 auto;padding:20px}
+  a{color:var(--ink)}
+  .top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .back{font-weight:800;text-decoration:none;font-size:17px}
+  .lang{display:flex;background:var(--soft);border-radius:999px;padding:3px}
+  .lang button{border:0;background:transparent;color:var(--ink);font:inherit;font-size:15px;padding:6px 14px;border-radius:999px;cursor:pointer}
+  .lang button[aria-pressed=true]{background:var(--surface)}
+  h1{color:var(--ink);font-weight:800;font-size:34px;line-height:1.1;margin:24px 0 8px}
+  h2{color:var(--ink);font-size:21px;margin:28px 0 6px}
+  p,li{max-width:62ch}
+  ul{padding-left:22px}
+  table{border-collapse:collapse;width:100%;font-size:16px;margin-top:8px}
+  td,th{border-top:1px solid var(--line);padding:8px 6px;text-align:left;vertical-align:top}
+  th{color:var(--muted);font-weight:500;border-top:0}
+  .small{color:var(--muted);font-size:15px}
+  [lang-block]{display:none}
+  html[lang=en] [lang-block=en],html[lang=ne] [lang-block=ne]{display:block}
+</style>
+</head>
+<body>
+<main>
+  <div class="top">
+    <a class="back" href="./" id="back">← Sathi Japan</a>
+    <div class="lang" role="group" aria-label="Language">
+      <button data-l="en" aria-pressed="true">English</button>
+      <button data-l="ne" aria-pressed="false">नेपाली</button>
+    </div>
+  </div>
+
+  <div lang-block="en">
+    <h1>What we save</h1>
+    <p>Sathi Japan works without an account. Most things you do stay only on your own phone.</p>
+
+    <h2>Saved only on your phone</h2>
+    <p>Your chosen area, language, residence card expiry date, checklist dates and ticks. We cannot see them. Clearing your browser data deletes them.</p>
+
+    <h2>Saved on our server – only if you turn on reminders</h2>
+    <table>
+      <tr><th>What</th><th>Why</th></tr>
+      <tr><td>A push address and two encryption keys made by your phone's browser</td><td>To send the evening reminder to your phone</td></tr>
+      <tr><td>Your area (city and town) and language</td><td>To know which garbage day and language to send</td></tr>
+      <tr><td>Your chosen reminder time, and the date of the last reminder</td><td>To send at your time, and never twice in one day</td></tr>
+      <tr><td>The date you turned reminders on</td><td>To keep the list tidy</td></tr>
+    </table>
+    <p>We do <strong>not</strong> save your name, phone number, email, address, residence card number or My Number. We do not sell or share this data, and we do not use it for advertising.</p>
+
+    <h2>My deadlines</h2>
+    <p>Your deadline list is saved on your phone. If you turn on deadline reminders, we also save, for each deadline: the type (for example "resident tax"), the date, when to remind you, and a short label you typed for your own deadlines – together with the push address of your phone. Past deadlines are deleted automatically. Turning reminders off deletes them right away.</p>
+
+    <h2>Letter explainer photos</h2>
+    <p>When you use the letter explainer, your photo is sent once to our AI provider, Anthropic (Claude API), to read it. We do not save the photo or the explanation. Under Anthropic's commercial API terms, it is not used to train their models. To limit use to a few letters a day, we save the date and a scrambled code made from your internet address that cannot be turned back into the address; these are deleted after 7 days. Please cover your My Number before taking a photo.</p>
+
+    <h2>Where it is kept</h2>
+    <p>The data is stored with Supabase (database) and the website runs on Vercel. Your phone's push service (Google, Apple, Mozilla or Microsoft) delivers the message.</p>
+
+    <h2>How to delete it</h2>
+    <p>Tap “🔕 Turn off reminders” on the Garbage days page. Your row is deleted right away. If you remove notification permission in your phone settings, we delete it at the next reminder.</p>
+
+    <h2>Questions</h2>
+    <p>Contact: <span id="contactEn">[add your contact email]</span></p>
+    <p class="small">Sathi Japan is not an official government or city service. Last updated: 7 October 2026.</p>
+  </div>
+
+  <div lang-block="ne">
+    <h1>हामी के सेभ गर्छौं</h1>
+    <p>Sathi Japan खाता (account) बिना चल्छ। तपाईंले गर्ने धेरैजसो कुरा तपाईंकै फोनमा मात्र रहन्छ।</p>
+
+    <h2>तपाईंको फोनमा मात्र सेभ हुने</h2>
+    <p>तपाईंले छानेको क्षेत्र, भाषा, रेसिडेन्स कार्डको म्याद, चेकलिस्टका मिति र ठीक चिन्ह। हामी यी हेर्न सक्दैनौं। ब्राउजर डाटा मेटाउँदा यी पनि मेटिन्छन्।</p>
+
+    <h2>हाम्रो सर्भरमा सेभ हुने – रिमाइन्डर सक्रिय गरे मात्र</h2>
+    <table>
+      <tr><th>के</th><th>किन</th></tr>
+      <tr><td>तपाईंको फोनको ब्राउजरले बनाएको push ठेगाना र दुई encryption key</td><td>बेलुकाको रिमाइन्डर फोनमा पठाउन</td></tr>
+      <tr><td>तपाईंको क्षेत्र (सिटी र टाउन) र भाषा</td><td>कुन फोहोरको दिन र कुन भाषामा पठाउने थाहा पाउन</td></tr>
+      <tr><td>तपाईंले छानेको रिमाइन्डर समय, र अन्तिम रिमाइन्डरको मिति</td><td>तपाईंकै समयमा पठाउन, र एकै दिन दुई पटक नपठाउन</td></tr>
+      <tr><td>रिमाइन्डर सक्रिय गरेको मिति</td><td>सूची व्यवस्थित राख्न</td></tr>
+    </table>
+    <p>हामी तपाईंको नाम, फोन नम्बर, इमेल, ठेगाना, रेसिडेन्स कार्ड नम्बर वा My Number सेभ <strong>गर्दैनौं</strong>। यो डाटा बेच्दैनौं, अरूलाई दिँदैनौं, विज्ञापनमा प्रयोग गर्दैनौं।</p>
+
+    <h2>मेरा अन्तिम मितिहरू</h2>
+    <p>तपाईंको मिति सूची तपाईंको फोनमा सेभ हुन्छ। रिमाइन्डर सक्रिय गर्नुभयो भने हरेक मितिको प्रकार (जस्तै "नगर कर"), मिति, कहिले सम्झाउने, र आफ्नै मितिका लागि तपाईंले लेखेको छोटो नाम – फोनको push ठेगानासँगै – सेभ गर्छौं। बितेका मिति आफैं मेटिन्छन्। रिमाइन्डर बन्द गर्दा तुरुन्तै मेटिन्छ।</p>
+
+    <h2>चिठी बुझाउने सुविधाका फोटो</h2>
+    <p>चिठी बुझाउने सुविधा प्रयोग गर्दा तपाईंको फोटो पढ्नका लागि एक पटक हाम्रो AI प्रदायक Anthropic (Claude API) लाई पठाइन्छ। हामी फोटो वा व्याख्या सेभ गर्दैनौं। Anthropic को व्यावसायिक API नियमअनुसार यसलाई उनीहरूको मोडेल तालिममा प्रयोग गरिँदैन। दिनमा केही चिठी मात्र सीमित गर्न हामी मिति र तपाईंको इन्टरनेट ठेगानाबाट बनाइएको फर्काउन नमिल्ने कोड सेभ गर्छौं; यी ७ दिनपछि मेटिन्छन्। फोटो खिच्नुअघि My Number छोप्नुहोस्।</p>
+
+    <h2>कहाँ राखिन्छ</h2>
+    <p>डाटा Supabase (database) मा राखिन्छ र वेबसाइट Vercel मा चल्छ। सन्देश तपाईंको फोनको push सेवा (Google, Apple, Mozilla वा Microsoft) ले पुर्‍याउँछ।</p>
+
+    <h2>कसरी मेटाउने</h2>
+    <p>फोहोर फाल्ने दिन पेजमा “🔕 रिमाइन्डर बन्द गर्नुहोस्” थिच्नुहोस्। तपाईंको डाटा तुरुन्तै मेटिन्छ। फोनको सेटिङबाट notification अनुमति हटाउनुभयो भने, अर्को रिमाइन्डरको समयमा हामी मेटाउँछौं।</p>
+
+    <h2>प्रश्नहरू</h2>
+    <p>सम्पर्क: <span id="contactNe">[add your contact email]</span></p>
+    <p class="small">Sathi Japan सरकार वा सिटीको आधिकारिक सेवा होइन। अन्तिम अपडेट: २०२६ अक्टोबर ७।</p>
+  </div>
+</main>
+<script>
+let lang="en";try{lang=localStorage.getItem("lang")||"en"}catch(e){}
+function render(){document.documentElement.lang=lang;document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.l===lang))}
+document.querySelectorAll(".lang button").forEach(b=>b.onclick=()=>{lang=b.dataset.l;try{localStorage.setItem("lang",lang)}catch(e){}render()});
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Letter explainer – Sathi Japan</title>
+<meta name="theme-color" content="#0B2E6B">
+<link rel="icon" href="icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F5F7FB;--sheet:#FFFFFF;--ink:#0E1A33;--muted:#56637C;--line:#DCE2EE;--navy:#0B2E6B;--crimson:#C8102E;--tint:#E9EEF8;
+  --hi:#C8102E;--mid:#B26A00;--lo:#2A7D6F;--f:"Mukta","Noto Sans Devanagari",system-ui,sans-serif;--jp:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif}
+@media (prefers-color-scheme:dark){:root{--paper:#0B1222;--sheet:#121C31;--ink:#E8EDF7;--muted:#9AA7BE;--line:#26334C;--navy:#A9C4F5;--crimson:#FF5A6E;--tint:#17233D;--hi:#FF6B7D;--mid:#F2B24C;--lo:#5BC9B5;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 18px/1.6 var(--f)}
+.wrap{max-width:640px;margin:0 auto;padding-inline:16px;padding-block:0 48px}
+:focus-visible{outline:3px solid var(--crimson);outline-offset:3px;border-radius:6px}
+.top{display:flex;align-items:center;gap:12px;padding-block:16px}
+.back{font-weight:800;font-size:19px;color:var(--navy);text-decoration:none;margin-right:auto}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--sheet)}
+.lang button{border:0;background:none;color:var(--ink);font:inherit;font-size:15px;padding:5px 13px;border-radius:999px;cursor:pointer}
+.lang button[aria-pressed=true]{background:var(--navy);color:var(--sheet)}
+h1{font-size:clamp(30px,7vw,40px);line-height:1.1;letter-spacing:-.02em;margin:8px 0 6px;font-weight:800}
+.intro{color:var(--muted);margin:0 0 18px}
+.card{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:18px;margin:14px 0}
+h2{font-size:19px;margin:0 0 10px}
+.drop{border:2px dashed var(--line);border-radius:12px;padding:18px;text-align:center}
+.drop.has{border-style:solid}
+.btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 18px;border-radius:12px;font:inherit;font-weight:700;font-size:17px;cursor:pointer;border:0;text-decoration:none}
+.btn.main{background:var(--navy);color:var(--sheet)}
+.btn.ghost{background:transparent;color:var(--navy);box-shadow:inset 0 0 0 2px var(--line)}
+.btn.big{width:100%;min-height:56px;font-size:19px;margin-top:14px}
+.btn[disabled]{opacity:.5;cursor:default}
+.thumbs{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:14px}
+.thumbs figure{margin:0;position:relative;width:96px}
+.thumbs img{width:96px;height:128px;object-fit:cover;border-radius:8px;border:1px solid var(--line);display:block}
+.thumbs figcaption{font-size:13px;color:var(--muted);text-align:center}
+.thumbs button{position:absolute;top:-8px;right:-8px;width:30px;height:30px;border-radius:50%;border:2px solid var(--sheet);background:var(--ink);color:var(--sheet);font-size:16px;cursor:pointer;line-height:1}
+.tips{margin:12px 0 0;padding-left:20px;color:var(--muted);font-size:15px}
+label.code{display:block;margin-top:14px;font-size:15px;color:var(--muted)}
+label.code input{display:block;width:100%;margin-top:4px;font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink)}
+.status{margin-top:12px;font-size:16px}
+.err{color:var(--hi);font-weight:600}
+.spin{display:inline-block;width:18px;height:18px;border:3px solid currentColor;border-right-color:transparent;border-radius:50%;animation:s .8s linear infinite;vertical-align:-3px;margin-right:8px}
+@keyframes s{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.spin{animation:none}}
+/* Result */
+.res-head{display:flex;gap:12px;align-items:flex-start;justify-content:space-between}
+.res-type{font-size:24px;font-weight:800;line-height:1.2;margin:0}
+.res-from{color:var(--muted);margin:2px 0 0;font-size:16px}
+.chip{flex:none;font-size:14px;font-weight:700;border-radius:999px;padding:4px 12px;border:2px solid currentColor;white-space:nowrap}
+.chip.high{color:var(--hi)}.chip.medium{color:var(--mid)}.chip.low{color:var(--lo)}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}
+.fact{background:var(--tint);border-radius:10px;padding:10px 12px}
+.fact span{display:block;font-size:14px;color:var(--muted)}
+.fact b{font-size:20px;color:var(--navy);font-variant-numeric:tabular-nums}
+.fact small{display:block;font-family:var(--jp);font-size:13px;color:var(--muted)}
+ol.steps{margin:6px 0 0;padding-left:22px}
+ol.steps li{margin:0 0 8px}
+.words{display:grid;gap:6px;margin:6px 0 0}
+.words div{display:grid;grid-template-columns:minmax(110px,40%) 1fr;gap:10px;border-top:1px solid var(--line);padding-top:6px;font-size:16px}
+.words .ja{font-family:var(--jp);font-weight:700}
+.words .rd{display:block;font-family:var(--f);font-weight:400;font-size:13px;color:var(--muted)}
+.warn{background:#fdecea;color:#8a1c1c;border-radius:10px;padding:10px 12px;margin-top:12px;font-size:16px}
+.note{background:var(--tint);border-radius:10px;padding:10px 12px;margin-top:12px;font-size:15px;color:var(--ink)}
+@media (prefers-color-scheme:dark){.warn{background:#4a1d1d;color:#ffd6d6}}
+.small{font-size:14px;color:var(--muted)}
+h3{font-size:17px;margin:16px 0 4px}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="back" href="./">‹ Sathi Japan</a>
+    <div class="lang" role="group" aria-label="Language">
+      <button data-l="en" aria-pressed="true">English</button>
+      <button data-l="ne" aria-pressed="false">नेपाली</button>
+    </div>
+  </header>
+
+  <h1 data-t="title"></h1>
+  <p class="intro" data-t="intro"></p>
+
+  <section class="card" id="askCard">
+    <h2 data-t="h1"></h2>
+    <div class="drop" id="drop">
+      <div class="btns">
+        <label class="btn main"><input type="file" id="cam" accept="image/*" capture="environment" hidden><span data-t="takePhoto"></span></label>
+        <label class="btn ghost"><input type="file" id="pick" accept="image/*" multiple hidden><span data-t="choose"></span></label>
+      </div>
+      <div class="thumbs" id="thumbs"></div>
+      <p class="small" id="pages" style="margin:10px 0 0"></p>
+    </div>
+    <ul class="tips" id="tips"></ul>
+    <label class="code" id="codeBox" hidden><span data-t="codeL"></span><input id="code" autocomplete="off" inputmode="text"></label>
+    <button class="btn main big" id="go" disabled data-t="go"></button>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+  </section>
+
+  <section class="card" id="result" hidden></section>
+
+  <section class="card">
+    <h2 data-t="privH"></h2>
+    <p class="small" style="margin:0" data-t="privP"></p>
+    <div class="note" id="legalNote" data-t="legal"></div>
+  </section>
+</div>
+
+<script>
+const T={
+en:{
+ title:"Letter explainer",intro:"Got a letter in Japanese from the city, tax office or pension office? Take a photo and get it explained in plain English: what it is, what to do, and by when.",
+ h1:"Photo of the letter",takePhoto:"📷 Take photo",choose:"Choose photo",
+ pages:(n,m)=>n?`${n} of ${m} pages added. Add the back side or the next page if it has writing.`:`Up to ${m} pages (front, back, next page).`,
+ page:n=>`Page ${n}`,remove:"Remove page",
+ tips:["Put the letter on a flat table in good light.","Fit the whole page in the photo, straight on.","Cover your My Number and bank numbers with your finger or paper first."],
+ codeL:"Beta code (ask Sathi Japan)",go:"Explain this letter",
+ working:"Reading your letter… this takes about 15–30 seconds.",
+ err:{wrong_code:"That beta code is not right. Check it and try again.",limit:n=>`You have used today's ${n} free explanations. Try again tomorrow.`,busy:"Many people are using Sathi today. Please try again tomorrow.",
+  not_ready:"The letter explainer is not switched on yet.",photo_big:"The photo is too large. Take it again a little further away.",photo_type:"Please use a JPG or PNG photo.",
+  ai:"The AI service did not answer. Please try again in a minute.",net:"No connection. Check your internet and try again.",other:"Something went wrong. Please try again."},
+ urg:{high:"Act soon",medium:"Action needed",low:"For information"},
+ deadline:"Deadline",amount:"Amount",none:"None",
+ whatH:"What it says",doH:"What to do",nothing:"Nothing to do – this letter is for information.",askH:"Questions? Ask here",wordsH:"Words on the letter",unsureH:"Not clear in the photo",
+ notRead:"The photo is hard to read. Take it again: flat, bright, whole page, no shadow.",
+ ics:"📅 Calendar file",remindMe:"⏰ Remind me – add to My deadlines",again:"Explain another letter",left:n=>`${n} free explanations left today.`,
+ privH:"Your privacy",privP:"Your photo is sent once to our AI provider (Anthropic's Claude) to read it, then deleted – we do not save the photo or the explanation. Under Anthropic's API terms it is not used to train their AI. Please cover your My Number before taking the photo.",
+ legal:"This is an AI explanation, not legal, tax, immigration or medical advice. It can make mistakes – always check important dates and amounts on the letter itself, and ask the office printed on it if you are unsure.",
+ icsTitle:"Letter deadline"
+},
+ne:{
+ title:"चिठी बुझाउने",intro:"सिटी, कर कार्यालय वा पेन्सन कार्यालयबाट जापानी भाषामा चिठी आयो? फोटो खिच्नुहोस् र सजिलो नेपालीमा बुझ्नुहोस्: के हो, के गर्ने, कहिलेसम्म।",
+ h1:"चिठीको फोटो",takePhoto:"📷 फोटो खिच्नुहोस्",choose:"फोटो छान्नुहोस्",
+ pages:(n,m)=>n?`${m} मध्ये ${n} पाना थपियो। पछाडि वा अर्को पानामा लेखिएको छ भने त्यो पनि थप्नुहोस्।`:`बढीमा ${m} पाना (अगाडि, पछाडि, अर्को पाना)।`,
+ page:n=>`पाना ${n}`,remove:"पाना हटाउनुहोस्",
+ tips:["चिठी राम्रो उज्यालोमा समतल टेबलमा राख्नुहोस्।","पूरा पाना सिधा फोटोमा अटाउनुहोस्।","पहिले My Number र बैंक नम्बर औंला वा कागजले छोप्नुहोस्।"],
+ codeL:"बिटा कोड (Sathi Japan लाई सोध्नुहोस्)",go:"यो चिठी बुझाउनुहोस्",
+ working:"चिठी पढ्दै… करिब १५–३० सेकेन्ड लाग्छ।",
+ err:{wrong_code:"बिटा कोड मिलेन। जाँचेर फेरि प्रयास गर्नुहोस्।",limit:n=>`आजका ${n} वटा निःशुल्क व्याख्या सकिए। भोलि फेरि प्रयास गर्नुहोस्।`,busy:"आज धेरैले Sathi प्रयोग गरिरहेका छन्। भोलि फेरि प्रयास गर्नुहोस्।",
+  not_ready:"चिठी बुझाउने सुविधा अझै सुरु भएको छैन।",photo_big:"फोटो धेरै ठूलो भयो। अलि टाढाबाट फेरि खिच्नुहोस्।",photo_type:"JPG वा PNG फोटो प्रयोग गर्नुहोस्।",
+  ai:"AI सेवाले जवाफ दिएन। एक मिनेटपछि फेरि प्रयास गर्नुहोस्।",net:"इन्टरनेट छैन। जाँचेर फेरि प्रयास गर्नुहोस्।",other:"केही गडबड भयो। फेरि प्रयास गर्नुहोस्।"},
+ urg:{high:"चाँडै गर्नुहोस्",medium:"काम गर्नुपर्छ",low:"जानकारी मात्र"},
+ deadline:"अन्तिम मिति",amount:"रकम",none:"छैन",
+ whatH:"चिठीमा के छ",doH:"के गर्ने",nothing:"केही गर्नु पर्दैन – यो जानकारीको चिठी हो।",askH:"प्रश्न भए यहाँ सोध्नुहोस्",wordsH:"चिठीका शब्द",unsureH:"फोटोमा प्रस्ट नभएको",
+ notRead:"फोटो पढ्न गाह्रो भयो। फेरि खिच्नुहोस्: समतल, उज्यालो, पूरा पाना, छायाँ नपर्ने।",
+ ics:"📅 क्यालेन्डर फाइल",remindMe:"⏰ सम्झाउनुहोस् – मेरा मितिमा थप्नुहोस्",again:"अर्को चिठी बुझाउनुहोस्",left:n=>`आज ${n} वटा निःशुल्क व्याख्या बाँकी।`,
+ privH:"तपाईंको गोपनीयता",privP:"तपाईंको फोटो पढ्नका लागि एक पटक हाम्रो AI प्रदायक (Anthropic को Claude) लाई पठाइन्छ, त्यसपछि मेटिन्छ – हामी फोटो वा व्याख्या सेभ गर्दैनौं। Anthropic को API नियमअनुसार यसलाई AI तालिममा प्रयोग गरिँदैन। फोटो खिच्नुअघि My Number छोप्नुहोस्।",
+ legal:"यो AI को व्याख्या हो, कानुनी, कर, भिसा वा स्वास्थ्य सल्लाह होइन। गल्ती हुन सक्छ – महत्त्वपूर्ण मिति र रकम सधैं चिठीमै जाँच्नुहोस्, र शंका भए चिठीमा लेखिएको कार्यालयलाई सोध्नुहोस्।",
+ icsTitle:"चिठीको अन्तिम मिति"
+}};
+const MAXP=3;
+const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+let lang=store.get("lang")||"en", pages=[], last=null, needCode=false;
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+// Shrink each photo on the phone (max 1600 px, JPEG) – faster and cheaper, and under the upload limit
+function shrink(file){return new Promise((ok,bad)=>{const url=URL.createObjectURL(file),img=new Image();
+  img.onload=()=>{const s=Math.min(1,1600/Math.max(img.width,img.height)),c=document.createElement("canvas");c.width=Math.round(img.width*s);c.height=Math.round(img.height*s);
+    c.getContext("2d").drawImage(img,0,0,c.width,c.height);URL.revokeObjectURL(url);ok(c.toDataURL("image/jpeg",0.82))};
+  img.onerror=()=>{URL.revokeObjectURL(url);bad()};img.src=url})}
+async function add(files){
+  for(const f of [...files]){if(pages.length>=MAXP)break;if(!/^image\//.test(f.type))continue;try{pages.push(await shrink(f))}catch(e){status("photo_type")}}
+  last=null;render();
+}
+$("cam").onchange=e=>{add(e.target.files);e.target.value=""};
+$("pick").onchange=e=>{add(e.target.files);e.target.value=""};
+
+function status(k,extra){const t=T[lang];const m=t.err[k];$("status").innerHTML=`<span class="err">${esc(typeof m==="function"?m(extra):m||t.err.other)}</span>`}
+async function go(){
+  const t=T[lang];$("go").disabled=true;$("status").innerHTML=`<span class="spin" aria-hidden="true"></span>${esc(t.working)}`;
+  if(needCode) store.set("letter_code",$("code").value.trim());
+  try{
+    const r=await fetch("/api/explain",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({images:pages,lang,code:$("code").value.trim()})});
+    const j=await r.json().catch(()=>({error:"other"}));
+    if(!r.ok){if(j.error==="wrong_code"){needCode=true;$("codeBox").hidden=false}status(j.error,j.per);$("go").disabled=false;return}
+    last=j;$("status").textContent="";render();$("result").scrollIntoView({behavior:"smooth",block:"start"});
+  }catch(e){status("net");$("go").disabled=false}
+}
+$("go").onclick=go;
+
+function ics(){
+  const d=last.deadline_iso.replace(/-/g,""),n=new Date(last.deadline_iso+"T00:00:00Z");n.setUTCDate(n.getUTCDate()+1);
+  const e=s=>String(s||"").replace(/\\/g,"\\\\").replace(/;/g,"\\;").replace(/,/g,"\\,").replace(/\n/g,"\\n");
+  const L=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Sathi Japan//Letter//EN","BEGIN:VEVENT",`UID:letter-${d}-${Date.now()}@sathijapan.com`,
+   `DTSTAMP:${new Date().toISOString().replace(/[-:]/g,"").slice(0,15)}Z`,`DTSTART;VALUE=DATE:${d}`,`DTEND;VALUE=DATE:${n.toISOString().slice(0,10).replace(/-/g,"")}`,
+   `SUMMARY:${e("📮 "+T[lang].icsTitle+": "+(last.type||""))}`,`DESCRIPTION:${e((last.steps||[]).join("\n"))}`,
+   "BEGIN:VALARM","ACTION:DISPLAY","TRIGGER:-P3D",`DESCRIPTION:${e(T[lang].icsTitle)}`,"END:VALARM","END:VEVENT","END:VCALENDAR"];
+  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([L.join("\r\n")+"\r\n"],{type:"text/calendar"}));a.download="sathi-letter-deadline.ics";document.body.appendChild(a);a.click();a.remove();
+}
+
+function render(){
+  const t=T[lang];document.documentElement.lang=lang;
+  document.querySelectorAll("[data-t]").forEach(e=>{const v=t[e.dataset.t];if(typeof v==="string")e.textContent=v});
+  document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.l===lang));
+  $("tips").innerHTML=t.tips.map(x=>`<li>${esc(x)}</li>`).join("");
+  $("thumbs").innerHTML=pages.map((p,i)=>`<figure><img src="${p}" alt="${esc(t.page(i+1))}"><figcaption>${esc(t.page(i+1))}</figcaption><button data-i="${i}" aria-label="${esc(t.remove)}">×</button></figure>`).join("");
+  $("thumbs").querySelectorAll("button").forEach(b=>b.onclick=()=>{pages.splice(+b.dataset.i,1);last=null;render()});
+  $("drop").classList.toggle("has",pages.length>0);
+  $("pages").textContent=t.pages(pages.length,MAXP);
+  document.querySelectorAll("#drop .btn").forEach(b=>b.toggleAttribute("hidden",pages.length>=MAXP));
+  $("go").disabled=!pages.length;
+  $("codeBox").hidden=!needCode;
+  const R=$("result");
+  $("legalNote").hidden=!!last;
+  if(!last){R.hidden=true;$("askCard").hidden=false;return}
+  R.hidden=false;$("askCard").hidden=true;
+  if(last.readable===false){R.innerHTML=`<p class="err" style="margin:0">${esc(t.notRead)}</p>${last.unsure?`<p class="small">${esc(last.unsure)}</p>`:""}<button class="btn main big" id="again">${esc(t.again)}</button>`;}
+  else{
+    const steps=(last.steps||[]).filter(Boolean);
+    R.innerHTML=`<div class="res-head"><div><p class="res-type">${esc(last.type||"")}</p><p class="res-from">${esc(last.sender||"")}</p></div><span class="chip ${esc(last.urgency)}">${esc(t.urg[last.urgency]||"")}</span></div>
+     <div class="facts"><div class="fact"><span>${esc(t.deadline)}</span><b>${esc(last.deadline_iso||t.none)}</b>${last.deadline_text?`<small lang="ja">${esc(last.deadline_text)}</small>`:""}</div>
+      <div class="fact"><span>${esc(t.amount)}</span><b>${esc(last.amount||t.none)}</b></div></div>
+     ${last.warning?`<div class="warn">⚠️ ${esc(last.warning)}</div>`:""}
+     <h3>${esc(t.whatH)}</h3><p style="margin:0">${esc(last.summary)}</p>
+     <h3>${esc(t.doH)}</h3>${steps.length?`<ol class="steps">${steps.map(s=>`<li>${esc(s)}</li>`).join("")}</ol>`:`<p style="margin:0">${esc(t.nothing)}</p>`}
+     ${last.deadline_iso?`<div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:6px"><a class="btn main" href="deadlines.html?add=cu&d=${encodeURIComponent(last.deadline_iso)}&l=${encodeURIComponent(String(last.type||"").replace(/[（(].*$/,"").slice(0,40))}">${esc(t.remindMe)}</a><button class="btn ghost" id="ics">${esc(t.ics)}</button></div>`:""}
+     ${last.ask_where?`<h3>${esc(t.askH)}</h3><p style="margin:0">${esc(last.ask_where)}</p>`:""}
+     ${(last.key_words||[]).length?`<h3>${esc(t.wordsH)}</h3><div class="words">${last.key_words.map(w=>`<div><span class="ja" lang="ja">${esc(w.ja)}${w.reading?`<span class="rd">${esc(w.reading)}</span>`:""}</span><span>${esc(w.meaning)}</span></div>`).join("")}</div>`:""}
+     ${last.unsure?`<div class="note"><b>${esc(t.unsureH)}:</b> ${esc(last.unsure)}</div>`:""}
+     <div class="note">${esc(t.legal)}</div>
+     ${typeof last.left==="number"?`<p class="small">${esc(t.left(last.left))}</p>`:""}
+     <button class="btn main big" id="again">${esc(t.again)}</button>`;
+    if($("ics"))$("ics").onclick=ics;
+  }
+  $("again").onclick=()=>{pages=[];last=null;$("status").textContent="";render();window.scrollTo({top:0,behavior:"smooth"})};
+}
+document.querySelectorAll(".lang button").forEach(b=>b.onclick=()=>{lang=b.dataset.l;store.set("lang",lang);render()});
+$("code").value=store.get("letter_code")||"";
+render();
+// Ask the server whether a beta code is needed
+fetch("/api/explain").then(r=>r.json()).then(j=>{needCode=!!j.code;if(!j.ready)status("not_ready");render()}).catch(()=>{});
+</script>
+</body>
+</html>
