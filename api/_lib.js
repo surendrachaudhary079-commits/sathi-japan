@@ -159,4 +159,30 @@ function validSub(s) {
   } catch { return false; }
 }
 
-module.exports = { calIds, HOURS, env, keyKind, loadAreas, areas, findTown, idsFor, jpDate, message, sendPush, encrypt, vapidHeader, sb, validSub, b64u, unb64u };
+
+// ---------- My deadlines ----------
+// kind → [English, Nepali] name used in reminders. "n" = instalment number, "l" = the person's own short label.
+const DL = {
+  rc:  ["Residence card expires", "रेसिडेन्स कार्डको म्याद सकिन्छ"],
+  mn:  ["Update your My Number card (it ends with your residence period)", "My Number कार्ड अपडेट गर्नुहोस् (बसाइ अवधिसँगै सकिन्छ)"],
+  pp:  ["Passport expires", "पासपोर्टको म्याद सकिन्छ"],
+  dl:  ["Driving licence expires", "ड्राइभिङ लाइसेन्सको म्याद सकिन्छ"],
+  re:  ["Return to Japan by (re-entry)", "जापान फर्किनुपर्ने अन्तिम दिन (पुनःप्रवेश)"],
+  rt:  ["Resident tax payment", "नगर कर (住民税) भुक्तानी"],
+  nhi: ["Health insurance payment", "स्वास्थ्य बीमा (国保) भुक्तानी"],
+  pen: ["National pension payment", "राष्ट्रिय पेन्सन भुक्तानी"],
+  kei: ["Light vehicle tax payment", "हल्का सवारी कर भुक्तानी"],
+  cu:  ["Deadline", "अन्तिम मिति"]
+};
+function dlMessage(rows, lang, today) {
+  const ne = lang === "ne", days = d => Math.round((new Date(d + "T00:00:00Z") - new Date(today + "T00:00:00Z")) / 864e5);
+  const line = r => {
+    const name = (r.kind === "cu" && r.label) ? r.label : (DL[r.kind] || DL.cu)[ne ? 1 : 0] + (r.n ? (ne ? ` (किस्ता ${r.n})` : ` (part ${r.n})`) : "");
+    const k = days(r.due);
+    const when = k <= 0 ? (ne ? "आज" : "today") : k === 1 ? (ne ? "भोलि" : "tomorrow") : (ne ? `${k} दिनमा` : `in ${k} days`);
+    return `${name} – ${when} (${r.due})`;
+  };
+  return { title: ne ? "⏰ Sathi: अन्तिम मिति नजिकियो" : "⏰ Sathi: deadline coming up", body: rows.map(line).join("\n") };
+}
+
+module.exports = { DL, dlMessage, calIds, HOURS, env, keyKind, loadAreas, areas, findTown, idsFor, jpDate, message, sendPush, encrypt, vapidHeader, sb, validSub, b64u, unb64u };
