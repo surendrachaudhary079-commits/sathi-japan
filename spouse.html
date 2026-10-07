@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sathi Japan – Spouse Visa Guide</title>
+<meta name="theme-color" content="#0B2E6B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#F4F6FA;--card:#fff;--ink:#1B2333;--muted:#5B6B82;--line:#DCE2EC;--brand:#0B2E6B;--ok:#2A9D8F;--late:#D62828;--soon:#E9A23B}
+  @media (prefers-color-scheme:dark){:root{--bg:#0C1424;--card:#131E33;--ink:#E7ECF5;--muted:#93A2BA;--line:#26344D;--brand:#A9C4F5}}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:400 18px/1.55 "Mukta","Noto Sans Devanagari","Hiragino Sans","Noto Sans JP",system-ui,sans-serif}
+  main{max-width:560px;margin:0 auto;padding:16px}
+  header{display:flex;justify-content:space-between;align-items:center;gap:12px}
+  h1{font-size:24px;line-height:1.15;font-weight:800;letter-spacing:-.015em;margin:0;color:var(--brand)}
+  h2{font-size:18px;margin:0 0 10px}
+  a{color:var(--brand)}
+  a.back{font-weight:800;color:var(--brand);font-size:17px;text-decoration:none}
+  .lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;flex-shrink:0}
+  .lang button{border:0;background:transparent;color:var(--ink);padding:8px 12px;font:inherit;font-size:15px;cursor:pointer}
+  .lang button[aria-pressed=true]{background:var(--brand);color:var(--bg)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin:12px 0}
+  .label{font-size:14px;color:var(--muted);margin:0 0 6px}
+  select{width:100%;font:inherit;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}
+  .seg{display:grid;gap:8px;margin-top:8px}
+  .seg button{text-align:left;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:12px;padding:10px 12px;font:inherit;font-size:16px;cursor:pointer}
+  .seg button b{display:block;color:var(--brand)}
+  .seg button[aria-pressed=true]{border-color:var(--brand);box-shadow:inset 0 0 0 2px var(--brand)}
+  .verdict{border-radius:12px;padding:12px 14px;margin-top:12px;font-size:16px}
+  .verdict.yes{background:#e8f3f1;color:#14524a}
+  .verdict.no{background:#fdecea;color:#8a1c1c}
+  .verdict.mid{background:#fff4e0;color:#6b4500}
+  @media (prefers-color-scheme:dark){.verdict.yes{background:#173d38;color:#cfeee8}.verdict.no{background:#4a1d1d;color:#ffd6d6}.verdict.mid{background:#4a3a14;color:#ffe9b8}}
+  ol.steps{margin:0;padding-left:22px}
+  ol.steps li{margin:0 0 12px}
+  ol.steps li:last-child{margin:0}
+  .sub{font-size:15px;color:var(--muted)}
+  ul.docs{list-style:none;margin:0;padding:0}
+  ul.docs li{display:flex;gap:10px;padding:10px 0;border-top:1px solid var(--line)}
+  ul.docs li:first-child{border-top:0}
+  ul.docs input{width:22px;height:22px;margin-top:3px;flex-shrink:0}
+  ul.docs .ja{font-weight:700}
+  ul.docs .en{display:block}
+  ul.docs .from{display:block;font-size:14px;color:var(--muted)}
+  ul.docs a{font-size:15px}
+  .count{font-size:14px;color:var(--muted);margin:0 0 6px}
+  .btn{display:block;width:100%;text-align:center;background:var(--brand);color:var(--bg);border:0;padding:12px;border-radius:12px;font:inherit;font-weight:700;cursor:pointer;margin-top:10px;text-decoration:none}
+  .btn.alt{background:transparent;color:var(--brand);box-shadow:inset 0 0 0 2px var(--brand)}
+  .row2{display:flex;gap:10px}.row2 .btn{flex:1}
+  .warn{background:#fdecea;color:#8a1c1c;border-radius:10px;padding:10px 12px;font-size:15px;margin-top:10px}
+  .info{background:#e8f3f1;color:#14524a;border-radius:10px;padding:10px 12px;font-size:15px;margin-top:10px}
+  @media (prefers-color-scheme:dark){.warn{background:#4a1d1d;color:#ffd6d6}.info{background:#173d38;color:#cfeee8}}
+  ul.plain{margin:6px 0 0;padding-left:20px;font-size:16px}
+  .small{font-size:13px;color:var(--muted)}
+  [hidden]{display:none!important}
+</style>
+</head>
+<body>
+<main>
+  <a class="back" href="visa.html" data-t="back"></a>
+  <header>
+    <h1 data-t="title"></h1>
+    <div class="lang" role="group" aria-label="Language">
+      <button data-l="en" aria-pressed="true">EN</button>
+      <button data-l="ne" aria-pressed="false">नेपाली</button>
+    </div>
+  </header>
+  <p class="sub" data-t="intro"></p>
+
+  <!-- 1. Your situation -->
+  <section class="card">
+    <h2 data-t="q1"></h2>
+    <p class="label" data-t="q1p"></p>
+    <select id="mine"></select>
+    <div id="verdict"></div>
+    <div id="whereBox">
+      <h2 style="margin-top:16px" data-t="q2"></h2>
+      <div class="seg" id="where"></div>
+    </div>
+  </section>
+
+  <div id="result">
+    <!-- 2. Steps -->
+    <section class="card">
+      <h2 id="stepsH"></h2>
+      <ol class="steps" id="steps"></ol>
+    </section>
+
+    <!-- 3. Documents -->
+    <section class="card">
+      <h2 data-t="docsH"></h2>
+      <p class="count" id="count"></p>
+      <ul class="docs" id="docs"></ul>
+      <ul class="plain sub" id="rules"></ul>
+      <a id="offList" target="_blank" rel="noopener" data-t="offList"></a>
+    </section>
+
+    <!-- 4. Form + fee -->
+    <section class="card">
+      <h2 data-t="formH"></h2>
+      <p class="sub" style="margin-top:0" id="formName"></p>
+      <div class="row2">
+        <a class="btn" id="fpdf" target="_blank" rel="noopener">PDF</a>
+        <a class="btn alt" id="fxls" target="_blank" rel="noopener">Excel</a>
+      </div>
+      <p style="margin:14px 0 0" id="fee"></p>
+    </section>
+  </div>
+
+  <!-- 5. After arrival -->
+  <section class="card" id="afterBox">
+    <h2 data-t="afterH"></h2>
+    <ol class="steps" id="after"></ol>
+  </section>
+
+  <!-- 6. Help -->
+  <section class="card">
+    <h2 data-t="helpH"></h2>
+    <p style="margin:0" data-t="helpP"></p>
+    <a class="btn" href="tel:0570013904" data-t="call"></a>
+    <div class="info" data-t="legal"></div>
+  </section>
+
+  <p class="small"><span data-t="disclaimer"></span></p>
+</main>
+
+<script>
+// Sources (Immigration Services Agency, checked 7 Oct 2026):
+//  Family Stay      https://www.moj.go.jp/isa/applications/status/dependent.html
+//  Spouse of Japanese https://www.moj.go.jp/isa/applications/status/spouseorchildofjapanese01.html
+//  COE procedure    https://www.moj.go.jp/isa/applications/procedures/16-1.html (free, 1–3 months, e-mail COE)
+//  Change / renewal fee https://www.moj.go.jp/isa/applications/procedures/16-2.html
+//  TB screening (Nepal, from 23 Jun 2025) https://www.moj.go.jp/isa/10_00219.html
+//  Part-time work for Family Stay https://www.moj.go.jp/isa/applications/procedures/nyuukokukanri07_00004.html
+//  Photo rules      https://www.moj.go.jp/isa/applications/status/photo_info_00002.html
+//  Embassy of Japan in Nepal (visa) https://www.np.emb-japan.go.jp/itpr_en/visa.html
+const ISA="https://www.moj.go.jp/isa/", C=ISA+"content/";
+const L={
+ dep:ISA+"applications/status/dependent.html",
+ jsp:ISA+"applications/status/spouseorchildofjapanese01.html",
+ psp:ISA+"applications/status/spouseorchildofpermanentresident.html",
+ photo:ISA+"applications/status/photo_info_00002.html",
+ tb:ISA+"10_00219.html", jpets:"https://jpets.mhlw.go.jp/jp/",
+ emb:"https://www.np.emb-japan.go.jp/itpr_en/visa.html",
+ work:ISA+"applications/procedures/nyuukokukanri07_00004.html",
+ fee:ISA+"applications/procedures/16-2.html", region:ISA+"about/region/index.html",
+ online:ISA+"applications/online/onlineshinsei.html"
+};
+// Your own status → which spouse visa
+// kind: dep = Family Stay (家族滞在), jsp = Spouse of Japanese, psp = Spouse of PR, no = not possible
+const MINE=[
+ ["gijinkoku","dep"],["skilled","dep"],["bm","dep"],["hsp","dep"],["student","dep"],["ssw2","dep"],["kaigo","dep"],
+ ["ssw1","no"],["titp","no"],["pr","psp"],["jp","jsp"],["other","ask"]
+];
+// Documents. who: me = person in Japan, sp = spouse, both. src = where to get it.
+const T={
+en:{
+ back:"← Visa guide",title:"💍 Spouse visa guide",
+ intro:"How to bring your husband or wife to Japan, or change or renew their visa – with the exact names of every document. Official Immigration Services Agency rules, explained simply.",
+ q1:"1. Your situation",q1p:"What is YOUR status (the person living in Japan)?",
+ mine:["Engineer / Specialist in Humanities / International Services (技術・人文知識・国際業務)","Skilled Labor, e.g. cook (技能)","Business Manager (経営・管理)","Highly Skilled Professional (高度専門職)","Student (留学)","Specified Skilled Worker type 2 (特定技能2号)","Care Worker (介護)","Specified Skilled Worker type 1 (特定技能1号)","Technical Intern / Employment for Skill Development (技能実習・育成就労)","Permanent Resident (永住者)","I am a Japanese citizen","Other"],
+ v:{dep:"✅ Your spouse can get Family Stay (家族滞在). You must be able to support them – there is no fixed income amount; Immigration checks your job, income and tax payments.",
+    jsp:"✅ Your spouse applies for Spouse or Child of Japanese National (日本人の配偶者等). Immigration also checks that the marriage is real.",
+    psp:"ℹ️ Your spouse applies for Spouse or Child of Permanent Resident (永住者の配偶者等). The documents are similar to Spouse of Japanese – see the official page.",
+    no:"❌ Family Stay is NOT available for this status. Family Stay is only for spouses of people with work statuses such as 技術・人文知識・国際業務, 技能, 経営・管理, 特定技能2号, or students. If you move to one of those statuses later, you can apply then.",
+    ask:"ℹ️ It depends on your status. Call the Immigration information center (0570-013904, Nepali available) and ask which status your spouse can get."},
+ pspLink:"Official page: Spouse of Permanent Resident ↗",
+ q2:"2. Where is your spouse now?",
+ where:{coe:["In Nepal (or another country)","Bring them to Japan – Certificate of Eligibility"],chg:["In Japan, with a different visa","Change their status, e.g. student → Family Stay"],ren:["In Japan, already on this visa","Renew (extend) their period of stay"]},
+ stepsH:{coe:"Steps: bringing your spouse to Japan",chg:"Steps: changing to this status",ren:"Steps: renewing the period of stay"},
+ steps:{
+  coe:[
+   ["TB test in Nepal (Nepali citizens)","Your spouse gets a chest X-ray at a clinic designated by Japan (Kathmandu, Pokhara or Damak) and receives a 結核非発病証明書 (TB non-onset certificate). Required for Nepali citizens since 23 June 2025. Valid 180 days from the X-ray.",L.jpets,"Designated clinics (JPETS) ↗"],
+   ["Collect the documents","Use the checklist below. Get your tax certificates from your city hall and an employment certificate from your company. Translate Nepali documents into Japanese."],
+   ["You apply in Japan","You (the husband or wife in Japan) apply for the Certificate of Eligibility (在留資格認定証明書, COE) at the immigration office for your address, or online. It is free.",L.region,"Immigration offices ↗"],
+   ["Wait 1–3 months","Immigration may call you or ask for more documents. You can choose to receive the COE by e-mail or by post."],
+   ["Send the COE to your spouse","Forward the e-mail COE, or post the paper COE. The COE is valid for 3 months – your spouse must use it within that time."],
+   ["Visa at the Embassy of Japan in Nepal","Your spouse applies for the visa with their passport, the COE, a photo and the visa form. It usually takes about a week (longer if checked carefully).",L.emb,"Embassy of Japan in Nepal – visa ↗"],
+   ["Arrival in Japan","At major airports (Narita, Haneda, Kansai, Chubu, etc.) your spouse gets the residence card on arrival. Then follow 'After your spouse arrives' below."]],
+  chg:[
+   ["Check timing","Apply as soon as their situation changes (for example after graduating, or when they stop studying). Not doing the activity of the old status can lead to the status being cancelled."],
+   ["Collect the documents","Use the checklist below. Certificates issued in Japan must be less than 3 months old."],
+   ["Apply","At the immigration office for your address (weekdays), or online with a My Number card. Your spouse can apply themselves; you as family can also submit for them.",L.online,"Online application ↗"],
+   ["Wait for the result","Usually 2 weeks – 1 month. Keep the residence card. The back shows 申請中 (pending) after a counter application."],
+   ["Get the new card","Pay the fee with a revenue stamp (counter) or online payment, and receive the new residence card."]],
+  ren:[
+   ["When to apply","From 3 months before the expiry date on the residence card (for stays of 6 months or more). Don't wait until the last weeks."],
+   ["Collect the documents","Use the checklist below. Get the newest tax certificates from your city hall in June or later – they show last year's income."],
+   ["Apply","At the immigration office or online. Weekdays 9:00–12:00 and 13:00–16:00 at the counter.",L.online,"Online application ↗"],
+   ["Wait 2 weeks – 1 month","They may stay in Japan while waiting, even past the expiry date, for up to 2 months (if they applied in time)."],
+   ["Get the new card","Pay the fee and receive the new residence card."]]
+ },
+ docsH:"3. Documents checklist",count:(a,b)=>`${a} of ${b} ready – ticks are saved only on this phone.`,
+ offList:"Official list (Immigration Services Agency) ↗",optL:"Only if it applies",
+ who:{me:"From you",sp:"From your spouse",both:"",co:"From your company",city:"From your city hall",nepal:"From Nepal",isa:"Immigration form"},
+ rules:["Certificates issued in Japan must be less than 3 months old.","Documents in Nepali or English need a Japanese translation attached.","Immigration may ask for more documents after you apply.","Never give fake or edited documents – it can lead to refusal and a ban."],
+ formH:"4. Application form",formNames:{coe:"在留資格認定証明書交付申請書 (Certificate of Eligibility)",chg:"在留資格変更許可申請書 (change of status)",ren:"在留期間更新許可申請書 (extension)"},
+ fee:{coe:"Fee: free – there is no fee for a Certificate of Eligibility.",chg:"Fee (from 1 Oct 2026): paid only when approved, depends on the period given – ¥10,000 (up to 3 months) to ¥75,000 (5 years) at the counter. 1 year = ¥33,000. Cheaper online. See the full table in the Visa guide.",ren:"Fee (from 1 Oct 2026): paid only when approved, depends on the period given – ¥10,000 (up to 3 months) to ¥75,000 (5 years) at the counter. 1 year = ¥33,000. Cheaper online. See the full table in the Visa guide."},
+ afterH:"After your spouse arrives",
+ after:[
+  ["Register the address – within 14 days","Go to your city or ward office with the residence card and do the moving-in notification (転入届). The address is written on the back of the card."],
+  ["Health insurance and pension","If you are in your company's health insurance, ask HR to add your spouse as a dependent (被扶養者) – income limits apply. Otherwise, join National Health Insurance at the city office."],
+  ["Want to work part-time?","Family Stay does not allow work by itself. Your spouse must first get permission (資格外活動許可) – then up to 28 hours a week. Working without it is illegal.",L.work,"Official page ↗"],
+  ["Renew on time","Put the card's expiry date in the Visa guide to get reminders."]],
+ helpH:"Need help?",helpP:"The Immigration information center answers in Nepali, English and other languages. Weekdays 8:30–17:15.",call:"📞 Call 0570-013904",
+ legal:"Sathi Japan explains only. We do not fill in or submit applications. For paid help, use a licensed gyoseishoshi (行政書士) or immigration lawyer.",
+ disclaimer:"General information, not immigration or legal advice. Based on the Immigration Services Agency pages for Family Stay and Spouse of Japanese National, checked 7 Oct 2026. Rules can change – always check the official page."
+},
+ne:{
+ back:"← भिसा गाइड",title:"💍 श्रीमान/श्रीमती भिसा गाइड",
+ intro:"श्रीमान वा श्रीमतीलाई जापान बोलाउने, वा उहाँको भिसा परिवर्तन/नवीकरण गर्ने तरिका – हरेक कागजातको सही नामसहित। इमिग्रेसनको आधिकारिक नियम, सजिलो भाषामा।",
+ q1:"१. तपाईंको अवस्था",q1p:"जापानमा बस्ने तपाईंको आफ्नो भिसा (स्टेटस) के हो?",
+ mine:["Engineer / Specialist in Humanities / International Services (技術・人文知識・国際業務)","Skilled Labor, जस्तै कुक (技能)","Business Manager (経営・管理)","Highly Skilled Professional (高度専門職)","विद्यार्थी (留学)","Specified Skilled Worker २ नम्बर (特定技能2号)","Care Worker (介護)","Specified Skilled Worker १ नम्बर (特定技能1号)","Technical Intern / Employment for Skill Development (技能実習・育成就労)","Permanent Resident (永住者)","म जापानी नागरिक हुँ","अन्य"],
+ v:{dep:"✅ तपाईंको श्रीमान/श्रीमतीले Family Stay (家族滞在) पाउन सक्नुहुन्छ। तपाईंले पाल्न सक्ने हुनुपर्छ – तोकिएको आम्दानी रकम छैन; इमिग्रेसनले जागिर, आम्दानी र कर तिरेको जाँच्छ।",
+    jsp:"✅ श्रीमान/श्रीमतीले Spouse or Child of Japanese National (日本人の配偶者等) को आवेदन दिनुहुन्छ। विवाह साँचो हो कि होइन भनेर पनि जाँच हुन्छ।",
+    psp:"ℹ️ श्रीमान/श्रीमतीले Spouse or Child of Permanent Resident (永住者の配偶者等) को आवेदन दिनुहुन्छ। कागजात जापानीको श्रीमान/श्रीमतीसँग मिल्दोजुल्दो छ – आधिकारिक पेज हेर्नुहोस्।",
+    no:"❌ यो स्टेटसमा Family Stay पाइँदैन। Family Stay 技術・人文知識・国際業務, 技能, 経営・管理, 特定技能2号 जस्ता कामको स्टेटस वा विद्यार्थीको श्रीमान/श्रीमतीका लागि मात्र हो। पछि त्यस्तो स्टेटसमा सर्नुभयो भने बल्ल आवेदन दिन सक्नुहुन्छ।",
+    ask:"ℹ️ तपाईंको स्टेटसमा भर पर्छ। इमिग्रेसन सूचना केन्द्र (0570-013904, नेपाली भाषा उपलब्ध) मा फोन गरेर श्रीमान/श्रीमतीले कुन स्टेटस पाउँछ सोध्नुहोस्।"},
+ pspLink:"आधिकारिक पेज: Spouse of Permanent Resident ↗",
+ q2:"२. श्रीमान/श्रीमती अहिले कहाँ हुनुहुन्छ?",
+ where:{coe:["नेपाल (वा अर्को देश) मा","जापान बोलाउने – Certificate of Eligibility"],chg:["जापानमै, अर्कै भिसामा","स्टेटस परिवर्तन, जस्तै विद्यार्थी → Family Stay"],ren:["जापानमै, यही भिसामा","बसाइ अवधि नवीकरण"]},
+ stepsH:{coe:"चरण: श्रीमान/श्रीमतीलाई जापान बोलाउने",chg:"चरण: यो स्टेटसमा परिवर्तन",ren:"चरण: बसाइ अवधि नवीकरण"},
+ steps:{
+  coe:[
+   ["नेपालमा TB जाँच (नेपाली नागरिक)","श्रीमान/श्रीमतीले जापानले तोकेको क्लिनिक (काठमाडौं, पोखरा वा दमक) मा छातीको एक्स-रे गराएर 結核非発病証明書 (TB नभएको प्रमाणपत्र) लिनुपर्छ। नेपाली नागरिकलाई २०२५ जुन २३ देखि अनिवार्य। एक्स-रे गरेको दिनदेखि १८० दिन मान्य।",L.jpets,"तोकिएका क्लिनिक (JPETS) ↗"],
+   ["कागजात जम्मा गर्नुहोस्","तलको चेकलिस्ट हेर्नुहोस्। कर प्रमाणपत्र सिटी अफिसबाट, कामको प्रमाणपत्र कम्पनीबाट लिनुहोस्। नेपाली कागजातको जापानी अनुवाद चाहिन्छ।"],
+   ["जापानमा तपाईंले आवेदन दिनुहोस्","तपाईं (जापानमा बस्ने श्रीमान/श्रीमती) ले आफ्नो ठेगानाको इमिग्रेसन कार्यालयमा वा अनलाइन Certificate of Eligibility (在留資格認定証明書, COE) को आवेदन दिनुहोस्। निःशुल्क।",L.region,"इमिग्रेसन कार्यालयहरू ↗"],
+   ["१–३ महिना पर्खनुहोस्","इमिग्रेसनले फोन गर्न वा थप कागज माग्न सक्छ। COE इमेल वा हुलाकबाट लिन छान्न सकिन्छ।"],
+   ["COE श्रीमान/श्रीमतीलाई पठाउनुहोस्","इमेलको COE फर्वार्ड गर्नुहोस्, वा कागजी COE हुलाकबाट पठाउनुहोस्। COE ३ महिना मात्र मान्य – त्यसभित्र प्रयोग गर्नुपर्छ।"],
+   ["नेपालस्थित जापानी दूतावासमा भिसा","श्रीमान/श्रीमतीले पासपोर्ट, COE, फोटो र भिसा फारमसहित आवेदन दिनुहुन्छ। प्रायः करिब १ हप्ता लाग्छ (राम्ररी जाँचे बढी)।",L.emb,"नेपालस्थित जापानी दूतावास – भिसा ↗"],
+   ["जापान आगमन","ठूला एयरपोर्ट (नारिता, हानेडा, कान्साई, चुबु आदि) मा आइपुग्दै रेसिडेन्स कार्ड पाइन्छ। त्यसपछि तलको 'आइपुगेपछि' हेर्नुहोस्।"]],
+  chg:[
+   ["समय हेर्नुहोस्","अवस्था बदलिनेबित्तिकै आवेदन दिनुहोस् (जस्तै पढाइ सकिएपछि)। पुरानो स्टेटसको काम नगरी बसे स्टेटस रद्द हुन सक्छ।"],
+   ["कागजात जम्मा गर्नुहोस्","तलको चेकलिस्ट हेर्नुहोस्। जापानमा जारी प्रमाणपत्र ३ महिनाभन्दा पुरानो हुनु हुँदैन।"],
+   ["आवेदन दिनुहोस्","आफ्नो ठेगानाको इमिग्रेसन कार्यालयमा (कार्यदिन) वा My Number कार्डसहित अनलाइन। श्रीमान/श्रीमती आफैं वा परिवारको रूपमा तपाईंले बुझाउन सक्नुहुन्छ।",L.online,"अनलाइन आवेदन ↗"],
+   ["नतिजा पर्खनुहोस्","प्रायः २ हप्ता – १ महिना। रेसिडेन्स कार्ड आफूसँग राख्नुहोस्; काउन्टरमा आवेदनपछि पछाडि 申請中 लेखिन्छ।"],
+   ["नयाँ कार्ड लिनुहोस्","शुल्क (काउन्टरमा राजस्व टिकट वा अनलाइन भुक्तानी) तिरेर नयाँ कार्ड लिनुहोस्।"]],
+  ren:[
+   ["कहिले आवेदन दिने","रेसिडेन्स कार्डको म्याद सकिनुभन्दा ३ महिना अघिदेखि (६ महिना वा बढीको बसाइमा)। अन्तिम हप्तासम्म नपर्खनुहोस्।"],
+   ["कागजात जम्मा गर्नुहोस्","तलको चेकलिस्ट हेर्नुहोस्। जुन वा त्यसपछि सिटी अफिसबाट नयाँ कर प्रमाणपत्र लिनुहोस् – गत वर्षको आम्दानी देखिन्छ।"],
+   ["आवेदन दिनुहोस्","इमिग्रेसन कार्यालयमा वा अनलाइन। काउन्टर: कार्यदिन ९:००–१२:०० र १३:००–१६:००।",L.online,"अनलाइन आवेदन ↗"],
+   ["२ हप्ता – १ महिना पर्खनुहोस्","समयमै आवेदन दिएको भए, म्याद सकिए पनि बढीमा २ महिनासम्म नतिजा पर्खेर बस्न मिल्छ।"],
+   ["नयाँ कार्ड लिनुहोस्","शुल्क तिरेर नयाँ रेसिडेन्स कार्ड लिनुहोस्।"]]
+ },
+ docsH:"३. कागजात चेकलिस्ट",count:(a,b)=>`${b} मध्ये ${a} तयार – ठीक चिन्ह यो फोनमा मात्र सेभ हुन्छ।`,
+ offList:"आधिकारिक सूची (इमिग्रेसन) ↗",optL:"लागू भए मात्र",
+ who:{me:"तपाईंबाट",sp:"श्रीमान/श्रीमतीबाट",both:"",co:"तपाईंको कम्पनीबाट",city:"तपाईंको सिटी अफिसबाट",nepal:"नेपालबाट",isa:"इमिग्रेसन फारम"},
+ rules:["जापानमा जारी प्रमाणपत्र ३ महिनाभन्दा पुरानो हुनु हुँदैन।","नेपाली वा अंग्रेजी कागजातसँग जापानी अनुवाद जोड्नुहोस्।","आवेदनपछि इमिग्रेसनले थप कागज माग्न सक्छ।","नक्कली वा सच्याइएको कागज कहिल्यै नदिनुहोस् – अस्वीकृति र प्रतिबन्ध हुन सक्छ।"],
+ formH:"४. आवेदन फारम",formNames:{coe:"在留資格認定証明書交付申請書 (Certificate of Eligibility)",chg:"在留資格変更許可申請書 (स्टेटस परिवर्तन)",ren:"在留期間更新許可申請書 (नवीकरण)"},
+ fee:{coe:"शुल्क: निःशुल्क – Certificate of Eligibility मा शुल्क लाग्दैन।",chg:"शुल्क (२०२६ अक्टोबर १ देखि): स्वीकृत भएपछि मात्र, दिइने अवधिअनुसार – काउन्टरमा ¥१०,००० (३ महिनासम्म) देखि ¥७५,००० (५ वर्ष) सम्म। १ वर्ष = ¥३३,०००। अनलाइनमा सस्तो। पूरा तालिका भिसा गाइडमा।",ren:"शुल्क (२०२६ अक्टोबर १ देखि): स्वीकृत भएपछि मात्र, दिइने अवधिअनुसार – काउन्टरमा ¥१०,००० (३ महिनासम्म) देखि ¥७५,००० (५ वर्ष) सम्म। १ वर्ष = ¥३३,०००। अनलाइनमा सस्तो। पूरा तालिका भिसा गाइडमा।"},
+ afterH:"श्रीमान/श्रीमती आइपुगेपछि",
+ after:[
+  ["ठेगाना दर्ता – १४ दिनभित्र","रेसिडेन्स कार्ड लिएर सिटी/वार्ड कार्यालयमा 転入届 (बसाइ सराइ सूचना) गर्नुहोस्। ठेगाना कार्डको पछाडि लेखिन्छ।"],
+  ["स्वास्थ्य बीमा र पेन्सन","तपाईं कम्पनीको स्वास्थ्य बीमामा हुनुहुन्छ भने HR लाई श्रीमान/श्रीमतीलाई आश्रित (被扶養者) बनाउन भन्नुहोस् – आम्दानीको सीमा छ। नत्र सिटी अफिसमा राष्ट्रिय स्वास्थ्य बीमामा दर्ता गर्नुहोस्।"],
+  ["पार्ट-टाइम काम गर्ने?","Family Stay मा आफैं काम गर्न मिल्दैन। पहिले अनुमति (資格外活動許可) लिनुपर्छ – त्यसपछि हप्तामा बढीमा २८ घण्टा। अनुमतिबिना काम गर्नु गैरकानुनी हो।",L.work,"आधिकारिक पेज ↗"],
+  ["समयमै नवीकरण","रिमाइन्डरका लागि कार्डको म्याद भिसा गाइडमा राख्नुहोस्।"]],
+ helpH:"मद्दत चाहियो?",helpP:"इमिग्रेसन सूचना केन्द्रले नेपाली, अंग्रेजी र अन्य भाषामा जवाफ दिन्छ। कार्यदिन ८:३०–१७:१५।",call:"📞 0570-013904 मा फोन गर्नुहोस्",
+ legal:"Sathi Japan ले बुझाउने काम मात्र गर्छ। हामी आवेदन भर्दैनौं वा बुझाउँदैनौं। सशुल्क मद्दतका लागि लाइसेन्स भएका 行政書士 वा इमिग्रेसन वकिल प्रयोग गर्नुहोस्।",
+ disclaimer:"सामान्य जानकारी मात्र, भिसा वा कानुनी सल्लाह होइन। इमिग्रेसनको Family Stay र Spouse of Japanese National पेजमा आधारित, २०२६ अक्टोबर ७ मा जाँचिएको। नियम बदलिन सक्छन् – सधैं आधिकारिक पेज हेर्नुहोस्।"
+}};
+
+// Document lists – names exactly as on the official pages.
+// src: who gives it. en/ne: plain explanation. need: when it applies.
+const DOCS={
+ dep:{
+  list:L.dep,
+  forms:{coe:["930004048.pdf","930004049.xlsx"],chg:["930004080.pdf","930004081.xlsx"],ren:["930004110.pdf","930004111.xlsx"]},
+  items:[
+   {k:["coe","chg","ren"],ja:"申請書　１通",src:"isa",en:"Application form – download it in section 4. You fill in the applicant part.",ne:"आवेदन फारम – खण्ड ४ बाट डाउनलोड गर्नुहोस्। आवेदकको भाग भर्नुहोस्।"},
+   {k:["coe","chg","ren"],ja:"写真　１葉",src:"sp",en:"Photo of your spouse, 4 cm high × 3 cm wide, plain background, taken within 6 months, name on the back.",ne:"श्रीमान/श्रीमतीको फोटो, ४ से.मि. × ३ से.मि., सादा पृष्ठभूमि, ६ महिनाभित्र खिचेको, पछाडि नाम।",link:[L.photo,"Photo rules ↗","फोटोका नियम ↗"]},
+   {k:["coe"],ja:"結核非発病証明書（写し）",src:"nepal",en:"TB non-onset certificate from a designated clinic in Nepal (copy or scan is OK). Nepali citizens only.",ne:"नेपालको तोकिएको क्लिनिकको TB नभएको प्रमाणपत्र (प्रतिलिपि वा स्क्यान मिल्छ)। नेपाली नागरिकलाई मात्र।",link:[L.tb,"TB screening rules ↗","TB जाँचका नियम ↗"]},
+   {k:["chg","ren"],ja:"パスポート及び在留カード　提示",src:"sp",en:"Show your spouse's passport and residence card at the counter.",ne:"श्रीमान/श्रीमतीको पासपोर्ट र रेसिडेन्स कार्ड काउन्टरमा देखाउनुहोस्।"},
+   {k:["coe","chg","ren"],ja:"結婚証明書（写し）など、身分関係を証する文書　１通",src:"nepal",en:"Proof that you are married. For Nepal, usually the Marriage Registration Certificate (विवाह दर्ता प्रमाणपत्र) from the ward office – a copy, with a Japanese translation.",ne:"विवाह भएको प्रमाण। नेपालको लागि प्रायः वडा कार्यालयको विवाह दर्ता प्रमाणपत्र – प्रतिलिपि, जापानी अनुवादसहित।"},
+   {k:["coe","chg","ren"],ja:"扶養者の在留カード又は旅券の写し　１通",src:"me",en:"A copy of YOUR residence card (front and back) or passport.",ne:"तपाईंको रेसिडेन्स कार्ड (अगाडि-पछाडि) वा पासपोर्टको प्रतिलिपि।"},
+   {k:["coe","chg","ren"],ja:"在職証明書　１通",src:"co",en:"Employment certificate – shows your job. Ask your company's HR. (Business owners: a copy of the business licence etc.)",ne:"कामको प्रमाणपत्र – तपाईंको जागिर देखाउँछ। कम्पनीको HR लाई माग्नुहोस्। (आफ्नै व्यवसाय भए: व्यवसाय अनुमतिपत्रको प्रतिलिपि आदि)"},
+   {k:["coe","chg","ren"],ja:"住民税の課税（又は非課税）証明書及び納税証明書　各１通",src:"city",en:"Your resident-tax certificates showing last year's total income and that tax is paid. From the city hall where you lived on 1 January. If one certificate shows both, one is enough.",ne:"गत वर्षको कुल आम्दानी र कर तिरेको देखाउने नगर कर प्रमाणपत्र। जनवरी १ मा बस्नुभएको सिटी अफिसबाट। एउटैमा दुवै भए एउटा पुग्छ।"},
+   {k:["coe","chg","ren"],ja:"（扶養者が留学生の場合）預金残高証明書又は奨学金給付に関する証明書",src:"me",en:"Only if YOU are a student: instead of the job and tax papers – a bank balance certificate in your name, or a scholarship certificate showing amount and period.",ne:"तपाईं विद्यार्थी हुनुहुन्छ भने मात्र: जागिर र कर कागजको सट्टा – तपाईंको नाममा बैंक ब्यालेन्स प्रमाणपत्र, वा रकम र अवधि भएको छात्रवृत्ति प्रमाणपत्र।",opt:1},
+   {k:["coe"],ja:"申請人のパスポートの写し",src:"sp",en:"Copy of your spouse's passport – recommended, so the name spelling on the COE matches the passport.",ne:"श्रीमान/श्रीमतीको पासपोर्टको प्रतिलिपि – COE र पासपोर्टको नाम मिलाउन सिफारिस गरिएको।",opt:1},
+   {k:["coe"],ja:"返信用封筒（簡易書留用切手を貼付）　１通",src:"me",en:"Only if you want the COE by post: a standard envelope with your address and stamps for simple registered mail (簡易書留). Not needed for e-mail COE.",ne:"COE हुलाकबाट चाहिएमा मात्र: तपाईंको ठेगाना लेखेको र 簡易書留 को टिकट टाँसेको खाम। इमेल COE मा चाहिँदैन।",opt:1}
+  ]},
+ jsp:{
+  list:L.jsp,
+  forms:{coe:["930004054.pdf","930004055.xlsx"],chg:["930004084.pdf","930004085.xlsx"],ren:["930004114.pdf","930004115.xlsx"]},
+  items:[
+   {k:["coe","chg","ren"],ja:"申請書　１通",src:"isa",en:"Application form – download it in section 4.",ne:"आवेदन फारम – खण्ड ४ बाट डाउनलोड गर्नुहोस्।"},
+   {k:["coe","chg","ren"],ja:"写真　１葉",src:"sp",en:"Photo, 4 cm × 3 cm, taken within 6 months.",ne:"फोटो, ४ से.मि. × ३ से.मि., ६ महिनाभित्र खिचेको।",link:[L.photo,"Photo rules ↗","फोटोका नियम ↗"]},
+   {k:["coe"],ja:"結核非発病証明書（写し）",src:"nepal",en:"TB non-onset certificate from a designated clinic in Nepal (Nepali citizens).",ne:"नेपालको तोकिएको क्लिनिकको TB नभएको प्रमाणपत्र (नेपाली नागरिक)।",link:[L.tb,"TB screening rules ↗","TB जाँचका नियम ↗"]},
+   {k:["chg","ren"],ja:"パスポート及び在留カード　提示",src:"sp",en:"Show the passport and residence card.",ne:"पासपोर्ट र रेसिडेन्स कार्ड देखाउनुहोस्।"},
+   {k:["coe","chg","ren"],ja:"配偶者（日本人）の戸籍謄本（全部事項証明書）　１通",src:"city",en:"The Japanese spouse's family register, showing the marriage. If the marriage is not written in it yet, also a 婚姻届受理証明書 (certificate that the marriage registration was accepted).",ne:"जापानी श्रीमान/श्रीमतीको पारिवारिक दर्ता (戸籍), विवाह लेखिएको। विवाह लेखिएको छैन भने 婚姻届受理証明書 पनि।"},
+   {k:["coe","chg"],ja:"申請人の国籍国（外国）の機関から発行された結婚証明書　１通",src:"nepal",en:"Marriage certificate issued by Nepal (for example the Marriage Registration Certificate), with Japanese translation.",ne:"नेपालले जारी गरेको विवाह प्रमाणपत्र (जस्तै विवाह दर्ता प्रमाणपत्र), जापानी अनुवादसहित।"},
+   {k:["coe","chg","ren"],ja:"住民税の課税（又は非課税）証明書及び納税証明書　各１通",src:"city",en:"Resident-tax certificates of the person who pays your living costs (last 1 year). Just arrived or moved? Bank book copies or a job offer letter can be used instead.",ne:"तपाईंको खर्च बेहोर्ने व्यक्तिको नगर कर प्रमाणपत्र (गत १ वर्ष)। भर्खर आएको वा सरेको भए बैंक खाताको प्रतिलिपि वा जागिरको प्रस्ताव पत्र दिन मिल्छ।"},
+   {k:["coe","chg","ren"],ja:"身元保証書　１通",src:"isa",en:"Letter of guarantee – signed by the Japanese spouse living in Japan.",ne:"जमानत पत्र – जापानमा बस्ने जापानी श्रीमान/श्रीमतीले हस्ताक्षर गर्ने।",link:[C+"001373949.pdf","Form (Japanese) ↗","फारम (जापानी) ↗"],link2:[C+"001373950.pdf","English version ↗","अंग्रेजी संस्करण ↗"]},
+   {k:["coe","chg","ren"],ja:"世帯全員の記載のある住民票の写し　１通",src:"city",en:"Residence record (住民票) of the Japanese spouse's whole household – without My Number, nothing else left out.",ne:"जापानी श्रीमान/श्रीमतीको पूरा परिवारको 住民票 – My Number बाहेक, अरू केही नछुटाई।"},
+   {k:["coe","chg"],ja:"質問書　１通",src:"isa",en:"Questionnaire about how you met and your marriage. Answer honestly and in detail.",ne:"कसरी भेट भयो र विवाहबारे प्रश्नावली। इमानदारीपूर्वक विस्तृत जवाफ दिनुहोस्।",link:[C+"930003288.pdf","Japanese ↗","जापानी ↗"],link2:[C+"930003535.pdf","English ↗","अंग्रेजी ↗"]},
+   {k:["coe","chg"],ja:"夫婦間の交流が確認できる資料（スナップ写真２～３葉など）",src:"both",en:"2–3 snapshots of the two of you together (faces clear, no app filters). You can add SNS or call records.",ne:"दुवै जना सँगै भएका २–३ वटा फोटो (अनुहार प्रस्ट, एप फिल्टर नगरेको)। SNS वा कल रेकर्ड पनि थप्न सकिन्छ।"},
+   {k:["coe"],ja:"返信用封筒（簡易書留用切手を貼付）　１通",src:"me",en:"Envelope with your address and stamps for simple registered mail – only if you receive the COE by post.",ne:"तपाईंको ठेगाना र 簡易書留 टिकटसहितको खाम – COE हुलाकबाट लिँदा मात्र।",opt:1}
+  ]}
+};
+const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+let lang=store.get("lang")||"en";
+let mine=+(store.get("sp_mine")||0), where=store.get("sp_where")||"coe";
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function render(){
+  const t=T[lang]; document.documentElement.lang=lang;
+  document.querySelectorAll("[data-t]").forEach(e=>{const v=t[e.dataset.t];if(typeof v==="string")e.textContent=v});
+  document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.l===lang));
+  $("mine").innerHTML=t.mine.map((n,i)=>`<option value="${i}" ${i===mine?"selected":""}>${esc(n)}</option>`).join("");
+  const kind=MINE[mine][1];
+  const cls={dep:"yes",jsp:"yes",psp:"mid",no:"no",ask:"mid"}[kind];
+  $("verdict").innerHTML=`<div class="verdict ${cls}">${esc(t.v[kind])}${kind==="psp"?`<br><a href="${L.psp}" target="_blank" rel="noopener">${t.pspLink}</a>`:""}</div>`;
+  const show=kind==="dep"||kind==="jsp";
+  $("whereBox").hidden=!show; $("result").hidden=!show;
+  $("afterBox").hidden=!(show&&where==="coe");
+  $("where").innerHTML=["coe","chg","ren"].map(w=>`<button data-w="${w}" aria-pressed="${w===where}"><b>${esc(t.where[w][0])}</b>${esc(t.where[w][1])}</button>`).join("");
+  $("where").querySelectorAll("button").forEach(b=>b.onclick=()=>{where=b.dataset.w;store.set("sp_where",where);render()});
+  if(!show) return;
+
+  $("stepsH").textContent=t.stepsH[where];
+  $("steps").innerHTML=t.steps[where].map(s=>`<li><strong>${esc(s[0])}</strong><br><span class="sub">${esc(s[1])}</span>${s[2]?`<br><a href="${s[2]}" target="_blank" rel="noopener">${esc(s[3])}</a>`:""}</li>`).join("");
+
+  const set=DOCS[kind], items=set.items.filter(d=>d.k.includes(where));
+  const key=`sp_chk_${kind}_${where}`; let done={};try{done=JSON.parse(store.get(key)||"{}")}catch(e){}
+  $("docs").innerHTML=items.map((d,i)=>{const id=`d${i}`,src=t.who[d.src];
+    const lk=(l)=>l?` <a href="${l[0]}" target="_blank" rel="noopener">${esc(lang==="ne"?l[2]:l[1])}</a>`:"";
+    return `<li><input type="checkbox" id="${id}" data-j="${esc(d.ja)}" ${done[d.ja]?"checked":""}><label for="${id}"><span class="ja">${esc(d.ja)}</span><span class="en">${esc(d[lang])}${lk(d.link)}${lk(d.link2)}</span>${src?`<span class="from">${d.opt?esc(t.optL)+" · ":""}${esc(src)}</span>`:""}</label></li>`}).join("");
+  const upd=()=>{$("count").textContent=t.count(items.filter(d=>done[d.ja]).length,items.length)};
+  $("docs").querySelectorAll("input").forEach(c=>c.onchange=()=>{done[c.dataset.j]=c.checked;store.set(key,JSON.stringify(done));upd()});
+  upd();
+  $("rules").innerHTML=t.rules.map(r=>`<li>${esc(r)}</li>`).join("");
+  $("offList").href=set.list;
+
+  $("formName").textContent=t.formNames[where];
+  $("fpdf").href=C+set.forms[where][0]; $("fxls").href=C+set.forms[where][1];
+  $("fee").innerHTML=esc(t.fee[where])+(where==="coe"?"":` <a href="visa.html">${lang==="ne"?"भिसा गाइड":"Visa guide"}</a>`);
+  $("after").innerHTML=t.after.map(s=>`<li><strong>${esc(s[0])}</strong><br><span class="sub">${esc(s[1])}</span>${s[2]?`<br><a href="${s[2]}" target="_blank" rel="noopener">${esc(s[3])}</a>`:""}</li>`).join("");
+}
+$("mine").onchange=e=>{mine=+e.target.value;store.set("sp_mine",mine);render()};
+document.querySelectorAll(".lang button").forEach(b=>b.onclick=()=>{lang=b.dataset.l;store.set("lang",lang);render()});
+render();
+</script>
+</body>
+</html>

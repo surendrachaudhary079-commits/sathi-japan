@@ -51,6 +51,16 @@
   select{width:100%;font:inherit;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}
   .row2{display:flex;gap:10px}
   .btn.half{flex:1}
+  ul.dl{list-style:none;margin:8px 0 0;padding:0}
+  ul.dl li{display:flex;gap:10px;padding:10px 0;border-top:1px solid var(--line)}
+  ul.dl li:first-child{border-top:0}
+  ul.dl input{width:22px;height:22px;margin-top:3px;flex-shrink:0}
+  ul.dl .ja{font-weight:700;display:block}
+  ul.dl .from{display:block;font-size:14px;color:var(--muted)}
+  ul.dl a{font-size:15px}
+  .count{font-size:14px;color:var(--muted);margin:12px 0 0}
+  a.card.spouse{display:block;text-decoration:none;color:var(--ink);border:2px solid var(--brand)}
+  a.card.spouse b{display:block;color:var(--brand);font-size:18px}
   .btn.alt{background:transparent;color:var(--brand);box-shadow:inset 0 0 0 2px var(--brand)}
 </style>
 </head>
@@ -89,14 +99,25 @@
     <ol class="steps" id="steps"></ol>
   </section>
 
-  <!-- 4. Documents -->
+  <!-- 4. Documents (per visa type) -->
   <section class="card">
     <h2 data-t="docsH"></h2>
-    <p class="sub" style="margin:0" data-t="docsAll"></p>
-    <ul class="docs" id="docs"></ul>
-    <p class="sub" data-t="docsMore"></p>
-    <a href="https://www.moj.go.jp/isa/applications/procedures/16-3.html" target="_blank" rel="noopener" data-t="docsLink"></a>
+    <p class="label" data-t="dType"></p>
+    <select id="dtype"></select>
+    <div id="catBox" style="margin-top:10px">
+      <p class="label" data-t="dCat"></p>
+      <select id="dcat"></select>
+      <p class="sub" style="margin:6px 0 0" data-t="dCatHelp"></p>
+    </div>
+    <p class="count" id="dcount"></p>
+    <ul class="dl" id="docs"></ul>
+    <div class="info" id="dnote" hidden></div>
+    <ul class="docs sub" id="drules"></ul>
+    <a id="dlink" target="_blank" rel="noopener" data-t="docsLink"></a>
   </section>
+
+  <!-- Spouse guide -->
+  <a class="card spouse" href="spouse.html"><b data-t="spH"></b><span class="sub" data-t="spP"></span></a>
 
   <!-- 4b. Forms -->
   <section class="card">
@@ -165,11 +186,16 @@ en:{
   ["Wait 2 weeks – 1 month","Keep your residence card. After a counter application, the back of the card shows 申請中 (pending)."],
   ["Get the result","You get a postcard or email. Pay the fee (revenue stamp at the counter, or bank/convenience store for online) and receive your new card."]
  ],
- docsH:"Documents",
- docsAll:"Everyone needs:",
- docs:["Application form (在留期間更新許可申請書)","1 photo, 4 cm × 3 cm, taken within 6 months","Passport and residence card"],
- docsMore:"More documents depend on your visa type and, for work visas, your company's category (1–4). For example, some work-visa holders also need resident tax certificates (課税証明書・納税証明書). Ask your HR which category your company is.",
+ docsH:"Documents checklist",
+ dType:"Your visa type",dCat:"Your company's category (カテゴリー)",
+ dCatHelp:"Ask HR: “うちの会社はカテゴリー何ですか？”. Category 1 = listed or public body; 2 = paid ¥10 million+ withholding tax last year; 3 = submitted the 法定調書合計表; 4 = none of these (often new or small companies). Not sure? Choose 4 – it lists the most documents.",
+ cats:["Category 1","Category 2","Category 3","Category 4","I don't know"],
+ dCount:(a,b)=>`${a} of ${b} ready – ticks are saved only on this phone.`,
+ optL:"Only if it applies",
+ who:{me:"From you",co:"From your company",city:"From your city hall",isa:"Immigration form",school:"From your school",nepal:"From Nepal"},
+ drules:["Certificates issued in Japan must be less than 3 months old.","Documents not in Japanese need a Japanese translation.","Immigration may ask for more documents after you apply."],
  docsLink:"Official list for your visa type (Immigration Services Agency) ↗",
+ spH:"💍 Spouse visa guide →",spP:"Bring your husband or wife to Japan, or change or renew their visa – every document named.",
 
  formH:"Download your application form",
  formP:"Choose your visa type. These are the official forms from the Immigration Services Agency – you fill them in yourself.",
@@ -187,7 +213,7 @@ en:{
  call:"📞 Call 0570-013904",
  office:"Niigata Prefecture: Niigata Branch Office, Niigata Airport Terminal Building, 3710 Matsuhama-cho, Higashi-ku, Niigata · 025-275-4735 · weekdays 9:00–16:00.",
  legal:"Sathi Japan explains and reminds only. We do not fill in or submit applications. For paid help with your application, use a licensed gyoseishoshi (行政書士) or immigration lawyer.",
- disclaimer:"General information, not immigration or legal advice. Rules and fees can change – always check the Immigration Services Agency website. Checked: 3 Oct 2026.",
+ disclaimer:"General information, not immigration or legal advice. Rules and fees can change – always check the Immigration Services Agency website. Checked: 7 Oct 2026.",
  ics:["Visa renewal: applications open","Visa renewal: apply now (1 month left)","Visa renewal: LAST 2 WEEKS"]
 },
 ne:{
@@ -215,11 +241,16 @@ ne:{
   ["२ हप्ता – १ महिना पर्खनुहोस्","रेसिडेन्स कार्ड आफूसँग राख्नुहोस्। काउन्टरमा आवेदन दिएपछि कार्डको पछाडि 申請中 (प्रक्रियामा) लेखिन्छ।"],
   ["नतिजा लिनुहोस्","पोस्टकार्ड वा इमेल आउँछ। शुल्क तिर्नुहोस् (काउन्टरमा राजस्व टिकट, अनलाइनमा बैंक/कन्बिनी) र नयाँ कार्ड लिनुहोस्।"]
  ],
- docsH:"कागजात",
- docsAll:"सबैलाई चाहिने:",
- docs:["आवेदन फारम (在留期間更新許可申請書)","६ महिनाभित्र खिचेको ४ से.मि. × ३ से.मि. को फोटो १ वटा","पासपोर्ट र रेसिडेन्स कार्ड"],
- docsMore:"अरू कागजात भिसा प्रकार र, कामको भिसामा, कम्पनीको वर्ग (१–४) अनुसार फरक हुन्छ। जस्तै, कामको भिसा भएका कतिपयलाई नगर कर प्रमाणपत्र (課税証明書・納税証明書) पनि चाहिन्छ। आफ्नो कम्पनी कुन वर्गमा पर्छ HR लाई सोध्नुहोस्।",
+ docsH:"कागजात चेकलिस्ट",
+ dType:"तपाईंको भिसा प्रकार",dCat:"तपाईंको कम्पनीको वर्ग (カテゴリー)",
+ dCatHelp:"HR लाई सोध्नुहोस्: “うちの会社はカテゴリー何ですか？”। वर्ग १ = सूचीकृत वा सरकारी निकाय; २ = गत वर्ष ¥१ करोडभन्दा बढी स्रोतमा कर; ३ = 法定調書合計表 बुझाएको; ४ = यीमध्ये कुनै होइन (प्रायः नयाँ वा साना कम्पनी)। थाहा छैन? ४ छान्नुहोस् – सबैभन्दा धेरै कागजात देखाउँछ।",
+ cats:["वर्ग १","वर्ग २","वर्ग ३","वर्ग ४","थाहा छैन"],
+ dCount:(a,b)=>`${b} मध्ये ${a} तयार – ठीक चिन्ह यो फोनमा मात्र सेभ हुन्छ।`,
+ optL:"लागू भए मात्र",
+ who:{me:"तपाईंबाट",co:"तपाईंको कम्पनीबाट",city:"तपाईंको सिटी अफिसबाट",isa:"इमिग्रेसन फारम",school:"तपाईंको स्कूलबाट",nepal:"नेपालबाट"},
+ drules:["जापानमा जारी प्रमाणपत्र ३ महिनाभन्दा पुरानो हुनु हुँदैन।","जापानी भाषामा नभएका कागजातको जापानी अनुवाद चाहिन्छ।","आवेदनपछि इमिग्रेसनले थप कागज माग्न सक्छ।"],
  docsLink:"आफ्नो भिसा प्रकारको आधिकारिक सूची (इमिग्रेसन) ↗",
+ spH:"💍 श्रीमान/श्रीमती भिसा गाइड →",spP:"श्रीमान/श्रीमतीलाई जापान बोलाउने, वा भिसा परिवर्तन/नवीकरण – हरेक कागजातको नामसहित।",
 
  formH:"आफ्नो आवेदन फारम डाउनलोड गर्नुहोस्",
  formP:"आफ्नो भिसा प्रकार छान्नुहोस्। यी इमिग्रेसनका आधिकारिक फारम हुन् – आफैं भर्नुहोस्।",
@@ -237,19 +268,69 @@ ne:{
  call:"📞 0570-013904 मा फोन गर्नुहोस्",
  office:"निगाता प्रिफेक्चर: निगाता शाखा कार्यालय, निगाता एयरपोर्ट टर्मिनल भवन, 3710 Matsuhama-cho, Higashi-ku, Niigata · 025-275-4735 · कार्यदिन ९:००–१६:००।",
  legal:"Sathi Japan ले बुझाउने र सम्झाउने काम मात्र गर्छ। हामी आवेदन भर्दैनौं वा बुझाउँदैनौं। आवेदनमा सशुल्क मद्दत चाहिए लाइसेन्स भएका 行政書士 वा इमिग्रेसन वकिल प्रयोग गर्नुहोस्।",
- disclaimer:"सामान्य जानकारी मात्र, भिसा वा कानुनी सल्लाह होइन। नियम र शुल्क बदलिन सक्छन् – सधैं इमिग्रेसनको वेबसाइट जाँच गर्नुहोस्। जाँच गरिएको: २०२६ अक्टोबर ३।",
+ disclaimer:"सामान्य जानकारी मात्र, भिसा वा कानुनी सल्लाह होइन। नियम र शुल्क बदलिन सक्छन् – सधैं इमिग्रेसनको वेबसाइट जाँच गर्नुहोस्। जाँच गरिएको: २०२६ अक्टोबर ७।",
  ics:["भिसा नवीकरण: आवेदन खुल्यो","भिसा नवीकरण: अहिले आवेदन दिनुहोस् (१ महिना बाँकी)","भिसा नवीकरण: अन्तिम २ हप्ता"]
 }};
 // Fees from 1 Oct 2026 (ISA). Online = before the ¥330–¥550 processing fee. null = not available online.
 const FEES=[[10000,null],[18000,15000],[25000,21000],[33000,27000],[48000,42000],[64000,56000],[75000,65000]];
-// Official renewal forms (ISA form download page 16-3-1), checked 2026-10-03
-const FORMS=[["930004094.pdf","930004095.xlsx"],["930004094.pdf","930004095.xlsx"],["930004106.pdf","930004107.xlsx"],["930004110.pdf","930004111.xlsx"],["930003875.pdf","930003861.xlsx"],["930004114.pdf","930004115.xlsx"],["930004098.pdf","930004099.xlsx"]];
+// Official renewal forms (ISA form page 16-3-1 / status pages), checked 2026-10-07
+const FORMS=[["930004094.pdf","930004095.xlsx"],["930004094.pdf","930004095.xlsx"],["930004106.pdf","930004107.xlsx"],["930004110.pdf","930004111.xlsx"],["930003875.pdf","930003861.xlsx"],["930004114.pdf","930004115.xlsx"],["001448693.pdf","001448694.xlsx"]];
 // Change of status forms (ISA page 16-2-1), same order
-const FORMS_CHANGE=[["930004064.pdf","930004065.xlsx"],["930004064.pdf","930004065.xlsx"],["930004076.pdf","930004077.xlsx"],["930004080.pdf","930004081.xlsx"],["930003874.pdf","930003860.xlsx"],["930004084.pdf","930004085.xlsx"],["930004068.pdf","930004069.xlsx"]];
+const FORMS_CHANGE=[["930004064.pdf","930004065.xlsx"],["930004064.pdf","930004065.xlsx"],["930004076.pdf","930004077.xlsx"],["930004080.pdf","930004081.xlsx"],["930003874.pdf","930003860.xlsx"],["930004084.pdf","930004085.xlsx"],["001448691.pdf","001448692.xlsx"]];
 const FPAGE={r:"https://www.moj.go.jp/isa/applications/procedures/16-3-1.html",c:"https://www.moj.go.jp/isa/applications/procedures/16-2-1.html"};
 const FBASE="https://www.moj.go.jp/isa/content/";
 const SRC="https://www.moj.go.jp/isa/applications/procedures/16-3.html";
 
+// Renewal (在留期間更新) documents per visa type – names exactly as on the ISA status pages, checked 7 Oct 2026.
+// cats: company categories the item applies to (work visas). opt: only if it applies.
+const ST="https://www.moj.go.jp/isa/applications/status/";
+const COMMON=[
+ {ja:"在留期間更新許可申請書　１通",src:"isa",en:"Application form – download it below. Your company or school fills its own part.",ne:"आवेदन फारम – तल डाउनलोड गर्नुहोस्। कम्पनी वा स्कूलले आफ्नो भाग भर्छ।"},
+ {ja:"写真　１葉",src:"me",en:"Photo 4 cm × 3 cm, plain background, taken within 6 months, name on the back.",ne:"फोटो ४ × ३ से.मि., सादा पृष्ठभूमि, ६ महिनाभित्र खिचेको, पछाडि नाम।",link:[ST+"photo_info_00002.html","Photo rules ↗","फोटोका नियम ↗"]},
+ {ja:"パスポート及び在留カード　提示",src:"me",en:"Show your passport and residence card at the counter.",ne:"पासपोर्ट र रेसिडेन्स कार्ड काउन्टरमा देखाउनुहोस्।"}];
+const TAX={ja:"住民税の課税（又は非課税）証明書及び納税証明書　各１通",src:"city",en:"Resident-tax certificates showing last year's total income and that tax is paid. From the city hall where you lived on 1 January. If one certificate shows both, one is enough.",ne:"गत वर्षको कुल आम्दानी र कर तिरेको देखाउने नगर कर प्रमाणपत्र। जनवरी १ मा बस्नुभएको सिटी अफिसबाट। एउटैमा दुवै भए एउटा पुग्छ।"};
+const WORK=(page,lang)=>({page,cat:true,items:[...COMMON,
+ {ja:"カテゴリーを証明する文書（四季報の写し、上場を証明する文書など）",src:"co",cats:[1],en:"Proof that your company is Category 1, e.g. a copy of the Japan Company Handbook (四季報) page or proof of listing.",ne:"कम्पनी वर्ग १ भएको प्रमाण, जस्तै 四季報 को पानाको प्रतिलिपि वा सूचीकृत भएको प्रमाण।"},
+ {ja:"前年分の職員の給与所得の源泉徴収票等の法定調書合計表（写し）",src:"co",cats:[2,3],en:"Copy of the company's annual withholding-tax summary for last year (with the tax office's receipt). Your company's accounting has it.",ne:"कम्पनीको गत वर्षको स्रोतमा कर कट्टीको वार्षिक सारांश (法定調書合計表) को प्रतिलिपि। कम्पनीको लेखा शाखासँग हुन्छ।"},
+ {ja:"所属機関の代表者に関する申告書　１通",src:"co",cats:[3,4],en:"Declaration about the company's representative (official sample form) – the company fills it in.",ne:"कम्पनीको प्रतिनिधिबारे घोषणा पत्र (आधिकारिक नमुना फारम) – कम्पनीले भर्छ।",link:["https://www.moj.go.jp/isa/content/001460262.pdf","Form ↗","फारम ↗"]},
+ {...TAX,cats:[3,4]},
+ {ja:"給与支払事務所等の開設届出書の写し＋直近３か月分の給与所得・退職所得等の所得税徴収高計算書",src:"co",cats:[4],en:"Because a Category 4 company has no 法定調書合計表: copy of its 'salary payment office opening' notice plus the last 3 months of income-tax payment slips (with bank stamp).",ne:"वर्ग ४ कम्पनीसँग 法定調書合計表 नहुने भएकाले: तलब भुक्तानी कार्यालय खोलेको सूचनाको प्रतिलिपि र पछिल्लो ३ महिनाको आयकर भुक्तानी पर्ची (बैंकको छापसहित)।"},
+ {ja:"（転職後初回の更新）労働条件を明示する文書・登記事項証明書・会社案内・直近の決算文書の写し",src:"co",cats:[3,4],opt:1,en:"Only for your FIRST renewal after changing to a Category 3 or 4 company: your labour-conditions document (労働条件通知書), the company registry certificate, a company brochure, and the latest financial statements.",ne:"वर्ग ३ वा ४ कम्पनीमा जागिर बदलेपछिको पहिलो नवीकरणमा मात्र: 労働条件通知書, कम्पनी दर्ता प्रमाणपत्र (登記事項証明書), कम्पनी परिचय पुस्तिका र पछिल्लो वित्तीय विवरण।"},
+ ...(lang?[{ja:"（対人業務で言語能力を用いる場合）ＣＥＦＲ・Ｂ２相当の言語能力を証する資料",src:"me",cats:[3,4],opt:1,en:"Only on that first renewal after a job change, if your job is customer-facing work using a language (e.g. interpreting): proof of CEFR B2-level skill in that language.",ne:"जागिर बदलेपछिको पहिलो नवीकरणमा, भाषा प्रयोग गरेर ग्राहकसँग काम (जस्तै दोभाषे) गर्नुहुन्छ भने मात्र: त्यो भाषामा CEFR B2 स्तरको प्रमाण।"}]:[]),
+ {ja:"（派遣で働く場合）派遣先での活動内容を明らかにする資料",src:"co",opt:1,en:"Only if you are a dispatched worker (派遣): documents showing your work at the client company – your dispatch company provides them.",ne:"तपाईं 派遣 (डिस्प्याच) कामदार हुनुहुन्छ भने मात्र: ग्राहक कम्पनीमा गर्ने कामको कागजात – डिस्प्याच कम्पनीले दिन्छ।"}
+]});
+const DOCS_R=[
+ WORK(ST+"gijinkoku.html",true),
+ WORK(ST+"skilledlabor01.html",false),
+ {page:ST+"student.html",items:[...COMMON],note:{en:"Students: other documents depend on your school type and its class (適正校 クラスⅠ/Ⅱ). Your school's international office has the list for your school and fills in its confirmation sheet (別紙・各種確認書). Ask them first.",ne:"विद्यार्थी: अरू कागजात स्कूलको प्रकार र वर्ग (適正校 クラスⅠ/Ⅱ) अनुसार फरक हुन्छ। स्कूलको अन्तर्राष्ट्रिय कार्यालयसँग तपाईंको स्कूलको सूची हुन्छ र उनीहरूले पुष्टि पाना (別紙・各種確認書) भर्छन्। पहिले उनीहरूलाई सोध्नुहोस्।"}},
+ {page:ST+"dependent.html",items:[...COMMON,
+  {ja:"身分関係を証する文書（結婚証明書・出生証明書の写しなど）　１通",src:"nepal",en:"Proof of your relationship to the supporter, e.g. a copy of the Marriage Registration Certificate (spouse) or birth certificate (child), with Japanese translation.",ne:"सहयोगीसँगको नाता प्रमाण, जस्तै विवाह दर्ता प्रमाणपत्र (श्रीमान/श्रीमती) वा जन्म दर्ता (बच्चा) को प्रतिलिपि, जापानी अनुवादसहित।"},
+  {ja:"扶養者の在留カード又は旅券の写し　１通",src:"me",en:"Copy of the supporter's residence card or passport.",ne:"सहयोगीको रेसिडेन्स कार्ड वा पासपोर्टको प्रतिलिपि।"},
+  {ja:"扶養者の在職証明書　１通",src:"co",en:"Supporter's employment certificate from their company.",ne:"सहयोगीको कम्पनीबाट कामको प्रमाणपत्र।"},
+  {...TAX,ja:"扶養者の住民税の課税（又は非課税）証明書及び納税証明書　各１通",en:"Supporter's resident-tax certificates (last year's income and tax paid).",ne:"सहयोगीको नगर कर प्रमाणपत्र (गत वर्षको आम्दानी र कर तिरेको)।"}],
+  note:{en:"Full step-by-step help, including bringing a spouse from Nepal, is in the Spouse visa guide.",ne:"नेपालबाट श्रीमान/श्रीमती बोलाउनेसहित पूरा चरणहरू श्रीमान/श्रीमती भिसा गाइडमा छन्।"},spouse:1},
+ {page:ST+"specifiedskilledworker.html",items:[...COMMON],note:{en:"Specified Skilled Worker: the renewal needs many forms about your contract, support plan, tax and insurance. Your company or its registered support organization (登録支援機関) usually prepares them – ask them 2–3 months before expiry.",ne:"特定技能: नवीकरणमा सम्झौता, सहयोग योजना, कर र बीमासम्बन्धी धेरै फारम चाहिन्छ। प्रायः तपाईंको कम्पनी वा 登録支援機関 ले तयार गर्छ – म्याद सकिनुभन्दा २–३ महिना अघि सोध्नुहोस्।"}},
+ {page:ST+"spouseorchildofjapanese01.html",items:[...COMMON,
+  {ja:"配偶者（日本人）の戸籍謄本（全部事項証明書）　１通",src:"city",en:"Your Japanese spouse's family register showing the marriage.",ne:"जापानी श्रीमान/श्रीमतीको पारिवारिक दर्ता (戸籍), विवाह लेखिएको।"},
+  {...TAX,en:"Resident-tax certificates of the person who pays your living costs (if you support yourself, your own).",ne:"तपाईंको खर्च बेहोर्ने व्यक्तिको नगर कर प्रमाणपत्र (आफैं खर्च गर्नुहुन्छ भने आफ्नै)।"},
+  {ja:"身元保証書　１通",src:"isa",en:"Letter of guarantee signed by your Japanese spouse.",ne:"जापानी श्रीमान/श्रीमतीले हस्ताक्षर गर्ने जमानत पत्र।",link:["https://www.moj.go.jp/isa/content/001373949.pdf","Form ↗","फारम ↗"]},
+  {ja:"世帯全員の記載のある住民票の写し　１通",src:"city",en:"Residence record (住民票) of the whole household – without My Number.",ne:"पूरा परिवारको 住民票 – My Number बाहेक।"}],
+  note:{en:"This list is for Spouse of Japanese National. Spouse of Permanent Resident and Long-term Resident have their own lists – use the official link.",ne:"यो सूची जापानीको श्रीमान/श्रीमतीका लागि हो। PR को श्रीमान/श्रीमती र Long-term Resident को छुट्टै सूची छ – आधिकारिक लिंक हेर्नुहोस्।"},spouse:1},
+ {page:ST+"businessmanager.html",cat:true,items:[...COMMON,
+  {ja:"カテゴリーを証明する文書（四季報の写しなど）",src:"co",cats:[1],en:"Proof of Category 1.",ne:"वर्ग १ को प्रमाण।"},
+  {ja:"前年分の職員の給与所得の源泉徴収票等の法定調書合計表（写し）",src:"co",cats:[2,3],en:"Copy of last year's withholding-tax summary (法定調書合計表).",ne:"गत वर्षको 法定調書合計表 को प्रतिलिपि।"},
+  {ja:"直近の年度の決算文書の写し　１通",src:"co",cats:[3,4],en:"Latest financial statements of the business.",ne:"व्यवसायको पछिल्लो वर्षको वित्तीय विवरण।"},
+  {ja:"法人の登記事項証明書の写し　１通",src:"co",cats:[3,4],en:"Company registry certificate (if the business is a company).",ne:"कम्पनी दर्ता प्रमाणपत्र (कम्पनी हो भने)।"},
+  {ja:"所属機関の代表者に関する申告書　１通",src:"co",cats:[3,4],en:"Declaration about the company's representative (if you manage the business).",ne:"कम्पनीको प्रतिनिधिबारे घोषणा पत्र (तपाईं व्यवस्थापन गर्नुहुन्छ भने)।"},
+  {ja:"許認可の取得等を証する資料（説明書・許可書の写し）",src:"co",cats:[3,4],en:"Proof of the licences the business needs (e.g. restaurant business licence) with the explanation sheet.",ne:"व्यवसायलाई चाहिने अनुमतिपत्रको प्रमाण (जस्तै रेस्टुरेन्ट व्यवसाय अनुमति), व्याख्या पानासहित।"},
+  {ja:"常勤の職員が一人以上であることを明らかにする資料（賃金支払文書・住民票など）",src:"co",cats:[3,4],en:"Proof of at least one full-time employee: their wage payment records and residence record.",ne:"कम्तीमा एक पूर्णकालीन कर्मचारीको प्रमाण: तलब भुक्तानी कागज र 住民票।"},
+  {ja:"日本語能力を明らかにする資料",src:"me",cats:[3,4],en:"Proof of Japanese ability of you or a full-time employee (test certificate, graduation certificate etc.) with the explanation sheet.",ne:"तपाईं वा पूर्णकालीन कर्मचारीको जापानी भाषा क्षमताको प्रमाण (परीक्षा प्रमाणपत्र, स्नातक प्रमाणपत्र आदि), व्याख्या पानासहित।"},
+  {ja:"直近の在留期間における事業の経営又は管理に関する活動内容を説明する文書",src:"me",cats:[3,4],en:"Your own explanation of what you did to run the business during your last period of stay (free format).",ne:"पछिल्लो बसाइ अवधिमा व्यवसाय चलाउन के गर्नुभयो भन्ने आफ्नै व्याख्या (कुनै पनि ढाँचामा)।"},
+  {...TAX,cats:[3,4]},
+  {ja:"公租公課の履行状況を明らかにする資料（労働保険・社会保険・国税・地方税）",src:"co",cats:[3,4],en:"Proof the business pays labour insurance, social insurance and national and local taxes – with the explanation sheet.",ne:"व्यवसायले श्रम बीमा, सामाजिक बीमा, राष्ट्रिय र स्थानीय कर तिरेको प्रमाण – व्याख्या पानासहित।"}],
+  note:{en:"Business Manager rules became much stricter in 2025. If anything is unclear, get help from a licensed gyoseishoshi.",ne:"経営・管理 का नियम २०२५ मा धेरै कडा भए। केही अस्पष्ट भए लाइसेन्स भएका 行政書士 को मद्दत लिनुहोस्।"}}
+];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
 let lang=store.get("lang")||"en";
 const $=id=>document.getElementById(id);
@@ -273,8 +354,8 @@ function render(){
   document.querySelectorAll("[data-t]").forEach(e=>e.textContent=t[e.dataset.t]);
   document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.l===lang));
   $("steps").innerHTML=t.steps.map(s=>`<li><strong>${s[0]}</strong><br><span class="sub">${s[1]}</span></li>`).join("");
-  $("docs").innerHTML=t.docs.map(d=>`<li>${d}</li>`).join("");
   const fi=+(store.get("visa_form")||0);
+  renderDocs(t,fi);
   $("ftype").innerHTML=t.ftypes.map((n,i)=>`<option value="${i}" ${i===fi?"selected":""}>${n}</option>`).join("");
   const fk=store.get("visa_kind")||"r", FS=fk==="c"?FORMS_CHANGE:FORMS;
   $("fpdf").href=FBASE+FS[fi][0]; $("fxls").href=FBASE+FS[fi][1];
@@ -303,6 +384,22 @@ function render(){
   }else{$("tl").innerHTML="";$("ics").hidden=true}
 }
 
+function renderDocs(t,fi){
+  $("dtype").innerHTML=t.ftypes.map((n,i)=>`<option value="${i}" ${i===fi?"selected":""}>${esc(n)}</option>`).join("");
+  const set=DOCS_R[fi], ci=+(store.get("visa_cat")||4), cat=ci===4?4:ci+1;
+  $("catBox").hidden=!set.cat;
+  $("dcat").innerHTML=t.cats.map((n,i)=>`<option value="${i}" ${i===ci?"selected":""}>${esc(n)}</option>`).join("");
+  const items=set.items.filter(d=>!set.cat||!d.cats||d.cats.includes(cat));
+  const key="visa_chk_"+fi; let done={};try{done=JSON.parse(store.get(key)||"{}")}catch(e){}
+  const lk=l=>l?` <a href="${l[0]}" target="_blank" rel="noopener">${esc(lang==="ne"?l[2]:l[1])}</a>`:"";
+  $("docs").innerHTML=items.map((d,i)=>`<li><input type="checkbox" id="dc${i}" data-j="${esc(d.ja)}" ${done[d.ja]?"checked":""}><label for="dc${i}"><span class="ja">${esc(d.ja)}</span>${esc(d[lang])}${lk(d.link)}<span class="from">${d.opt?esc(t.optL)+" · ":""}${esc(t.who[d.src]||"")}</span></label></li>`).join("");
+  const cnt=()=>{$("dcount").textContent=t.dCount(items.filter(d=>done[d.ja]).length,items.length)};
+  $("docs").querySelectorAll("input").forEach(c=>c.onchange=()=>{done[c.dataset.j]=c.checked;store.set(key,JSON.stringify(done));cnt()});
+  cnt();
+  $("dnote").hidden=!set.note; if(set.note) $("dnote").innerHTML=esc(set.note[lang])+(set.spouse?` <a href="spouse.html">${esc(t.spH)}</a>`:"");
+  $("drules").innerHTML=t.drules.map(r=>`<li>${esc(r)}</li>`).join("");
+  $("dlink").href=set.page;
+}
 // Build a calendar file on the phone itself – nothing is sent anywhere
 function ics(){
   const x=dates(); if(!x) return;
@@ -321,6 +418,8 @@ $("ics").onclick=ics;
 $("kRenew").onclick=()=>{store.set("visa_kind","r");render()};
 $("kChange").onclick=()=>{store.set("visa_kind","c");render()};
 $("ftype").onchange=e=>{store.set("visa_form",e.target.value);render()};
+$("dtype").onchange=e=>{store.set("visa_form",e.target.value);render()};
+$("dcat").onchange=e=>{store.set("visa_cat",e.target.value);render()};
 $("exp").onchange=()=>{store.set("visa_exp",$("exp").value);render()};
 $("short").onchange=()=>{store.set("visa_short",$("short").checked?"1":"0");render()};
 document.querySelectorAll(".lang button").forEach(b=>b.onclick=()=>{lang=b.dataset.l;store.set("lang",lang);render()});
