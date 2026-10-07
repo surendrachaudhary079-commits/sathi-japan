@@ -2,7 +2,7 @@
 // Sends to the phones whose chosen time is this hour (Japan time).
 //   06:00 / 07:00  → today's garbage ("Garbage day today")
 //   18:00 – 22:00  → tomorrow's garbage ("Garbage day tomorrow")
-const { HOURS, loadAreas, findTown, idsFor, jpDate, message, sendPush, sb } = require("./_lib");
+const { HOURS, loadAreas, findTown, idsFor, jpDate, message, sendPush, sb, dlMessage } = require("./_lib");
 
 module.exports = async function handler(req, res) {
   // Only the schedulers (or you, with the secret) may run this
@@ -47,5 +47,32 @@ module.exports = async function handler(req, res) {
     await sb(`push_subs?id=in.(${done.slice(i, i + 200).join(",")})`, {
       method: "PATCH", headers: { Prefer: "return=minimal" }, body: JSON.stringify({ last_sent: today }) });
   }
-  return res.status(200).json({ hour, target, sent, skipped, already, removed, failed });
+  // ---- My deadlines: one notification per phone listing everything due on a reminder day ----
+  const dl = { sent: 0, removed: 0, failed: 0 };
+  try {
+    const end = jpDate(200);
+    const r = await sb(`dl_items?select=id,endpoint,p256dh,auth,lang,kind,due,before,n,label,last_sent&hour=eq.${hour}&due=gte.${today}&due=lte.${end}&order=due&limit=5000`);
+    if (r.ok) {
+      const rows = await r.json(), byPhone = new Map();
+      for (const row of rows) {
+        const days = Math.round((new Date(row.due + "T00:00:00Z") - new Date(today + "T00:00:00Z")) / 864e5);
+        if (row.last_sent === today || !(row.before || []).includes(days)) continue;
+        if (!byPhone.has(row.endpoint)) byPhone.set(row.endpoint, []);
+        byPhone.get(row.endpoint).push(row);
+      }
+      const doneIds = [];
+      for (const list of byPhone.values()) {
+        try {
+          const status = await sendPush(list[0], { ...dlMessage(list, list[0].lang, today), url: "/deadlines.html" });
+          if (status === 404 || status === 410) { await sb(`dl_items?endpoint=eq.${encodeURIComponent(list[0].endpoint)}`, { method: "DELETE" }); dl.removed++; }
+          else if (status >= 200 && status < 300) { dl.sent++; doneIds.push(...list.map(x => x.id)); }
+          else { dl.failed++; console.error("dl push status", status); }
+        } catch (e) { dl.failed++; console.error(e); }
+      }
+      for (let i = 0; i < doneIds.length; i += 200)
+        await sb(`dl_items?id=in.(${doneIds.slice(i, i + 200).join(",")})`, { method: "PATCH", headers: { Prefer: "return=minimal" }, body: JSON.stringify({ last_sent: today }) });
+    } else if (r.status !== 404) console.error("dl load", r.status, await r.text());
+  } catch (e) { console.error("deadlines", e); }
+
+  return res.status(200).json({ hour, target, sent, skipped, already, removed, failed, deadlines: dl });
 };
