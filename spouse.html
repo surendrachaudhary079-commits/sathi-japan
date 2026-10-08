@@ -4,6 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sathi Japan – Spouse Visa Guide</title>
+<meta name="description" content="Bring your husband or wife to Japan, or change or renew their visa – every document named, in Nepali and English.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sathi Japan">
+<meta property="og:title" content="Spouse visa guide – Sathi Japan">
+<meta property="og:description" content="Bring your husband or wife to Japan, or change or renew their visa – every document named, in Nepali and English.">
+<meta property="og:url" content="https://sathi-japan.vercel.app/spouse.html">
+<meta property="og:image" content="https://sathi-japan.vercel.app/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0B2E6B">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,6 +66,7 @@
   ul.plain{margin:6px 0 0;padding-left:20px;font-size:16px}
   .small{font-size:13px;color:var(--muted)}
   [hidden]{display:none!important}
+.sharebtn{display:inline-flex;align-items:center;gap:6px;margin:10px 0 0;min-height:44px;padding:0 16px;border-radius:12px;border:2px solid var(--line);background:transparent;color:var(--brand,var(--navy));font:inherit;font-weight:700;font-size:16px;cursor:pointer}
 </style>
 </head>
 <body>
@@ -69,6 +80,7 @@
     </div>
   </header>
   <p class="sub" data-t="intro"></p>
+  <button class="sharebtn" id="shareBtn" data-t="share"></button>
 
   <!-- 1. Your situation -->
   <section class="card">
@@ -127,6 +139,7 @@
   <p class="small"><span data-t="disclaimer"></span></p>
 </main>
 
+<script src="share.js"></script>
 <script>
 // Sources (Immigration Services Agency, checked 7 Oct 2026):
 //  Family Stay      https://www.moj.go.jp/isa/applications/status/dependent.html
@@ -158,7 +171,7 @@ const MINE=[
 // Documents. who: me = person in Japan, sp = spouse, both. src = where to get it.
 const T={
 en:{
- back:"← Visa guide",title:"💍 Spouse visa guide",
+ share:"📤 Share this guide",shareMsg:"💍 Spouse visa guide for Japan – bring your husband or wife from Nepal, every document named, in Nepali and English:",back:"← Visa guide",title:"💍 Spouse visa guide",
  intro:"How to bring your husband or wife to Japan, or change or renew their visa – with the exact names of every document. Official Immigration Services Agency rules, explained simply.",
  q1:"1. Your situation",q1p:"What is YOUR status (the person living in Japan)?",
  mine:["Engineer / Specialist in Humanities / International Services (技術・人文知識・国際業務)","Skilled Labor, e.g. cook (技能)","Business Manager (経営・管理)","Highly Skilled Professional (高度専門職)","Student (留学)","Specified Skilled Worker type 2 (特定技能2号)","Care Worker (介護)","Specified Skilled Worker type 1 (特定技能1号)","Technical Intern / Employment for Skill Development (技能実習・育成就労)","Permanent Resident (永住者)","I am a Japanese citizen","Other"],
@@ -210,7 +223,7 @@ en:{
  disclaimer:"General information, not immigration or legal advice. Based on the Immigration Services Agency pages for Family Stay and Spouse of Japanese National, checked 7 Oct 2026. Rules can change – always check the official page."
 },
 ne:{
- back:"← भिसा गाइड",title:"💍 श्रीमान/श्रीमती भिसा गाइड",
+ share:"📤 यो गाइड सेयर गर्नुहोस्",shareMsg:"💍 जापानमा श्रीमान/श्रीमती भिसा गाइड – नेपालबाट बोलाउने, हरेक कागजातको नामसहित, नेपाली र अंग्रेजीमा:",back:"← भिसा गाइड",title:"💍 श्रीमान/श्रीमती भिसा गाइड",
  intro:"श्रीमान वा श्रीमतीलाई जापान बोलाउने, वा उहाँको भिसा परिवर्तन/नवीकरण गर्ने तरिका – हरेक कागजातको सही नामसहित। इमिग्रेसनको आधिकारिक नियम, सजिलो भाषामा।",
  q1:"१. तपाईंको अवस्था",q1p:"जापानमा बस्ने तपाईंको आफ्नो भिसा (स्टेटस) के हो?",
  mine:["Engineer / Specialist in Humanities / International Services (技術・人文知識・国際業務)","Skilled Labor, जस्तै कुक (技能)","Business Manager (経営・管理)","Highly Skilled Professional (高度専門職)","विद्यार्थी (留学)","Specified Skilled Worker २ नम्बर (特定技能2号)","Care Worker (介護)","Specified Skilled Worker १ नम्बर (特定技能1号)","Technical Intern / Employment for Skill Development (技能実習・育成就労)","Permanent Resident (永住者)","म जापानी नागरिक हुँ","अन्य"],
@@ -339,6 +352,7 @@ function render(){
   $("fee").innerHTML=esc(t.fee[where])+(where==="coe"?"":` <a href="visa.html">${lang==="ne"?"भिसा गाइड":"Visa guide"}</a>`);
   $("after").innerHTML=t.after.map(s=>`<li><strong>${esc(s[0])}</strong><br><span class="sub">${esc(s[1])}</span>${s[2]?`<br><a href="${s[2]}" target="_blank" rel="noopener">${esc(s[3])}</a>`:""}</li>`).join("");
 }
+$("shareBtn").onclick=()=>sathiShare({text:T[lang].shareMsg,url:location.origin+"/spouse.html"});
 $("mine").onchange=e=>{mine=+e.target.value;store.set("sp_mine",mine);render()};
 document.querySelectorAll(".lang button").forEach(b=>b.onclick=()=>{lang=b.dataset.l;store.set("lang",lang);render()});
 render();

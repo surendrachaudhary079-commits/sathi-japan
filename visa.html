@@ -4,6 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sathi Japan – Visa Renewal Guide</title>
+<meta name="description" content="When to apply, every document by name for your visa type, the official forms and the new fees – in Nepali and English.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sathi Japan">
+<meta property="og:title" content="Visa renewal guide – Sathi Japan">
+<meta property="og:description" content="When to apply, every document by name for your visa type, the official forms and the new fees – in Nepali and English.">
+<meta property="og:url" content="https://sathi-japan.vercel.app/visa.html">
+<meta property="og:image" content="https://sathi-japan.vercel.app/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0B2E6B">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -62,6 +72,7 @@
   a.card.spouse{display:block;text-decoration:none;color:var(--ink);border:2px solid var(--brand)}
   a.card.spouse b{display:block;color:var(--brand);font-size:18px}
   .btn.alt{background:transparent;color:var(--brand);box-shadow:inset 0 0 0 2px var(--brand)}
+.sharebtn{display:inline-flex;align-items:center;gap:6px;margin:10px 0 0;min-height:44px;padding:0 16px;border-radius:12px;border:2px solid var(--line);background:transparent;color:var(--brand,var(--navy));font:inherit;font-weight:700;font-size:16px;cursor:pointer}
 </style>
 </head>
 <body>
@@ -74,6 +85,8 @@
       <button data-l="ne" aria-pressed="false">नेपाली</button>
     </div>
   </header>
+
+  <button class="sharebtn" id="shareBtn" data-t="share"></button>
 
   <!-- 1. Expiry date and timeline -->
   <section class="card">
@@ -159,10 +172,11 @@
   <p class="small"><span data-t="disclaimer"></span></p>
 </main>
 
+<script src="share.js"></script>
 <script>
 const T={
 en:{
- back:"← Home",title:"🪪 Visa renewal guide",
+ share:"📤 Share this guide",shareMsg:"🪪 Visa renewal guide for Japan – when to apply, every document for your visa type, official forms and the new fees, in Nepali and English:",back:"← Home",title:"🪪 Visa renewal guide",
  expLabel:"Expiry date on your residence card",
  shortStay:"My period of stay is less than 6 months",
  savedLocal:"Saved only on this phone. We never ask for your card number.",
@@ -217,7 +231,7 @@ en:{
  ics:["Visa renewal: applications open","Visa renewal: apply now (1 month left)","Visa renewal: LAST 2 WEEKS"]
 },
 ne:{
- back:"← होम",title:"🪪 भिसा नवीकरण गाइड",
+ share:"📤 यो गाइड सेयर गर्नुहोस्",shareMsg:"🪪 जापानमा भिसा नवीकरण गाइड – कहिले आवेदन दिने, हरेक कागजात, आधिकारिक फारम र नयाँ शुल्क, नेपाली र अंग्रेजीमा:",back:"← होम",title:"🪪 भिसा नवीकरण गाइड",
  expLabel:"रेसिडेन्स कार्डमा लेखिएको म्याद सकिने मिति",
  shortStay:"मेरो बसाइ अवधि ६ महिनाभन्दा कम छ",
  savedLocal:"यो फोनमा मात्र सेभ हुन्छ। हामी कहिल्यै कार्ड नम्बर माग्दैनौं।",
@@ -415,6 +429,7 @@ function ics(){
   const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="sathi-visa-reminder.ics";document.body.appendChild(a);a.click();a.remove();
 }
 $("ics").onclick=ics;
+$("shareBtn").onclick=()=>sathiShare({text:T[lang].shareMsg,url:location.origin+"/visa.html"});
 $("kRenew").onclick=()=>{store.set("visa_kind","r");render()};
 $("kChange").onclick=()=>{store.set("visa_kind","c");render()};
 $("ftype").onchange=e=>{store.set("visa_form",e.target.value);render()};

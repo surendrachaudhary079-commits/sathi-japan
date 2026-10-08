@@ -4,6 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sathi Japan – Life Checklists</title>
+<meta name="description" content="Arriving, moving house, changing jobs, having a baby, leaving Japan – every step with its deadline and official form, in Nepali and English.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sathi Japan">
+<meta property="og:title" content="Life checklists – Sathi Japan">
+<meta property="og:description" content="Arriving, moving house, changing jobs, having a baby, leaving Japan – every step with its deadline and official form, in Nepali and English.">
+<meta property="og:url" content="https://sathi-japan.vercel.app/checklists.html">
+<meta property="og:image" content="https://sathi-japan.vercel.app/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0B2E6B">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,6 +57,7 @@
   .forms a{border-color:var(--brand)}
   .forms b{font-size:12px;font-weight:700;color:var(--brand);min-width:44px}
   .forms span{color:var(--muted);border-style:dashed}
+.sharebtn{display:inline-flex;align-items:center;gap:6px;margin:10px 0 0;min-height:44px;padding:0 16px;border-radius:12px;border:2px solid var(--line);background:transparent;color:var(--brand,var(--navy));font:inherit;font-weight:700;font-size:16px;cursor:pointer}
 </style>
 </head>
 <body>
@@ -61,6 +72,7 @@
   </header>
 
   <div class="tabs" id="tabs"></div>
+  <button class="sharebtn" id="shareBtn"></button>
 
   <section class="card">
     <p class="label" id="keyLabel"></p>
@@ -76,12 +88,13 @@
 </main>
 
 <script src="checklists-data.js"></script>
+<script src="share.js"></script>
 <script>
 const T={
- en:{back:"← Home",title:"✅ Life checklists",dateHelp:"Enter the date to see your real deadlines.",done:"done",
+ en:{share:"📤 Share this checklist",shareMsg:n=>`✅ ${n} – every step with its deadline and official form, in Nepali and English:`,back:"← Home",title:"✅ Life checklists",dateHelp:"Enter the date to see your real deadlines.",done:"done",
   by:"By",from:"From",on:"On",today:"Today",noDeadline:"When you can",official:"Official info ↗",online:"Online",daysLeft:d=>d===0?"today":d>0?`${d} days left`:`${-d} days ago`,
   disclaimer:"General information, not legal, tax or immigration advice. Rules can differ by city; links are for Niigata City. Always check with your ward office or Immigration. Your ticks are saved only on this phone."},
- ne:{back:"← होम",title:"✅ जीवन चेकलिस्ट",dateHelp:"आफ्नो वास्तविक अन्तिम मिति हेर्न मिति राख्नुहोस्।",done:"सकियो",
+ ne:{share:"📤 यो चेकलिस्ट सेयर गर्नुहोस्",shareMsg:n=>`✅ ${n} – हरेक चरण, अन्तिम मिति र आधिकारिक फारमसहित, नेपाली र अंग्रेजीमा:`,back:"← होम",title:"✅ जीवन चेकलिस्ट",dateHelp:"आफ्नो वास्तविक अन्तिम मिति हेर्न मिति राख्नुहोस्।",done:"सकियो",
   by:"सम्म",from:"देखि",on:"मा",today:"आज",noDeadline:"मिल्दो समयमा",official:"आधिकारिक जानकारी ↗",online:"अनलाइन",daysLeft:d=>d===0?"आज":d>0?`${d} दिन बाँकी`:`${-d} दिन अघि`,
   disclaimer:"सामान्य जानकारी मात्र, कानुनी, कर वा भिसा सल्लाह होइन। नियम सिटीअनुसार फरक हुन सक्छ; लिंकहरू निगाता सिटीका हुन्। सधैं वार्ड कार्यालय वा इमिग्रेसनमा जाँच गर्नुहोस्। तपाईंको ठीक चिन्ह यो फोनमा मात्र सेभ हुन्छ।"}
 };
@@ -89,6 +102,8 @@ const L=window.CHECKLISTS;
 const store={get(k,d){try{const v=localStorage.getItem(k);return v===null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 let lang=store.get("lang2",null)||(()=>{try{return localStorage.getItem("lang")||"en"}catch(e){return "en"}})();
 let cur=store.get("cl_cur","moving");
+// A shared link (?list=<id>) opens that checklist
+(()=>{const q=new URLSearchParams(location.search).get("list");if(q&&L.some(x=>x.id===q)){cur=q;store.set("cl_cur",cur)}if(q)history.replaceState(null,"",location.pathname)})();
 const $=id=>document.getElementById(id);
 
 function jpToday(){return new Date(new Date(Date.now()+9*3600e3).toISOString().slice(0,10)+"T00:00:00Z")}
@@ -99,6 +114,7 @@ function render(){
   const t=T[lang]; document.documentElement.lang=lang;
   document.querySelectorAll("[data-t]").forEach(e=>e.textContent=t[e.dataset.t]);
   document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.l===lang));
+  $("shareBtn").textContent=t.share;
   $("tabs").innerHTML=L.map(c=>`<button data-id="${c.id}" aria-pressed="${c.id===cur}"><span class="ic">${c.icon}</span>${c.title[lang]}</button>`).join("");
   $("tabs").querySelectorAll("button").forEach(b=>b.onclick=()=>{cur=b.dataset.id;store.set("cl_cur",cur);render()});
   const c=L.find(x=>x.id===cur);
@@ -128,6 +144,7 @@ function render(){
   $("bar").style.width=(100*n/c.steps.length)+"%";
   $("count").textContent=`${n} / ${c.steps.length} ${t.done}`;
 }
+$("shareBtn").onclick=()=>{const c=L.find(x=>x.id===cur);sathiShare({text:T[lang].shareMsg(c.title[lang]),url:`${location.origin}/checklists.html?list=${cur}`})};
 $("keyDate").onchange=e=>{store.set("cl_date_"+cur,e.target.value);render()};
 document.querySelectorAll(".lang button").forEach(b=>b.onclick=()=>{lang=b.dataset.l;try{localStorage.setItem("lang",lang)}catch(e){}render()});
 render();

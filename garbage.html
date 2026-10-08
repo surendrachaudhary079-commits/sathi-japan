@@ -4,7 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Garbage days – Sathi Japan</title>
-<meta name="description" content="Garbage days for your town, visa renewal reminders and step-by-step checklists for life in Japan – in Nepali and English. Free.">
+<meta name="description" content="Garbage days for your area in Nepali and English, with a phone reminder the evening before. All of Niigata City and Shinjuku. Free.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sathi Japan">
+<meta property="og:title" content="Garbage days for your area – Sathi Japan">
+<meta property="og:description" content="What to put out and when, in Nepali and English, with a phone reminder the evening before. Free.">
+<meta property="og:url" content="https://sathi-japan.vercel.app/garbage.html">
+<meta property="og:image" content="https://sathi-japan.vercel.app/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0B2E6B">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -119,6 +128,7 @@
   }
 
   /* Area picker */
+  .privacy button.link{border:0;background:none;padding:0;font:inherit;color:var(--ink);font-weight:700;text-decoration:underline;cursor:pointer}
   .area button.link{border:0;background:none;padding:0;font:inherit;color:var(--ink);font-weight:700;text-decoration:underline;text-underline-offset:3px;cursor:pointer;margin-left:6px}
   .sheet{position:fixed;inset:0;background:rgba(8,20,45,.45);display:flex;align-items:flex-end;justify-content:center;z-index:20}
   .sheet[hidden]{display:none}
@@ -217,10 +227,11 @@
 </div>
 
 <script src="areas.js"></script>
+<script src="share.js"></script>
 <script>
 const T={
 en:{
- areaLabel:"Showing:",remind:"🔔 Turn on reminders",remindOff:"🔕 Turn off reminders",calQuiet:"📅 Add to calendar",
+ areaLabel:"Showing:",remind:"🔔 Turn on reminders",remindOff:"🔕 Turn off reminders",calQuiet:"📅 Add to calendar",share:"📤 Share with neighbours",shareMsg:(a,c,n)=>`🗑 Garbage days for ${a} (${c}) – in Nepali and English.${n?` Next: ${n}.`:""} Get a reminder on your phone the evening before:`,sharedIn:a=>`Opened from a shared link: ${a}.`,useShared:a=>`Use ${a} instead`,
  pOn:"Reminders are on. A test message is on its way.",pOff:"Reminders are off. Your data was deleted.",pUpd:"Reminders updated.",
  pBlocked:"Notifications are blocked. Allow them for this site in your phone settings, then try again.",pNo:"This browser can't send reminders. Use “Add to calendar” instead.",
  pErr:"Couldn't turn on reminders. Check your internet and try again.",pWait:"Turning on…",privacy:"What we save",remindAt:"⏰ Remind me at",eve:"Evening before",morn:"Same morning",pTime:h=>`Reminder time changed to ${h}.`,
@@ -255,7 +266,7 @@ en:{
  days:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],months:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
 },
 ne:{
- areaLabel:"देखाइएको क्षेत्र:",remind:"🔔 रिमाइन्डर सक्रिय गर्नुहोस्",remindOff:"🔕 रिमाइन्डर बन्द गर्नुहोस्",calQuiet:"📅 क्यालेन्डरमा थप्नुहोस्",
+ areaLabel:"देखाइएको क्षेत्र:",remind:"🔔 रिमाइन्डर सक्रिय गर्नुहोस्",remindOff:"🔕 रिमाइन्डर बन्द गर्नुहोस्",calQuiet:"📅 क्यालेन्डरमा थप्नुहोस्",share:"📤 छिमेकीसँग सेयर गर्नुहोस्",shareMsg:(a,c,n)=>`🗑 ${a} (${c}) को फोहोर फाल्ने दिन – नेपाली र अंग्रेजीमा।${n?` अर्को: ${n}।`:""} अघिल्लो बेलुका फोनमा रिमाइन्डर पाउनुहोस्:`,sharedIn:a=>`सेयर गरिएको लिंकबाट खोलियो: ${a}।`,useShared:a=>`${a} प्रयोग गर्नुहोस्`,
  pOn:"रिमाइन्डर सक्रिय भयो। परीक्षण सन्देश आउँदैछ।",pOff:"रिमाइन्डर बन्द भयो। तपाईंको डाटा मेटाइयो।",pUpd:"रिमाइन्डर अपडेट भयो।",
  pBlocked:"सूचना (notification) रोकिएको छ। फोनको सेटिङमा यो साइटलाई अनुमति दिनुहोस्, अनि फेरि प्रयास गर्नुहोस्।",pNo:"यो ब्राउजरले रिमाइन्डर पठाउन सक्दैन। “क्यालेन्डरमा थप्नुहोस्” प्रयोग गर्नुहोस्।",
  pErr:"रिमाइन्डर सक्रिय गर्न सकिएन। इन्टरनेट जाँचेर फेरि प्रयास गर्नुहोस्।",pWait:"सक्रिय गर्दै…",privacy:"हामी के सेभ गर्छौं",remindAt:"⏰ सम्झाउने समय",eve:"अघिल्लो बेलुका",morn:"त्यही दिन बिहान",pTime:h=>`रिमाइन्डर समय ${h} मा बदलियो।`,
@@ -297,6 +308,12 @@ let sel=null;try{sel=JSON.parse(store.get("area")||"null")}catch(e){}
 // Old Oodori-only choice → same town in the all-Niigata list
 if(sel){const nc=A.cities.find(c=>c.legacy&&c.legacy[sel.c]);if(nc&&nc.legacy[sel.c][sel.t]!=null){sel={c:nc.id,t:nc.legacy[sel.c][sel.t]};store.set("area",JSON.stringify(sel))}}
 if(sel&&!A.cities.some(c=>c.id===sel.c))sel=null;
+// A shared link (?area=<city>.<town>) sets the same area – or offers it if this phone already has another one
+let sharedArea=null;
+(()=>{const m=/^([a-z-]+)\.(\d{1,5})$/.exec(new URLSearchParams(location.search).get("area")||"");if(!m)return;
+  const c=A.cities.find(x=>x.id===m[1]),t=+m[2];if(!c||!c.towns[t])return;
+  if(!sel){sel={c:c.id,t};store.set("area",JSON.stringify(sel))}else if(sel.c!==c.id||sel.t!==t)sharedArea={c:c.id,t};
+  history.replaceState(null,"",location.pathname)})();
 let pickCity=sel?sel.c:null,pickWard="";
 const $=id=>document.getElementById(id);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -379,7 +396,8 @@ function render(){
         const d=new Date(iso(k)+"T00:00:00Z");
         lead=nx&&nx.length?t.lNone(`${t.days[d.getUTCDay()]} ${d.getUTCDate()} ${t.months[d.getUTCMonth()]}`,names(nx)):"";
       }
-      actions=`<button class="btn primary" id="remind">${remindOn()?t.remindOff:t.remind}</button><button class="btn quiet" id="ics">${t.calQuiet}</button>`;
+      actions=`<button class="btn primary" id="remind">${remindOn()?t.remindOff:t.remind}</button><button class="btn quiet" id="ics">${t.calQuiet}</button><button class="btn quiet" id="shareBtn">${t.share}</button>`;
+      if(sharedArea){const sc=A.cities.find(x=>x.id===sharedArea.c),st=sc.towns[sharedArea.t];actions+=`<p class="privacy" style="flex-basis:100%;margin:0">${esc(t.sharedIn(tname(st)))} <button class="link" id="useShared">${esc(t.useShared(tname(st)))}</button></p>`}
     }
   }
   $("when").textContent=when;$("headline").textContent=head;$("lead").textContent=lead;
@@ -388,6 +406,12 @@ function render(){
   $("actions").innerHTML=actions;
   ["openPick","openPick2"].forEach(id=>{const b=$(id);if(b)b.onclick=openPicker});
   if($("ics")) $("ics").onclick=downloadIcs;
+  if($("useShared")) $("useShared").onclick=()=>{sel=sharedArea;sharedArea=null;store.set("area",JSON.stringify(sel));pickCity=sel.c;render();updateRemind()};
+  if($("shareBtn")) $("shareBtn").onclick=()=>{
+    let k=1,nx=null;while(k<15&&!((nx=idsFor(iso(k)))&&nx.length))k++;
+    const d=new Date(iso(k)+"T00:00:00Z"),nxt=nx&&nx.length?`${k===1?t.tmr:t.days[d.getUTCDay()]+" "+d.getUTCDate()+" "+t.months[d.getUTCMonth()]} – ${names(nx)}`:"";
+    sathiShare({text:t.shareMsg(tname(tw),c.name[lang],nxt),url:`${location.origin}/garbage.html?area=${sel.c}.${sel.t}`});
+  };
   if($("remind")){
     $("remind").onclick=toggleRemind;
     const hr=remindHour(),opt=x=>`<option value="${x}" ${x===hr?"selected":""}>${x}:00</option>`;
