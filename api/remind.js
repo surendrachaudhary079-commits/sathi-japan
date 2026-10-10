@@ -2,6 +2,7 @@
 // Sends to the phones whose chosen time is this hour (Japan time).
 //   06:00 / 07:00  → today's garbage ("Garbage day today")
 //   18:00 – 22:00  → tomorrow's garbage ("Garbage day tomorrow")
+const { fxAlerts } = require("./fx");
 const { HOURS, loadAreas, findTown, idsFor, jpDate, message, sendPush, sb, dlMessage } = require("./_lib");
 
 module.exports = async function handler(req, res) {
@@ -13,6 +14,10 @@ module.exports = async function handler(req, res) {
   // Vercel's daily backup job (11:00 UTC) always means the 20:00 group, even if it starts late
   const hour = req.headers["x-vercel-cron-schedule"] ? 20 : (req.query && req.query.hour ? Number(req.query.hour) : jp.getUTCHours());
   if (!HOURS.includes(hour)) return res.status(200).json({ hour, note: "no reminders at this hour" });
+
+  // ---- Yen → rupee rate alerts: checked at 18:00–20:00 (Nepal Rastra Bank publishes around noon Japan time) ----
+  let fx = null;
+  if (hour >= 18 && hour <= 20) { try { fx = await fxAlerts(hour); } catch (e) { console.error("fx", e); fx = { error: String(e.message || e) }; } }
 
   try { await loadAreas((req.headers || {}).host); } catch (e) { console.error(e); return res.status(500).json({ error: "areas_unavailable" }); }
   const morning = hour < 12;
@@ -74,5 +79,5 @@ module.exports = async function handler(req, res) {
     } else if (r.status !== 404) console.error("dl load", r.status, await r.text());
   } catch (e) { console.error("deadlines", e); }
 
-  return res.status(200).json({ hour, target, sent, skipped, already, removed, failed, deadlines: dl });
+  return res.status(200).json({ hour, target, sent, skipped, already, removed, failed, deadlines: dl, fx });
 };
