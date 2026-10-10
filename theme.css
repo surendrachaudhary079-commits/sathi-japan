@@ -1,0 +1,69 @@
+/* Sathi Japan – shared design tokens + header/footer component. Green & teal with blue, yellow and pastel accents. */
+:root{
+  --sx-paper:#F3F9F7;--sx-card:#FFFFFF;--sx-text:#14302A;--sx-muted:#4B625B;--sx-line:#D3E6DE;
+  --sx-green:#0F6B57;--sx-green-2:#1E9E6E;--sx-teal:#0E7C86;--sx-blue:#2D6FA3;--sx-yellow:#F2B531;
+  --sx-mint:#E2F3EC;--sx-aqua:#DFF3F4;--sx-sky:#E6F1FA;--sx-butter:#FFF4CF;--sx-peach:#FDE9DD;--sx-lilac:#EEEAF8;
+  --sx-shadow:0 1px 2px rgba(15,107,87,.06),0 8px 22px rgba(15,107,87,.08);
+  --sx-f:"Mukta","Noto Sans Devanagari",system-ui,-apple-system,"Segoe UI",sans-serif;--sx-jp:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root{
+  --sx-paper:#0B1715;--sx-card:#12221F;--sx-text:#E4F1EC;--sx-muted:#9DB6AE;--sx-line:#24392F;
+  --sx-green:#7FD8B9;--sx-green-2:#4CC38A;--sx-teal:#5CC8D0;--sx-blue:#8EC3EC;--sx-yellow:#E5B84A;
+  --sx-mint:#16302A;--sx-aqua:#123236;--sx-sky:#142636;--sx-butter:#2D2814;--sx-peach:#33231B;--sx-lilac:#24203A;
+  --sx-shadow:0 1px 2px rgba(0,0,0,.35);
+}}
+.sx-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.sx-logo{width:40px;height:40px;flex:none}
+
+/* Header */
+.sx-head{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--sx-paper) 90%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--sx-line);font-family:var(--sx-f)}
+.sx-in{max-width:1140px;margin:0 auto;padding:0 16px}
+.sx-head .sx-in{display:flex;align-items:center;gap:12px;min-height:66px}
+.sx-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--sx-text);min-width:0;margin-right:auto}
+.sx-brand b{display:block;font-size:20px;font-weight:800;line-height:1.1;color:var(--sx-green);white-space:nowrap}
+.sx-brand b span{font-weight:600;font-size:15px;color:var(--sx-teal)}
+.sx-brand small{display:block;font-size:12.5px;color:var(--sx-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media (max-width:420px){.sx-brand b span{display:none}}
+.sx-nav ul{list-style:none;margin:0;padding:0;display:flex;gap:2px}
+.sx-nav a{display:block;padding:8px 11px;border-radius:10px;text-decoration:none;color:var(--sx-text);font-weight:600;font-size:15.5px}
+.sx-nav a:hover{background:var(--sx-mint)}
+.sx-nav a[aria-current=page]{color:var(--sx-green);background:var(--sx-mint)}
+.sx-lang{display:flex;background:var(--sx-mint);border-radius:999px;padding:3px;flex:none}
+.sx-lang button{border:0;background:transparent;font:600 14px var(--sx-f);padding:5px 11px;border-radius:999px;cursor:pointer;color:var(--sx-green)}
+.sx-lang button[aria-pressed=true]{background:var(--sx-green);color:#fff}
+@media (prefers-color-scheme:dark){.sx-lang button[aria-pressed=true]{color:#0B1715}}
+.sx-menu{display:none;width:44px;height:44px;border-radius:12px;border:1px solid var(--sx-line);background:var(--sx-card);color:var(--sx-text);cursor:pointer;place-items:center;flex:none}
+.sx-menu svg{width:22px;height:22px}
+@media (max-width:959px){
+  .sx-menu{display:grid}
+  .sx-nav{display:none;position:absolute;top:66px;right:16px;left:16px;background:var(--sx-card);border:1px solid var(--sx-line);border-radius:18px;box-shadow:var(--sx-shadow);padding:8px}
+  .sx-nav.open{display:block}
+  .sx-nav ul{flex-direction:column}
+  .sx-nav a{padding:12px 14px;font-size:17px}
+}
+.sx-head :focus-visible,.sx-foot :focus-visible{outline:3px solid var(--sx-blue);outline-offset:2px;border-radius:8px}
+
+/* Older tool pages: logo in the back link */
+a.sx-backlogo{display:inline-flex!important;align-items:center;gap:8px;text-decoration:none!important;font-weight:800;color:var(--sx-green)!important}
+a.sx-backlogo .sx-logo{width:34px;height:34px}
+
+/* Footer */
+.sx-foot{margin-top:40px;background:#0E4F42;color:#DDF1EA;font-family:var(--sx-f);font-size:15px;line-height:1.55}
+@media (prefers-color-scheme:dark){.sx-foot{background:#081F1A}}
+.sx-cols{display:grid;gap:22px;padding-top:28px;padding-bottom:20px;grid-template-columns:1fr}
+@media (min-width:640px){.sx-cols{grid-template-columns:1fr 1fr}}
+@media (min-width:960px){.sx-cols{grid-template-columns:1.5fr 1fr 1fr 1.2fr}}
+.sx-foot h2{font-size:15px;margin:0 0 8px;color:#fff;letter-spacing:.02em}
+.sx-foot ul{list-style:none;margin:0;padding:0}
+.sx-foot li{margin:0 0 6px}
+.sx-foot a{color:#fff;text-decoration:none}
+.sx-foot a:hover{text-decoration:underline}
+.sx-foot p{margin:8px 0 0}
+.sx-foot .sx-brand{margin:0}
+.sx-foot .sx-brand b{color:#fff}.sx-foot .sx-brand small{color:#BFE3D6}
+.sx-sos b{font-size:20px;color:#FFE08A}
+.sx-note{font-size:13.5px;color:#BFE3D6}
+.sx-bottom{border-top:1px solid rgba(255,255,255,.15);padding-top:12px;padding-bottom:calc(16px + env(safe-area-inset-bottom,0px));font-size:13px;color:#BFE3D6}
+/* Skip link */
+a.sx-sr:focus{position:fixed;left:12px;top:12px;width:auto;height:auto;clip:auto;z-index:100;background:#fff;color:#0F6B57;padding:10px 14px;border-radius:10px;font-weight:700}
+@media (max-width:420px){.sx-head .sx-brand small{white-space:normal;line-height:1.2;font-size:12px}}

@@ -14,15 +14,15 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0B2E6B">
+<meta name="theme-color" content="#0F6B57">
 <link rel="icon" href="icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@500;700&display=swap" rel="stylesheet">
 <style>
-:root{--paper:#F5F7FB;--sheet:#FFFFFF;--ink:#0E1A33;--muted:#56637C;--line:#DCE2EE;--navy:#0B2E6B;--crimson:#C8102E;--tint:#E9EEF8;
+:root{--paper:#F3F9F7;--sheet:#FFFFFF;--ink:#0E1A33;--muted:#56637C;--line:#D3E6DE;--navy:#0F6B57;--crimson:#0E7C86;--tint:#E2F3EC;
   --hi:#C8102E;--mid:#B26A00;--lo:#2A7D6F;--f:"Mukta","Noto Sans Devanagari",system-ui,sans-serif;--jp:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif}
-@media (prefers-color-scheme:dark){:root{--paper:#0B1222;--sheet:#121C31;--ink:#E8EDF7;--muted:#9AA7BE;--line:#26334C;--navy:#A9C4F5;--crimson:#FF5A6E;--tint:#17233D;--hi:#FF6B7D;--mid:#F2B24C;--lo:#5BC9B5;color-scheme:dark}}
+@media (prefers-color-scheme:dark){:root{--paper:#0B1715;--sheet:#12221F;--ink:#E8EDF7;--muted:#9AA7BE;--line:#24392F;--navy:#7FD8B9;--crimson:#5CC8D0;--tint:#16302A;--hi:#FF6B7D;--mid:#F2B24C;--lo:#5BC9B5;color-scheme:dark}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font:400 18px/1.6 var(--f)}
 .wrap{max-width:640px;margin:0 auto;padding-inline:16px;padding-block:0 48px}
@@ -81,6 +81,7 @@ ol.steps li{margin:0 0 8px}
 h3{font-size:17px;margin:16px 0 4px}
 [hidden]{display:none!important}
 </style>
+<link rel="stylesheet" href="theme.css">
 </head>
 <body>
 <div class="wrap">
@@ -245,5 +246,6 @@ render();
 // Ask the server whether a beta code is needed
 fetch("/api/explain").then(r=>r.json()).then(j=>{needCode=!!j.code;if(!j.ready)status("not_ready");render()}).catch(()=>{});
 </script>
+<script src="site.js"></script>
 </body>
 </html>

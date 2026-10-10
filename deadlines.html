@@ -14,7 +14,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0B2E6B">
+<meta name="theme-color" content="#0F6B57">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icon-192.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -23,9 +23,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@500;700&display=swap" rel="stylesheet">
 <style>
 /* My deadlines: one "next deadline" panel, a reminders bar, then a dated list like a wall calendar's margin. */
-:root{--paper:#F5F7FB;--sheet:#FFFFFF;--ink:#0E1A33;--muted:#56637C;--line:#DCE2EE;--navy:#0B2E6B;--crimson:#C8102E;--tint:#E9EEF8;
+:root{--paper:#F3F9F7;--sheet:#FFFFFF;--ink:#0E1A33;--muted:#56637C;--line:#D3E6DE;--navy:#0F6B57;--crimson:#0E7C86;--tint:#E2F3EC;
   --hi:#C8102E;--mid:#A86200;--ok:#2A7D6F;--f:"Mukta","Noto Sans Devanagari",system-ui,sans-serif;--jp:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif}
-@media (prefers-color-scheme:dark){:root{--paper:#0B1222;--sheet:#121C31;--ink:#E8EDF7;--muted:#9AA7BE;--line:#26334C;--navy:#A9C4F5;--crimson:#FF5A6E;--tint:#17233D;--hi:#FF6B7D;--mid:#F2B24C;--ok:#5BC9B5;color-scheme:dark}}
+@media (prefers-color-scheme:dark){:root{--paper:#0B1715;--sheet:#12221F;--ink:#E8EDF7;--muted:#9AA7BE;--line:#24392F;--navy:#7FD8B9;--crimson:#5CC8D0;--tint:#16302A;--hi:#FF6B7D;--mid:#F2B24C;--ok:#5BC9B5;color-scheme:dark}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font:400 18px/1.55 var(--f)}
 .wrap{max-width:680px;margin:0 auto;padding-inline:16px;padding-block:0 56px}
@@ -45,7 +45,7 @@ h1{font-size:clamp(30px,7vw,40px);line-height:1.1;letter-spacing:-.02em;margin:8
 .next .date{font-size:16px;opacity:.9}
 .next .left{font-size:44px;font-weight:800;line-height:1;text-align:right;font-variant-numeric:tabular-nums}
 .next .left small{display:block;font-size:14px;font-weight:600;opacity:.85}
-@media (prefers-color-scheme:dark){.next{background:#1B2C52;color:#F3F6FC}}
+@media (prefers-color-scheme:dark){.next{background:#173A31;color:#F3F6FC}}
 /* Reminders bar */
 .bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:14px 0}
 .bar .msg{flex:1 1 220px;font-size:16px}
@@ -102,6 +102,7 @@ footer{margin-top:28px;font-size:14px;color:var(--muted)}
 footer a{color:var(--navy)}
 [hidden]{display:none!important}
 </style>
+<link rel="stylesheet" href="theme.css">
 </head>
 <body>
 <div class="wrap">
@@ -380,5 +381,6 @@ if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch
     history.replaceState(null,"","deadlines.html")}})();
 render();
 </script>
+<script src="site.js"></script>
 </body>
 </html>

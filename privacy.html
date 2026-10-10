@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sathi Japan – What we save (privacy)</title>
-<meta name="theme-color" content="#0B2E6B">
+<meta name="theme-color" content="#0F6B57">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
-  :root{--paper:#F4F6FA;--surface:#fff;--ink:#0B2E6B;--text:#1B2333;--muted:#5B6B82;--line:#DCE2EC;--soft:#E8EDF6}
-  @media (prefers-color-scheme:dark){:root{--paper:#0C1424;--surface:#131E33;--ink:#A9C4F5;--text:#E7ECF5;--muted:#93A2BA;--line:#26344D;--soft:#1A2741}}
+  :root{--paper:#F3F9F7;--surface:#fff;--ink:#0F6B57;--text:#1B2333;--muted:#5B6B82;--line:#D3E6DE;--soft:#E2F3EC}
+  @media (prefers-color-scheme:dark){:root{--paper:#0B1715;--surface:#12221F;--ink:#7FD8B9;--text:#E7ECF5;--muted:#93A2BA;--line:#24392F;--soft:#16302A}}
   *{box-sizing:border-box}
   body{margin:0;background:var(--paper);color:var(--text);font:400 18px/1.6 "Mukta","Noto Sans Devanagari","Hiragino Sans","Noto Sans JP",system-ui,sans-serif}
   main{max-width:680px;margin:0 auto;padding:20px}
@@ -31,6 +31,7 @@
   [lang-block]{display:none}
   html[lang=en] [lang-block=en],html[lang=ne] [lang-block=ne]{display:block}
 </style>
+<link rel="stylesheet" href="theme.css">
 </head>
 <body>
 <main>
@@ -118,5 +119,6 @@ function render(){document.documentElement.lang=lang;document.querySelectorAll("
 document.querySelectorAll(".lang button").forEach(b=>b.onclick=()=>{lang=b.dataset.l;try{localStorage.setItem("lang",lang)}catch(e){}render()});
 render();
 </script>
+<script src="site.js"></script>
 </body>
 </html>

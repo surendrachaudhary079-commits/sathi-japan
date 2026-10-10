@@ -14,7 +14,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#187A4F">
+<meta name="theme-color" content="#0F6B57">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icon-192.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -27,7 +27,7 @@
 /* Sathi Japan – Garbage calendar. Green recycling theme: mint, sky, sun. */
 :root{
   --paper:#F3F9F6;--surface:#FFFFFF;--text:#16302A;--muted:#4C635C;--line:#D3E5DB;
-  --green:#187A4F;--green-d:#0E5636;--mint:#E3F4EA;--mint-2:#CDEBD9;--sky:#E8F3FB;--sky-d:#2D6FA3;--sun:#FFF4CF;--sun-b:#EBC34B;
+  --green:#0F6B57;--green-d:#0E5636;--mint:#E3F4EA;--mint-2:#CDEBD9;--sky:#E8F3FB;--sky-d:#2D6FA3;--sun:#FFF4CF;--sun-b:#EBC34B;
   --red:#C0392B;--shadow:0 1px 2px rgba(14,86,54,.06),0 6px 18px rgba(14,86,54,.07);
   --f:"Mukta","Noto Sans Devanagari",system-ui,sans-serif;--jp:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
 }
@@ -370,7 +370,7 @@ ol.steps li{margin:0 0 10px}
     <div class="fb"><svg aria-hidden="true"><use href="#logo"/></svg>Sathi Japan</div>
     <p style="margin:0" data-t="foot1"></p>
     <p style="margin:0" id="srcLine"></p>
-    <p style="margin:0"><a href="privacy.html" data-t="privacy"></a> · <a href="./" data-t="home"></a></p>
+    <p style="margin:0"><a href="./" data-t="home"></a> · <a href="about.html" data-t="aboutL"></a> · <a href="about.html#contact" data-t="contactL"></a> · <a href="privacy.html" data-t="privacy"></a> · <a href="about.html#help" data-t="helpL"></a></p>
   </div>
 </footer>
 
@@ -408,7 +408,7 @@ ol.steps li{margin:0 0 10px}
 // =====================================================================
 const T={
 en:{
- tagline:"Together for a Cleaner Japan",menu:"Menu",home:"All tools",
+ tagline:"Together for a Better Tomorrow",menu:"Menu",home:"Home",aboutL:"About",contactL:"Contact",helpL:"Help",
  heroH:"A Cleaner City Starts With You!",heroP:"Your area's garbage days in English and Nepali, with the Japanese names – and a reminder on your phone the evening before.",
  areaH:"Your area",change:"Change area",choose:"Choose my area",
  nextH:"Next Garbage Collection",remH:"Get a reminder on your phone",todayH:"Today's Schedule",schH:"Collection Schedule",guideH:"How to sort and put out",
@@ -454,10 +454,10 @@ en:{
  foot1:"Sathi Japan is not an official city service. Always follow the notices at your collection point. Made in Niigata.",
  times:{"08:00":"8:00 AM","08:30":"8:30 AM","12:00":"noon"},
  days:["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],dshort:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],months:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
- nav:[["./","🏠","Home"],["garbage.html","🗑️","Garbage days"],["deadlines.html","⏰","My deadlines"],["visa.html","🪪","Visa renewal"],["spouse.html","💍","Spouse visa"],["checklists.html","✅","Life checklists"],["letter.html","✉️","Letter explainer"],["rate.html","💱","Yen → Rupee rate"]]
+ nav:[["./","🏠","Home"],["garbage.html","🗑️","Garbage days"],["deadlines.html","⏰","My deadlines"],["visa.html","🪪","Visa renewal"],["spouse.html","💍","Spouse visa"],["checklists.html","✅","Life checklists"],["letter.html","✉️","Letter explainer"],["rate.html","💱","Yen → Rupee rate"],["guides.html","📚","All guides"],["about.html","ℹ️","About & help"]]
 },
 ne:{
- tagline:"सफा जापानका लागि सँगै",menu:"मेनु",home:"सबै सुविधा",
+ tagline:"उज्यालो भोलिका लागि सँगै",menu:"मेनु",home:"गृहपृष्ठ",aboutL:"हाम्रोबारे",contactL:"सम्पर्क",helpL:"मद्दत",
  heroH:"स्वच्छ सहर तपाईंबाट सुरु हुन्छ!",heroP:"तपाईंको क्षेत्रको फोहोर फाल्ने दिन नेपाली र अंग्रेजीमा, जापानी नामसहित – र अघिल्लो बेलुका फोनमा रिमाइन्डर।",
  areaH:"तपाईंको क्षेत्र",change:"क्षेत्र बदल्नुहोस्",choose:"मेरो क्षेत्र छान्नुहोस्",
  nextH:"अर्को फोहोर संकलन",remH:"फोनमा रिमाइन्डर पाउनुहोस्",todayH:"आजको तालिका",schH:"संकलन तालिका",guideH:"कसरी छुट्याउने र फाल्ने",
@@ -503,7 +503,7 @@ ne:{
  foot1:"Sathi Japan सिटीको आधिकारिक सेवा होइन। सधैं आफ्नो संकलन स्थलको सूचना पालना गर्नुहोस्। निगातामा बनाइएको।",
  times:{"08:00":"बिहान ८:००","08:30":"बिहान ८:३०","12:00":"दिउँसो १२:००"},
  days:["आइतबार","सोमबार","मंगलबार","बुधबार","बिहीबार","शुक्रबार","शनिबार"],dshort:["आइत","सोम","मंगल","बुध","बिही","शुक्र","शनि"],months:["जनवरी","फेब्रुअरी","मार्च","अप्रिल","मे","जुन","जुलाई","अगस्ट","सेप्टेम्बर","अक्टोबर","नोभेम्बर","डिसेम्बर"],
- nav:[["./","🏠","गृहपृष्ठ"],["garbage.html","🗑️","फोहोर फाल्ने दिन"],["deadlines.html","⏰","मेरा अन्तिम मिति"],["visa.html","🪪","भिसा नवीकरण"],["spouse.html","💍","श्रीमान/श्रीमती भिसा"],["checklists.html","✅","जीवन चेकलिस्ट"],["letter.html","✉️","चिठी बुझाउने"],["rate.html","💱","येन → रुपैयाँ दर"]]
+ nav:[["./","🏠","गृहपृष्ठ"],["garbage.html","🗑️","फोहोर फाल्ने दिन"],["deadlines.html","⏰","मेरा अन्तिम मिति"],["visa.html","🪪","भिसा नवीकरण"],["spouse.html","💍","श्रीमान/श्रीमती भिसा"],["checklists.html","✅","जीवन चेकलिस्ट"],["letter.html","✉️","चिठी बुझाउने"],["rate.html","💱","येन → रुपैयाँ दर"],["guides.html","📚","सबै गाइड"],["about.html","ℹ️","हाम्रोबारे र मद्दत"]]
 }};
 
 // How to put each type out – Niigata City official sorting sheet (ごみ・資源の分け方・出し方, Dec 2024):
