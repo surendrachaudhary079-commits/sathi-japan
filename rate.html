@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Yen → Rupee rate – Sathi Japan</title>
+<meta name="description" content="Today's official yen to Nepali rupee rate, a 90-day chart, licensed remittance companies in Japan, and an alert when the rate reaches your target.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sathi Japan">
+<meta property="og:title" content="Yen → Rupee rate watch – Sathi Japan">
+<meta property="og:description" content="Today's official yen to rupee rate, a 90-day chart, and an alert when the rate is good. Only licensed remittance companies listed.">
+<meta property="og:url" content="https://sathi-japan.vercel.app/rate.html">
+<meta property="og:image" content="https://sathi-japan.vercel.app/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0B2E6B">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F5F7FB;--sheet:#FFFFFF;--ink:#0E1A33;--muted:#56637C;--line:#DCE2EE;--navy:#0B2E6B;--crimson:#C8102E;--tint:#E9EEF8;
+  --good:#2A7D6F;--mid:#A86200;--f:"Mukta","Noto Sans Devanagari",system-ui,sans-serif;--jp:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif}
+@media (prefers-color-scheme:dark){:root{--paper:#0B1222;--sheet:#121C31;--ink:#E8EDF7;--muted:#9AA7BE;--line:#26334C;--navy:#A9C4F5;--crimson:#FF5A6E;--tint:#17233D;--good:#5BC9B5;--mid:#F2B24C;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 18px/1.55 var(--f)}
+.wrap{max-width:680px;margin:0 auto;padding-inline:16px;padding-block:0 56px}
+:focus-visible{outline:3px solid var(--crimson);outline-offset:3px;border-radius:6px}
+button,input{font:inherit;color:inherit}
+.top{display:flex;align-items:center;gap:12px;padding-block:16px}
+.back{font-weight:800;font-size:19px;color:var(--navy);text-decoration:none;margin-right:auto}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--sheet)}
+.lang button{border:0;background:none;font-size:15px;padding:5px 13px;border-radius:999px;cursor:pointer}
+.lang button[aria-pressed=true]{background:var(--navy);color:var(--sheet)}
+h1{font-size:clamp(30px,7vw,40px);line-height:1.1;letter-spacing:-.02em;margin:8px 0 6px;font-weight:800}
+.intro{color:var(--muted);margin:0 0 18px}
+h2{font-size:21px;margin:28px 0 8px}
+.card{background:var(--sheet);border:1px solid var(--line);border-radius:16px;padding:18px 18px}
+/* Today */
+.today{background:var(--navy);color:var(--sheet);border-radius:16px;padding:20px 22px}
+@media (prefers-color-scheme:dark){.today{background:#1B2C52;color:#F3F6FC}}
+.today .k{font-size:15px;opacity:.85}
+.today .big{font-size:clamp(34px,9vw,48px);font-weight:800;line-height:1.1;font-variant-numeric:tabular-nums;margin:4px 0}
+.today .big small{font-size:18px;font-weight:600;opacity:.85}
+.today .sub{font-size:15px;opacity:.9}
+.verdict{display:inline-block;margin-top:10px;font-size:15px;font-weight:700;border-radius:999px;padding:3px 12px;background:rgba(255,255,255,.16)}
+.verdict.good{background:#2A7D6F;color:#fff}.verdict.low{background:#A86200;color:#fff}
+/* Calculator */
+.calc{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:end}
+.calc label{font-size:15px;color:var(--muted);display:block}
+.calc input{width:100%;font-size:22px;font-weight:700;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:var(--paper);font-variant-numeric:tabular-nums}
+.calc .eq{font-size:22px;color:var(--muted);padding-bottom:12px}
+.calc output{white-space:nowrap;display:block;font-size:22px;font-weight:800;padding:10px 12px;border-radius:12px;background:var(--tint);font-variant-numeric:tabular-nums;min-height:52px}
+.quick{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.quick button{border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:4px 12px;font-size:15px;cursor:pointer}
+.fine{font-size:14px;color:var(--muted);margin:10px 0 0}
+@media (max-width:520px){.calc{grid-template-columns:1fr}.calc .eq{display:none}}
+/* Chart */
+.tabs{display:flex;gap:6px;margin-bottom:8px}
+.tabs button{border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:3px 12px;font-size:14px;cursor:pointer}
+.tabs button[aria-pressed=true]{background:var(--navy);color:var(--sheet);border-color:var(--navy)}
+svg.chart{width:100%;height:auto;display:block}
+.chart text{font:500 18px var(--f);fill:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px;text-align:center}
+.stats div{background:var(--paper);border-radius:10px;padding:8px 4px;font-size:13px;color:var(--muted)}
+.stats b{display:block;font-size:18px;color:var(--ink);font-variant-numeric:tabular-nums}
+/* Alert */
+.alert{display:flex;flex-wrap:wrap;gap:10px;align-items:end}
+.alert label{flex:1 1 200px;font-size:15px;color:var(--muted)}
+.alert input{display:block;width:100%;margin-top:4px;font-size:20px;font-weight:700;padding:9px 12px;border:1px solid var(--line);border-radius:12px;background:var(--paper)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 18px;border-radius:12px;font-weight:700;font-size:16px;cursor:pointer;border:0;text-decoration:none;background:var(--navy);color:var(--sheet)}
+.btn.ghost{background:transparent;color:var(--navy);box-shadow:inset 0 0 0 2px var(--line)}
+.pstatus{font-size:15px;margin:10px 0 0;color:var(--muted)}
+.pstatus:empty{display:none}
+.on{color:var(--good);font-weight:700}
+/* Companies */
+.cos{list-style:none;margin:0;padding:0;background:var(--sheet);border:1px solid var(--line);border-radius:14px}
+.cos li{display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:center;padding:12px 14px;border-top:1px solid var(--line)}
+.cos li:first-child{border-top:0}
+.cos .n{font-weight:700;line-height:1.3}
+.cos .j{font:500 13px var(--jp);color:var(--muted);display:block}
+.cos .r{font-size:13px;color:var(--muted)}
+.cos a.go{font-size:15px;font-weight:700;color:var(--navy);white-space:nowrap;text-decoration:none;border:1.5px solid var(--line);border-radius:10px;padding:6px 10px}
+.warn{background:#FCECEE;border-left:4px solid var(--crimson);border-radius:10px;padding:12px 14px;font-size:16px;margin-top:14px}
+@media (prefers-color-scheme:dark){.warn{background:#2A1520}}
+.warn b{display:block}
+.note{background:var(--tint);border-radius:10px;padding:12px 14px;font-size:15px;margin-top:12px}
+.note a,.warn a,footer a{color:var(--navy)}
+.err{color:var(--crimson)}
+footer{margin-top:28px;font-size:14px;color:var(--muted)}
+.sheet{position:fixed;inset:0;background:rgba(8,14,30,.55);display:flex;align-items:flex-end;justify-content:center;z-index:10}
+.panel{background:var(--sheet);width:100%;max-width:640px;border-radius:18px 18px 0 0;padding:20px 18px calc(20px + env(safe-area-inset-bottom,0px))}
+@media (min-width:700px){.sheet{align-items:center}.panel{border-radius:18px}}
+.panel h2{margin:0 0 6px}.panel p{color:var(--muted);font-size:16px}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="back" href="./">‹ Sathi Japan</a>
+    <div class="lang" role="group" aria-label="Language">
+      <button data-l="en" aria-pressed="true">English</button>
+      <button data-l="ne" aria-pressed="false">नेपाली</button>
+    </div>
+  </header>
+
+  <h1 data-t="title"></h1>
+  <p class="intro" data-t="intro"></p>
+
+  <div id="today" class="today" aria-live="polite"><span class="k" data-t="loading"></span></div>
+
+  <h2 data-t="calcH"></h2>
+  <div class="card">
+    <div class="calc">
+      <div><label for="yen" data-t="send"></label><input id="yen" inputmode="numeric" value="100000" autocomplete="off"></div>
+      <div class="eq">→</div>
+      <div><label data-t="get"></label><output id="npr">–</output></div>
+    </div>
+    <div class="quick" id="quick"></div>
+    <p class="fine" data-t="calcNote"></p>
+  </div>
+
+  <h2 data-t="chartH"></h2>
+  <div class="card">
+    <div class="tabs" id="tabs"><button data-d="30" aria-pressed="false">30</button><button data-d="90" aria-pressed="true">90</button></div>
+    <div id="chart"></div>
+    <div class="stats" id="stats"></div>
+  </div>
+
+  <h2 data-t="alertH"></h2>
+  <div class="card">
+    <p style="margin:0 0 10px" id="alertP"></p>
+    <div class="alert">
+      <label><span data-t="target"></span><input id="target" inputmode="decimal" autocomplete="off"></label>
+      <button class="btn" id="alertBtn"></button>
+    </div>
+    <p class="pstatus" id="pstatus" role="status"></p>
+  </div>
+
+  <h2 data-t="cosH"></h2>
+  <p class="intro" style="margin-bottom:10px" data-t="cosP"></p>
+  <ul class="cos" id="cos"></ul>
+  <div class="note" id="fsaNote"></div>
+  <div class="warn" id="warn"></div>
+
+  <footer>
+    <p data-t="foot"></p>
+    <p><a href="privacy.html" data-t="privacy"></a></p>
+  </footer>
+</div>
+
+<div class="sheet" id="iosSheet" hidden role="dialog" aria-modal="true">
+  <div class="panel"><h2 data-t="iosH"></h2><p data-t="iosP"></p><ol id="iosSteps"></ol><button class="btn" id="iosClose" data-t="close"></button></div>
+</div>
+
+<script>
+// ---- Sources (checked 8 Oct 2026) ----
+// Rate: Nepal Rastra Bank forex API, JPY quoted per 10 yen – https://www.nrb.org.np/forex/
+// Companies: FSA register of funds transfer service providers (資金移動業者登録一覧), as of 31 Aug 2026 – https://www.fsa.go.jp/menkyo/menkyoj/shikin_idou.pdf
+// Warning text: FSA "Living in Japan: How to Open a Bank Account and Send Money" (Sep 2024) – https://www.fsa.go.jp/en/user/03.english_2024.pdf
+// Only companies on that register that send to Nepal are listed, in alphabetical order. No paid placement.
+const FSA="https://www.fsa.go.jp/menkyo/menkyoj/shikin_idou.pdf";
+const COS=[
+ {n:"Brastel Remit",j:"ブラステル株式会社",r:"00016",u:"https://brastelremit.jp/jpn/rates"},
+ {n:"City Express",j:"CITY EXPRESS MONEY TRANSFER JAPAN株式会社",r:"00025",u:"https://cityremit.com/"},
+ {n:"Japan Remit Finance",j:"ジャパンレミットファイナンス株式会社",r:"00024",u:"https://www.jpremit.com/"},
+ {n:"SBI Remit",j:"SBIレミット株式会社",r:"00008",u:"https://www.remit.co.jp/"},
+ {n:"Western Union",j:"ウエスタンユニオンジャパン株式会社",r:"00039",u:"https://www.westernunion.com/jp/ja/home.html"},
+ {n:"Wise",j:"ワイズ・ペイメンツ・ジャパン株式会社",r:"00040",u:"https://wise.com/jp/"}
+];
+const T={
+en:{title:"Yen → Rupee rate",intro:"Today's official rate from Nepal Rastra Bank, how it compares with the last 3 months, and a phone alert when it reaches your target.",
+ loading:"Loading today's rate…",fail:"Could not load the rate right now. Please try again later.",
+ todayK:d=>`Official rate · Nepal Rastra Bank · ${d}`,per:"¥100 =",vs:(c,a)=>`${c} since the previous day · 90-day average Rs ${a}`,
+ v:{good:"Good – near the 3-month high",mid:"Average for the last 3 months",low:"Low – near the 3-month low"},
+ calcH:"How much will arrive?",send:"You send (yen)",get:"About (rupees)",calcNote:"Estimate at the official rate. Companies pay a little less than this and may add a fee – compare the final amount you receive on each company's app.",
+ chartH:"Last months",days:d=>`${d} days`,hi:"High",lo:"Low",avg:"Average",
+ alertH:"Alert me when the rate is good",alertP:(r)=>`We check the official rate every evening. When ¥100 is worth your target or more, your phone gets a notification – at most once a week (today: Rs ${r}).`,
+ target:"Target: Rs for ¥100",on:"Turn on alert",off:"Turn off alert",save:"Update target",isOn:t=>`✓ Alert is on: Rs ${t} or more`,
+ p:{wait:"Asking your phone for permission…",ok:"Done – you will get a notification when the rate reaches your target.",blocked:"Notifications are blocked. Allow them in your browser settings and try again.",no:"This browser cannot get notifications.",err:"Something went wrong. Please try again.",offd:"Alert turned off.",bad:"Enter a number like 98.50.",upd:"Target updated."},
+ cosH:"Licensed remittance companies",cosP:"Registered with Japan's Financial Services Agency (資金移動業者) and send to Nepal. Rates change many times a day – check the company's own rate and fee before sending.",
+ reg:r=>`Kanto Finance Bureau No. ${r}`,go:"Rates ↗",
+ fsa:`Check any company yourself on the <a href="${FSA}" target="_blank" rel="noopener">FSA register (PDF)</a>.`,
+ warn:"<b>Never use “hundi” or a person who sends money privately.</b>Sending money for others without registration is illegal in Japan (Banking Act / Payment Services Act). You can lose your money. Also never sell or lend your bank account – that is a crime and can affect your visa. <a href=\"https://www.fsa.go.jp/en/user/03.english_2024.pdf\" target=\"_blank\" rel=\"noopener\">FSA guide for foreign residents ↗</a>",
+ foot:"Sathi Japan does not send money and is not paid by these companies. The official rate is a reference only – it is not the rate a company will give you.",
+ privacy:"What we save",iosH:"iPhone: one more step",iosP:"iPhone sends alerts only after Sathi Japan is on your Home Screen.",iosSteps:["In Safari tap Share (□↑).","Tap “Add to Home Screen”, then “Add”.","Open Sathi Japan from the Home Screen and turn on the alert again."],close:"Close"},
+ne:{title:"येन → रुपैयाँ दर",intro:"नेपाल राष्ट्र बैंकको आजको आधिकारिक दर, पछिल्लो ३ महिनासँग तुलना, र दर तपाईंको लक्ष्यमा पुगेपछि फोनमा सूचना।",
+ loading:"आजको दर लोड हुँदैछ…",fail:"अहिले दर लोड भएन। केही बेरपछि फेरि प्रयास गर्नुहोस्।",
+ todayK:d=>`आधिकारिक दर · नेपाल राष्ट्र बैंक · ${d}`,per:"¥१०० =",vs:(c,a)=>`अघिल्लो दिनभन्दा ${c} · ९० दिनको औसत रु ${a}`,
+ v:{good:"राम्रो – ३ महिनाको उच्च नजिक",mid:"पछिल्लो ३ महिनाको औसत",low:"कम – ३ महिनाको न्यून नजिक"},
+ calcH:"कति पुग्छ?",send:"तपाईं पठाउने (येन)",get:"लगभग (रुपैयाँ)",calcNote:"आधिकारिक दरमा अनुमान। कम्पनीहरूले यसभन्दा अलि कम दिन्छन् र शुल्क लाग्न सक्छ – हरेक कम्पनीको एपमा अन्तिम रकम तुलना गर्नुहोस्।",
+ chartH:"पछिल्ला महिनाहरू",days:d=>`${d} दिन`,hi:"उच्च",lo:"न्यून",avg:"औसत",
+ alertH:"दर राम्रो हुँदा सूचना दिनुहोस्",alertP:(r)=>`हामी हरेक साँझ आधिकारिक दर जाँच्छौं। ¥१०० को मूल्य तपाईंको लक्ष्य वा बढी भयो भने फोनमा सूचना आउँछ – हप्तामा बढीमा एक पटक (आज: रु ${r})।`,
+ target:"लक्ष्य: ¥१०० बराबर रु",on:"सूचना सक्रिय गर्नुहोस्",off:"सूचना बन्द गर्नुहोस्",save:"लक्ष्य अपडेट गर्नुहोस्",isOn:t=>`✓ सूचना सक्रिय: रु ${t} वा बढी`,
+ p:{wait:"फोनसँग अनुमति माग्दै…",ok:"भयो – दर लक्ष्यमा पुगेपछि सूचना आउनेछ।",blocked:"सूचना ब्लक छ। ब्राउजर सेटिङमा अनुमति दिएर फेरि प्रयास गर्नुहोस्।",no:"यो ब्राउजरले सूचना पाउन सक्दैन।",err:"केही गडबड भयो। फेरि प्रयास गर्नुहोस्।",offd:"सूचना बन्द भयो।",bad:"९८.५० जस्तो संख्या लेख्नुहोस्।",upd:"लक्ष्य अपडेट भयो।"},
+ cosH:"लाइसेन्स भएका रेमिट्यान्स कम्पनी",cosP:"जापानको वित्तीय सेवा एजेन्सी (資金移動業者) मा दर्ता भएका र नेपाल पठाउने कम्पनी। दर दिनमा धेरै पटक बदलिन्छ – पठाउनुअघि कम्पनीकै दर र शुल्क जाँच्नुहोस्।",
+ reg:r=>`कान्तो वित्त ब्यूरो नं. ${r}`,go:"दर ↗",
+ fsa:`कुनै पनि कम्पनी आफैं <a href="${FSA}" target="_blank" rel="noopener">FSA दर्ता सूची (PDF)</a> मा जाँच्नुहोस्।`,
+ warn:"<b>“हुन्डी” वा निजी रूपमा पैसा पठाउने व्यक्ति कहिल्यै प्रयोग नगर्नुहोस्।</b>दर्ता बिना अरूको पैसा पठाउनु जापानमा गैरकानुनी हो (बैंकिङ ऐन / भुक्तानी सेवा ऐन)। पैसा गुम्न सक्छ। आफ्नो बैंक खाता कहिल्यै नबेच्नुहोस् वा अरूलाई नदिनुहोस् – यो अपराध हो र भिसामा असर पर्न सक्छ। <a href=\"https://www.fsa.go.jp/en/user/03.english_2024.pdf\" target=\"_blank\" rel=\"noopener\">विदेशीका लागि FSA गाइड ↗</a>",
+ foot:"Sathi Japan ले पैसा पठाउँदैन र यी कम्पनीहरूबाट पैसा लिँदैन। आधिकारिक दर सन्दर्भका लागि मात्र हो – कम्पनीले दिने दर होइन।",
+ privacy:"हामी के सेभ गर्छौं",iosH:"iPhone: अर्को एक चरण",iosP:"iPhone ले Sathi Japan लाई Home Screen मा थपेपछि मात्र सूचना पठाउँछ।",iosSteps:["Safari मा Share (□↑) थिच्नुहोस्।","“Add to Home Screen” अनि “Add” थिच्नुहोस्।","Home Screen बाट Sathi Japan खोलेर फेरि सूचना सक्रिय गर्नुहोस्।"],close:"बन्द गर्नुहोस्"}
+};
+const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+let lang=store.get("lang")||"en",rows=[],span=90;
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const nf=(n,d=0)=>Number(n).toLocaleString("en-US",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtD=d=>{const x=new Date(d+"T00:00:00Z");return lang==="ne"?`${x.getUTCFullYear()}/${x.getUTCMonth()+1}/${x.getUTCDate()}`:x.toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric",timeZone:"UTC"})};
+const last=()=>rows.at(-1);
+const win=d=>rows.slice(-d);
+const avg=a=>a.reduce((s,x)=>s+x.buy,0)/a.length;
+
+function verdict(){const w=win(90),b=last().buy,lo=Math.min(...w.map(x=>x.buy)),hi=Math.max(...w.map(x=>x.buy));if(hi-lo<.01)return"mid";const p=(b-lo)/(hi-lo);return p>=.75?"good":p<=.25?"low":"mid"}
+
+function renderToday(){
+  const t=T[lang];
+  if(!rows.length){$("today").innerHTML=`<span class="k">${esc(rows.err?t.fail:t.loading)}</span>`;return}
+  const L=last(),P=rows.at(-2),ch=P?L.buy-P.buy:0,v=verdict();
+  const chs=(ch>0?"▲ +":ch<0?"▼ ":"± ")+nf(ch,2);
+  $("today").innerHTML=`<span class="k">${esc(t.todayK(fmtD(L.d)))}</span><div class="big"><small>${t.per}</small> Rs ${nf(L.buy,2)}</div><div class="sub">${esc(t.vs(chs,nf(avg(win(90)),2)))}</div><span class="verdict ${v}">${esc(t.v[v])}</span>`;
+}
+function renderCalc(){const y=Number(String($("yen").value).replace(/[^\d.]/g,""))||0;$("npr").textContent=rows.length&&y?"Rs "+nf(y*last().buy/100):"–"}
+function renderChart(){
+  const t=T[lang];if(!rows.length){$("chart").innerHTML="";$("stats").innerHTML="";return}
+  const w=win(span),W=640,H=260,pl=58,pr=10,pt=12,pb=26,vals=w.map(x=>x.buy);
+  let lo=Math.min(...vals),hi=Math.max(...vals);const pad=Math.max((hi-lo)*.15,.1);lo-=pad;hi+=pad;
+  const X=i=>pl+(W-pl-pr)*(w.length>1?i/(w.length-1):0),Y=v=>pt+(H-pt-pb)*(1-(v-lo)/(hi-lo));
+  const path=w.map((x,i)=>`${i?"L":"M"}${X(i).toFixed(1)},${Y(x.buy).toFixed(1)}`).join("");
+  const tgt=Number(store.get("fx_target"));
+  let g="";for(let k=0;k<=3;k++){const v=lo+(hi-lo)*k/3;g+=`<line x1="${pl}" x2="${W-pr}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--line)"/><text x="${pl-6}" y="${Y(v)+6}" text-anchor="end">${nf(v,1)}</text>`}
+  const tl=store.get("fx_on")==="1"&&tgt>lo&&tgt<hi?`<line x1="${pl}" x2="${W-pr}" y1="${Y(tgt)}" y2="${Y(tgt)}" stroke="var(--good)" stroke-dasharray="5 4" stroke-width="1.5"/><text x="${W-pr}" y="${Y(tgt)-5}" text-anchor="end" style="fill:var(--good)">${nf(tgt,2)}</text>`:"";
+  const L=w.at(-1);
+  $("chart").innerHTML=`<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(t.chartH)}">${g}${tl}
+   <path d="${path}" fill="none" stroke="var(--crimson)" stroke-width="2.5" stroke-linejoin="round"/>
+   <circle cx="${X(w.length-1)}" cy="${Y(L.buy)}" r="4.5" fill="var(--crimson)"/>
+   <text x="${pl}" y="${H-6}">${esc(fmtD(w[0].d))}</text><text x="${W-pr}" y="${H-6}" text-anchor="end">${esc(fmtD(L.d))}</text></svg>`;
+  $("stats").innerHTML=`<div>${t.hi}<b>${nf(Math.max(...vals),2)}</b></div><div>${t.avg}<b>${nf(avg(w),2)}</b></div><div>${t.lo}<b>${nf(Math.min(...vals),2)}</b></div>`;
+}
+function renderAlert(){
+  const t=T[lang],on=store.get("fx_on")==="1";
+  $("alertP").textContent=t.alertP(rows.length?nf(last().buy,2):"–");
+  $("alertBtn").textContent=on?t.off:t.on;
+  $("alertBtn").className=on?"btn ghost":"btn";
+  if(!$("target").value){const s=store.get("fx_target");$("target").value=s||(rows.length?(Math.max(...win(90).map(x=>x.buy))).toFixed(2):"")}
+  if(on&&!$("pstatus").textContent)$("pstatus").innerHTML=`<span class="on">${esc(t.isOn(store.get("fx_target")))}</span>`;
+}
+function render(){
+  const t=T[lang];document.documentElement.lang=lang;
+  document.querySelectorAll("[data-t]").forEach(e=>{const v=t[e.dataset.t];if(typeof v==="string")e.textContent=v});
+  document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.l===lang));
+  document.querySelectorAll("#tabs button").forEach(b=>{b.textContent=t.days(b.dataset.d);b.setAttribute("aria-pressed",+b.dataset.d===span)});
+  $("quick").innerHTML=[30000,50000,100000,200000].map(v=>`<button data-y="${v}">¥${nf(v)}</button>`).join("");
+  $("cos").innerHTML=COS.map(c=>`<li><div><span class="n">${esc(c.n)}</span><span class="j" lang="ja">${esc(c.j)}</span><span class="r">${esc(t.reg(c.r))}</span></div><a class="go" href="${c.u}" target="_blank" rel="noopener">${esc(t.go)}</a></li>`).join("");
+  $("fsaNote").innerHTML=t.fsa;$("warn").innerHTML=t.warn;
+  $("iosSteps").innerHTML=t.iosSteps.map(s=>`<li>${esc(s)}</li>`).join("");
+  renderToday();renderCalc();renderChart();renderAlert();
+}
+$("yen").oninput=renderCalc;
+$("quick").onclick=e=>{const y=e.target.dataset.y;if(y){$("yen").value=nf(y);renderCalc()}};
+$("tabs").onclick=e=>{const d=e.target.dataset.d;if(d){span=+d;render()}};
+document.querySelectorAll(".lang button").forEach(b=>b.onclick=()=>{lang=b.dataset.l;store.set("lang",lang);$("pstatus").textContent="";render();if(store.get("fx_on")==="1")save().catch(()=>{})});
+
+// ---- Alerts (same notification permission as garbage and deadline reminders) ----
+const pushOK="serviceWorker" in navigator&&"PushManager" in window&&"Notification" in window;
+const isIOS=/iPhone|iPad|iPod/.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
+const standalone=window.matchMedia("(display-mode: standalone)").matches||navigator.standalone===true;
+function keyBytes(b){const p="=".repeat((4-b.length%4)%4),s=atob((b+p).replace(/-/g,"+").replace(/_/g,"/"));return Uint8Array.from(s,c=>c.charCodeAt(0))}
+const pst=k=>{$("pstatus").textContent=k?T[lang].p[k]:""};
+async function getSub(create){
+  const reg=await navigator.serviceWorker.ready;let sub=await reg.pushManager.getSubscription();
+  if(!sub&&create){const {publicKey}=await (await fetch("/api/deadlines")).json();sub=await reg.pushManager.subscribe({userVisibleOnly:true,applicationServerKey:keyBytes(publicKey)})}
+  return sub;
+}
+async function save(){
+  const sub=await getSub(false);if(!sub)throw new Error("no subscription");
+  const r=await fetch("/api/fx",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({sub:sub.toJSON(),lang,target:Number(store.get("fx_target"))})});
+  if(!r.ok){let j={};try{j=await r.json()}catch(_){}throw new Error((j.error||"server")+" "+(j.status||r.status))}
+}
+const readTarget=()=>{const v=Number(String($("target").value).replace(/[^\d.]/g,""));return v>10&&v<1000?+v.toFixed(2):null};
+$("alertBtn").onclick=async()=>{
+  if(store.get("fx_on")==="1"){
+    try{const sub=await getSub(false);if(sub){await fetch("/api/fx",{method:"DELETE",headers:{"content-type":"application/json"},body:JSON.stringify({sub:sub.toJSON()})});if(store.get("remind")!=="1"&&store.get("dl_remind")!=="1")await sub.unsubscribe()}}catch(e){console.error(e)}
+    store.set("fx_on","0");pst("offd");return render();
+  }
+  const tg=readTarget();if(!tg)return pst("bad");
+  if(!pushOK){if(isIOS&&!standalone){$("iosSheet").hidden=false;return}return pst("no")}
+  try{pst("wait");const perm=await Notification.requestPermission();if(perm!=="granted")return pst("blocked");
+    await getSub(true);store.set("fx_target",String(tg));await save();store.set("fx_on","1");pst("ok");render();
+  }catch(e){console.error(e);store.set("fx_on","0");pst("err");$("pstatus").textContent+=` (${String(e.message||e).slice(0,60)})`;render()}
+};
+$("target").onchange=async()=>{
+  if(store.get("fx_on")!=="1")return;const tg=readTarget();if(!tg)return pst("bad");
+  store.set("fx_target",String(tg));try{await save();pst("upd");renderChart()}catch(_){pst("err")}
+};
+$("iosClose").onclick=()=>{$("iosSheet").hidden=true};
+document.addEventListener("keydown",e=>{if(e.key==="Escape")$("iosSheet").hidden=true});
+if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(()=>{});
+
+render();
+fetch("/api/fx").then(r=>r.ok?r.json():Promise.reject(r.status)).then(j=>{rows=j.rows||[];if(!rows.length)rows.err=1;$("target").value="";render()}).catch(e=>{console.error(e);rows.err=1;render()});
+</script>
+</body>
+</html>

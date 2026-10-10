@@ -344,7 +344,7 @@ async function sync(test){
 }
 $("remind").onclick=async()=>{
   if(store.get("dl_remind")==="1"){
-    try{const sub=await getSub(false);if(sub){await fetch("/api/deadlines",{method:"DELETE",headers:{"content-type":"application/json"},body:JSON.stringify({sub:sub.toJSON()})});if(store.get("remind")!=="1")await sub.unsubscribe()}}catch(e){console.error(e)}
+    try{const sub=await getSub(false);if(sub){await fetch("/api/deadlines",{method:"DELETE",headers:{"content-type":"application/json"},body:JSON.stringify({sub:sub.toJSON()})});if(store.get("remind")!=="1"&&store.get("fx_on")!=="1")await sub.unsubscribe()}}catch(e){console.error(e)}
     store.set("dl_remind","0");render();return pst("offd");
   }
   if(!list.some(x=>!x.done&&dd(x.d)>=0)) return pst("nothing");

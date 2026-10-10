@@ -554,7 +554,7 @@ async function toggleRemind(){
 async function turnOff(){
   try{
     const reg=await navigator.serviceWorker.ready,sub=await reg.pushManager.getSubscription();
-    if(sub){await fetch("/api/unsubscribe",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({endpoint:sub.endpoint})});if(store.get("dl_remind")!=="1")await sub.unsubscribe();}  // keep it if "My deadlines" reminders use it
+    if(sub){await fetch("/api/unsubscribe",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({endpoint:sub.endpoint})});if(store.get("dl_remind")!=="1"&&store.get("fx_on")!=="1")await sub.unsubscribe();}  // keep it if "My deadlines" reminders use it
   }catch(e){console.error(e)}
   store.set("remind","0");render();pstatus("pOff");
 }
