@@ -23,9 +23,12 @@ async function nrbRates() {
     const jp = (day.rates || []).find(x => x.currency && x.currency.iso3 === "JPY");
     if (!jp) continue;
     const unit = Number(jp.currency.unit) || 1;
-    rows.push({ d: day.date, buy: +(Number(jp.buy) * 100 / unit).toFixed(2), sell: +(Number(jp.sell) * 100 / unit).toFixed(2) });
+    const buy = Number(jp.buy), sell = Number(jp.sell);
+    if (!(buy > 0) || !(sell > 0)) continue;              // NRB sometimes lists a day twice, once with 0 – skip it
+    rows.push({ d: day.date, buy: +(buy * 100 / unit).toFixed(2), sell: +(sell * 100 / unit).toFixed(2) });
   }
   rows.sort((a, b) => a.d < b.d ? -1 : 1);
+  for (let i = rows.length - 1; i > 0; i--) if (rows[i].d === rows[i - 1].d) rows.splice(i, 1);   // one row per date
   cache = rows; cacheAt = Date.now();
   return rows;
 }
