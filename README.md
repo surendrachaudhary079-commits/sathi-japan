@@ -1,165 +1,117 @@
-# Sathi Japan – Complete Guide
+# Sathi Japan
 
-Version: 4 October 2026 · Areas: Niigata City Minami-ku (Oodori, code 74) and all of Shinjuku, Tokyo
-Website: https://sathi-japan.vercel.app
+Life-in-Japan tools for foreign residents, in English and Nepali.
+Website: https://sathi-japan.vercel.app · Hosting: Vercel (Hobby) · Database: Supabase (Tokyo)
 
----
-
-## 1. What is in this folder
-
-| File | What it is | Shown as |
-|---|---|---|
-| `index.html` | Home page: area picker, today/tomorrow garbage, next 7 days, garbage types, buttons to the other pages. | `/` |
-| `areas.js` | **All garbage areas**: Niigata Minami-ku (Oodori), all 171 Shinjuku towns, and official links for 11 other cities. Built from `data-src/`. | used by index.html |
-| `niigata-minami-oodori.ics` | Calendar file with every garbage day (to add reminders to a phone). | "Add reminders" button |
-| `niigata-minami-oodori.json` | The same garbage data as a separate file (backup / for future use). | – |
-| `checklists.html` | Life checklists page (arrival, moving, job change, leaving Japan). | "✅ Life checklists" button |
-| `checklists-data.js` | All checklist steps, deadlines, official links and forms. **Edit this file when a rule changes.** | used by checklists.html |
-| `visa.html` | Visa renewal guide: expiry reminder, steps, documents, forms, fees, help. | "🪪 Visa renewal" button |
-| `vercel.json` | Vercel settings: calendar file type and a daily backup reminder job (20:00). Do not delete. | – |
-| `api/` folder | Server code for reminders: `subscribe.js`, `unsubscribe.js`, `remind.js`, `_lib.js`. | runs on Vercel |
-| `sw.js` | Shows the reminder notification on the phone. | – |
-| `manifest.json`, `icon-192.png`, `icon-512.png`, `apple-touch-icon.png` | App name and icon (for "Add to Home Screen"). | – |
-| `privacy.html` | "What we save" page (English + Nepali). **Add your contact email.** | footer link |
-| `supabase-setup.sql` | Creates the reminder table and the **hourly reminder scheduler** in Supabase. Put your CRON_SECRET in it before running. | – |
-| `later-ai-letter/` | AI letter explainer – **do NOT upload yet** (needs a paid Claude API key). See section 6. | – |
-
-Everything sits at the top level except the `api/` folder. Personal dates and ticks stay on each user's phone.
-Only the evening reminders use a database (Supabase, free plan) – see section 10.
+Plain HTML, CSS and JavaScript pages – no framework, no build step needed to deploy.
+Server code is small Vercel functions in `api/`.
 
 ---
 
-## 2. Put everything online (first time or full update)
+## 1. Files
 
-1. Unzip `sathi-japan-complete.zip` on your computer.
-2. Open your GitHub repo **sathi-japan** → **Add file → Upload files**.
-3. Select these 8 files (NOT the `later-ai-letter` folder):
-   `index.html, checklists.html, checklists-data.js, visa.html, niigata-minami-oodori.ics, niigata-minami-oodori.json, vercel.json, README.md`
-4. Drag them in. Files with the same name are replaced automatically.
-5. Wait until all 8 appear in the list → click **Commit changes**.
-6. Vercel updates by itself in about 1 minute. Open https://sathi-japan.vercel.app and pull down to refresh.
-
-**Check after uploading:**
-- Home shows today's garbage (not empty boxes).
-- The green "Life checklists" and purple "Visa renewal" buttons open their pages.
-- Switching EN / नेपाली works on every page.
-
-**If something looks old:** close the browser tab and open the link again (the phone may be showing a saved copy).
-
----
-
-## 3. Use it yourself (test week)
-
-- **Garbage reminders on Android / Google Calendar:** tap "Add reminders" → Add all. Then Google Calendar → ☰ → Settings → your calendar → All-day event notifications → "1 day before at 20:00".
-- **iPhone:** tap "Add reminders" → Add all. Reminders at 20:00 the evening before and 6:30 on the day are built in.
-- **Visa page:** enter your own residence card expiry date → tap "Add renewal reminders".
-- **Add to home screen:** in the phone browser menu → "Add to Home screen". It opens like an app.
-
----
-
-## 4. Share with testers (5–10 people first)
-
-1. Send the link to a few Nepali friends in Minami-ku.
-2. Ask 3 questions after one week:
-   - Was any garbage day wrong?
-   - Was any Nepali sentence unclear?
-   - What else do you need help with in Japan?
-3. Send me their answers – I will fix and improve.
-
-Only people in the **Oodori calendar area** (大通西, 大通1–2丁目, 大通黄金, 大通南, part of 鷲ノ木新田) get correct garbage days for now. The checklists and visa guide work for everyone in Niigata.
-
----
-
-## 5. Keeping it correct (maintenance)
-
-| When | What to check | Who |
-|---|---|---|
-| Every month | All official links and rules still the same | Claude (scheduled check – ask me to set it up) |
-| **March / April** | New garbage calendar (令和9年度), checklist rules, visa fees | Claude prepares new files, you upload |
-| **December** | New Year garbage schedule (Jan 2027 Saturday shift) – compare with the paper calendar code 74 | You check, Claude fixes |
-| Any time | A user reports a mistake | Send it to Claude |
-
-The garbage data in this version covers **until 31 March 2027**. You MUST upload a new version before April 2027.
-
-The rules and sources are saved in your Claude project notes:
-`garbage-data-sources.md`, `checklist-rules-sources.md`, `visa-renewal-sources.md`, `forms-links.md`.
-
----
-
-## 6. Later: AI letter explainer (when ready)
-
-Needs a Claude API key (pay-per-use, about ¥2 per letter – your Claude chat plan does not cover it).
-
-1. platform.claude.com → add a small credit (e.g. $5) → API Keys → Create key. Set a monthly spend limit.
-2. Vercel → project → Settings → Environment Variables:
-   - `ANTHROPIC_API_KEY` = your key
-   - `ACCESS_CODE` = a password for testers (e.g. sathi2026)
-3. GitHub → Add file → Upload files → upload `letter.html`.
-4. GitHub → Add file → **Create new file** → name it exactly `api/explain.js` → paste the contents of `later-ai-letter/explain.js` → Commit.
-5. Vercel → Deployments → ⋯ → Redeploy.
-6. Ask Claude to add the "📮 Explain a letter" button back to the home page.
-
----
-
-## 7. Rules we never break
-
-- We **explain and remind only**. We never fill in or submit applications for users (that is licensed gyoseishoshi work). Users fill official forms themselves; we only link to them.
-- We never store residence card numbers or My Number. Dates and ticks stay on the user's phone.
-- Every page says "not legal / tax / immigration advice" and links to the official source.
-- We link to official forms; we do not host copies (they change).
-
-## 8. Before you earn money
-
-- Check your visa's side-business permission (資格外活動許可) with Immigration.
-- Check your company's side-job (副業) rules.
-- Vercel's free Hobby plan is for non-commercial use – move to a paid plan before charging or showing ads.
-
----
-
-## 9. Quick help
-
-| Problem | Fix |
+| File | What it is |
 |---|---|
-| Page shows empty boxes | Old `index.html` on GitHub – upload the new one again |
-| Vercel shows 404 | A file is inside a folder on GitHub – files must be at the top level |
-| Calendar reminders don't ring (Android) | Set "All-day event notifications" in Google Calendar settings |
-| A form link is broken | Tell Claude – the government changed the file; Claude finds the new one |
+| `index.html` | Home page with all tools |
+| `garbage.html` | **Garbage calendar** – area, next collection, reminder, 2–6 week schedule, sorting guide, calendar file |
+| `areas.js` | **All garbage data** (Niigata City: 91 official calendars, 1,272 towns; all of Shinjuku). Built from `data-src/` |
+| `deadlines.html`, `visa.html`, `spouse.html`, `checklists.html` (+ `checklists-data.js`), `letter.html`, `rate.html` | Other tools |
+| `share.js` | Share button (Viber, WhatsApp, Facebook, LINE, copy link) |
+| `sw.js` | Service worker – shows push notifications. Does not cache anything |
+| `manifest.json`, icons, `og.png` | App name/icon for "Add to Home Screen" and link previews |
+| `privacy.html` | What we save. **Add your contact email.** |
+| `vercel.json` | Daily backup run of the reminder job (20:00 JST) |
+| `api/_lib.js` | Shared server code: garbage date rules, push encryption, Supabase helper |
+| `api/subscribe.js`, `api/unsubscribe.js` | Save / delete a phone's garbage reminder |
+| `api/remind.js` | The hourly job: sends garbage, deadline and rate reminders |
+| `api/deadlines.js`, `api/fx.js`, `api/explain.js` | My deadlines, rate watch, letter explainer |
+| `supabase-*.sql` | Database setup (run once in Supabase → SQL Editor) |
+| `data-src/` | Sources and scripts that build `areas.js` and `garbage.html` (do not upload) |
+| `.env.example` | List of the secret settings (example values only) |
 
-Not an official government or city service.
+**Never upload:** `sathi-secret-keys.txt`, `supabase-setup-READY.sql`, or any file with real keys.
 
 ---
 
-## 10. Evening push reminders – one-time setup (about 20 minutes)
+## 2. Garbage calendar – how it works
 
-You need: the file `sathi-secret-keys.txt` (sent separately – keep it private, never upload it).
+**Where the dates come from.** `areas.js` → `window.SATHI_AREAS`. For Niigata City each town points to one of
+the city's official calendars (`calendars[...].r` = rules such as "every Mon/Wed/Fri" or "2nd and 4th Saturday").
+The rules were copied from each official calendar page (link and "last checked" date are shown in the page footer)
+and tested against the published Oodori calendar for all 365 days.
 
-**A. Supabase (database)**
-1. supabase.com → **New project** → name `sathi-japan` → choose region **Northeast Asia (Tokyo)** → set a database password → Create.
-2. Left menu → **SQL Editor** → **New query** → paste everything from `supabase-setup.sql` → **Run**. You should see "Success".
-3. Left menu → **Project Settings → API / API Keys**. Copy the **Project URL** and the **secret (service_role) key**.
-   The secret key is like a master password – only put it in Vercel, never in GitHub.
+**Special days (same code in `garbage.html` and `api/_lib.js`):**
+- 1–3 January: no collection. 31 December: burnable garbage only.
+- In January, the monthly items move one week later on calendars where the city says so.
+- Public holidays: collected as normal (Niigata City official sorting sheet).
+- Dates after `validUntil` (31 March 2027) are **not shown** – the page says the new calendar is not out yet.
 
-**B. Vercel (settings)**
-1. Vercel → project → **Settings → Environment Variables**. Add 6 variables:
-   `VAPID_PUBLIC_KEY`, `VAPID_PRIVATE_KEY`, `VAPID_SUBJECT`, `CRON_SECRET` (from the keys file),
-   `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY` (from Supabase).
-   In `VAPID_SUBJECT` replace YOUR-EMAIL-HERE with your contact email (e.g. `mailto:you@gmail.com`).
+**Area in the link.** `garbage.html?area=niigata.935` opens 大通西 (Ōdōri Nishi), Minami-ku.
+The link is checked (`city.number`, the town must exist). It becomes the saved area, with an "Undo" if the phone
+had a different one. The address bar always shows the current area, so it can be bookmarked or shared.
 
-**C. GitHub (upload)**
-1. Repo → **Add file → Upload files**.
-2. From the unzipped folder, drag in **all files AND the `api` folder itself** (drag the folder, don't open it).
-   Do NOT upload `later-ai-letter`, `data-src` or the keys file.
-3. Before committing, check the list shows `api/subscribe.js`, `api/remind.js`, `api/unsubscribe.js`, `api/_lib.js`.
-   If they appear without `api/` in front, cancel and use **Add file → Create new file**, type the name `api/_lib.js`, paste the file's contents, commit – repeat for the other 3.
-4. **Commit changes** → Vercel → **Deployments → ⋯ → Redeploy** (so it uses the new settings).
+**Sorting rules** in the page come from Niigata City's official sheet
+"ごみ・資源の分け方・出し方" (Dec 2024): https://www.city.niigata.lg.jp/kurashi/gomi/gomishigen/start.files/2024.12wakedashi_omote.pdf
 
-**D. Test**
-1. Android: open the site in Chrome → choose your area → **🔔 Remind me every evening** → Allow. A "Reminders are on ✅" message should arrive within seconds.
-2. iPhone: Safari → Share → **Add to Home Screen** → open it from the Home Screen → tap the button → Allow.
-3. Vercel → project → **Settings → Cron Jobs** should list `/api/remind`. You can press **Run** to test it now (it only sends if tomorrow has a collection).
-4. Problems? Vercel → **Logs** shows errors in plain text – send me a screenshot.
+**Yearly update (every April, and check before New Year):** update the calendar rules in `data-src/`,
+run the build (section 6), upload `areas.js`.
 
-**E. Before you share it widely**
-- Put your contact email in `privacy.html` (replace both "[add your contact email]").
-- Users choose their reminder time: 18:00–22:00 (evening before) or 6:00 / 7:00 (same morning).
-- The hourly scheduler runs inside Supabase (pg_cron). Check it: Supabase → Integrations/Database → Cron → job `sathi-remind` → history.
+---
+
+## 3. Phone reminders – how they work
+
+A timer in the page would stop when the page is closed, so reminders use **Web Push**:
+
+1. The phone allows notifications → the browser gives a *push address* → `POST /api/subscribe`
+   saves it in Supabase table `push_subs` with area, language and hour (default **7:00 PM**, choices 18–22 or 6–7).
+2. **Supabase pg_cron** calls `/api/remind` every hour (with `Authorization: Bearer CRON_SECRET`).
+   Vercel Cron runs it once more each day at 20:00 JST as a backup (Hobby plan allows only daily jobs).
+3. `/api/remind` works out tomorrow's (evening) or today's (morning) garbage in Japan time,
+   sends the push, and writes `last_sent` – so **one phone never gets the same day's reminder twice**.
+4. `sw.js` shows the notification; tapping it opens the garbage page.
+
+iPhone: works only after "Add to Home Screen" (iOS 16.4+). The page explains this.
+If notifications are blocked, the page shows how to allow them. "Add to calendar" works without any server.
+
+---
+
+## 4. Setup (first time)
+
+1. **Supabase** (free): create a project in Tokyo. SQL Editor → run `supabase-setup.sql`
+   (put your CRON_SECRET and site address in it first – keep that filled copy private),
+   then `supabase-deadlines.sql`, `supabase-fx.sql`, `supabase-letter.sql`.
+2. **Push keys:** create a VAPID key pair once (e.g. `npx web-push generate-vapid-keys` on your computer).
+3. **Vercel** → Project → Settings → Environment Variables: add every name in `.env.example`
+   with your real values → **Redeploy**.
+4. Check: open `/api/subscribe?check=1` – every line should say `ok`.
+
+## 5. Deploy an update (GitHub web)
+
+1. Clear your Downloads folder first (a Mac adds "(1)" to repeated downloads).
+2. GitHub repo → **Add file → Upload files** → drop the changed root files → **Commit changes**.
+3. Files in `api/`: open the file → pencil (Edit) → paste the new content → Commit.
+   New api file: **Add file → Create new file**, name it `api/name.js`.
+4. Vercel deploys by itself in about 1 minute.
+
+## 6. Run on your computer / rebuild data
+
+```
+python3 -m http.server 8000        # then open http://localhost:8000/garbage.html?area=niigata.935
+```
+Reminders need the Vercel functions, so test them on the live site (or `npx vercel dev` with your env vars).
+
+Rebuild garbage data after editing `data-src/`:
+```
+cd data-src && python3 build_niigata.py && python3 build_areas.py     # writes ../areas.js
+cp data-src/garbage.tpl.html garbage.html                              # page source = template
+```
+
+---
+
+## 7. Legal reminders
+
+- Sathi Japan is not an official city service and never fills in or submits applications (行政書士 work).
+- No money transfer, job matching or real-estate features without a licence.
+- Before earning money: check your 在留資格 (資格外活動許可) and your company's side-job rules;
+  Vercel Hobby is for non-commercial use (upgrade to Pro before charging); add a 特定商取引法 page;
+  file a tax return if side income is over ¥200,000 a year.

@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Garbage days – Sathi Japan</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Garbage Calendar – Sathi Japan</title>
 <meta name="description" content="Garbage days for your area in Nepali and English, with a phone reminder the evening before. All of Niigata City and Shinjuku. Free.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Sathi Japan">
@@ -14,195 +14,365 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0B2E6B">
+<meta name="theme-color" content="#187A4F">
 <link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Sathi">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@500;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --paper:#F4F6FA; --surface:#FFFFFF; --ink:#0B2E6B; --text:#1B2333; --muted:#5B6B82;
-    --line:#DCE2EC; --crimson:#C8102E; --soft:#E8EDF6;
-  }
-  @media (prefers-color-scheme:dark){:root{
-    --paper:#0C1424; --surface:#131E33; --ink:#A9C4F5; --text:#E7ECF5; --muted:#93A2BA;
-    --line:#26344D; --crimson:#FF5A6E; --soft:#1A2741;
-  }}
-  *{box-sizing:border-box}
-  html{-webkit-text-size-adjust:100%}
-  body{margin:0;background:var(--paper);color:var(--text);
-    font:400 18px/1.55 "Mukta","Noto Sans Devanagari","Hiragino Sans","Noto Sans JP",system-ui,sans-serif}
-  a{color:var(--ink)}
-  :focus-visible{outline:3px solid var(--crimson);outline-offset:3px;border-radius:6px}
-  .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+/* Sathi Japan – Garbage calendar. Green recycling theme: mint, sky, sun. */
+:root{
+  --paper:#F3F9F6;--surface:#FFFFFF;--text:#16302A;--muted:#4C635C;--line:#D3E5DB;
+  --green:#187A4F;--green-d:#0E5636;--mint:#E3F4EA;--mint-2:#CDEBD9;--sky:#E8F3FB;--sky-d:#2D6FA3;--sun:#FFF4CF;--sun-b:#EBC34B;
+  --red:#C0392B;--shadow:0 1px 2px rgba(14,86,54,.06),0 6px 18px rgba(14,86,54,.07);
+  --f:"Mukta","Noto Sans Devanagari",system-ui,sans-serif;--jp:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root{
+  --paper:#0C1714;--surface:#13221E;--text:#E5F1EC;--muted:#9DB6AE;--line:#24392F;
+  --green:#4CC38A;--green-d:#8EE0B6;--mint:#173328;--mint-2:#1E4233;--sky:#142636;--sky-d:#8EC3EC;--sun:#2D2814;--sun-b:#C9A43A;--red:#FF7A6B;
+  --shadow:0 1px 2px rgba(0,0,0,.3);color-scheme:dark}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--text);font:400 17px/1.55 var(--f)}
+a{color:var(--green-d)}
+[lang=ja],.ja{font-family:var(--jp)}
+:focus-visible{outline:3px solid var(--sky-d);outline-offset:3px;border-radius:8px}
+button,select,input{font:inherit;color:inherit}
+[hidden]{display:none!important}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 
-  /* Top bar */
-  .top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 0}
-  .brand{display:flex;align-items:baseline;gap:8px;text-decoration:none;color:var(--ink);white-space:nowrap}
-  .brand b{font-weight:800;font-size:24px;letter-spacing:-.01em}
-  .brand span{font-size:18px;color:var(--muted)}
-  .lang{display:flex;background:var(--soft);border-radius:999px;padding:3px}
-  .lang button{border:0;background:transparent;color:var(--ink);font:inherit;font-size:15px;font-weight:500;padding:6px 14px;border-radius:999px;cursor:pointer}
-  .lang button[aria-pressed=true]{background:var(--surface);box-shadow:0 1px 2px rgba(11,46,107,.15)}
+/* Header */
+.top{position:sticky;top:0;z-index:15;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:10px;min-height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);margin-right:auto;min-width:0}
+.brand svg{width:38px;height:38px;flex:none}
+.brand b{display:block;font-size:21px;font-weight:800;line-height:1.05;color:var(--green-d);letter-spacing:-.01em}
+.brand small{display:block;font-size:12.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.areachip{display:none;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 12px;font-size:15px;font-weight:600;cursor:pointer;max-width:230px}
+.areachip span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.areachip svg,.pin svg{width:18px;height:18px;flex:none;color:var(--green)}
+@media (min-width:860px){.areachip{display:inline-flex}}
+.lang{display:flex;background:var(--mint);border-radius:999px;padding:3px}
+.lang button{border:0;background:transparent;font-size:14px;font-weight:600;padding:5px 11px;border-radius:999px;cursor:pointer;color:var(--green-d)}
+.lang button[aria-pressed=true]{background:var(--green);color:#fff}
+@media (prefers-color-scheme:dark){.lang button[aria-pressed=true]{color:#0C1714}}
+.menubtn{width:42px;height:42px;border-radius:12px;border:1px solid var(--line);background:var(--surface);display:grid;place-items:center;cursor:pointer}
+.menubtn svg{width:22px;height:22px}
+.nav{position:absolute;right:16px;top:64px;width:min(320px,calc(100vw - 32px));background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:8px}
+.nav a{display:flex;gap:10px;align-items:center;padding:10px 12px;border-radius:10px;text-decoration:none;color:var(--text);font-weight:600}
+.nav a:hover,.nav a[aria-current=page]{background:var(--mint)}
+.nav a span{width:26px;text-align:center}
 
-  /* Hero = live answer */
-  .hero{display:grid;grid-template-columns:1.25fr 1fr;gap:40px;align-items:end;padding:28px 0 44px}
-  .when{font-size:20px;font-weight:500;color:var(--crimson);margin:0}
-  h1{font-weight:800;color:var(--ink);font-size:clamp(40px,7.2vw,76px);line-height:1.02;letter-spacing:-.025em;margin:6px 0 0;text-wrap:balance}
-  h1.long{font-size:clamp(32px,5.2vw,54px);line-height:1.08}
-  .icons{display:flex;gap:10px;margin:18px 0 0;flex-wrap:wrap}
-  .icons span{font-size:40px;width:68px;height:68px;display:grid;place-items:center;border-radius:20px;background:var(--surface);border:1px solid var(--line)}
-  .lead{font-size:20px;color:var(--muted);margin:18px 0 0;max-width:34ch}
-  .area{font-size:16px;color:var(--muted);margin:22px 0 0}
-  .area strong{color:var(--text);font-weight:500}
-  .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
-  .btn{display:inline-flex;align-items:center;gap:8px;font:inherit;font-weight:700;font-size:17px;padding:12px 20px;border-radius:12px;text-decoration:none;cursor:pointer;border:0}
-  .btn.primary{background:var(--ink);color:var(--paper)}
-  .btn.quiet{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 2px var(--line)}
+/* Hero */
+.hero{margin:16px 0 0;border-radius:24px;overflow:hidden;position:relative;background:linear-gradient(180deg,#DDF0FB 0%,#EAF7EF 75%);border:1px solid var(--line);display:grid;grid-template-columns:1fr;min-height:180px}
+@media (prefers-color-scheme:dark){.hero{background:linear-gradient(180deg,#14304A 0%,#163428 80%)}}
+.hero .txt{padding:22px 20px 0;position:relative;z-index:1}
+.hero h1{margin:0;font-size:clamp(26px,6.4vw,42px);line-height:1.1;font-weight:800;color:var(--green-d);letter-spacing:-.02em;text-wrap:balance}
+.hero p{margin:8px 0 0;color:var(--muted);font-size:16px;max-width:42ch}
+.hero .art{width:100%;height:110px;display:block;margin-top:4px}
+@media (max-width:519px){.hero p{font-size:15px}}
+@media (min-width:860px){.hero{grid-template-columns:1.05fr 1fr;min-height:230px}.hero .txt{padding:36px 32px}.hero .art{margin:0;align-self:end;height:auto}}
 
-  /* Week strip */
-  .week{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:8px}
-  .week ol{list-style:none;margin:0;padding:0}
-  .week li{display:grid;grid-template-columns:96px 1fr;gap:12px;align-items:center;padding:10px 12px;border-radius:14px}
-  .week li+li{border-top:1px solid var(--line);border-radius:0}
-  .week li.now{background:var(--soft);border-radius:14px;border-top-color:transparent}
-  .week li.now+li{border-top-color:transparent}
-  .week .d{font-size:15px;color:var(--muted);line-height:1.2}
-  .week .d b{display:block;color:var(--text);font-size:17px}
-  .week .c{font-size:16px;line-height:1.35}
-  .week .c i{font-style:normal;margin-right:4px}
-  .week .none{color:var(--muted)}
+/* Layout */
+.grid{display:grid;gap:16px;margin:16px 0 0}
+@media (min-width:860px){.grid{grid-template-columns:1.08fr 1fr;align-items:start}.col{display:grid;gap:16px}}
+.col{display:grid;gap:16px;min-width:0}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:18px}
+.card h2{margin:0;font-size:20px;line-height:1.25;font-weight:800;color:var(--green-d)}
+.card h2 .ja{display:block;font-size:13.5px;font-weight:500;color:var(--muted);margin-top:2px}
+.hd{display:flex;gap:10px;align-items:flex-start;margin-bottom:12px}
+.hd .ic{width:30px;height:30px;flex:none;color:var(--green)}
 
-  /* Sections */
-  section{padding:48px 0;border-top:1px solid var(--line)}
-  h2{font-weight:800;color:var(--ink);font-size:clamp(28px,4vw,38px);line-height:1.1;letter-spacing:-.015em;margin:0 0 8px}
-  .intro{color:var(--muted);margin:0 0 26px;max-width:58ch}
+/* Area card */
+.areacard{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.areacard .btn{margin-left:auto}
+@media (max-width:519px){.areacard .btn{flex-basis:100%}}
+.pin{width:46px;height:46px;border-radius:14px;background:var(--mint);display:grid;place-items:center;flex:none}
+.pin svg{width:26px;height:26px}
+.areacard .nm{flex:1;min-width:0}
+.areacard .nm b{display:block;font-size:22px;line-height:1.2;font-weight:800;overflow-wrap:anywhere}
+.areacard .nm b .ro{font-weight:600;font-size:17px;color:var(--muted)}
+.areacard .nm small{display:block;color:var(--muted);font-size:15px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 16px;border-radius:14px;font-weight:700;font-size:16px;cursor:pointer;border:0;text-decoration:none;white-space:nowrap}
+.btn svg{width:20px;height:20px}
+.btn.pri{background:var(--green);color:#fff}
+@media (prefers-color-scheme:dark){.btn.pri{color:#0C1714}}
+.btn.out{background:var(--surface);color:var(--green-d);box-shadow:inset 0 0 0 2px var(--mint-2)}
+.btn.sm{min-height:40px;padding:0 12px;font-size:15px;border-radius:12px}
+.notice{margin-top:12px;background:var(--sky);border-radius:12px;padding:10px 12px;font-size:15px}
+.notice button{border:0;background:none;color:var(--sky-d);font-weight:700;text-decoration:underline;cursor:pointer;padding:0;margin-left:4px}
 
-  /* Tools: rows, not cards */
-  .tools{list-style:none;margin:0;padding:0}
-  .tools li{border-top:1px solid var(--line)}
-  .tools li:last-child{border-bottom:1px solid var(--line)}
-  .tools a{display:grid;grid-template-columns:56px 1fr auto;gap:18px;align-items:center;padding:20px 4px;text-decoration:none;color:var(--text)}
-  .tools a:hover .t{text-decoration:underline;text-underline-offset:4px}
-  .tools .ic{font-size:34px;text-align:center}
-  .tools .t{font-weight:700;font-size:22px;color:var(--ink);display:block;line-height:1.2}
-  .tools .s{color:var(--muted);font-size:17px;display:block;margin-top:2px}
-  .tools .go{font-weight:700;color:var(--ink);font-size:16px;white-space:nowrap}
-  .tools .soon a{cursor:default}
-  .tools .soon .t{color:var(--muted)}
-  .tools .soon .go{color:var(--muted);font-weight:500}
+/* Next collection */
+.next{background:linear-gradient(180deg,var(--mint) 0,var(--surface) 70%)}
+.nextrow{display:grid;gap:12px}
+.when{background:var(--green);color:#fff;border-radius:18px;padding:14px 16px;display:flex;gap:12px;align-items:center}
+@media (prefers-color-scheme:dark){.when{color:#0C1714}}
+.when svg{width:40px;height:40px;flex:none;opacity:.95}
+.when b{display:block;font-size:clamp(24px,6vw,30px);line-height:1.1;font-weight:800}
+.when small{display:block;font-size:15px;opacity:.95}
+.cats{display:flex;flex-wrap:wrap;gap:10px;align-content:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:12px}
+.cat{display:flex;align-items:center;gap:10px;flex:1 1 150px;min-width:0}
+.cat .t{min-width:0}
+.cat .t b{display:block;font-size:16px;line-height:1.2}
+.cat .t small{display:block;font-size:13px;color:var(--muted);line-height:1.3}
+.gi{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;flex:none;color:#fff}
+.gi svg{width:26px;height:26px}
+.gi.sm{width:34px;height:34px;border-radius:11px}.gi.sm svg{width:20px;height:20px}
+.lead{margin:12px 0 0;font-size:16px}
+.lead b{color:var(--green-d)}
+.acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.none{color:var(--muted)}
+.empty{text-align:center;padding:8px 4px 4px}
+.empty p{margin:6px 0 12px;color:var(--muted)}
 
-  /* Garbage guide */
-  .types{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:0 32px}
-  details{border-top:1px solid var(--line);padding:12px 0}
-  summary{cursor:pointer;list-style:none;display:grid;grid-template-columns:40px 1fr;gap:10px;align-items:center}
-  summary::-webkit-details-marker{display:none}
-  summary .ic{font-size:26px;text-align:center}
-  summary b{display:block;font-weight:700;line-height:1.25}
-  summary small{display:block;color:var(--muted);font-size:15px}
-  details p{margin:8px 0 4px 50px;color:var(--muted);font-size:16px}
-  .bulky{margin-top:24px;padding:16px 18px;background:var(--soft);border-radius:14px;font-size:16px}
+/* Reminder */
+.remind{background:var(--sun);border-color:color-mix(in srgb,var(--sun-b) 45%,var(--line))}
+.remind .bell{width:44px;height:44px;flex:none;color:#D9A21B}
+.remrow{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+.remrow label{display:flex;align-items:center;gap:8px;font-size:15px;color:var(--muted)}
+.remrow select{font-size:16px;font-weight:700;padding:8px 10px;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--text)}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:700;border-radius:999px;padding:2px 10px;background:var(--surface);color:var(--muted);border:1px solid var(--line)}
+.state.on{color:var(--green-d);border-color:var(--mint-2);background:var(--mint)}
+.pstatus{margin:10px 0 0;font-size:15px;font-weight:600}
+.pstatus:empty{display:none}
+.pstatus.err{color:var(--red)}
+details.help{margin-top:10px;font-size:15px}
+details.help summary{cursor:pointer;font-weight:700;color:var(--green-d)}
+details.help ol{margin:8px 0 0;padding-left:20px}
+details.help li{margin:0 0 6px}
+.fine{font-size:13.5px;color:var(--muted);margin:10px 0 0}
 
-  /* Promises */
-  .promises{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
-  .promises h3{margin:0 0 6px;font-size:20px;color:var(--ink);font-weight:700}
-  .promises p{margin:0;color:var(--muted);font-size:17px}
+/* Schedule list */
+.days{list-style:none;margin:0;padding:0;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.days li{display:grid;grid-template-columns:96px 1fr;gap:10px;padding:10px 12px;border-top:1px solid var(--line);align-items:center}
+.days li:first-child{border-top:0}
+.days li.tmr{background:var(--mint)}
+.days li.off{background:color-mix(in srgb,var(--paper) 60%,var(--surface))}
+.days .d b{display:block;font-size:16px;line-height:1.2}
+.days .d small{font-size:13.5px;color:var(--muted)}
+.days .c{display:grid;gap:6px}
+.row{display:flex;gap:10px;align-items:center}
+.row .t b{display:block;font-size:15.5px;line-height:1.25}
+.row .t small{display:block;font-size:12.5px;color:var(--muted);line-height:1.3}
+.more{margin-top:10px;width:100%}
+.hol{font-size:14px;color:var(--muted);margin:10px 0 0}
 
-  footer{border-top:1px solid var(--line);padding:28px 0 48px;color:var(--muted);font-size:15px}
-  footer p{margin:0 0 8px;max-width:70ch}
+/* Sorting guide */
+.guide{display:grid;gap:10px}
+@media (min-width:700px){.guide{grid-template-columns:1fr 1fr}}
+.guide details{border:1px solid var(--line);border-radius:16px;background:var(--surface);overflow:hidden}
+.guide summary{display:flex;gap:12px;align-items:center;padding:12px 14px;cursor:pointer;list-style:none}
+.guide summary::-webkit-details-marker{display:none}
+.guide summary .t{flex:1;min-width:0}
+.guide summary b{display:block;line-height:1.25}
+.guide summary small{display:block;font-size:13px;color:var(--muted);line-height:1.35}
+.guide summary .rule{color:var(--green-d);font-weight:600}
+.guide summary:after{content:"+";font-size:22px;color:var(--muted);font-weight:500}
+.guide details[open] summary:after{content:"–"}
+.guide ul{margin:0;padding:0 16px 14px 36px;font-size:15.5px}
+.guide li{margin:0 0 6px}
+.guide .bulkyacts{padding:0 14px 14px;display:flex;flex-wrap:wrap;gap:8px}
+.notes{margin-top:12px;font-size:15px;background:var(--sky);border-radius:14px;padding:12px 14px}
+.notes p{margin:0 0 6px}.notes p:last-child{margin:0}
 
-  @media (max-width:420px){.brand span{display:none}.lang button{padding:6px 11px}}
-  @media (max-width:820px){
-    .hero{grid-template-columns:1fr;gap:28px;padding-top:12px}
-    .promises{grid-template-columns:1fr;gap:20px}
-    .tools a{grid-template-columns:44px 1fr;gap:14px}
-    .tools .go{display:none}
-    .icons span{width:58px;height:58px;font-size:34px}
-  }
-  @media (prefers-reduced-motion:no-preference){
-    .hero .live{animation:in .5s ease-out both}
-    @keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-  }
+/* Features */
+.feats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0 0}
+@media (min-width:860px){.feats{grid-template-columns:repeat(4,1fr)}}
+.feat{background:var(--mint);border-radius:18px;padding:14px;display:flex;gap:10px;align-items:flex-start}
+.feat svg{width:34px;height:34px;flex:none;color:var(--green)}
+.feat b{display:block;font-size:15.5px;line-height:1.25;color:var(--green-d)}
+.feat small{display:block;font-size:13.5px;color:var(--muted);line-height:1.35;margin-top:2px}
 
-  /* Area picker */
-  .privacy button.link{border:0;background:none;padding:0;font:inherit;color:var(--ink);font-weight:700;text-decoration:underline;cursor:pointer}
-  .area button.link{border:0;background:none;padding:0;font:inherit;color:var(--ink);font-weight:700;text-decoration:underline;text-underline-offset:3px;cursor:pointer;margin-left:6px}
-  .sheet{position:fixed;inset:0;background:rgba(8,20,45,.45);display:flex;align-items:flex-end;justify-content:center;z-index:20}
-  .sheet[hidden]{display:none}
-  .panel{background:var(--surface);width:100%;max-width:620px;max-height:92vh;overflow:auto;border-radius:22px 22px 0 0;padding:20px 20px 28px}
-  @media (min-width:700px){.sheet{align-items:center}.panel{border-radius:22px}}
-  .panel h2{font-size:26px;margin:0 0 4px}
-  .panel .close{float:right;border:0;background:var(--soft);color:var(--ink);font:inherit;font-weight:700;border-radius:999px;padding:6px 14px;cursor:pointer}
-  .cities{display:grid;gap:8px;margin:16px 0}
-  .cities button{display:block;text-align:left;border:1px solid var(--line);background:var(--paper);color:var(--text);border-radius:14px;padding:12px 14px;font:inherit;cursor:pointer}
-  .cities button b{display:block;color:var(--ink);font-size:18px}
-  .cities button span{font-size:15px;color:var(--muted)}
-  .cities button[aria-pressed=true]{border-color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
-  .wards{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}
-  .wards button{border:1px solid var(--line);background:var(--paper);color:var(--text);border-radius:999px;padding:6px 12px;font:inherit;font-size:15px;cursor:pointer}
-  .wards button[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
-  .search{width:100%;font:inherit;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--text)}
-  .towns{list-style:none;margin:10px 0 0;padding:0}
-  .towns button{display:block;width:100%;text-align:left;border:0;border-top:1px solid var(--line);background:none;color:var(--text);font:inherit;padding:10px 4px;cursor:pointer}
-  .towns button b{font-weight:700;color:var(--ink)}
-  .towns button small{display:block;color:var(--muted);font-size:14px}
-  .towns .empty{color:var(--muted);padding:10px 4px}
-  .links{list-style:none;padding:0;margin:12px 0 0}
-  .links a{display:block;padding:10px 4px;border-top:1px solid var(--line);font-weight:700;text-decoration:none}
-  .hint{font-size:15px;color:var(--muted);margin:8px 0 0}
-  .pstatus{font-size:16px;margin:12px 0 0;color:var(--ink);font-weight:500}
-  .when-pick{display:flex;align-items:center;gap:10px;flex-basis:100%;font-size:16px;color:var(--muted)}
-  .when-pick select{font:inherit;font-size:16px;color:var(--ink);font-weight:700;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
-  .pstatus:empty{display:none}
-  .privacy{font-size:15px;color:var(--muted);margin:10px 0 0}
-  .homelink{margin-left:auto;margin-right:12px;font-weight:700;font-size:16px;text-decoration:none;color:var(--ink)}
-  ol.steps{margin:14px 0 0;padding-left:22px}
-  ol.steps li{margin:0 0 10px}
+footer.foot{margin-top:24px;background:var(--green-d);color:#E7F5EE}
+@media (prefers-color-scheme:dark){footer.foot{background:#0A2A1D}}
+footer.foot .wrap{padding-top:22px;padding-bottom:calc(26px + env(safe-area-inset-bottom,0px));display:grid;gap:8px;font-size:14px}
+footer.foot a{color:#fff}
+footer.foot .fb{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;color:#fff}
+footer.foot .fb svg{width:30px;height:30px}
+
+/* Loading / error */
+.skel{height:18px;border-radius:8px;background:linear-gradient(90deg,var(--mint) 0,var(--surface) 50%,var(--mint) 100%);background-size:200% 100%;animation:sk 1.2s infinite linear;margin:8px 0}
+@keyframes sk{to{background-position:-200% 0}}
+@media (prefers-reduced-motion:reduce){.skel{animation:none}}
+.errbox{border-color:var(--red)}
+
+/* Sheets */
+.sheet{position:fixed;inset:0;background:rgba(6,25,18,.5);display:flex;align-items:flex-end;justify-content:center;z-index:30}
+.panel{background:var(--surface);width:100%;max-width:640px;max-height:92vh;overflow:auto;border-radius:22px 22px 0 0;padding:20px 18px calc(24px + env(safe-area-inset-bottom,0px))}
+@media (min-width:700px){.sheet{align-items:center}.panel{border-radius:22px}}
+.panel h2{font-size:23px;margin:0 0 4px;color:var(--green-d)}
+.close{float:right;border:0;background:var(--mint);color:var(--green-d);font-weight:700;border-radius:999px;padding:6px 14px;cursor:pointer}
+.hint{font-size:15px;color:var(--muted);margin:8px 0 0}
+.cities{display:grid;gap:8px;margin:14px 0}
+.cities button{display:block;text-align:left;border:1px solid var(--line);background:var(--paper);border-radius:14px;padding:12px 14px;cursor:pointer}
+.cities button b{display:block;color:var(--green-d);font-size:17px}
+.cities button span{font-size:14.5px;color:var(--muted)}
+.cities button[aria-pressed=true]{border-color:var(--green);box-shadow:inset 0 0 0 2px var(--green)}
+.wards{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}
+.wards button{border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:5px 11px;font-size:14.5px;cursor:pointer}
+.wards button[aria-pressed=true]{background:var(--green);border-color:var(--green);color:#fff}
+.search{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--paper);font-size:16px}
+.towns{list-style:none;margin:10px 0 0;padding:0}
+.towns button{display:block;width:100%;text-align:left;border:0;border-top:1px solid var(--line);background:none;padding:10px 4px;cursor:pointer}
+.towns button b{font-weight:700;color:var(--green-d)}
+.towns button small{display:block;color:var(--muted);font-size:13.5px}
+.towns .emp{color:var(--muted);padding:10px 4px}
+.links{list-style:none;padding:0;margin:12px 0 0}
+.links a{display:block;padding:10px 4px;border-top:1px solid var(--line);font-weight:700;text-decoration:none}
+ol.steps{margin:14px 0 0;padding-left:22px}
+ol.steps li{margin:0 0 10px}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header class="top">
-    <a class="brand" href="./" aria-label="Sathi Japan – all tools"><b>‹ Sathi Japan</b><span data-t="home"></span></a>
-    <div class="lang" role="group" aria-label="Language">
-      <button data-l="en" aria-pressed="true">English</button>
-      <button data-l="ne" aria-pressed="false">नेपाली</button>
-    </div>
-  </header>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="logo" viewBox="0 0 48 48"><circle cx="24" cy="24" r="23" fill="#E3F4EA"/><path d="M24 40V24" stroke="#187A4F" stroke-width="3" stroke-linecap="round"/><path d="M24 26C24 15 16 10 8 11c0 9 6 15 16 15z" fill="#2FA36B"/><path d="M24 24c0-10 8-15 16-14 0 9-6 14-16 14z" fill="#3A8FD0"/><path d="M14 40h20" stroke="#187A4F" stroke-width="3" stroke-linecap="round"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 17h.01M12 17h.01"/></g></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path fill="currentColor" d="M12 22a2.5 2.5 0 0 0 2.4-2h-4.8A2.5 2.5 0 0 0 12 22zm7-6V11a7 7 0 0 0-5.5-6.8V3.5a1.5 1.5 0 0 0-3 0v.7A7 7 0 0 0 5 11v5l-2 2v1h18v-1z"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3M7 8l5-5 5 5"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></g></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-sprout" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-9"/><path d="M12 13C12 8 8.5 5 4 5.5 4 10 7.5 13 12 13zM12 11c0-4.5 3.5-7 8-6.5 0 4.2-3.4 6.5-8 6.5z"/></g></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></g></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 5h11v8H9l-4 3v-3H4z"/><path d="M15 9h5v8h-1v3l-4-3h-4v-2"/></g></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21s-8-5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6-8 11-8 11z"/></symbol>
+    <!-- Garbage type icons (drawn white on the category colour) -->
+    <symbol id="g-flame" viewBox="0 0 32 32"><path fill="#fff" d="M16 4c1.2 4.4 7 6.5 7 13a7 7 0 0 1-14 0c0-3.6 2.2-5.8 3.6-7 0 2.3 1 3.6 2.4 3.6 0-3.6-1.2-6.4 1-9.6z"/></symbol>
+    <symbol id="g-cup" viewBox="0 0 32 32"><g fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 9h14v8a6 6 0 0 1-6 6h-2a6 6 0 0 1-6-6z"/><path d="M21 11h2.5a3 3 0 0 1 0 6H21"/><path d="M6 27h18"/><path d="M12 9l2 5-3 3"/></g></symbol>
+    <symbol id="g-tub" viewBox="0 0 32 32"><g fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"><path d="M6 8h20v4H6z"/><path d="M8 12h16l-2 14H10z"/><path d="M13 17h6" stroke-linecap="round"/></g></symbol>
+    <symbol id="g-bottle" viewBox="0 0 32 32"><g fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"><path d="M13 3h6v4"/><path d="M13 7h6l3 4v15a2.5 2.5 0 0 1-2.5 2.5h-7A2.5 2.5 0 0 1 10 26V11z"/><path d="M10 15h12M10 21h12"/></g></symbol>
+    <symbol id="g-paper" viewBox="0 0 32 32"><g fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"><path d="M5 11h22v15H5z"/><path d="M5 16h22M5 21h22"/><path d="M16 11v15" stroke-dasharray="0" /><path d="M9 11l2-5h10l2 5"/></g></symbol>
+    <symbol id="g-glass" viewBox="0 0 32 32"><g fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"><path d="M14 3h4v6c3 1.4 4 3.6 4 6v11.5A1.5 1.5 0 0 1 20.5 28h-9A1.5 1.5 0 0 1 10 26.5V15c0-2.4 1-4.6 4-6z"/><path d="M10 18h12"/></g></symbol>
+    <symbol id="g-can" viewBox="0 0 32 32"><g fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"><path d="M9 7.5C9 5.5 23 5.5 23 7.5V25c0 2-14 2-14 0z"/><path d="M9 7.5c0 2 14 2 14 0"/><path d="M12 14h8M12 18h8" stroke-linecap="round"/></g></symbol>
+    <symbol id="g-battery" viewBox="0 0 32 32"><g fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"><rect x="9" y="8" width="14" height="20" rx="2.5"/><path d="M13 4.5h6V8"/><path d="M16 13v8M12 17h8"/></g></symbol>
+    <symbol id="g-leaf" viewBox="0 0 32 32"><g fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 26C6 14 13 7 26 6c0 12.5-7 20-20 20z"/><path d="M6 26l12-12"/></g></symbol>
+    <symbol id="g-recycle" viewBox="0 0 32 32"><g fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M25 13a10 10 0 0 0-17-3"/><path d="M7 4v6h6"/><path d="M7 19a10 10 0 0 0 17 3"/><path d="M25 28v-6h-6"/></g></symbol>
+    <symbol id="g-sofa" viewBox="0 0 32 32"><g fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"><path d="M7 15v-3a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v3"/><path d="M4.5 16a2.5 2.5 0 0 1 5 0v3h13v-3a2.5 2.5 0 0 1 5 0v7h-23z"/><path d="M8 23v3M24 23v3"/></g></symbol>
+  </defs>
+</svg>
 
-  <main>
-    <div class="hero">
-      <div class="live" aria-live="polite">
-        <p class="when" id="when"></p>
-        <h1 id="headline"></h1>
-        <div class="icons" id="icons" aria-hidden="true"></div>
-        <p class="lead" id="lead"></p>
-        <p class="area" id="areaLine"></p>
-        <div class="actions" id="actions"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="./"><svg aria-hidden="true"><use href="#logo"/></svg><span><b>Sathi Japan</b><small data-t="tagline"></small></span></a>
+    <button class="areachip" id="areaChip" hidden><svg aria-hidden="true"><use href="#i-pin"/></svg><span id="areaChipTxt"></span></button>
+    <div class="lang" role="group" aria-label="Language / भाषा">
+      <button data-l="en" aria-pressed="true">EN</button>
+      <button data-l="ne" aria-pressed="false" lang="ne">नेपाली</button>
+    </div>
+    <button class="menubtn" id="menuBtn" aria-expanded="false" aria-controls="nav"><span class="sr" data-t="menu"></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav class="nav" id="nav" hidden></nav>
+</header>
+
+<main class="wrap">
+  <section class="hero" aria-labelledby="heroH">
+    <div class="txt">
+      <h1 id="heroH" data-t="heroH"></h1>
+      <p data-t="heroP"></p>
+    </div>
+    <svg class="art" viewBox="0 0 520 190" preserveAspectRatio="xMidYMax slice" role="img" aria-label="" id="heroArt">
+      <circle cx="440" cy="44" r="22" fill="#FFD95A"/>
+      <path d="M0 120 L60 78 L110 104 L170 58 L240 110 L300 84 L360 112 L420 70 L520 116 V190 H0Z" fill="#BFE3CF" opacity=".75"/>
+      <path d="M150 64 l20-6 20 6" fill="none" stroke="#fff" stroke-width="4" opacity=".7"/>
+      <g fill="#9CC9E6">
+        <rect x="208" y="70" width="22" height="70" rx="2"/><rect x="234" y="52" width="26" height="88" rx="2"/><rect x="264" y="80" width="18" height="60" rx="2"/>
+        <rect x="286" y="62" width="24" height="78" rx="2"/><rect x="314" y="90" width="20" height="50" rx="2"/>
+      </g>
+      <g fill="#fff" opacity=".7"><rect x="240" y="60" width="4" height="6"/><rect x="250" y="60" width="4" height="6"/><rect x="240" y="74" width="4" height="6"/><rect x="250" y="74" width="4" height="6"/><rect x="292" y="72" width="4" height="6"/><rect x="302" y="72" width="4" height="6"/><rect x="292" y="86" width="4" height="6"/><rect x="302" y="86" width="4" height="6"/></g>
+      <path d="M0 140 H520 V190 H0Z" fill="#7FC4E8"/>
+      <path d="M0 150 C80 144 160 158 260 150 S440 144 520 152" fill="none" stroke="#fff" stroke-width="2" opacity=".6"/>
+      <path d="M140 140 q30 -26 60 0 q30 -26 60 0 q30 -26 60 0 q30 -26 60 0" fill="none" stroke="#5E7F99" stroke-width="5"/>
+      <path d="M130 128 H390" stroke="#5E7F99" stroke-width="5"/>
+      <path d="M0 162 H520 V190 H0Z" fill="#86CFA3"/>
+      <g transform="translate(36 112)">
+        <rect x="0" y="16" width="34" height="44" rx="5" fill="#2FA36B"/><rect x="-3" y="10" width="40" height="9" rx="3" fill="#187A4F"/>
+        <path d="M17 30a8 8 0 1 0 7 4" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/><path d="M24 26v8h-7" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="46" y="16" width="34" height="44" rx="5" fill="#3A8FD0"/><rect x="43" y="10" width="40" height="9" rx="3" fill="#2D6FA3"/>
+        <path d="M58 26h10v4l3 4v16h-16V34l3-4z" fill="#fff" opacity=".9"/>
+        <rect x="92" y="16" width="34" height="44" rx="5" fill="#F2B531"/><rect x="89" y="10" width="40" height="9" rx="3" fill="#D9A21B"/>
+        <path d="M100 32h18v14h-18zM100 39h18" fill="none" stroke="#fff" stroke-width="3"/>
+      </g>
+      <g transform="translate(430 120)"><path d="M0 42 V18" stroke="#187A4F" stroke-width="4" stroke-linecap="round"/><path d="M0 20C0 6-10 0-20 1c0 11 8 19 20 19z" fill="#2FA36B"/><path d="M0 18C0 6 9 0 19 1 19 11 11 18 0 18z" fill="#45B37A"/></g>
+    </svg>
+  </section>
+
+  <div id="errBox" class="card errbox" style="margin-top:16px" hidden role="alert"></div>
+
+  <div class="grid" id="main">
+    <div class="col">
+      <section class="card" aria-labelledby="areaH">
+        <h2 id="areaH" class="sr" data-t="areaH"></h2>
+        <div class="areacard" id="areaCard">
+          <div class="pin"><svg aria-hidden="true"><use href="#i-pin"/></svg></div>
+          <div class="nm" id="areaName"><div class="skel" style="width:60%"></div><div class="skel" style="width:40%"></div></div>
+          <button class="btn out sm" id="changeBtn" data-t="change"></button>
+        </div>
+        <div id="areaNotice"></div>
+      </section>
+
+      <section class="card next" aria-labelledby="nextH" aria-live="polite">
+        <div class="hd"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><h2 id="nextH"><span data-t="nextH"></span><span class="ja" lang="ja">次のごみ収集日</span></h2></div>
+        <div id="nextBody"><div class="skel"></div><div class="skel" style="width:70%"></div></div>
+      </section>
+
+      <section class="card remind" aria-labelledby="remH" id="remCard" hidden>
+        <div class="hd"><svg class="bell" aria-hidden="true"><use href="#i-bell"/></svg><div style="flex:1"><h2 id="remH"><span data-t="remH"></span></h2><p style="margin:4px 0 0;font-size:15.5px" id="remP"></p></div></div>
+        <div class="remrow">
+          <button class="btn pri" id="remind"></button>
+          <label><span data-t="remindAt"></span> <select id="hour"></select></label>
+          <span class="state" id="remState"></span>
+        </div>
         <p class="pstatus" id="pushStatus" role="status"></p>
-      </div>
-      <div class="week" id="weekBox">
-        <ol id="week"></ol>
-      </div>
+        <details class="help" id="helpBox"><summary data-t="helpH"></summary><ol id="helpSteps"></ol></details>
+        <p class="fine"><span data-t="remFine"></span> <a href="privacy.html" data-t="privacy"></a></p>
+      </section>
+
+      <section class="card" aria-labelledby="todayH" id="todayCard" hidden>
+        <div class="hd"><svg class="ic" aria-hidden="true"><use href="#i-cal"/></svg><h2 id="todayH"><span data-t="todayH"></span><span class="ja" lang="ja">今日の収集</span></h2></div>
+        <div id="todayBody"></div>
+      </section>
     </div>
 
-    <section id="garbage">
-      <h2 data-t="garbH"></h2>
-      <p class="intro" id="garbP"></p>
-      <div class="types" id="types"></div>
-      <div class="bulky" id="bulky"></div>
-    </section>
+    <div class="col">
+      <section class="card" aria-labelledby="schH" id="schCard" hidden>
+        <div class="hd"><svg class="ic" aria-hidden="true"><use href="#i-cal"/></svg><h2 id="schH"><span data-t="schH"></span><span class="ja" lang="ja">収集カレンダー</span></h2></div>
+        <ul class="days" id="days"></ul>
+        <button class="btn out more" id="moreBtn"></button>
+        <p class="hol" id="holNote"></p>
+        <div class="acts"><button class="btn pri" id="icsBtn"><svg aria-hidden="true"><use href="#i-cal"/></svg><span data-t="ics"></span></button><button class="btn out" id="shareBtn"><svg aria-hidden="true"><use href="#i-share"/></svg><span data-t="share"></span></button></div>
+        <p class="pstatus" id="icsStatus" role="status"></p>
+      </section>
+    </div>
+  </div>
 
-  </main>
+  <section class="card" style="margin-top:16px" aria-labelledby="guideH" id="guideCard" hidden>
+    <div class="hd"><svg class="ic" aria-hidden="true"><use href="#i-sprout"/></svg><h2 id="guideH"><span data-t="guideH"></span><span class="ja" lang="ja">ごみの分け方・出し方</span></h2></div>
+    <p style="margin:-4px 0 12px;color:var(--muted);font-size:15.5px" data-t="guideP"></p>
+    <div class="guide" id="guide"></div>
+    <div class="notes" id="notes"></div>
+  </section>
 
-  <footer>
-    <p><span data-t="foot1"></span> <a href="privacy.html" data-t="privacy"></a></p>
-    <p id="srcLine"></p>
-  </footer>
-</div>
+  <section class="feats" aria-label="Sathi Japan">
+    <div class="feat"><svg aria-hidden="true"><use href="#i-phone"/></svg><div><b data-t="f1"></b><small data-t="f1s"></small></div></div>
+    <div class="feat"><svg aria-hidden="true"><use href="#i-pin"/></svg><div><b data-t="f2"></b><small data-t="f2s"></small></div></div>
+    <div class="feat"><svg aria-hidden="true"><use href="#i-chat"/></svg><div><b data-t="f3"></b><small data-t="f3s"></small></div></div>
+    <div class="feat"><svg aria-hidden="true"><use href="#i-heart"/></svg><div><b data-t="f4"></b><small data-t="f4s"></small></div></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="fb"><svg aria-hidden="true"><use href="#logo"/></svg>Sathi Japan</div>
+    <p style="margin:0" data-t="foot1"></p>
+    <p style="margin:0" id="srcLine"></p>
+    <p style="margin:0"><a href="privacy.html" data-t="privacy"></a> · <a href="./" data-t="home"></a></p>
+  </div>
+</footer>
 
 <!-- Area picker -->
 <div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="pickTitle">
@@ -229,117 +399,190 @@
 <script src="areas.js"></script>
 <script src="share.js"></script>
 <script>
+"use strict";
+// =====================================================================
+// Sathi Japan – Garbage calendar
+// Data: areas.js (window.SATHI_AREAS), built from the cities' official calendars (see data-src/).
+// The date rules below are the SAME as api/_lib.js (calIds / idsFor) so the page and the
+// phone reminders always agree. Never put hand-typed dates here.
+// =====================================================================
 const T={
 en:{
- areaLabel:"Showing:",remind:"🔔 Turn on reminders",remindOff:"🔕 Turn off reminders",calQuiet:"📅 Add to calendar",share:"📤 Share with neighbours",shareMsg:(a,c,n)=>`🗑 Garbage days for ${a} (${c}) – in Nepali and English.${n?` Next: ${n}.`:""} Get a reminder on your phone the evening before:`,sharedIn:a=>`Opened from a shared link: ${a}.`,useShared:a=>`Use ${a} instead`,
- pOn:"Reminders are on. A test message is on its way.",pOff:"Reminders are off. Your data was deleted.",pUpd:"Reminders updated.",
- pBlocked:"Notifications are blocked. Allow them for this site in your phone settings, then try again.",pNo:"This browser can't send reminders. Use “Add to calendar” instead.",
- pErr:"Couldn't turn on reminders. Check your internet and try again.",pWait:"Turning on…",privacy:"What we save",remindAt:"⏰ Remind me at",eve:"Evening before",morn:"Same morning",pTime:h=>`Reminder time changed to ${h}.`,
- iosH:"iPhone: one more step",iosP:"iPhone only sends website reminders after you add Sathi Japan to your Home Screen.",
- iosSteps:["In Safari, tap the Share button (□↑).","Tap “Add to Home Screen”, then “Add”.","Open Sathi Japan from your Home Screen.","Tap “🔔 Turn on reminders” again and allow notifications."],
- iosNote:"Needs iOS 16.4 or newer.",change:"Change",addCal:"📅 Add garbage reminders",howTo:"How to sort",choose:"📍 Choose my area",
- welcome:"Welcome",hChoose:"Which town do you live in?",lChoose:"Choose your town once. We'll show your garbage days and remember it on this phone.",
- morning:tm=>`This morning, by ${tm}`,tomorrow:"Tomorrow",
- hNone:"No collection.",lMorning:tm=>`Put it out at your collection point by ${tm}.`,
- lTomorrow:tm=>`Get the bag ready tonight and put it out by ${tm} tomorrow.`,lNone:(d,c)=>`Next collection: ${d} – ${c}.`,
- hSpecial:"Your area has its own collection days",lSpecial:(o,t)=>`Collection is different in this busy area. Ask the ${o}: ${t}.`,
- call:"📞 Call",today:"Today",tmr:"Tomorrow",none:"No collection",
+ tagline:"Together for a Cleaner Japan",menu:"Menu",home:"All tools",
+ heroH:"A Cleaner City Starts With You!",heroP:"Your area's garbage days in English and Nepali, with the Japanese names – and a reminder on your phone the evening before.",
+ areaH:"Your area",change:"Change area",choose:"Choose my area",
+ nextH:"Next Garbage Collection",remH:"Get a reminder on your phone",todayH:"Today's Schedule",schH:"Collection Schedule",guideH:"How to sort and put out",
+ guideP:"From the city's official sorting rules. Tap a type to see how to put it out.",
+ today:"Today",tomorrow:"Tomorrow",thisMorning:"This morning",
+ putBy:tm=>`Put it out at your collection point by <b>${tm}</b> on the day.`,
+ putToday:tm=>`Put it out at your collection point by <b>${tm}</b> this morning.`,
+ putTonight:tm=>`Get it ready tonight – put it out by <b>${tm}</b> tomorrow morning.`,
+ noToday:"No collection today",enjoy:"Enjoy your day!",todayIs:"Collected today:",
+ noNext:"No collection in the next 3 weeks.",beyond:d=>`The city has published dates up to ${d}. New dates are added when the next calendar comes out.`,
+ welcomeH:"Which town do you live in?",welcomeP:"Choose your town once. We'll show your garbage days and remember it on this phone.",
+ specialH:"Your area has its own collection days",specialP:(o,t)=>`Collection is different in this busy area. Ask the ${o}: ${t}.`,call:"Call",
+ remP:h=>`We'll remind you the evening before at ${h}.`,remPm:h=>`We'll remind you on the morning of collection at ${h}.`,
+ remind:"Set reminder",remindOff:"Turn off reminder",remindAt:"Time",eve:"Evening before",morn:"Same morning",on:"On",off:"Off",
+ pOn:"Reminders are on. A test notification is on its way.",pOff:"Reminders are off. Your reminder data was deleted.",pUpd:"Reminder updated.",pTime:h=>`Reminder time changed to ${h}.`,
+ pBlocked:"Notifications are blocked for this site. See “How to allow notifications” below, then try again.",
+ pNo:"This browser can't receive reminders. Use “Add to calendar” instead.",pErr:"Couldn't turn on reminders. Check your internet and try again.",pWait:"Asking your phone for permission…",
+ pServer:"The reminder server is not set up yet. Use “Add to calendar” for now.",
+ helpH:"How to allow notifications",
+ help:["Android (Chrome): tap the ⋮ menu → Settings → Site settings → Notifications → find this site → Allow.","iPhone: first add Sathi Japan to your Home Screen (Safari → Share □↑ → Add to Home Screen), open it from there, then tap “Set reminder”. If you blocked it: Settings → Notifications → Sathi → Allow Notifications.","Computer (Chrome / Edge): click the icon left of the web address → Notifications → Allow, then reload the page."],
+ remFine:"Reminders work even when this page is closed. We save only your area, language, time and your phone's push address.",privacy:"What we save",
+ ics:"Add to calendar",share:"Share with neighbours",
+ icsDone:"Calendar file downloaded. Open it to add the dates (with a reminder) to your calendar app.",icsNone:"No dates to add.",
+ more:"Show the next 4 weeks",less:"Show fewer days",
+ hol:"Collection also happens on public holidays. No collection 1–3 January; on 31 December only burnable garbage.",
+ holJan:"In January, monthly items move one week later if their day falls on 1–3 January.",
+ shinjukuHol:"No collection 31 Dec – 3 Jan.",
+ shareMsg:(a,c,n)=>`🗑 Garbage days for ${a} (${c}) – in Nepali and English.${n?` Next: ${n}.`:""} Get a reminder on your phone the evening before:`,
+ changed:(a,b)=>`Showing ${a} from the link you opened.${b?` Your area before was ${b}.`:""}`,undo:"Undo",
+ every:"Every",and:" & ",nth:["","1st","2nd","3rd","4th","5th"],ofMonth:"of the month",offJF:"not Jan–Feb",
+ bulkyH:"Large items",bulkyJa:"粗大ごみ",book:"Book online",callBulky:"Call",
+ guideNe:"Official guide in Nepali (PDF)",guideEn:"Official guide in English (PDF)",
+ multi:"This town has more than one calendar. Check that the number matches your paper calendar.",emap:"Find your number on the city map",chk:"From the city's list – please check with your paper calendar.",
+ src:"Garbage data:",official:"official schedule",checked:"last checked",srcRules:"Sorting rules:",
  pickH:"Choose your area",pickP:"Pick your city, then your town (町名). Your choice is saved only on this phone.",close:"Close",
- search:"Type your town, e.g. Okubo or 大久保",noMatch:"No town found. Check the spelling or try the Japanese name.",
- otherH:"Other city",otherP:"We don't cover your city yet. Here is your city's official garbage page:",
- otherS:"Official garbage pages for other cities",notCovered:"Your town is not on the list? Use the city's official page:",
- every:"Every",and:" & ",nth:["","1st","2nd","3rd","4th","5th"],ofMonth:"of the month",noJan3:"No collection 31 Dec – 3 Jan.",nigNY:"No collection 1–3 Jan. On 31 Dec only burnable garbage is collected.",nigJan:"In January, the monthly items move one week later if their day falls on 1–3 Jan.",offJF:"not Jan–Feb",
- wardAll:"All wards",calNo:"Calendar",multi:"This town has more than one calendar. Pick the one whose number matches your paper calendar.",wardTel:(w,n)=>`${w} office: ${n}.`,emap:"Find your number on the city map",chk:"From the city's 2025 list – please check with your paper calendar.",yourCal:"Your calendar",searchNig:"Type your town in Japanese (as on your residence card), e.g. 大通西, or your calendar number, e.g. 13-1",more:n=>`${n} more – type to narrow the list.`,times:{"08:00":"8:00 AM","08:30":"8:30 AM","12:00":"noon"},
- home:"All tools",toolsH:"What Sathi can help with",toolsP:"Japanese paperwork and rules, explained simply in Nepali and English. Free, no sign-up.",
- t1:"Garbage days",s1:"What to put out, when, and how – with phone reminders. All of Niigata City and all of Shinjuku.",
- t2:"Life checklists",s2:"Arriving, moving house, changing jobs, having a baby, leaving Japan – every step with its deadline and form.",
- t3:"Visa renewal",s3:"When to apply, every document by name, the official forms, the new fees – and a spouse visa guide.",
- t4:"Letter explainer",s4:"Photograph a Japanese letter and get it explained.",open:"Open",soon:"Coming soon",
- garbH:"How to sort your garbage",garbP:"Your area's rules, from the city's official calendar. Tap a type to see how to put it out.",
- garbChoose:"Choose your area to see its garbage types and days.",guideNe:"Official guide in Nepali (PDF)",guideEn:"Official guide in English (PDF)",book:"Book online",
- promH:"Our promises",
- p1h:"Official sources only",p1:"Every rule links to the city, Immigration or pension office it came from, with the date we last checked it.",
- p2h:"Your data stays with you",p2:"Your area, dates and ticks are saved only on your phone. We never ask for your residence card or My Number.",
- p3h:"We explain, you decide",p3:"Sathi Japan is not legal, tax or immigration advice, and we never fill in applications for you.",
- foot1:"Sathi Japan is not an official government or city service. Made in Niigata.",
- src:"Garbage data:",official:"official schedule",checked:"Last checked",
- days:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],months:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
+ search:"Type your town, e.g. Okubo or 大久保",searchNig:"Type your town in Japanese (as on your residence card), e.g. 大通西, or your calendar number, e.g. 13-1",
+ noMatch:"No town found. Check the spelling or try the Japanese name.",otherH:"Other city",otherP:"We don't cover your city yet. Here is your city's official garbage page:",otherS:"Official garbage pages for other cities",
+ notCovered:"Your town is not on the list? Use the city's official page:",wardAll:"All wards",calNo:"Calendar",more2:n=>`${n} more – type to narrow the list.`,several:"several calendars",
+ iosH:"iPhone: one more step",iosP:"iPhone only sends website reminders after you add Sathi Japan to your Home Screen.",
+ iosSteps:["In Safari, tap the Share button (□↑).","Tap “Add to Home Screen”, then “Add”.","Open Sathi Japan from your Home Screen.","Tap “Set reminder” again and allow notifications."],iosNote:"Needs iOS 16.4 or newer.",
+ errData:"Couldn't load the garbage data. Check your internet connection and reload the page.",reload:"Reload",
+ f1:"Phone reminder",f1s:"The evening before your collection day.",f2:"Area-wise schedule",f2s:"From your city's official calendar.",f3:"English & नेपाली",f3s:"With the Japanese names on the bags.",f4:"Cleaner community",f4s:"Small steps make a big difference!",
+ foot1:"Sathi Japan is not an official city service. Always follow the notices at your collection point. Made in Niigata.",
+ times:{"08:00":"8:00 AM","08:30":"8:30 AM","12:00":"noon"},
+ days:["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],dshort:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],months:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+ nav:[["./","🏠","Home"],["garbage.html","🗑️","Garbage days"],["deadlines.html","⏰","My deadlines"],["visa.html","🪪","Visa renewal"],["spouse.html","💍","Spouse visa"],["checklists.html","✅","Life checklists"],["letter.html","✉️","Letter explainer"],["rate.html","💱","Yen → Rupee rate"]]
 },
 ne:{
- areaLabel:"देखाइएको क्षेत्र:",remind:"🔔 रिमाइन्डर सक्रिय गर्नुहोस्",remindOff:"🔕 रिमाइन्डर बन्द गर्नुहोस्",calQuiet:"📅 क्यालेन्डरमा थप्नुहोस्",share:"📤 छिमेकीसँग सेयर गर्नुहोस्",shareMsg:(a,c,n)=>`🗑 ${a} (${c}) को फोहोर फाल्ने दिन – नेपाली र अंग्रेजीमा।${n?` अर्को: ${n}।`:""} अघिल्लो बेलुका फोनमा रिमाइन्डर पाउनुहोस्:`,sharedIn:a=>`सेयर गरिएको लिंकबाट खोलियो: ${a}।`,useShared:a=>`${a} प्रयोग गर्नुहोस्`,
- pOn:"रिमाइन्डर सक्रिय भयो। परीक्षण सन्देश आउँदैछ।",pOff:"रिमाइन्डर बन्द भयो। तपाईंको डाटा मेटाइयो।",pUpd:"रिमाइन्डर अपडेट भयो।",
- pBlocked:"सूचना (notification) रोकिएको छ। फोनको सेटिङमा यो साइटलाई अनुमति दिनुहोस्, अनि फेरि प्रयास गर्नुहोस्।",pNo:"यो ब्राउजरले रिमाइन्डर पठाउन सक्दैन। “क्यालेन्डरमा थप्नुहोस्” प्रयोग गर्नुहोस्।",
- pErr:"रिमाइन्डर सक्रिय गर्न सकिएन। इन्टरनेट जाँचेर फेरि प्रयास गर्नुहोस्।",pWait:"सक्रिय गर्दै…",privacy:"हामी के सेभ गर्छौं",remindAt:"⏰ सम्झाउने समय",eve:"अघिल्लो बेलुका",morn:"त्यही दिन बिहान",pTime:h=>`रिमाइन्डर समय ${h} मा बदलियो।`,
- iosH:"iPhone: अर्को एक चरण",iosP:"iPhone ले Sathi Japan लाई Home Screen मा थपेपछि मात्र वेबसाइटको रिमाइन्डर पठाउँछ।",
- iosSteps:["Safari मा Share बटन (□↑) थिच्नुहोस्।","“Add to Home Screen” अनि “Add” थिच्नुहोस्।","Home Screen बाट Sathi Japan खोल्नुहोस्।","फेरि “🔔 रिमाइन्डर सक्रिय गर्नुहोस्” थिच्नुहोस् र notification लाई अनुमति दिनुहोस्।"],
- iosNote:"iOS 16.4 वा नयाँ चाहिन्छ।",change:"बदल्नुहोस्",addCal:"📅 फोहोर रिमाइन्डर थप्नुहोस्",howTo:"छुट्याउने तरिका",choose:"📍 मेरो क्षेत्र छान्नुहोस्",
- welcome:"स्वागत छ",hChoose:"तपाईं कुन टाउनमा बस्नुहुन्छ?",lChoose:"एकपटक आफ्नो टाउन छान्नुहोस्। हामी फोहोर फाल्ने दिन देखाउँछौं र यो फोनमा सम्झिन्छौं।",
- morning:tm=>`आज ${tm} भित्र`,tomorrow:"भोलि",
- hNone:"संकलन छैन।",lMorning:tm=>`${tm} भित्र संकलन स्थलमा राख्नुहोस्।`,
- lTomorrow:tm=>`आज राति झोला तयार गर्नुहोस् र भोलि ${tm} भित्र राख्नुहोस्।`,lNone:(d,c)=>`अर्को संकलन: ${d} – ${c}।`,
- hSpecial:"तपाईंको क्षेत्रको संकलन दिन फरक छ",lSpecial:(o,t)=>`यो व्यस्त क्षेत्रमा संकलन फरक हुन्छ। ${o} लाई सोध्नुहोस्: ${t}।`,
- call:"📞 फोन गर्नुहोस्",today:"आज",tmr:"भोलि",none:"संकलन छैन",
+ tagline:"सफा जापानका लागि सँगै",menu:"मेनु",home:"सबै सुविधा",
+ heroH:"स्वच्छ सहर तपाईंबाट सुरु हुन्छ!",heroP:"तपाईंको क्षेत्रको फोहोर फाल्ने दिन नेपाली र अंग्रेजीमा, जापानी नामसहित – र अघिल्लो बेलुका फोनमा रिमाइन्डर।",
+ areaH:"तपाईंको क्षेत्र",change:"क्षेत्र बदल्नुहोस्",choose:"मेरो क्षेत्र छान्नुहोस्",
+ nextH:"अर्को फोहोर संकलन",remH:"फोनमा रिमाइन्डर पाउनुहोस्",todayH:"आजको तालिका",schH:"संकलन तालिका",guideH:"कसरी छुट्याउने र फाल्ने",
+ guideP:"सिटीको आधिकारिक नियमबाट। कसरी फाल्ने हेर्न प्रकारमा थिच्नुहोस्।",
+ today:"आज",tomorrow:"भोलि",thisMorning:"आज बिहान",
+ putBy:tm=>`त्यो दिन <b>${tm}</b> भित्र संकलन स्थलमा राख्नुहोस्।`,
+ putToday:tm=>`आज बिहान <b>${tm}</b> भित्र संकलन स्थलमा राख्नुहोस्।`,
+ putTonight:tm=>`आज राति तयार गर्नुहोस् – भोलि बिहान <b>${tm}</b> भित्र राख्नुहोस्।`,
+ noToday:"आज संकलन छैन",enjoy:"रमाइलो दिन बिताउनुहोस्!",todayIs:"आज उठाइने:",
+ noNext:"आउँदो ३ हप्तामा संकलन छैन।",beyond:d=>`सिटीले ${d} सम्मका मिति प्रकाशित गरेको छ। नयाँ क्यालेन्डर आएपछि मिति थपिन्छ।`,
+ welcomeH:"तपाईं कुन टाउनमा बस्नुहुन्छ?",welcomeP:"एकपटक आफ्नो टाउन छान्नुहोस्। हामी फोहोर फाल्ने दिन देखाउँछौं र यो फोनमा सम्झिन्छौं।",
+ specialH:"तपाईंको क्षेत्रको संकलन दिन फरक छ",specialP:(o,t)=>`यो व्यस्त क्षेत्रमा संकलन फरक हुन्छ। ${o} लाई सोध्नुहोस्: ${t}।`,call:"फोन गर्नुहोस्",
+ remP:h=>`संकलनको अघिल्लो दिन ${h} मा सम्झाउँछौं।`,remPm:h=>`संकलनकै दिन ${h} मा सम्झाउँछौं।`,
+ remind:"रिमाइन्डर राख्नुहोस्",remindOff:"रिमाइन्डर बन्द गर्नुहोस्",remindAt:"समय",eve:"अघिल्लो बेलुका",morn:"त्यही दिन बिहान",on:"सक्रिय",off:"बन्द",
+ pOn:"रिमाइन्डर सक्रिय भयो। परीक्षण सूचना आउँदैछ।",pOff:"रिमाइन्डर बन्द भयो। तपाईंको रिमाइन्डर डाटा मेटाइयो।",pUpd:"रिमाइन्डर अपडेट भयो।",pTime:h=>`रिमाइन्डर समय ${h} मा बदलियो।`,
+ pBlocked:"यो साइटको सूचना (notification) रोकिएको छ। तल “सूचना कसरी खोल्ने” हेरेर फेरि प्रयास गर्नुहोस्।",
+ pNo:"यो ब्राउजरले रिमाइन्डर पाउन सक्दैन। “क्यालेन्डरमा थप्नुहोस्” प्रयोग गर्नुहोस्।",pErr:"रिमाइन्डर सक्रिय गर्न सकिएन। इन्टरनेट जाँचेर फेरि प्रयास गर्नुहोस्।",pWait:"फोनसँग अनुमति माग्दै…",
+ pServer:"रिमाइन्डर सर्भर अझै तयार छैन। अहिलेलाई “क्यालेन्डरमा थप्नुहोस्” प्रयोग गर्नुहोस्।",
+ helpH:"सूचना (notification) कसरी खोल्ने",
+ help:["Android (Chrome): ⋮ मेनु → Settings → Site settings → Notifications → यो साइट → Allow।","iPhone: पहिले Sathi Japan लाई Home Screen मा थप्नुहोस् (Safari → Share □↑ → Add to Home Screen), त्यहाँबाट खोल्नुहोस्, अनि “रिमाइन्डर राख्नुहोस्” थिच्नुहोस्। पहिले रोक्नुभएको छ भने: Settings → Notifications → Sathi → Allow Notifications।","कम्प्युटर (Chrome / Edge): वेब ठेगानाको बायाँको चिन्ह → Notifications → Allow, अनि पेज रिलोड गर्नुहोस्।"],
+ remFine:"यो पेज बन्द भए पनि रिमाइन्डर आउँछ। हामी तपाईंको क्षेत्र, भाषा, समय र फोनको push ठेगाना मात्र सेभ गर्छौं।",privacy:"हामी के सेभ गर्छौं",
+ ics:"क्यालेन्डरमा थप्नुहोस्",share:"छिमेकीसँग सेयर गर्नुहोस्",
+ icsDone:"क्यालेन्डर फाइल डाउनलोड भयो। मिति (रिमाइन्डरसहित) थप्न फाइल खोल्नुहोस्।",icsNone:"थप्ने मिति छैन।",
+ more:"अर्को ४ हप्ता देखाउनुहोस्",less:"कम दिन देखाउनुहोस्",
+ hol:"सार्वजनिक बिदामा पनि संकलन हुन्छ। जनवरी १–३ संकलन हुँदैन; डिसेम्बर ३१ मा जल्ने फोहोर मात्र।",
+ holJan:"जनवरीमा, महिनामा एक-दुई पटक उठ्ने फोहोरको दिन जनवरी १–३ मा पर्यो भने एक हप्ता पछि सर्छ।",
+ shinjukuHol:"डिसेम्बर ३१ – जनवरी ३ संकलन हुँदैन।",
+ shareMsg:(a,c,n)=>`🗑 ${a} (${c}) को फोहोर फाल्ने दिन – नेपाली र अंग्रेजीमा।${n?` अर्को: ${n}।`:""} अघिल्लो बेलुका फोनमा रिमाइन्डर पाउनुहोस्:`,
+ changed:(a,b)=>`तपाईंले खोलेको लिंकबाट ${a} देखाइएको छ।${b?` पहिलेको क्षेत्र: ${b}।`:""}`,undo:"पहिलेकै राख्नुहोस्",
+ every:"हरेक",and:" र ",nth:["","पहिलो","दोस्रो","तेस्रो","चौथो","पाँचौं"],ofMonth:"(महिनाको)",offJF:"जनवरी–फेब्रुअरी बाहेक",
+ bulkyH:"ठूला सामान",bulkyJa:"粗大ごみ",book:"अनलाइन बुकिङ",callBulky:"फोन",
+ guideNe:"नेपाली भाषामा आधिकारिक गाइड (PDF)",guideEn:"अंग्रेजीमा आधिकारिक गाइड (PDF)",
+ multi:"यो टाउनमा एकभन्दा बढी क्यालेन्डर छन्। नम्बर तपाईंको कागजी क्यालेन्डरसँग मिल्छ कि जाँच्नुहोस्।",emap:"सिटीको नक्सामा आफ्नो नम्बर हेर्नुहोस्",chk:"सिटीको सूचीबाट – कृपया कागजी क्यालेन्डरसँग मिलाउनुहोस्।",
+ src:"फोहोर डाटा:",official:"आधिकारिक तालिका",checked:"अन्तिम जाँच",srcRules:"छुट्याउने नियम:",
  pickH:"आफ्नो क्षेत्र छान्नुहोस्",pickP:"पहिले सिटी, त्यसपछि टाउन (町名) छान्नुहोस्। तपाईंको छनोट यो फोनमा मात्र सेभ हुन्छ।",close:"बन्द गर्नुहोस्",
- search:"टाउनको नाम लेख्नुहोस्, जस्तै Okubo वा 大久保",noMatch:"टाउन भेटिएन। हिज्जे जाँच्नुहोस् वा जापानी नाम प्रयोग गर्नुहोस्।",
- otherH:"अन्य सिटी",otherP:"हामीले तपाईंको सिटी अझै समेटेका छैनौं। तपाईंको सिटीको आधिकारिक फोहोर पेज:",
- otherS:"अन्य सिटीका आधिकारिक फोहोर पेज",notCovered:"तपाईंको टाउन सूचीमा छैन? सिटीको आधिकारिक पेज हेर्नुहोस्:",
- every:"हरेक",and:" र ",nth:["","पहिलो","दोस्रो","तेस्रो","चौथो","पाँचौं"],ofMonth:"(महिनाको)",noJan3:"डिसेम्बर ३१ – जनवरी ३ संकलन हुँदैन।",nigNY:"जनवरी १–३ संकलन हुँदैन। डिसेम्बर ३१ मा जल्ने फोहोर मात्र उठाइन्छ।",nigJan:"जनवरीमा, महिनामा एक-दुई पटक उठ्ने फोहोरको दिन जनवरी १–३ मा पर्यो भने एक हप्ता पछि सर्छ।",offJF:"जनवरी–फेब्रुअरी बाहेक",
- wardAll:"सबै वार्ड",calNo:"क्यालेन्डर",multi:"यो टाउनमा एकभन्दा बढी क्यालेन्डर छन्। तपाईंको कागजी क्यालेन्डरको नम्बरसँग मिल्ने छान्नुहोस्।",wardTel:(w,n)=>`${w} कार्यालय: ${n}।`,emap:"सिटीको नक्सामा आफ्नो नम्बर हेर्नुहोस्",chk:"सिटीको २०२५ को सूचीबाट – कृपया कागजी क्यालेन्डरसँग मिलाउनुहोस्।",yourCal:"तपाईंको क्यालेन्डर",searchNig:"टाउनको नाम जापानीमा लेख्नुहोस् (रेसिडेन्स कार्डमा जस्तै), जस्तै 大通西, वा क्यालेन्डर नम्बर, जस्तै 13-1",more:n=>`अरू ${n} – सूची छोट्याउन टाइप गर्नुहोस्।`,times:{"08:00":"बिहान ८:००","08:30":"बिहान ८:३०","12:00":"दिउँसो १२:००"},
- home:"सबै सुविधा",toolsH:"साथीले के-के मद्दत गर्छ",toolsP:"जापानका कागजी काम र नियम, नेपाली र अंग्रेजीमा सजिलो गरी। निःशुल्क, दर्ता चाहिँदैन।",
- t1:"फोहोर फाल्ने दिन",s1:"के, कहिले र कसरी फाल्ने – फोन रिमाइन्डरसहित। सम्पूर्ण निगाता सिटी र सम्पूर्ण सिन्जुकु।",
- t2:"जीवन चेकलिस्ट",s2:"जापान आउँदा, घर सर्दा, जागिर बदल्दा, बच्चा जन्मँदा, जापान छोड्दा – हरेक चरण, अन्तिम मिति र फारम।",
- t3:"भिसा नवीकरण",s3:"कहिले आवेदन दिने, हरेक कागजातको नाम, आधिकारिक फारम, नयाँ शुल्क – र श्रीमान/श्रीमती भिसा गाइड।",
- t4:"चिठी बुझाउने",s4:"जापानी चिठीको फोटो खिच्नुहोस्, सजिलो व्याख्या पाउनुहोस्।",open:"खोल्नुहोस्",soon:"छिट्टै आउँदै",
- garbH:"फोहोर कसरी छुट्याउने",garbP:"सिटीको आधिकारिक क्यालेन्डरबाट तपाईंको क्षेत्रको नियम। प्रकारमा थिच्नुहोस्।",
- garbChoose:"फोहोरका प्रकार र दिन हेर्न आफ्नो क्षेत्र छान्नुहोस्।",guideNe:"नेपाली भाषामा आधिकारिक गाइड (PDF)",guideEn:"अंग्रेजीमा आधिकारिक गाइड (PDF)",book:"अनलाइन बुकिङ",
- promH:"हाम्रो वाचा",
- p1h:"आधिकारिक स्रोत मात्र",p1:"हरेक नियममा सिटी, इमिग्रेसन वा पेन्सन कार्यालयको लिंक र अन्तिम जाँच मिति हुन्छ।",
- p2h:"तपाईंको डाटा तपाईंसँगै",p2:"तपाईंको क्षेत्र, मिति र ठीक चिन्ह फोनमा मात्र सेभ हुन्छ। रेसिडेन्स कार्ड वा My Number कहिल्यै माग्दैनौं।",
- p3h:"हामी बुझाउँछौं, निर्णय तपाईंको",p3:"Sathi Japan कानुनी, कर वा भिसा सल्लाह होइन, र हामी तपाईंको आवेदन भर्दैनौं।",
- foot1:"Sathi Japan सरकार वा सिटीको आधिकारिक सेवा होइन। निगातामा बनाइएको।",
- src:"फोहोर डाटा:",official:"आधिकारिक तालिका",checked:"अन्तिम जाँच",
- days:["आइत","सोम","मंगल","बुध","बिही","शुक्र","शनि"],months:["जनवरी","फेब्रुअरी","मार्च","अप्रिल","मे","जुन","जुलाई","अगस्ट","सेप्टेम्बर","अक्टोबर","नोभेम्बर","डिसेम्बर"]
+ search:"टाउनको नाम लेख्नुहोस्, जस्तै Okubo वा 大久保",searchNig:"टाउनको नाम जापानीमा लेख्नुहोस् (रेसिडेन्स कार्डमा जस्तै), जस्तै 大通西, वा क्यालेन्डर नम्बर, जस्तै 13-1",
+ noMatch:"टाउन भेटिएन। हिज्जे जाँच्नुहोस् वा जापानी नाम प्रयोग गर्नुहोस्।",otherH:"अन्य सिटी",otherP:"हामीले तपाईंको सिटी अझै समेटेका छैनौं। तपाईंको सिटीको आधिकारिक फोहोर पेज:",otherS:"अन्य सिटीका आधिकारिक फोहोर पेज",
+ notCovered:"तपाईंको टाउन सूचीमा छैन? सिटीको आधिकारिक पेज हेर्नुहोस्:",wardAll:"सबै वार्ड",calNo:"क्यालेन्डर",more2:n=>`अरू ${n} – सूची छोट्याउन टाइप गर्नुहोस्।`,several:"धेरै क्यालेन्डर",
+ iosH:"iPhone: अर्को एक चरण",iosP:"iPhone ले Sathi Japan लाई Home Screen मा थपेपछि मात्र वेबसाइटको रिमाइन्डर पठाउँछ।",
+ iosSteps:["Safari मा Share बटन (□↑) थिच्नुहोस्।","“Add to Home Screen” अनि “Add” थिच्नुहोस्।","Home Screen बाट Sathi Japan खोल्नुहोस्।","फेरि “रिमाइन्डर राख्नुहोस्” थिचेर notification लाई अनुमति दिनुहोस्।"],iosNote:"iOS 16.4 वा नयाँ चाहिन्छ।",
+ errData:"फोहोर डाटा लोड हुन सकेन। इन्टरनेट जाँचेर पेज रिलोड गर्नुहोस्।",reload:"रिलोड",
+ f1:"फोन रिमाइन्डर",f1s:"संकलनको अघिल्लो बेलुका।",f2:"क्षेत्र अनुसार तालिका",f2s:"तपाईंको सिटीको आधिकारिक क्यालेन्डरबाट।",f3:"नेपाली र English",f3s:"झोलामा लेखिने जापानी नामसहित।",f4:"सफा समुदाय",f4s:"सानो कदम, ठूलो फरक!",
+ foot1:"Sathi Japan सिटीको आधिकारिक सेवा होइन। सधैं आफ्नो संकलन स्थलको सूचना पालना गर्नुहोस्। निगातामा बनाइएको।",
+ times:{"08:00":"बिहान ८:००","08:30":"बिहान ८:३०","12:00":"दिउँसो १२:००"},
+ days:["आइतबार","सोमबार","मंगलबार","बुधबार","बिहीबार","शुक्रबार","शनिबार"],dshort:["आइत","सोम","मंगल","बुध","बिही","शुक्र","शनि"],months:["जनवरी","फेब्रुअरी","मार्च","अप्रिल","मे","जुन","जुलाई","अगस्ट","सेप्टेम्बर","अक्टोबर","नोभेम्बर","डिसेम्बर"],
+ nav:[["./","🏠","गृहपृष्ठ"],["garbage.html","🗑️","फोहोर फाल्ने दिन"],["deadlines.html","⏰","मेरा अन्तिम मिति"],["visa.html","🪪","भिसा नवीकरण"],["spouse.html","💍","श्रीमान/श्रीमती भिसा"],["checklists.html","✅","जीवन चेकलिस्ट"],["letter.html","✉️","चिठी बुझाउने"],["rate.html","💱","येन → रुपैयाँ दर"]]
 }};
+
+// How to put each type out – Niigata City official sorting sheet (ごみ・資源の分け方・出し方, Dec 2024):
+// https://www.city.niigata.lg.jp/kurashi/gomi/gomishigen/start.files/2024.12wakedashi_omote.pdf  (checked 10 Oct 2026)
+const NIIGATA_RULES="https://www.city.niigata.lg.jp/kurashi/gomi/gomishigen/start.files/2024.12wakedashi_omote.pdf";
+const GUIDE={
+ burnable:{en:["Food scraps – drain the water well.","Tissue, dirty paper, receipts, photos.","Plastic things WITHOUT the プラ mark (toys, toothbrushes…).","Use the city's designated bag (指定袋)."],
+           ne:["खानाको फोहोर – पानी राम्ररी निचोर्नुहोस्।","टिस्यु, फोहोर कागज, रसिद, फोटो।","プラ चिन्ह नभएका प्लास्टिकका सामान (खेलौना, टुथब्रस…)।","सिटीको तोकिएको झोला (指定袋) प्रयोग गर्नुहोस्।"]},
+ nonburnable:{en:["Glass and ceramics, metal items, light bulbs (incl. LED).","Wrap broken glass in newspaper and write 「危険」 (danger) on it.","Metal bottle caps go here.","Use the city's designated bag (指定袋)."],
+           ne:["सिसा र माटोका भाँडा, धातुका सामान, बल्ब (LED सहित)।","फुटेको सिसा अखबारमा बेरेर 「危険」 (खतरा) लेख्नुहोस्।","धातुका बिर्का यहीँ जान्छन्।","सिटीको तोकिएको झोला (指定袋) प्रयोग गर्नुहोस्।"]},
+ plastic:{en:["Only containers and packaging with the プラ mark.","Empty them and rinse lightly if dirty.","PET bottle caps and labels go here.","Clear or see-through bag, 90 L or smaller."],
+           ne:["プラ चिन्ह भएका भाँडा र प्याकेजिङ मात्र।","खाली गर्नुहोस्, फोहोर छ भने हल्का पखाल्नुहोस्।","पेट बोतलको बिर्को र लेबल यहीँ जान्छ।","९० लिटरसम्मको पारदर्शी झोला।"]},
+ pet:{en:["Remove the cap and the label – they go to プラ (plastic packaging).","Clear or see-through bag, 90 L or smaller."],
+      ne:["बिर्को र लेबल निकाल्नुहोस् – ती プラ (प्लास्टिक प्याकेजिङ) मा जान्छन्।","९० लिटरसम्मको पारदर्शी झोला।"]},
+ paper:{en:["4 kinds: newspaper, magazines & mixed paper, cardboard, paper drink cartons.","Tie each kind separately with string.","Paper you can't tie: put it in a clear bag."],
+        ne:["४ प्रकार: अखबार, पत्रिका र अन्य कागज, कार्डबोर्ड, कागजको दूध/जुसको बट्टा।","हरेक प्रकार छुट्टाछुट्टै डोरीले बाँध्नुहोस्।","बाँध्न नमिल्ने कागज पारदर्शी झोलामा राख्नुहोस्।"]},
+ glass:{en:["Bottles from drinks, food, medicine and cosmetics.","Rinse lightly with water.","Beer and sake bottles: return them to the shop if you can.","Clear or see-through bag, 90 L or smaller."],
+        ne:["पेय, खाना, औषधि र कस्मेटिकका बोतल।","हल्का पानीले पखाल्नुहोस्।","बियर र साके बोतल सकेसम्म पसलमा फिर्ता गर्नुहोस्।","९० लिटरसम्मको पारदर्शी झोला।"]},
+ cans:{en:["Cans from drinks, food and pet food.","Rinse lightly. Remove the cap and put it in the same bag.","Clear or see-through bag, 90 L or smaller."],
+       ne:["पेय, खाना र पाल्तु जनावरको खानाका क्यान।","हल्का पखाल्नुहोस्। बिर्को निकालेर उही झोलामा राख्नुहोस्।","९० लिटरसम्मको पारदर्शी झोला।"]},
+ special5:{en:["Dry batteries, fluorescent tubes, mercury thermometers, lighters, spray cans.","Take batteries out of products if you can.","Clear or see-through bag, 90 L or smaller."],
+           ne:["ड्राइ ब्याट्री, ट्युबलाइट, पारो थर्मामिटर, लाइटर, स्प्रे क्यान।","सकिन्छ भने सामानबाट ब्याट्री निकाल्नुहोस्।","९० लिटरसम्मको पारदर्शी झोला।"]},
+ branches:{en:["Tie in bundles up to 1 m long and 30 cm across.","Grass: shake off the soil and put it in a clear bag.","No collection in January and February."],
+           ne:["१ मिटर लामो र ३० सेमी गोलाइसम्मको मुठा बनाएर बाँध्नुहोस्।","घाँस: माटो झारेर पारदर्शी झोलामा राख्नुहोस्।","जनवरी र फेब्रुअरीमा संकलन हुँदैन।"]},
+ bulky:{en:["Furniture, bicycles, heaters, microwaves and other large items.","Book first, buy a 粗大ごみ処理券 sticker, then put it out on the given day.","Take out batteries; if you can't, say so when you book."],
+        ne:["फर्निचर, साइकल, हिटर, माइक्रोवेभ र अन्य ठूला सामान।","पहिले बुकिङ गर्नुहोस्, 粗大ごみ処理券 स्टिकर किन्नुहोस्, अनि दिइएको दिनमा राख्नुहोस्।","ब्याट्री निकाल्नुहोस्; नसक्ने भए बुकिङ गर्दा भन्नुहोस्।"]}
+};
+const ICON={burnable:"flame",burn:"flame",nonburnable:"cup",metal:"cup",plastic:"tub",pet:"bottle",paper:"paper",glass:"glass",cans:"can",special5:"battery",branches:"leaf",res:"recycle",bulky:"sofa"};
+// Romaji only where checked by hand (Niigata's town list is Japanese only)
+const RO={"minami|大通西":"Ōdōri Nishi","minami|大通1丁目～2丁目":"Ōdōri 1–2","minami|大通黄金1丁目～7丁目":"Ōdōri Kogane 1–7","minami|大通南1丁目～6丁目":"Ōdōri Minami 1–6"};
+
 const A=window.SATHI_AREAS;
-const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
-let lang=store.get("lang")||"en";
-// Saved area: {c: city id, t: town index}. Earlier testers (Oodori) keep working.
-let sel=null;try{sel=JSON.parse(store.get("area")||"null")}catch(e){}
-// Old Oodori-only choice → same town in the all-Niigata list
-if(sel){const nc=A.cities.find(c=>c.legacy&&c.legacy[sel.c]);if(nc&&nc.legacy[sel.c][sel.t]!=null){sel={c:nc.id,t:nc.legacy[sel.c][sel.t]};store.set("area",JSON.stringify(sel))}}
-if(sel&&!A.cities.some(c=>c.id===sel.c))sel=null;
-// A shared link (?area=<city>.<town>) sets the same area – or offers it if this phone already has another one
-let sharedArea=null;
-(()=>{const m=/^([a-z-]+)\.(\d{1,5})$/.exec(new URLSearchParams(location.search).get("area")||"");if(!m)return;
-  const c=A.cities.find(x=>x.id===m[1]),t=+m[2];if(!c||!c.towns[t])return;
-  if(!sel){sel={c:c.id,t};store.set("area",JSON.stringify(sel))}else if(sel.c!==c.id||sel.t!==t)sharedArea={c:c.id,t};
-  history.replaceState(null,"",location.pathname)})();
-let pickCity=sel?sel.c:null,pickWard="";
+const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}},del(k){try{localStorage.removeItem(k)}catch(e){}}};
+let lang=store.get("lang")==="ne"?"ne":"en";
 const $=id=>document.getElementById(id);
-const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let sel=null,prevSel=null,span=14,pickCity=null,pickWard="",query="";
+
+// ---------- Area: saved choice + ?area=<city>.<town> ----------
+function validSel(s){return s&&A&&A.cities.some(c=>c.id===s.c&&c.towns[s.t])}
+function initArea(){
+  try{sel=JSON.parse(store.get("area")||"null")}catch(e){sel=null}
+  // Earlier testers (Oodori-only list) → same town in the all-Niigata list
+  if(sel){const nc=A.cities.find(c=>c.legacy&&c.legacy[sel.c]);if(nc&&nc.legacy[sel.c][sel.t]!=null){sel={c:nc.id,t:nc.legacy[sel.c][sel.t]};store.set("area",JSON.stringify(sel))}}
+  if(!validSel(sel))sel=null;
+  // The link always wins: it opens the area in the link and keeps it (with an Undo)
+  const raw=new URLSearchParams(location.search).get("area")||"";
+  const m=/^([a-z-]{2,30})\.(\d{1,5})$/.exec(raw);
+  if(m){const s={c:m[1],t:+m[2]};
+    if(validSel(s)){if(!sel||sel.c!==s.c||sel.t!==s.t){prevSel=sel;sel=s;store.set("area",JSON.stringify(sel))}}
+  }
+  syncUrl();
+}
+function syncUrl(){const u=new URL(location.href);if(sel)u.searchParams.set("area",`${sel.c}.${sel.t}`);else u.searchParams.delete("area");history.replaceState(null,"",u.pathname+u.search+u.hash)}
 const city=()=>sel&&A.cities.find(c=>c.id===sel.c);
 const town=()=>{const c=city();return c&&c.towns[sel.t]};
-const cat=id=>city().categories.find(c=>c.id===id);
+const catOf=(c,id)=>c.categories.find(x=>x.id===id);
 
-// Dates in Japan time
+// ---------- Dates (Japan time) ----------
 function jpNow(){return new Date(Date.now()+9*3600e3)}
 function iso(off){const d=jpNow();d.setUTCDate(d.getUTCDate()+off);return d.toISOString().slice(0,10)}
-function idsFor(k){
-  const c=city(),t=town(); if(!c||!t||t.special) return null;
-  if(k>c.validUntil) return null;
+function ymdFmt(k,long){const t=T[lang],d=new Date(k+"T00:00:00Z");return lang==="ne"?`${t.months[d.getUTCMonth()]} ${d.getUTCDate()}, ${(long?t.days:t.dshort)[d.getUTCDay()]}`:`${(long?t.days:t.dshort)[d.getUTCDay()]}, ${d.getUTCDate()} ${t.months[d.getUTCMonth()]} ${long?d.getUTCFullYear():""}`.trim()}
+// Same rules as api/_lib.js idsFor/calIds. Returns null when no official data for that date.
+function idsFor(k,s){
+  s=s||sel;const c=s&&A.cities.find(x=>x.id===s.c),t=c&&c.towns[s.t];
+  if(!c||!t||t.special) return null;
+  if(c.validUntil&&k>c.validUntil) return null;
   if(c.type==="dated") return c.schedule[k]||[];
   if(c.type==="cal") return calIds(c.calendars[t.cal],k,c.categories);
   const d=new Date(k+"T00:00:00Z"),wd=d.getUTCDay(),md=k.slice(5);
-  if(c.noCollection.includes(md)) return [];
+  if(c.noCollection&&c.noCollection.includes(md)) return [];
   const out=[];
   if(t.res.includes(wd)) out.push("res");
   if(t.burn.includes(wd)) out.push("burn");
   if(t.metal.wd===wd&&t.metal.nth.includes(Math.ceil(d.getUTCDate()/7))) out.push("metal");
   return out;
 }
-// Niigata City calendars (same rules as api/_lib.js):
-// 1–3 Jan no collection; 31 Dec burnable only; in January the six monthly items move one
-// week later when one of them falls on 1–3 Jan (only calendars whose page says so).
+// Niigata City: 1–3 Jan no collection; 31 Dec burnable only; in January the six monthly items move
+// one week later when one of them falls on 1–3 Jan (only calendars whose page says so).
 const SHIFT=["nonburnable","pet","paper","glass","cans","special5"];
 function hit(r,wd,dd){return r.c.some(cl=>cl.d.includes(wd)&&(!cl.n||cl.n.includes(Math.ceil(dd/7))))}
 function calIds(cal,k,cats){
@@ -354,139 +597,149 @@ function calIds(cal,k,cats){
     if(hit(r,wd,dd))out.push(cg.id)}
   return out;
 }
-const tname=tw=>tw.ro||tw.ja.replace(/（.*$/,"");
 function putTime(){const c=city(),tw=town();return c&&c.type==="cal"&&tw?c.calendars[tw.cal].put:"08:00"}
-function names(ids){return ids.map(i=>cat(i)[lang]).join(lang==="ne"?" र ":" and ")}
-function dayList(ws){const t=T[lang];return ws.map(w=>t.days[w]).join(t.and)}
-function ruleText(cg){
-  const c=city(),t=T[lang];
-  if(c.type==="dated") return cg.rule_text[lang];
-  const tw=town();
-  if(c.type==="cal"){
-    const r=c.calendars[tw.cal].r[cg.id];
-    const s=r.c.map(cl=>cl.n?`${cl.n.map(n=>t.nth[n]).join(t.and)} ${t.days[cl.d[0]]} ${t.ofMonth}`:`${t.every} ${dayList(cl.d)}`).join(" / ");
-    return s+(r.off?` (${t.offJF})`:"");
-  } if(cg.id==="metal") return `${tw.metal.nth.map(n=>t.nth[n]).join(t.and)} ${t.days[tw.metal.wd]} ${t.ofMonth}`;
-  return `${t.every} ${dayList(cg.id==="res"?tw.res:tw.burn)}`;
+function nextFrom(k0){for(let k=k0;k<=k0+24;k++){const x=idsFor(iso(k));if(x===null)return {k,ids:null};if(x.length)return {k,ids:x}}return null}
+
+// ---------- Display helpers ----------
+const other=()=>lang==="ne"?"en":"ne";
+function gi(id,c,small){const cg=id==="bulky"?{color:"#8A5A3C"}:catOf(c,id)||{};return `<span class="gi${small?" sm":""}" style="background:${cg.color||"#187A4F"}" aria-hidden="true"><svg><use href="#g-${ICON[id]||"recycle"}"/></svg></span>`}
+function catHtml(id,c,small){const cg=catOf(c,id);return `<div class="${small?"row":"cat"}">${gi(id,c,small)}<div class="t"><b>${esc(cg[lang])}</b><small>${esc(cg[other()])} · <span lang="ja">${esc(cg.ja)}</span></small></div></div>`}
+function placeName(c,tw){const ro=RO[`${tw.w}|${tw.ja}`]||tw.ro;const ja=tw.ja.replace(/（.*$/,"");return {ja,ro:ro&&ro!==ja?ro:"",full:tw.ja}}
+function areaLabel(c,tw){const p=placeName(c,tw);return p.ro?`${p.ja} (${p.ro})`:p.ja}
+function cityLine(c,tw){if(c.type==="cal"){const w=c.wards.find(x=>x.id===tw.w);return `${c.name.en.replace(/,.*$/,"")}${w?` ${lang==="ne"?w.ne:w.en}`:""} (${c.name.ja}${w?w.ja:""})`}return `${c.name[lang]} (${c.name.ja})`}
+function ruleText(c,tw,cg){
+  const t=T[lang];
+  if(c.type==="dated") return cg.rule_text?cg.rule_text[lang]:"";
+  if(c.type==="cal"){const r=c.calendars[tw.cal].r[cg.id];
+    return r.c.map(cl=>cl.n?`${cl.n.map(n=>t.nth[n]).join(t.and)} ${t.dshort[cl.d[0]]} ${t.ofMonth}`:`${t.every} ${cl.d.map(w=>t.dshort[w]).join(t.and)}`).join(" / ")+(r.off?` (${t.offJF})`:"");}
+  if(cg.id==="metal") return `${tw.metal.nth.map(n=>t.nth[n]).join(t.and)} ${t.dshort[tw.metal.wd]} ${t.ofMonth}`;
+  return `${t.every} ${(cg.id==="res"?tw.res:tw.burn).map(w=>t.dshort[w]).join(t.and)}`;
 }
-function townLabel(c,tw){return lang==="ne"?`${tw.ro} (${tw.ja})`:`${tw.ro} (${tw.ja})`}
 
+// ---------- Render ----------
 function render(){
-  const t=T[lang]; document.documentElement.lang=lang;
-  document.querySelectorAll("[data-t]").forEach(e=>e.textContent=t[e.dataset.t]);
+  const t=T[lang];document.documentElement.lang=lang;
+  document.querySelectorAll("[data-t]").forEach(e=>{const v=t[e.dataset.t];if(typeof v==="string")e.textContent=v});
   document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.l===lang));
+  $("nav").innerHTML=t.nav.map(([h,i,n])=>`<a href="${h}"${h==="garbage.html"?' aria-current="page"':""}><span aria-hidden="true">${i}</span>${esc(n)}</a>`).join("");
+  $("heroArt").setAttribute("aria-label",lang==="ne"?"नदी, सहर र रिसाइक्लिङ बिनको चित्र":"Illustration of a river, city and recycling bins");
+  $("helpSteps").innerHTML=t.help.map(s=>`<li>${esc(s)}</li>`).join("");
+  $("iosSteps").innerHTML=t.iosSteps.map(s=>`<li>${esc(s)}</li>`).join("");
   const c=city(),tw=town();
-  let when="",head="",lead="",ids=[],actions="";
+
+  // Area
+  $("areaChip").hidden=!tw;
   if(!c||!tw){
-    when=t.welcome;head=t.hChoose;lead=t.lChoose;
-    actions=`<button class="btn primary" id="openPick">${t.choose}</button>`;
-    $("areaLine").innerHTML="";
+    $("areaName").innerHTML=`<b>${esc(t.welcomeH)}</b><small>${esc(t.welcomeP)}</small>`;
+    $("changeBtn").textContent=t.choose;$("changeBtn").className="btn pri sm";
   }else{
-    $("areaLine").innerHTML=`<span>${t.areaLabel}</span> <strong>${esc(tname(tw))}, ${esc(c.name[lang])}</strong><button class="link" id="openPick2">${t.change}</button>`;
-    if(tw.special){
-      const o=c.offices[tw.office];
-      when=t.welcome;head=t.hSpecial;lead=t.lSpecial(lang==="ne"?o.ja:o.en,o.tel);
-      actions=`<a class="btn primary" href="tel:${o.tel.replace(/-/g,"")}">${t.call} ${o.tel}</a>`;
+    const p=placeName(c,tw);
+    $("areaName").innerHTML=`<b><span lang="ja">${esc(p.ja)}</span>${p.ro?` <span class="ro">(${esc(p.ro)})</span>`:""}</b><small>${esc(cityLine(c,tw))}</small>${p.full!==p.ja?`<small lang="ja">${esc(p.full)}</small>`:""}`;
+    $("areaChipTxt").textContent=areaLabel(c,tw);
+    $("changeBtn").textContent=t.change;$("changeBtn").className="btn out sm";
+  }
+  $("areaNotice").innerHTML=prevSel&&tw&&validSel(prevSel)?`<p class="notice">${esc(t.changed(areaLabel(c,tw),areaLabel(A.cities.find(x=>x.id===prevSel.c),A.cities.find(x=>x.id===prevSel.c).towns[prevSel.t])))}<button id="undoArea">${esc(t.undo)}</button></p>`:"";
+  if($("undoArea"))$("undoArea").onclick=()=>{sel=prevSel;prevSel=null;store.set("area",JSON.stringify(sel));syncUrl();render();updateRemind()};
+
+  const ok=c&&tw&&!tw.special;
+  ["remCard","todayCard","schCard","guideCard"].forEach(id=>$(id).hidden=!ok);
+
+  // Next collection
+  if(!c||!tw){
+    $("nextBody").innerHTML=`<div class="empty"><p>${esc(t.welcomeP)}</p><button class="btn pri" id="pick2"><svg aria-hidden="true"><use href="#i-pin"/></svg>${esc(t.choose)}</button></div>`;
+    $("pick2").onclick=openPicker;
+  }else if(tw.special){
+    const o=c.offices[tw.office];
+    $("nextBody").innerHTML=`<p class="lead"><b>${esc(t.specialH)}</b><br>${esc(t.specialP(lang==="ne"?o.ja:o.en,o.tel))}</p><div class="acts"><a class="btn pri" href="tel:${o.tel.replace(/-/g,"")}">📞 ${esc(t.call)} ${esc(o.tel)}</a></div>`;
+  }else{
+    const pt=putTime(),tm=t.times[pt]||pt,now=jpNow(),mins=now.getUTCHours()*60+now.getUTCMinutes(),cut=+pt.slice(0,2)*60+ +pt.slice(3);
+    const today=idsFor(iso(0));
+    let nx,label,lead;
+    if(today&&today.length&&mins<cut){nx={k:0,ids:today};label=t.thisMorning;lead=t.putToday(tm)}
+    else{nx=nextFrom(1);if(nx&&nx.ids){label=nx.k===1?t.tomorrow:t.days[new Date(iso(nx.k)+"T00:00:00Z").getUTCDay()];lead=nx.k===1?t.putTonight(tm):t.putBy(tm)}}
+    if(nx&&nx.ids){
+      const k=iso(nx.k);
+      const dShow=nx.k<=1?ymdFmt(k,true):(lang==="ne"?`${T.ne.months[+k.slice(5,7)-1]} ${+k.slice(8)}, ${k.slice(0,4)}`:`${+k.slice(8)} ${T.en.months[+k.slice(5,7)-1]} ${k.slice(0,4)}`);
+      $("nextBody").innerHTML=`<div class="nextrow"><div class="when"><svg aria-hidden="true"><use href="#i-cal"/></svg><div><b>${esc(label)}</b><small>${esc(dShow)}</small></div></div>
+        <div class="cats">${nx.ids.map(id=>catHtml(id,c)).join("")}</div></div><p class="lead">${lead}</p>`;
     }else{
-      const pt=putTime(),tm=t.times[pt],now=jpNow(),mins=now.getUTCHours()*60+now.getUTCMinutes(),today=idsFor(iso(0)),tmr=idsFor(iso(1));
-      if(mins<+pt.slice(0,2)*60+ +pt.slice(3)&&today&&today.length){when=t.morning(tm);ids=today;head=names(ids);lead=t.lMorning(tm)}
-      else if(tmr&&tmr.length){when=t.tomorrow;ids=tmr;head=names(ids);lead=t.lTomorrow(tm)}
-      else{
-        when=t.tomorrow;head=t.hNone;let k=2,nx=null;while(k<20&&!((nx=idsFor(iso(k)))&&nx.length))k++;
-        const d=new Date(iso(k)+"T00:00:00Z");
-        lead=nx&&nx.length?t.lNone(`${t.days[d.getUTCDay()]} ${d.getUTCDate()} ${t.months[d.getUTCMonth()]}`,names(nx)):"";
-      }
-      actions=`<button class="btn primary" id="remind">${remindOn()?t.remindOff:t.remind}</button><button class="btn quiet" id="ics">${t.calQuiet}</button><button class="btn quiet" id="shareBtn">${t.share}</button>`;
-      if(sharedArea){const sc=A.cities.find(x=>x.id===sharedArea.c),st=sc.towns[sharedArea.t];actions+=`<p class="privacy" style="flex-basis:100%;margin:0">${esc(t.sharedIn(tname(st)))} <button class="link" id="useShared">${esc(t.useShared(tname(st)))}</button></p>`}
+      $("nextBody").innerHTML=`<p class="lead">${esc(nx&&nx.ids===null?t.beyond(c.validUntil):t.noNext)}</p>`;
     }
+    // Today
+    const tdy=today||[];
+    $("todayBody").innerHTML=tdy.length?`<p style="margin:0 0 8px;color:var(--muted)">${esc(ymdFmt(iso(0),true))} · ${esc(t.todayIs)}</p><div class="c" style="display:grid;gap:8px">${tdy.map(id=>catHtml(id,c,1)).join("")}</div>`
+      :`<div class="row" style="display:flex;gap:12px;align-items:center"><svg style="width:34px;height:34px;color:var(--green)" aria-hidden="true"><use href="#i-sprout"/></svg><div><b style="display:block">${esc(t.noToday)}</b><span style="color:var(--muted)">${esc(today===null?t.beyond(c.validUntil):t.enjoy)}</span></div></div>`;
   }
-  $("when").textContent=when;$("headline").textContent=head;$("lead").textContent=lead;
-  $("headline").classList.toggle("long",ids.length>1||head.length>34);
-  $("icons").innerHTML=ids.map(i=>`<span>${cat(i).icon}</span>`).join("");
-  $("actions").innerHTML=actions;
-  ["openPick","openPick2"].forEach(id=>{const b=$(id);if(b)b.onclick=openPicker});
-  if($("ics")) $("ics").onclick=downloadIcs;
-  if($("useShared")) $("useShared").onclick=()=>{sel=sharedArea;sharedArea=null;store.set("area",JSON.stringify(sel));pickCity=sel.c;render();updateRemind()};
-  if($("shareBtn")) $("shareBtn").onclick=()=>{
-    let k=1,nx=null;while(k<15&&!((nx=idsFor(iso(k)))&&nx.length))k++;
-    const d=new Date(iso(k)+"T00:00:00Z"),nxt=nx&&nx.length?`${k===1?t.tmr:t.days[d.getUTCDay()]+" "+d.getUTCDate()+" "+t.months[d.getUTCMonth()]} – ${names(nx)}`:"";
-    sathiShare({text:t.shareMsg(tname(tw),c.name[lang],nxt),url:`${location.origin}/garbage.html?area=${sel.c}.${sel.t}`});
-  };
-  if($("remind")){
-    $("remind").onclick=toggleRemind;
-    const hr=remindHour(),opt=x=>`<option value="${x}" ${x===hr?"selected":""}>${x}:00</option>`;
-    $("actions").insertAdjacentHTML("beforeend",`<label class="when-pick">${t.remindAt}<select id="hour"><optgroup label="${t.eve}">${[18,19,20,21,22].map(opt).join("")}</optgroup><optgroup label="${t.morn}">${[6,7].map(opt).join("")}</optgroup></select></label><p class="privacy" style="flex-basis:100%;margin:0"><a href="privacy.html">${t.privacy}</a></p>`);
-    $("hour").onchange=async e=>{store.set("remindHour",e.target.value);if(remindOn()){await updateRemind();$("pushStatus").textContent=t.pTime(e.target.value+":00")}};
-  }
-  $("iosSteps").innerHTML=t.iosSteps.map(s=>`<li>${s}</li>`).join("");
-
-  // Week strip
-  const showWeek=c&&tw&&!tw.special;
-  $("weekBox").hidden=!showWeek;
-  if(showWeek){
-    let w="";
-    for(let i=0;i<7;i++){
-      const k=iso(i),d=new Date(k+"T00:00:00Z"),x=idsFor(k);
-      const label=i===0?t.today:i===1?t.tmr:t.days[d.getUTCDay()];
-      w+=`<li class="${i===0?"now":""}"><span class="d"><b>${label}</b>${d.getUTCDate()} ${t.months[d.getUTCMonth()]}</span><span class="c">${x&&x.length?x.map(id=>`<i aria-hidden="true">${cat(id).icon}</i>${cat(id)[lang]}`).join("<br>"):`<span class="none">${t.none}</span>`}</span></li>`;
-    }
-    $("week").innerHTML=w;
-  }
-
-  // Garbage guide
-  if(showWeek){
-    $("garbP").textContent=t.garbP;
-    const cats=c.type==="cal"?c.categories.filter(cg=>c.calendars[tw.cal].r[cg.id]):c.categories;
-    $("types").innerHTML=cats.map(cg=>`<details><summary><span class="ic" aria-hidden="true">${cg.icon}</span><span><b>${cg[lang]}</b><small>${ruleText(cg)}</small></span></summary><p>${cg.how[lang]}<br>${cg.ja}</p></details>`).join("");
-    let b=`${c.bulky[lang]} <a href="${c.bulky.url}" target="_blank" rel="noopener">${t.book}</a>`;
-    if(c.noCollection) b+=`<br>${t.noJan3}`;
-    if(c.type==="cal"){const cl=c.calendars[tw.cal];b+=`<br>${t.nigNY}${cl.jan?" "+t.nigJan:""}`;
-      const wd=c.wards.find(w=>w.id===tw.w);
-      if(tw.multi) b+=`<br><b>⚠️ ${t.multi}</b>${wd.tel?` ${t.wardTel(lang==="ne"?wd.ne:wd.en,wd.tel)}`:""} <a href="${c.emap}" target="_blank" rel="noopener">${t.emap} ↗</a>`;if(tw.chk) b+=`<br>${t.chk}`;}
-    if(c.guideNe) b+=`<br><a href="${c.guideNe}" target="_blank" rel="noopener">${t.guideNe}</a> · <a href="${c.guideEn}" target="_blank" rel="noopener">${t.guideEn}</a>`;
-    $("bulky").innerHTML=b;$("bulky").hidden=false;
-    const srcUrl=c.type==="cal"?c.calendars[tw.cal].url:c.source,srcName=c.type==="cal"?`${c.name[lang]} – ${t.calNo} ${c.calendars[tw.cal].name}`:c.name[lang];
-    $("srcLine").innerHTML=`${t.src} <a href="${srcUrl}" target="_blank" rel="noopener">${esc(srcName)} ${t.official}</a>. ${t.checked} ${c.lastChecked}.`;
-  }else{
-    $("garbP").textContent=t.garbChoose;$("types").innerHTML="";$("bulky").hidden=true;$("srcLine").innerHTML="";
-  }
+  if(ok){renderReminder();renderSchedule(c,tw);renderGuide(c,tw)}
+  // Source line
+  if(ok){const srcUrl=c.type==="cal"?c.calendars[tw.cal].url:c.source,srcName=c.type==="cal"?`${c.name[lang]} – ${t.calNo} ${c.calendars[tw.cal].name}`:c.name[lang];
+    $("srcLine").innerHTML=`${esc(t.src)} <a href="${srcUrl}" target="_blank" rel="noopener">${esc(srcName)} – ${esc(t.official)}</a> (${esc(t.checked)} ${esc(c.lastChecked)}).${c.type==="cal"?` ${esc(t.srcRules)} <a href="${NIIGATA_RULES}" target="_blank" rel="noopener">新潟市 ごみ・資源の分け方・出し方</a>.`:""}`;
+  }else $("srcLine").innerHTML="";
   if(!$("sheet").hidden) renderPicker();
 }
 
-// ---------- Picker ----------
-let query="";
+function renderSchedule(c,tw){
+  const t=T[lang];let h="",last=null;
+  for(let i=0;i<span;i++){const k=iso(i),x=idsFor(k);if(x===null){last=k;break}
+    const d=new Date(k+"T00:00:00Z"),lbl=i===0?t.today:i===1?t.tomorrow:t.dshort[d.getUTCDay()];
+    const dl=lang==="ne"?`${t.months[d.getUTCMonth()]} ${d.getUTCDate()}`:`${d.getUTCDate()} ${t.months[d.getUTCMonth()]}`;
+    h+=`<li class="${i===1?"tmr":""}${x.length?"":" off"}"><div class="d"><b>${esc(lbl)}</b><small>${esc(dl)}${i<2?` · ${esc(t.dshort[d.getUTCDay()])}`:""}</small></div><div class="c">${x.length?x.map(id=>catHtml(id,c,1)).join(""):`<span class="none">${esc(lang==="ne"?"संकलन छैन":"No collection")}</span>`}</div></li>`}
+  if(last)h+=`<li><div class="d"></div><div class="c none">${esc(t.beyond(c.validUntil))}</div></li>`;
+  $("days").innerHTML=h;
+  $("moreBtn").textContent=span>14?t.less:t.more;
+  $("holNote").textContent=c.type==="cal"?t.hol+(c.calendars[tw.cal].jan?" "+t.holJan:""):(c.noCollection?t.shinjukuHol:"");
+}
+
+function renderGuide(c,tw){
+  const t=T[lang];
+  const cats=c.type==="cal"?c.categories.filter(cg=>c.calendars[tw.cal].r[cg.id]):c.categories;
+  const item=(id,names,rule,lines,extra)=>`<details><summary>${gi(id,c)}<span class="t"><b>${names}</b>${rule?`<small class="rule">${esc(rule)}</small>`:""}</span></summary><ul>${lines.map(l=>`<li>${esc(l)}</li>`).join("")}</ul>${extra||""}</details>`;
+  let h=cats.map(cg=>{const g=c.type==="cal"&&GUIDE[cg.id];const lines=g?g[lang]:[cg.how[lang]];
+    return item(cg.id,`${esc(cg[lang])} <small style="display:inline;font-size:13px;color:var(--muted)">· ${esc(cg[other()])} · <span lang="ja">${esc(cg.ja)}</span></small>`,ruleText(c,tw,cg),lines)}).join("");
+  if(c.bulky){const tel=(c.bulky.en.match(/\d{2,4}-\d{2,4}-\d{3,4}/)||[])[0];
+    const lines=c.type==="cal"?GUIDE.bulky[lang]:[c.bulky[lang]];
+    if(c.type==="cal")lines.push(c.bulky[lang]);
+    h+=item("bulky",`${esc(t.bulkyH)} <small style="display:inline;font-size:13px;color:var(--muted)">· <span lang="ja">${t.bulkyJa}</span></small>`,"",lines,
+      `<div class="bulkyacts"><a class="btn pri sm" href="${c.bulky.url}" target="_blank" rel="noopener">${esc(t.book)} ↗</a>${tel?`<a class="btn out sm" href="tel:${tel.replace(/-/g,"")}">📞 ${tel}</a>`:""}</div>`);}
+  $("guide").innerHTML=h;
+  let n="";
+  if(c.type==="cal"){const w=c.wards.find(x=>x.id===tw.w);
+    if(tw.multi)n+=`<p><b>⚠️ ${esc(t.multi)}</b> <a href="${c.emap}" target="_blank" rel="noopener">${esc(t.emap)} ↗</a>${w&&w.tel?` · 📞 ${esc(w.tel)}`:""}</p>`;
+    if(tw.chk)n+=`<p>${esc(t.chk)}</p>`;}
+  if(c.guideNe)n+=`<p><a href="${c.guideNe}" target="_blank" rel="noopener">${esc(t.guideNe)} ↗</a> · <a href="${c.guideEn}" target="_blank" rel="noopener">${esc(t.guideEn)} ↗</a></p>`;
+  $("notes").innerHTML=n;$("notes").hidden=!n;
+}
+
+// ---------- Area picker ----------
 function norm(s){return s.toLowerCase().normalize("NFKC").replace(/[^a-z0-9\u3040-\u30ff\u4e00-\u9fff]/g,"").replace(/ou/g,"o").replace(/oo/g,"o").replace(/uu/g,"u")}
-function openPicker(){$("sheet").hidden=false;renderPicker();setTimeout(()=>{const s=$("q");if(s)s.focus()},50)}
+function openPicker(){pickCity=sel?sel.c:pickCity;$("sheet").hidden=false;renderPicker();setTimeout(()=>{const s=$("q");if(s)s.focus()},50)}
 function closePicker(){$("sheet").hidden=true}
 function renderPicker(){
   const t=T[lang];
-  const opts=A.cities.map(c=>`<button data-c="${c.id}" aria-pressed="${pickCity===c.id}"><b>${esc(c.name[lang])}</b><span>${esc(c.coverage[lang])}</span></button>`).join("")
-    +`<button data-c="other" aria-pressed="${pickCity==="other"}"><b>${t.otherH}</b><span>${t.otherS}</span></button>`;
-  $("cities").innerHTML=opts;
+  $("cities").innerHTML=A.cities.map(c=>`<button data-c="${c.id}" aria-pressed="${pickCity===c.id}"><b>${esc(c.name[lang])}</b><span>${esc(c.coverage[lang])}</span></button>`).join("")
+    +`<button data-c="other" aria-pressed="${pickCity==="other"}"><b>${esc(t.otherH)}</b><span>${esc(t.otherS)}</span></button>`;
   $("cities").querySelectorAll("button").forEach(b=>b.onclick=()=>{pickCity=b.dataset.c;query="";renderPicker();const s=$("q");if(s)s.focus()});
   let body="";
   if(pickCity==="other"){
-    body=`<p class="hint">${t.otherP}</p><ul class="links">${A.links.map(l=>`<li><a href="${l.url}" target="_blank" rel="noopener">${esc(l[lang])} ↗</a></li>`).join("")}</ul>`;
+    body=`<p class="hint">${esc(t.otherP)}</p><ul class="links">${A.links.map(l=>`<li><a href="${l.url}" target="_blank" rel="noopener">${esc(l[lang])} ↗</a></li>`).join("")}</ul>`;
   }else if(pickCity){
-    const c=A.cities.find(x=>x.id===pickCity);
-    const q=norm(query);
+    const c=A.cities.find(x=>x.id===pickCity),q=norm(query);
     if(c.type==="cal"){
-      // Niigata: ward chips + Japanese name / calendar-number search
       const W=Object.fromEntries(c.wards.map(w=>[w.id,w]));
-      const list=c.towns.map((tw,i)=>({tw,i})).filter(({tw})=>(!pickWard||tw.w===pickWard)&&(!q||norm(tw.ja).includes(q)||norm(c.calendars[tw.cal].name)===q||norm(tw.area||"").includes(q)));
+      const list=c.towns.map((tw,i)=>({tw,i})).filter(({tw})=>(!pickWard||tw.w===pickWard)&&(!q||norm(tw.ja).includes(q)||norm(c.calendars[tw.cal].name)===q||norm(tw.area||"").includes(q)||norm(RO[`${tw.w}|${tw.ja}`]||"").includes(q)));
       const shown=list.slice(0,150);
-      body=`<div class="wards" id="wards"><button data-w="" aria-pressed="${!pickWard}">${t.wardAll}</button>${c.wards.map(w=>`<button data-w="${w.id}" aria-pressed="${pickWard===w.id}">${esc(lang==="ne"?w.ne:w.en)} ${w.ja}</button>`).join("")}</div>
-      <input class="search" id="q" type="search" placeholder="${t.searchNig}" value="${esc(query)}" autocomplete="off" lang="ja">
-      <ul class="towns">${shown.length?shown.map(({tw,i})=>{const cl=c.calendars[tw.cal],w=W[tw.w];
-        return `<li><button data-i="${i}"><b>${esc(tw.ja)}</b><small>${esc(lang==="ne"?w.ne:w.en)}${tw.area?" · "+esc(tw.area):""} · ${t.calNo} ${esc(cl.name)} · ${t.times[cl.put]}${tw.multi?` · ⚠️ ${lang==="ne"?"धेरै क्यालेन्डर":"several calendars"}`:""}${tw.note?`<br>${esc(tw.note)}`:""}</small></button></li>`}).join(""):`<li class="empty">${t.noMatch}</li>`}</ul>
-      ${list.length>shown.length?`<p class="hint">${t.more(list.length-shown.length)}</p>`:""}
+      body=`<div class="wards" id="wards"><button data-w="" aria-pressed="${!pickWard}">${esc(t.wardAll)}</button>${c.wards.map(w=>`<button data-w="${w.id}" aria-pressed="${pickWard===w.id}">${esc(lang==="ne"?w.ne:w.en)} <span lang="ja">${w.ja}</span></button>`).join("")}</div>
+      <input class="search" id="q" type="search" placeholder="${esc(t.searchNig)}" aria-label="${esc(t.searchNig)}" value="${esc(query)}" autocomplete="off" lang="ja">
+      <ul class="towns">${shown.length?shown.map(({tw,i})=>{const cl=c.calendars[tw.cal],w=W[tw.w],ro=RO[`${tw.w}|${tw.ja}`];
+        return `<li><button data-i="${i}"><b lang="ja">${esc(tw.ja)}</b>${ro?` (${esc(ro)})`:""}<small>${esc(lang==="ne"?w.ne:w.en)}${tw.area?" · "+esc(tw.area):""} · ${esc(t.calNo)} ${esc(cl.name)} · ${esc(t.times[cl.put]||cl.put)}${tw.multi?` · ⚠️ ${esc(t.several)}`:""}${tw.note?`<br>${esc(tw.note)}`:""}</small></button></li>`}).join(""):`<li class="emp">${esc(t.noMatch)}</li>`}</ul>
+      ${list.length>shown.length?`<p class="hint">${esc(t.more2(list.length-shown.length))}</p>`:""}
       ${c.gap&&(!pickWard||pickWard===c.gap.w)?`<p class="hint">⚠️ ${esc(c.gap[lang])} <a href="${W[c.gap.w].url}" target="_blank" rel="noopener">${W[c.gap.w].ja} ↗</a></p>`:""}
-      <p class="hint">${t.notCovered} ${c.wards.filter(w=>!pickWard||w.id===pickWard).map(w=>`<a href="${w.url}" target="_blank" rel="noopener">${w.ja} ↗</a>`).join(" · ")}</p>`;
+      <p class="hint">${esc(t.notCovered)} ${c.wards.filter(w=>!pickWard||w.id===pickWard).map(w=>`<a href="${w.url}" target="_blank" rel="noopener">${w.ja} ↗</a>`).join(" · ")}</p>`;
     }else{
-    const list=c.towns.map((tw,i)=>({tw,i})).filter(({tw})=>!q||norm(tw.ro).includes(q)||norm(tw.ja).includes(q));
-    body=`<input class="search" id="q" type="search" placeholder="${t.search}" value="${esc(query)}" autocomplete="off">
-      <ul class="towns">${list.length?list.map(({tw,i})=>`<li><button data-i="${i}"><b>${esc(tw.ro)}</b> ${esc(tw.ja.replace(/（.*$/,""))}${tw.note?`<small>${esc(tw.note)}</small>`:""}</button></li>`).join(""):`<li class="empty">${t.noMatch}</li>`}</ul>`;
-    if(c.otherAreasUrl) body+=`<p class="hint">${t.notCovered} <a href="${c.otherAreasUrl}" target="_blank" rel="noopener">${esc(c.name[lang])} ↗</a></p>`;
+      const list=c.towns.map((tw,i)=>({tw,i})).filter(({tw})=>!q||norm(tw.ro||"").includes(q)||norm(tw.ja).includes(q));
+      body=`<input class="search" id="q" type="search" placeholder="${esc(t.search)}" aria-label="${esc(t.search)}" value="${esc(query)}" autocomplete="off">
+      <ul class="towns">${list.length?list.map(({tw,i})=>`<li><button data-i="${i}"><b>${esc(tw.ro)}</b> <span lang="ja">${esc(tw.ja.replace(/（.*$/,""))}</span>${tw.note?`<small>${esc(tw.note)}</small>`:""}</button></li>`).join(""):`<li class="emp">${esc(t.noMatch)}</li>`}</ul>`;
+      if(c.otherAreasUrl) body+=`<p class="hint">${esc(t.notCovered)} <a href="${c.otherAreasUrl}" target="_blank" rel="noopener">${esc(c.name[lang])} ↗</a></p>`;
     }
   }
   $("pickBody").innerHTML=body;
@@ -496,41 +749,55 @@ function renderPicker(){
   if(q){const upd=e=>{query=e.target.value;const pos=e.target.selectionStart;renderPicker();const n=$("q");n.focus();n.setSelectionRange(pos,pos)};
     q.oninput=e=>{if(e.isComposing)return;upd(e)};q.addEventListener("compositionend",upd)}
   $("pickBody").querySelectorAll("button[data-i]").forEach(b=>b.onclick=()=>{
-    sel={c:pickCity,t:+b.dataset.i};store.set("area",JSON.stringify(sel));closePicker();render();window.scrollTo({top:0,behavior:"smooth"});updateRemind();
+    sel={c:pickCity,t:+b.dataset.i};prevSel=null;store.set("area",JSON.stringify(sel));syncUrl();closePicker();render();window.scrollTo({top:0,behavior:"smooth"});updateRemind();
   });
 }
-$("closePick").onclick=closePicker;
-$("sheet").onclick=e=>{if(e.target.id==="sheet")closePicker()};
-document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!$("sheet").hidden)closePicker()});
 
-// ---------- Calendar file (made on the phone) ----------
-function fold(line){const enc=new TextEncoder();let out=[],cur="",lim=75;for(const ch of line){if(enc.encode(cur+ch).length>lim){out.push(cur);cur=" "+ch;lim=75}else cur+=ch}out.push(cur);return out.join("\r\n")}
-
+// ---------- Calendar file (.ics), made on the phone ----------
+function fold(line){const enc=new TextEncoder();let out=[],cur="";for(const ch of line){if(enc.encode(cur+ch).length>74){out.push(cur);cur=" "+ch}else cur+=ch}out.push(cur);return out.join("\r\n")}
 function downloadIcs(){
-  const c=city(),tw=town(),t=T.en,stamp=new Date().toISOString().replace(/[-:]/g,"").slice(0,15)+"Z";
-  const esc2=s=>s.replace(/\\/g,"\\\\").replace(/;/g,"\\;").replace(/,/g,"\\,");
-  const L=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Sathi Japan//Garbage//EN","CALSCALE:GREGORIAN",`X-WR-CALNAME:Sathi Japan – Garbage (${esc2(tname(tw))})`];
-  for(let i=0;i<200;i++){
-    const k=iso(i),x=idsFor(k);if(x===null)break;if(!x.length)continue;
+  const c=city(),tw=town();if(!c||!tw)return;
+  const stamp=new Date().toISOString().replace(/[-:]/g,"").slice(0,15)+"Z",e2=s=>String(s).replace(/\\/g,"\\\\").replace(/;/g,"\\;").replace(/,/g,"\\,").replace(/\n/g,"\\n");
+  const area=`${areaLabel(c,tw)}, ${c.name.en} (${c.name.ja})`,src=c.type==="cal"?c.calendars[tw.cal].url:c.source,pt=putTime(),h=remindHour();
+  // Alarm at the chosen reminder time: evening → the day before; morning → the same day
+  const trig=h>=12?`-PT${24-h}H`:`PT${h}H`;
+  const L=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Sathi Japan//Garbage//EN","CALSCALE:GREGORIAN","METHOD:PUBLISH",`X-WR-CALNAME:${e2("Sathi – Garbage "+areaLabel(c,tw))}`,"X-WR-TIMEZONE:Asia/Tokyo"];
+  let n=0;
+  for(let i=0;i<220;i++){
+    const k=iso(i),x=idsFor(k);if(x===null)break;if(!x.length)continue;n++;
     const ymd=k.replace(/-/g,""),nd=new Date(k+"T00:00:00Z");nd.setUTCDate(nd.getUTCDate()+1);
-    const sum=x.map(id=>`${cat(id).icon} ${cat(id).en}`).join(" + ")+" / "+x.map(id=>cat(id).ne).join(" + ");
-    L.push("BEGIN:VEVENT",`UID:${c.id}-${sel.t}-${ymd}@sathijapan.com`,`DTSTAMP:${stamp}`,`DTSTART;VALUE=DATE:${ymd}`,
-      `DTEND;VALUE=DATE:${nd.toISOString().slice(0,10).replace(/-/g,"")}`,`SUMMARY:${esc2(sum)}`,
-      `DESCRIPTION:${esc2(`Put out by ${T.en.times[putTime()]} / ${T.ne.times[putTime()]} भित्र. Source: `+(c.type==="cal"?c.calendars[tw.cal].url:c.source))}`,"TRANSP:TRANSPARENT",
-      "BEGIN:VALARM","ACTION:DISPLAY","TRIGGER:-PT4H",`DESCRIPTION:${esc2("Tomorrow: "+sum)}`,"END:VALARM","END:VEVENT");
+    const sum="🗑 "+x.map(id=>catOf(c,id).en).join(" + ");
+    const desc=x.map(id=>{const cg=catOf(c,id);return `${cg.en} / ${cg.ne} / ${cg.ja}`}).join("\n")+`\n\nPut out by ${T.en.times[pt]||pt} / ${T.ne.times[pt]||pt} भित्र.\nArea: ${area}\nOfficial calendar: ${src}\nFrom Sathi Japan – always follow your collection point's notices.`;
+    L.push("BEGIN:VEVENT",`UID:${c.id}-${sel.t}-${ymd}@sathijapan.com`,`DTSTAMP:${stamp}`,`DTSTART;VALUE=DATE:${ymd}`,`DTEND;VALUE=DATE:${nd.toISOString().slice(0,10).replace(/-/g,"")}`,
+      `SUMMARY:${e2(sum)}`,`DESCRIPTION:${e2(desc)}`,`LOCATION:${e2(area)}`,"TRANSP:TRANSPARENT",
+      "BEGIN:VALARM","ACTION:DISPLAY",`TRIGGER:${trig}`,`DESCRIPTION:${e2(sum)}`,"END:VALARM","END:VEVENT");
   }
   L.push("END:VCALENDAR");
-  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([L.map(fold).join("\r\n")+"\r\n"],{type:"text/calendar"}));
-  a.download=`sathi-garbage-${c.id}.ics`;document.body.appendChild(a);a.click();a.remove();
+  const st=$("icsStatus");st.className="pstatus";
+  if(!n){st.textContent=T[lang].icsNone;return}
+  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([L.map(fold).join("\r\n")+"\r\n"],{type:"text/calendar;charset=utf-8"}));
+  a.download=`sathi-garbage-${c.id}-${sel.t}.ics`;document.body.appendChild(a);a.click();a.remove();
+  st.textContent=T[lang].icsDone;
 }
 
-// ---------- Push reminders ----------
+// ---------- Push reminders (Web Push + service worker + hourly server job – see README) ----------
 const pushOK="serviceWorker" in navigator&&"PushManager" in window&&"Notification" in window;
 const isIOS=/iPhone|iPad|iPod/.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
 const standalone=window.matchMedia("(display-mode: standalone)").matches||navigator.standalone===true;
+const HOURS=[18,19,20,21,22,6,7];          // must match HOURS in api/_lib.js
 const remindOn=()=>store.get("remind")==="1";
-const remindHour=()=>{const x=+(store.get("remindHour")||20);return [6,7,18,19,20,21,22].includes(x)?x:20};
-function pstatus(k){$("pushStatus").textContent=k?T[lang][k]:""}
+const remindHour=()=>{const x=+(store.get("remindHour")||19);return HOURS.includes(x)?x:19};   // default 7:00 PM
+const hh=h=>lang==="ne"?(h<12?`बिहान ${h}:00`:`बेलुका ${h-12}:00`):(h<12?`${h}:00 AM`:`${h-12}:00 PM`);
+function pstatus(k,err,extra){const p=$("pushStatus");p.textContent=k?(typeof T[lang][k]==="function"?T[lang][k](extra):T[lang][k]):"";p.className="pstatus"+(err?" err":"");if(err&&k==="pBlocked")$("helpBox").open=true}
+function renderReminder(){
+  const t=T[lang],h=remindHour(),on=remindOn();
+  $("remP").textContent=h<12?t.remPm(hh(h)):t.remP(hh(h));
+  $("remind").innerHTML=`<svg aria-hidden="true"><use href="#i-bell"/></svg>${esc(on?t.remindOff:t.remind)}`;
+  $("remind").className=on?"btn out":"btn pri";
+  $("remState").textContent=on?`● ${t.on}`:t.off;$("remState").className="state"+(on?" on":"");
+  const opt=x=>`<option value="${x}"${x===h?" selected":""}>${hh(x)}</option>`;
+  $("hour").innerHTML=`<optgroup label="${esc(t.eve)}">${[18,19,20,21,22].map(opt).join("")}</optgroup><optgroup label="${esc(t.morn)}">${[6,7].map(opt).join("")}</optgroup>`;
+}
 if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(()=>{});
 function keyBytes(b){const p="=".repeat((4-b.length%4)%4),s=atob((b+p).replace(/-/g,"+").replace(/_/g,"/"));return Uint8Array.from(s,c=>c.charCodeAt(0))}
 async function sendSub(sub,test){
@@ -539,35 +806,64 @@ async function sendSub(sub,test){
 }
 async function toggleRemind(){
   if(remindOn()) return turnOff();
-  if(!pushOK){ if(isIOS&&!standalone){$("iosSheet").hidden=false;return} return pstatus("pNo"); }
+  if(!pushOK){if(isIOS&&!standalone){$("iosSheet").hidden=false;return}return pstatus("pNo",1)}
+  if(Notification.permission==="denied") return pstatus("pBlocked",1);
   try{
     pstatus("pWait");
     const perm=await Notification.requestPermission();
-    if(perm!=="granted") return pstatus("pBlocked");
+    if(perm!=="granted") return pstatus("pBlocked",1);
     const reg=await navigator.serviceWorker.ready;
-    const {publicKey}=await (await fetch("/api/subscribe")).json();
+    const kr=await fetch("/api/subscribe");if(!kr.ok)throw new Error("server");
+    const {publicKey}=await kr.json();if(!publicKey)return pstatus("pServer",1);
     const sub=(await reg.pushManager.getSubscription())||await reg.pushManager.subscribe({userVisibleOnly:true,applicationServerKey:keyBytes(publicKey)});
     await sendSub(sub,true);
-    store.set("remind","1");render();pstatus("pOn");
-  }catch(e){console.error(e);pstatus("pErr");$("pushStatus").textContent+=` (${String(e.message||e.name||e).slice(0,80)})`}
+    store.set("remind","1");renderReminder();pstatus("pOn");
+  }catch(e){console.error(e);pstatus("pErr",1);$("pushStatus").textContent+=` (${String(e.message||e.name||e).slice(0,80)})`}
 }
 async function turnOff(){
   try{
     const reg=await navigator.serviceWorker.ready,sub=await reg.pushManager.getSubscription();
-    if(sub){await fetch("/api/unsubscribe",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({endpoint:sub.endpoint})});if(store.get("dl_remind")!=="1"&&store.get("fx_on")!=="1")await sub.unsubscribe();}  // keep it if "My deadlines" reminders use it
+    // Keep the phone's push address if "My deadlines" or rate alerts still use it
+    if(sub){await fetch("/api/unsubscribe",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({endpoint:sub.endpoint})});if(store.get("dl_remind")!=="1"&&store.get("fx_on")!=="1")await sub.unsubscribe();}
   }catch(e){console.error(e)}
-  store.set("remind","0");render();pstatus("pOff");
+  store.set("remind","0");renderReminder();pstatus("pOff");
 }
-// Area or language changed → update the saved reminder
+// Area, language or time changed → update the saved reminder (the server keeps one row per phone, so no duplicates)
 async function updateRemind(){
   if(!remindOn()||!pushOK||!town()||town().special) return;
-  try{const reg=await navigator.serviceWorker.ready,sub=await reg.pushManager.getSubscription();if(sub){await sendSub(sub,false);pstatus("pUpd")}}catch(e){console.error(e)}
+  try{const reg=await navigator.serviceWorker.ready,sub=await reg.pushManager.getSubscription();if(sub){await sendSub(sub,false);return true}}catch(e){console.error(e)}
 }
-$("closeIos").onclick=()=>{$("iosSheet").hidden=true};
-$("iosSheet").onclick=e=>{if(e.target.id==="iosSheet")$("iosSheet").hidden=true};
 
-document.querySelectorAll(".lang button").forEach(b=>b.onclick=()=>{lang=b.dataset.l;store.set("lang",lang);render();updateRemind()});
-render();
+// ---------- Wire up ----------
+function share(){
+  const t=T[lang],c=city(),tw=town();if(!c||!tw)return;
+  const nx=nextFrom(1),nxt=nx&&nx.ids?`${nx.k===1?t.tomorrow:ymdFmt(iso(nx.k))} – ${nx.ids.map(id=>catOf(c,id)[lang]).join(t.and)}`:"";
+  sathiShare({text:t.shareMsg(areaLabel(c,tw),c.name[lang],nxt),url:`${location.origin}/garbage.html?area=${sel.c}.${sel.t}`});
+}
+function boot(){
+  if(!A||!A.cities){ // areas.js failed to load
+    $("main").hidden=true;$("errBox").hidden=false;
+    $("errBox").innerHTML=`<p style="margin:0 0 10px"><b>⚠️ ${esc(T[lang].errData)}</b></p><button class="btn pri" onclick="location.reload()">${esc(T[lang].reload)}</button>`;
+    document.querySelectorAll("[data-t]").forEach(e=>{const v=T[lang][e.dataset.t];if(typeof v==="string")e.textContent=v});return;
+  }
+  initArea();render();
+  $("changeBtn").onclick=openPicker;$("areaChip").onclick=openPicker;
+  $("closePick").onclick=closePicker;$("sheet").onclick=e=>{if(e.target.id==="sheet")closePicker()};
+  $("closeIos").onclick=()=>{$("iosSheet").hidden=true};$("iosSheet").onclick=e=>{if(e.target.id==="iosSheet")$("iosSheet").hidden=true};
+  document.addEventListener("keydown",e=>{if(e.key==="Escape"){closePicker();$("iosSheet").hidden=true;closeNav()}});
+  $("remind").onclick=toggleRemind;
+  $("hour").onchange=async e=>{store.set("remindHour",e.target.value);renderReminder();if(remindOn()){if(await updateRemind())pstatus("pTime",0,hh(+e.target.value))}};
+  $("moreBtn").onclick=()=>{span=span>14?14:42;renderSchedule(city(),town())};
+  $("icsBtn").onclick=downloadIcs;$("shareBtn").onclick=share;
+  document.querySelectorAll(".lang button").forEach(b=>b.onclick=()=>{lang=b.dataset.l;store.set("lang",lang);render();updateRemind()});
+  $("menuBtn").onclick=e=>{e.stopPropagation();const o=$("nav").hidden;$("nav").hidden=!o;$("menuBtn").setAttribute("aria-expanded",o)};
+  document.addEventListener("click",e=>{if(!$("nav").hidden&&!$("nav").contains(e.target))closeNav()});
+  // Keep "today / tomorrow" right if the page stays open past midnight or the put-out time
+  let tick=iso(0)+jpNow().getUTCHours();
+  setInterval(()=>{const k=iso(0)+jpNow().getUTCHours();if(k!==tick&&$("sheet").hidden){tick=k;render()}},60e3);
+}
+function closeNav(){$("nav").hidden=true;$("menuBtn").setAttribute("aria-expanded","false")}
+boot();
 </script>
 </body>
 </html>
