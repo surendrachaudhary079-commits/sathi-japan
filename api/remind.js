@@ -3,6 +3,49 @@
 //   06:00 / 07:00  → today's garbage ("Garbage day today")
 //   18:00 – 22:00  → tomorrow's garbage ("Garbage day tomorrow")
 const { fxAlerts } = require("./fx");
+
+// Event reminders. The event date is read fresh from the "events" table every time,
+// so if you correct a festival date on events-admin.html, reminders follow the new date.
+async function eventReminders(hour, today) {
+  const out = { sent: 0, removed: 0, failed: 0 };
+  const r = await sb(`event_reminders?select=id,endpoint,p256dh,auth,lang,key,title,before,last_sent&hour=eq.${hour}&limit=5000`);
+  if (!r.ok) { if (r.status !== 404) console.error("event_reminders", r.status, await r.text()); return out; }
+  const rows = (await r.json()).filter(x => x.last_sent !== today);
+  if (!rows.length) return out;
+  const ids = [...new Set(rows.filter(x => x.key.startsWith("e:")).map(x => x.key.slice(2)))];
+  const evs = new Map();
+  for (let i = 0; i < ids.length; i += 100) {
+    const q = await sb(`events?select=id,title_en,title_ne,start_date,status&id=in.(${ids.slice(i, i + 100).join(",")})&status=in.(verified,unverified)`);
+    if (q.ok) for (const e of await q.json()) evs.set(String(e.id), e);
+  }
+  const DAY = 864e5, byPhone = new Map();
+  for (const x of rows) {
+    let date, name;
+    if (x.key.startsWith("h:")) { date = x.key.slice(2); let t = {}; try { t = JSON.parse(x.title || "{}"); } catch (_) {} name = (x.lang === "ne" ? t.ne : t.en) || t.ja || ""; }
+    else { const e = evs.get(x.key.slice(2)); if (!e || !e.start_date) continue; date = e.start_date; name = (x.lang === "ne" && e.title_ne) || e.title_en; }
+    const days = Math.round((Date.parse(date + "T00:00:00Z") - Date.parse(today + "T00:00:00Z")) / DAY);
+    if (!(x.before || []).includes(days)) continue;
+    if (!byPhone.has(x.endpoint)) byPhone.set(x.endpoint, []);
+    byPhone.get(x.endpoint).push({ ...x, date, name, days });
+  }
+  const done = [];
+  for (const list of byPhone.values()) {
+    const ne = list[0].lang === "ne";
+    const when = d => d === 0 ? (ne ? "आज" : "today") : d === 1 ? (ne ? "भोलि" : "tomorrow") : (ne ? `${d} दिनमा` : `in ${d} days`);
+    const fmt = d => { const x = new Date(d + "T00:00:00Z"); return ne ? `${x.getUTCMonth() + 1}/${x.getUTCDate()}` : x.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short", timeZone: "UTC" }); };
+    const msg = { title: ne ? "📅 Sathi: कार्यक्रम आउँदैछ" : "📅 Sathi: event coming up",
+      body: list.map(x => `${x.name} – ${when(x.days)} (${fmt(x.date)})`).join("\n"), url: "/events.html" };
+    try {
+      const st = await sendPush(list[0], msg);
+      if (st === 404 || st === 410) { await sb(`event_reminders?endpoint=eq.${encodeURIComponent(list[0].endpoint)}`, { method: "DELETE" }); out.removed++; }
+      else if (st >= 200 && st < 300) { out.sent++; done.push(...list.map(x => x.id)); }
+      else { out.failed++; console.error("event push", st); }
+    } catch (e) { out.failed++; console.error(e); }
+  }
+  for (let i = 0; i < done.length; i += 200)
+    await sb(`event_reminders?id=in.(${done.slice(i, i + 200).join(",")})`, { method: "PATCH", headers: { Prefer: "return=minimal" }, body: JSON.stringify({ last_sent: today }) });
+  return out;
+}
 const { HOURS, loadAreas, findTown, idsFor, jpDate, message, sendPush, sb, dlMessage } = require("./_lib");
 
 module.exports = async function handler(req, res) {
@@ -79,5 +122,9 @@ module.exports = async function handler(req, res) {
     } else if (r.status !== 404) console.error("dl load", r.status, await r.text());
   } catch (e) { console.error("deadlines", e); }
 
-  return res.status(200).json({ hour, target, sent, skipped, already, removed, failed, deadlines: dl, fx });
+  // ---- Event reminders (festivals, community events, Japanese holidays): one notification per phone ----
+  const ev = { sent: 0, removed: 0, failed: 0 };
+  try { Object.assign(ev, await eventReminders(hour, today)); } catch (e) { console.error("events", e); ev.error = String(e.message || e); }
+
+  return res.status(200).json({ hour, target, sent, skipped, already, removed, failed, deadlines: dl, fx, events: ev });
 };
