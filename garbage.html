@@ -104,6 +104,17 @@ button,select,input{font:inherit;color:inherit}
 @media (prefers-color-scheme:dark){.btn.pri{color:#0C1714}}
 .btn.out{background:var(--surface);color:var(--green-d);box-shadow:inset 0 0 0 2px var(--mint-2)}
 .btn.sm{min-height:40px;padding:0 12px;font-size:15px;border-radius:12px}
+.locrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.lchip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:999px;padding:8px 12px;font-weight:700;font-size:15px;cursor:pointer;min-height:42px}
+.lchip svg{width:18px;height:18px;color:var(--green)}
+.lchip.near{background:var(--green);border-color:var(--green);color:#fff}
+.lchip.near svg{color:#fff}
+@media (prefers-color-scheme:dark){.lchip.near{color:#0C1714}.lchip.near svg{color:#0C1714}}
+.lchip[aria-busy=true]{opacity:.6;cursor:progress}
+.locmsg{margin:8px 0 0;font-size:14.5px;color:var(--muted)}
+.locmsg:empty{display:none}
+.locmsg button{border:0;background:none;color:var(--green-d);font-weight:700;text-decoration:underline;cursor:pointer;padding:0;margin-left:4px;font:inherit}
+.cands-h{font-weight:700;margin:4px 0 8px}
 .notice{margin-top:12px;background:var(--sky);border-radius:12px;padding:10px 12px;font-size:15px}
 .notice button{border:0;background:none;color:var(--sky-d);font-weight:700;text-decoration:underline;cursor:pointer;padding:0;margin-left:4px}
 
@@ -310,8 +321,14 @@ ol.steps li{margin:0 0 10px}
         <div class="areacard" id="areaCard">
           <div class="pin"><svg aria-hidden="true"><use href="#i-pin"/></svg></div>
           <div class="nm" id="areaName"><div class="skel" style="width:60%"></div><div class="skel" style="width:40%"></div></div>
-          <button class="btn out sm" id="changeBtn" data-t="change"></button>
+          <button class="btn out sm" id="changeBtn" data-t="change" hidden></button>
         </div>
+        <div class="locrow" role="group" id="locRow" aria-label="Area">
+          <button class="lchip near" id="nearBtn" type="button"><svg aria-hidden="true"><use href="#i-pin"/></svg><span data-t="near"></span></button>
+          <button class="lchip" id="wardBtn" type="button" data-t="myWard"></button>
+          <button class="lchip" id="allBtn" type="button" data-t="allAreas"></button>
+        </div>
+        <p class="locmsg" id="locMsg" role="status"></p>
         <div id="areaNotice"></div>
       </section>
 
@@ -411,6 +428,14 @@ en:{
  tagline:"Together for a Better Tomorrow",menu:"Menu",home:"Home",aboutL:"About",contactL:"Contact",helpL:"Help",
  heroH:"A Cleaner City Starts With You!",heroP:"Your area's garbage days in English and Nepali, with the Japanese names – and a reminder on your phone the evening before.",
  areaH:"Your area",change:"Change area",choose:"Choose my area",
+ near:"Near me",nearFind:"Find my area (near me)",myWard:"My ward",allAreas:"All areas",
+ locFinding:"Finding your area…",locSet:a=>`Set from your location: ${a}.`,locWrong:"Not right? Choose it yourself",
+ locMany:"We found more than one match near you. Which one is yours? (Check the number on your paper calendar.)",
+ locNone:a=>`We found ${a}, but couldn't match it to the town list. Please choose your town below.`,
+ locNotCovered:"Your location is outside the areas we cover (all of Niigata City and Shinjuku). Here are official pages for other cities.",
+ locDenied:"Location is blocked or unavailable. Please allow location for this site, or choose your area yourself.",
+ locErr:"Couldn't find your area right now. Please choose it yourself.",locNoGeo:"This browser can't share location. Please choose your area yourself.",
+ locPrivacy:"Your location is used once to find your town name (with Japan's mapping agency, GSI) and is not saved by Sathi Japan.",showAll:"Show all towns in this ward",
  nextH:"Next Garbage Collection",remH:"Get a reminder on your phone",todayH:"Today's Schedule",schH:"Collection Schedule",guideH:"How to sort and put out",
  guideP:"From the city's official sorting rules. Tap a type to see how to put it out.",
  today:"Today",tomorrow:"Tomorrow",thisMorning:"This morning",
@@ -460,6 +485,14 @@ ne:{
  tagline:"उज्यालो भोलिका लागि सँगै",menu:"मेनु",home:"गृहपृष्ठ",aboutL:"हाम्रोबारे",contactL:"सम्पर्क",helpL:"मद्दत",
  heroH:"स्वच्छ सहर तपाईंबाट सुरु हुन्छ!",heroP:"तपाईंको क्षेत्रको फोहोर फाल्ने दिन नेपाली र अंग्रेजीमा, जापानी नामसहित – र अघिल्लो बेलुका फोनमा रिमाइन्डर।",
  areaH:"तपाईंको क्षेत्र",change:"क्षेत्र बदल्नुहोस्",choose:"मेरो क्षेत्र छान्नुहोस्",
+ near:"मेरो नजिक",nearFind:"मेरो क्षेत्र पत्ता लगाउनुहोस् (नजिक)",myWard:"मेरो वार्ड",allAreas:"सबै क्षेत्र",
+ locFinding:"तपाईंको क्षेत्र खोज्दै…",locSet:a=>`तपाईंको लोकेसनबाट छानियो: ${a}।`,locWrong:"मिलेन? आफैं छान्नुहोस्",
+ locMany:"तपाईंको नजिक एकभन्दा बढी मिल्ने क्षेत्र भेटियो। तपाईंको कुन हो? (कागजी क्यालेन्डरको नम्बर हेर्नुहोस्।)",
+ locNone:a=>`${a} भेटियो, तर टाउन सूचीसँग मिलाउन सकिएन। तल आफ्नो टाउन छान्नुहोस्।`,
+ locNotCovered:"तपाईंको लोकेसन हामीले समेटेका क्षेत्र (सम्पूर्ण निगाता सिटी र सिन्जुकु) बाहिर छ। अन्य सिटीका आधिकारिक पेज यहाँ छन्।",
+ locDenied:"लोकेसन ब्लक छ वा उपलब्ध छैन। यो साइटलाई लोकेसन अनुमति दिनुहोस्, वा आफैं क्षेत्र छान्नुहोस्।",
+ locErr:"अहिले क्षेत्र भेटिएन। आफैं छान्नुहोस्।",locNoGeo:"यो ब्राउजरले लोकेसन दिन सक्दैन। आफैं क्षेत्र छान्नुहोस्।",
+ locPrivacy:"तपाईंको लोकेसन एकपटक टाउनको नाम पत्ता लगाउन (जापानको नक्सा निकाय GSI मार्फत) प्रयोग हुन्छ, Sathi Japan ले सेभ गर्दैन।",showAll:"यो वार्डका सबै टाउन देखाउनुहोस्",
  nextH:"अर्को फोहोर संकलन",remH:"फोनमा रिमाइन्डर पाउनुहोस्",todayH:"आजको तालिका",schH:"संकलन तालिका",guideH:"कसरी छुट्याउने र फाल्ने",
  guideP:"सिटीको आधिकारिक नियमबाट। कसरी फाल्ने हेर्न प्रकारमा थिच्नुहोस्।",
  today:"आज",tomorrow:"भोलि",thisMorning:"आज बिहान",
@@ -540,7 +573,7 @@ const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},se
 let lang=store.get("lang")==="ne"?"ne":"en";
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-let sel=null,prevSel=null,span=14,pickCity=null,pickWard="",query="";
+let sel=null,prevSel=null,span=14,pickCity=null,pickWard="",query="",cands=null,candMsg="";
 
 // ---------- Area: saved choice + ?area=<city>.<town> ----------
 function validSel(s){return s&&A&&A.cities.some(c=>c.id===s.c&&c.towns[s.t])}
@@ -646,8 +679,8 @@ function render(){
 
   // Next collection
   if(!c||!tw){
-    $("nextBody").innerHTML=`<div class="empty"><p>${esc(t.welcomeP)}</p><button class="btn pri" id="pick2"><svg aria-hidden="true"><use href="#i-pin"/></svg>${esc(t.choose)}</button></div>`;
-    $("pick2").onclick=openPicker;
+    $("nextBody").innerHTML=`<div class="empty"><p>${esc(t.welcomeP)}</p><div class="acts" style="justify-content:center"><button class="btn pri" id="near2"><svg aria-hidden="true"><use href="#i-pin"/></svg>${esc(t.nearFind)}</button><button class="btn out" id="pick2">${esc(t.choose)}</button></div><p class="hint">${esc(t.locPrivacy)}</p></div>`;
+    $("pick2").onclick=()=>openPicker("all");$("near2").onclick=nearMe;
   }else if(tw.special){
     const o=c.offices[tw.office];
     $("nextBody").innerHTML=`<p class="lead"><b>${esc(t.specialH)}</b><br>${esc(t.specialP(lang==="ne"?o.ja:o.en,o.tel))}</p><div class="acts"><a class="btn pri" href="tel:${o.tel.replace(/-/g,"")}">📞 ${esc(t.call)} ${esc(o.tel)}</a></div>`;
@@ -673,7 +706,7 @@ function render(){
   if(ok){renderReminder();renderSchedule(c,tw);renderGuide(c,tw)}
   // Source line
   if(ok){const srcUrl=c.type==="cal"?c.calendars[tw.cal].url:c.source,srcName=c.type==="cal"?`${c.name[lang]} – ${t.calNo} ${c.calendars[tw.cal].name}`:c.name[lang];
-    $("srcLine").innerHTML=`${esc(t.src)} <a href="${srcUrl}" target="_blank" rel="noopener">${esc(srcName)} – ${esc(t.official)}</a> (${esc(t.checked)} ${esc(c.lastChecked)}).${c.type==="cal"?` ${esc(t.srcRules)} <a href="${NIIGATA_RULES}" target="_blank" rel="noopener">新潟市 ごみ・資源の分け方・出し方</a>.`:""}`;
+    $("srcLine").innerHTML=`${esc(t.src)} <a href="${srcUrl}" target="_blank" rel="noopener">${esc(srcName)} – ${esc(t.official)}</a> (${esc(t.checked)} ${esc(c.lastChecked)}).${c.type==="cal"?` ${esc(t.srcRules)} <a href="${NIIGATA_RULES}" target="_blank" rel="noopener">新潟市 ごみ・資源の分け方・出し方</a>.`:""} ${lang==="ne"?"“मेरो नजिक” स्थान खोज":"“Near me” town lookup"}: <a href="https://www.gsi.go.jp/" target="_blank" rel="noopener">出典：国土地理院</a>.`;
   }else $("srcLine").innerHTML="";
   if(!$("sheet").hidden) renderPicker();
 }
@@ -712,14 +745,29 @@ function renderGuide(c,tw){
 
 // ---------- Area picker ----------
 function norm(s){return s.toLowerCase().normalize("NFKC").replace(/[^a-z0-9\u3040-\u30ff\u4e00-\u9fff]/g,"").replace(/ou/g,"o").replace(/oo/g,"o").replace(/uu/g,"u")}
-function openPicker(){pickCity=sel?sel.c:pickCity;$("sheet").hidden=false;renderPicker();setTimeout(()=>{const s=$("q");if(s)s.focus()},50)}
+function openPicker(mode){
+  if(mode!=="cands"){cands=null;candMsg=""}
+  if(mode!=="search")pickCity=sel?sel.c:(pickCity||A.cities[0].id);
+  if(mode==="ward"){const tw=town();pickWard=tw&&tw.w||pickWard;query=""}
+  if(mode==="all"){pickWard="";query=""}
+  $("sheet").hidden=false;renderPicker();setTimeout(()=>{const s=$("q");if(s&&mode!=="cands")s.focus()},50)}
 function closePicker(){$("sheet").hidden=true}
 function renderPicker(){
   const t=T[lang];
   $("cities").innerHTML=A.cities.map(c=>`<button data-c="${c.id}" aria-pressed="${pickCity===c.id}"><b>${esc(c.name[lang])}</b><span>${esc(c.coverage[lang])}</span></button>`).join("")
     +`<button data-c="other" aria-pressed="${pickCity==="other"}"><b>${esc(t.otherH)}</b><span>${esc(t.otherS)}</span></button>`;
-  $("cities").querySelectorAll("button").forEach(b=>b.onclick=()=>{pickCity=b.dataset.c;query="";renderPicker();const s=$("q");if(s)s.focus()});
+  $("cities").querySelectorAll("button").forEach(b=>b.onclick=()=>{pickCity=b.dataset.c;query="";cands=null;candMsg="";renderPicker();const s=$("q");if(s)s.focus()});
   let body="";
+  if(cands&&pickCity!=="other"){
+    const c=A.cities.find(x=>x.id===pickCity),W=c.wards?Object.fromEntries(c.wards.map(w=>[w.id,w])):{};
+    body=`<p class="cands-h">${esc(candMsg)}</p><ul class="towns">${cands.map(i=>{const tw=c.towns[i],cl=c.type==="cal"?c.calendars[tw.cal]:null,w=W[tw.w];
+      return `<li><button data-i="${i}"><b lang="ja">${esc(tw.ja)}</b>${tw.ro?` ${esc(tw.ro)}`:""}<small>${w?esc(lang==="ne"?w.ne:w.en):""}${cl?` · ${esc(t.calNo)} ${esc(cl.name)} · ${esc(t.times[cl.put]||cl.put)}`:""}${tw.area?" · "+esc(tw.area):""}${tw.note?`<br>${esc(tw.note)}`:""}</small></button></li>`}).join("")}</ul>
+      <p class="hint"><button class="close" type="button" id="showAll" style="float:none">${esc(t.showAll)}</button></p>`;
+    $("pickBody").innerHTML=body;
+    $("showAll").onclick=()=>{cands=null;candMsg="";query="";renderPicker()};
+    $("pickBody").querySelectorAll("button[data-i]").forEach(b=>b.onclick=()=>{sel={c:pickCity,t:+b.dataset.i};prevSel=null;cands=null;store.set("area",JSON.stringify(sel));syncUrl();closePicker();render();updateRemind();locMsg("locSet",areaLabel(c,c.towns[sel.t]))});
+    return;
+  }
   if(pickCity==="other"){
     body=`<p class="hint">${esc(t.otherP)}</p><ul class="links">${A.links.map(l=>`<li><a href="${l.url}" target="_blank" rel="noopener">${esc(l[lang])} ↗</a></li>`).join("")}</ul>`;
   }else if(pickCity){
@@ -751,6 +799,50 @@ function renderPicker(){
   $("pickBody").querySelectorAll("button[data-i]").forEach(b=>b.onclick=()=>{
     sel={c:pickCity,t:+b.dataset.i};prevSel=null;store.set("area",JSON.stringify(sel));syncUrl();closePicker();render();window.scrollTo({top:0,behavior:"smooth"});updateRemind();
   });
+}
+
+// ---------- Near me: phone location → town (GSI reverse geocoder) → our town list ----------
+// GSI = 国土地理院 (Geospatial Information Authority of Japan). Returns the municipality code and the town (町丁目) name.
+const MUNI={"15101":["niigata","kita"],"15102":["niigata","higashi"],"15103":["niigata","chuo"],"15104":["niigata","konan"],"15105":["niigata","akiha"],"15106":["niigata","minami"],"15107":["niigata","nishi"],"15108":["niigata","nishikan"],"13104":["shinjuku",null]};
+function kanjiNum(s){const D={"〇":0,"一":1,"二":2,"三":3,"四":4,"五":5,"六":6,"七":7,"八":8,"九":9};
+  return s.replace(/[一二三四五六七八九十〇]+/g,m=>{if(!/十/.test(m))return m.split("").map(c=>D[c]).join("");const [a,b]=m.split("十");return String((a?D[a]:1)*10+(b?D[b]:0))})}
+const nz=s=>kanjiNum(String(s).normalize("NFKC").replace(/（.*$|\(.*$/,"").replace(/\s/g,""));
+function matchTowns(c,ward,name){
+  const g=nz(name),m=/^(.*?)(\d+)(丁目|番町)$/.exec(g),base=m?m[1]:g,num=m?+m[2]:null,unit=m?m[3]:null;
+  const exact=[],loose=[];
+  c.towns.forEach((tw,i)=>{if(ward&&tw.w!==ward)return;const t=nz(tw.ja);if(!t.startsWith(base))return;const rest=t.slice(base.length);
+    if(rest===""){(num==null?exact:loose).push(i);return}
+    const r=/^([\d~～〜・から]+)(丁目|番町)?$/.exec(rest.replace(/(丁目|番町)([~～〜])/g,"$2"));
+    if(!r||num==null)return; if(r[2]&&unit&&r[2]!==unit)return;
+    const nums=new Set();for(const part of r[1].split("・")){const q=part.split(/[~～〜]|から/).map(Number);if(q.length===2&&q[0]&&q[1])for(let k=q[0];k<=q[1];k++)nums.add(k);else if(q[0])nums.add(q[0])}
+    if(nums.has(num))exact.push(i)});
+  return exact.length?exact:loose;
+}
+function locMsg(k,arg,bad){const t=T[lang],v=t[k];$("locMsg").innerHTML=(typeof v==="function"?esc(v(arg)):esc(v||""))+(k==="locSet"?`<button type="button" id="locWrong">${esc(t.locWrong)}</button>`:"");
+  const w=$("locWrong");if(w)w.onclick=()=>openPicker("ward")}
+async function gsi(lat,lon){
+  const u=`https://mreversegeocoder.gsi.go.jp/reverse-geocoder/LonLatToAddress?lat=${lat}&lon=${lon}`;
+  try{const r=await fetch(u);if(r.ok)return (await r.json()).results}catch(e){}
+  const r=await fetch(`/api/events?lat=${lat}&lon=${lon}`);if(!r.ok)throw new Error("geo "+r.status);return (await r.json()).results;   // fallback through our server (not stored)
+}
+async function nearMe(){
+  const btn=$("nearBtn");
+  if(!("geolocation" in navigator))return locMsg("locNoGeo"),openPicker("all");
+  btn.setAttribute("aria-busy","true");locMsg("locFinding");
+  navigator.geolocation.getCurrentPosition(async pos=>{
+    try{
+      const lat=pos.coords.latitude.toFixed(5),lon=pos.coords.longitude.toFixed(5),res=await gsi(lat,lon);
+      if(!res||!res.muniCd){locMsg("locErr");return openPicker("all")}
+      const mc=MUNI[String(res.muniCd).padStart(5,"0")];
+      if(!mc){locMsg("locNotCovered");pickCity="other";cands=null;$("sheet").hidden=false;return renderPicker()}
+      const c=A.cities.find(x=>x.id===mc[0]),hits=matchTowns(c,mc[1],res.lv01Nm||"");
+      if(hits.length===1){sel={c:c.id,t:hits[0]};prevSel=null;store.set("area",JSON.stringify(sel));syncUrl();render();updateRemind();locMsg("locSet",areaLabel(c,c.towns[hits[0]]));return}
+      pickCity=c.id;pickWard=mc[1]||"";
+      if(hits.length>1){cands=hits;candMsg=T[lang].locMany;$("sheet").hidden=false;return renderPicker()}
+      cands=null;query=(res.lv01Nm||"").replace(/[一二三四五六七八九十〇0-9０-９]+(丁目|番町)$/,"");locMsg("locNone",res.lv01Nm||"?");openPicker("search");
+    }catch(e){console.error(e);locMsg("locErr");openPicker("all")}
+    finally{btn.removeAttribute("aria-busy")}
+  },()=>{btn.removeAttribute("aria-busy");locMsg("locDenied");},{enableHighAccuracy:true,timeout:15000,maximumAge:300000});
 }
 
 // ---------- Calendar file (.ics), made on the phone ----------
@@ -847,7 +939,8 @@ function boot(){
     document.querySelectorAll("[data-t]").forEach(e=>{const v=T[lang][e.dataset.t];if(typeof v==="string")e.textContent=v});return;
   }
   initArea();render();
-  $("changeBtn").onclick=openPicker;$("areaChip").onclick=openPicker;
+  $("changeBtn").onclick=()=>openPicker("ward");$("areaChip").onclick=()=>openPicker("ward");
+  $("nearBtn").onclick=nearMe;$("wardBtn").onclick=()=>openPicker("ward");$("allBtn").onclick=()=>openPicker("all");
   $("closePick").onclick=closePicker;$("sheet").onclick=e=>{if(e.target.id==="sheet")closePicker()};
   $("closeIos").onclick=()=>{$("iosSheet").hidden=true};$("iosSheet").onclick=e=>{if(e.target.id==="iosSheet")$("iosSheet").hidden=true};
   document.addEventListener("keydown",e=>{if(e.key==="Escape"){closePicker();$("iosSheet").hidden=true;closeNav()}});
