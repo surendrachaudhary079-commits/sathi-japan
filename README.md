@@ -12,7 +12,13 @@ Server code is small Vercel functions in `api/`.
 
 | File | What it is |
 |---|---|
-| `index.html` | Home page with all tools |
+| `index.html` | Home page: hero, 6 service cards, garbage preview for the saved area, "New to Japan", tools, help lines, trusted info |
+| `guides.html` + `guides-data.js` | Service guides: New to Japan, City office & paperwork, Healthcare & emergency, Banking & payments, Japanese learning, Daily life. **Only official, checked links – edit `guides-data.js` when something changes** |
+| `driving.html` + `driving-data.js` | **Driving licence guide**: path finder, exchange (外免切替), new licence, licence types, country exemption list, prefecture centres (Niigata in full), document checklists (printable), official fees, test practice, after-licence info. **All facts, fees and sources live in `driving-data.js`** |
+| `about.html` | About, Contact (`#contact`) and Help/FAQ (`#help`) |
+| `site.js` | Shared header (logo, menu, EN/नेपाली switch – remembered on the phone), shared footer, icons. **Put your contact email in `CONTACT_EMAIL` at the top** |
+| `theme.css` | Shared colours (green/teal + blue, yellow, pastels), header and footer styles |
+| `robots.txt`, `sitemap.xml` | Help Google find the pages |
 | `garbage.html` | **Garbage calendar** – area, next collection, reminder, 2–6 week schedule, sorting guide, calendar file |
 | `areas.js` | **All garbage data** (Niigata City: 91 official calendars, 1,272 towns; all of Shinjuku). Built from `data-src/` |
 | `deadlines.html`, `visa.html`, `spouse.html`, `checklists.html` (+ `checklists-data.js`), `letter.html`, `rate.html` | Other tools |
@@ -84,6 +90,20 @@ If notifications are blocked, the page shows how to allow them. "Add to calendar
 3. **Vercel** → Project → Settings → Environment Variables: add every name in `.env.example`
    with your real values → **Redeploy**.
 4. Check: open `/api/subscribe?check=1` – every line should say `ok`.
+
+## 4a. Keeping the driving guide correct
+
+- Every source in `driving-data.js` → `SRC` has a `checked` date. The page shows "Review due" next to any source older than 180 days (`REVIEW_DAYS`). This is the only automatic part – the page does **not** fetch or update rules by itself.
+- Review every April, every October, and whenever police announce a change: open each source link, compare, edit the fact, set `checked` to the new date, upload `driving-data.js`.
+- Prefectures: only Niigata (full), Tokyo and Osaka (exchange page) are filled in. To add one, put it in `PREF_INFO` using only facts from that prefecture's police page.
+- Not verified (left out on purpose): Niigata's exchange fee amounts, 取得時講習 fee, learner-permit validity period, which licence classes the country exemption covers, driving-school prices.
+
+## 4b. How the pages fit together
+
+- New pages (`index`, `guides`, `about`) have `<header id="sxHead">` and `<footer id="sxFoot">`; `site.js` fills them and calls `Sathi.onLang(render)` when the language changes.
+- Tool pages keep their own language buttons; `site.js` adds the logo and the shared footer and follows their language.
+- `garbage.html` has its own header/footer (built from `data-src/garbage.tpl.html`).
+- Language is stored in `localStorage` key `lang` (`en` / `ne`) – the same key on every page.
 
 ## 5. Deploy an update (GitHub web)
 

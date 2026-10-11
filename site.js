@@ -19,7 +19,7 @@
       nav: [["./", "Home"], ["./#services", "Services"], ["garbage.html", "Garbage calendar"], ["guides.html#newcomer", "New to Japan"], ["about.html", "About"], ["about.html#help", "Help"]],
       aboutH: "About", about: "Sathi Japan explains life in Japan simply, in English and Nepali. Made in Niigata by a Nepali resident.",
       linksH: "Sathi Japan", links: [["about.html", "About us"], ["about.html#contact", "Contact"], ["privacy.html", "Privacy policy"], ["about.html#help", "Help"]],
-      toolsH: "Tools", tools: [["garbage.html", "Garbage calendar"], ["deadlines.html", "My deadlines"], ["visa.html", "Visa renewal"], ["letter.html", "Letter explainer"], ["rate.html", "Yen → Rupee rate"]],
+      toolsH: "Tools", tools: [["garbage.html", "Garbage calendar"], ["deadlines.html", "My deadlines"], ["visa.html", "Visa renewal"], ["letter.html", "Letter explainer"], ["driving.html", "Driving licence"], ["rate.html", "Yen → Rupee rate"]],
       sosH: "Emergency", sos: "Fire / ambulance <b>119</b> · Police <b>110</b>",
       note: "Sathi Japan is not a government or city service. Always check the official page linked on each tool.",
       year: "© Sathi Japan"
@@ -29,7 +29,7 @@
       nav: [["./", "गृहपृष्ठ"], ["./#services", "सेवाहरू"], ["garbage.html", "फोहोर क्यालेन्डर"], ["guides.html#newcomer", "जापानमा नयाँ"], ["about.html", "हाम्रोबारे"], ["about.html#help", "मद्दत"]],
       aboutH: "हाम्रोबारे", about: "Sathi Japan ले जापानको जीवन नेपाली र अंग्रेजीमा सजिलो गरी बुझाउँछ। निगातामा बस्ने एक नेपालीले बनाएको।",
       linksH: "Sathi Japan", links: [["about.html", "हाम्रोबारे"], ["about.html#contact", "सम्पर्क"], ["privacy.html", "गोपनीयता नीति"], ["about.html#help", "मद्दत"]],
-      toolsH: "सुविधाहरू", tools: [["garbage.html", "फोहोर क्यालेन्डर"], ["deadlines.html", "मेरा अन्तिम मिति"], ["visa.html", "भिसा नवीकरण"], ["letter.html", "चिठी बुझाउने"], ["rate.html", "येन → रुपैयाँ दर"]],
+      toolsH: "सुविधाहरू", tools: [["garbage.html", "फोहोर क्यालेन्डर"], ["deadlines.html", "मेरा अन्तिम मिति"], ["visa.html", "भिसा नवीकरण"], ["letter.html", "चिठी बुझाउने"], ["driving.html", "ड्राइभिङ लाइसेन्स"], ["rate.html", "येन → रुपैयाँ दर"]],
       sosH: "आपतकाल", sos: "आगो / एम्बुलेन्स <b>119</b> · प्रहरी <b>110</b>",
       note: "Sathi Japan सरकार वा सिटीको सेवा होइन। हरेक सुविधामा दिइएको आधिकारिक पेज सधैं जाँच्नुहोस्।",
       year: "© Sathi Japan"
