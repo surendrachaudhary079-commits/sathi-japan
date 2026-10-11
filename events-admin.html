@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Events admin – Sathi Japan</title>
+<link rel="icon" href="icon-192.png">
+<link rel="stylesheet" href="theme.css">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:var(--sx-paper);color:var(--sx-text);font:400 16px/1.5 system-ui,sans-serif}
+.wrap{max-width:980px;margin:0 auto;padding:16px}
+h1{color:var(--sx-green);margin:8px 0}
+h2{margin:26px 0 8px;font-size:20px}
+.card{background:var(--sx-card);border:1px solid var(--sx-line);border-radius:14px;padding:14px;margin-bottom:10px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+input,select,textarea{font:inherit;padding:8px 10px;border:1px solid var(--sx-line);border-radius:10px;background:var(--sx-paper);color:var(--sx-text)}
+button{font:inherit;font-weight:700;border:0;border-radius:10px;padding:8px 12px;cursor:pointer;background:var(--sx-mint);color:var(--sx-green)}
+button.pri{background:var(--sx-green);color:#fff}
+button.bad{background:#FDE2DE;color:#9B1C1C}
+.tag{font-size:12px;font-weight:700;border-radius:6px;padding:1px 7px;background:var(--sx-butter)}
+.tag.verified{background:var(--sx-mint);color:var(--sx-green)}.tag.pending{background:var(--sx-sky);color:var(--sx-blue)}.tag.rejected{background:#FDE2DE;color:#9B1C1C}
+.muted{color:var(--sx-muted);font-size:14px}
+.warn{background:var(--sx-butter);border-radius:12px;padding:10px 12px;margin:8px 0}
+.grid{display:grid;gap:8px;grid-template-columns:1fr 1fr}
+.grid label{font-size:14px;font-weight:600;display:block}
+.grid input,.grid select,.grid textarea{width:100%}
+.full{grid-column:1/-1}
+#msg{font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Events admin</h1>
+  <p class="muted">Only for you. Enter the ADMIN_CODE you saved in Vercel. It is kept only in this browser tab.</p>
+  <div class="card row"><input id="code" type="password" placeholder="Admin code" autocomplete="off" style="flex:1;min-width:200px"><button class="pri" id="login">Open</button><span id="msg" role="status"></span></div>
+  <div id="app" hidden>
+    <div id="warns"></div>
+    <h2>Waiting for review (community submissions)</h2><div id="pending"></div>
+    <h2>Nepali festivals</h2>
+    <p class="muted">“Expected” dates are shown with a warning. Check each date in the official Government of Nepal list, then press “Mark verified”. Official list for 2083: <a href="https://moha.gov.np/page/government-and-public-holidays-in-2083" target="_blank" rel="noopener">MoHA ↗</a></p>
+    <div id="fests"></div>
+    <h2>Approved community events</h2><div id="comm"></div>
+    <h2 id="formH">Add a festival or event</h2>
+    <form class="card grid" id="form">
+      <input type="hidden" name="id">
+      <div><label>Kind<select name="kind"><option value="festival">Nepali festival</option><option value="community">Community event</option></select></label></div>
+      <div><label>Status<select name="status"><option value="verified">Verified (checked against official source)</option><option value="unverified">Expected (not yet checked)</option><option value="pending">Pending (hidden)</option><option value="rejected">Rejected (hidden)</option></select></label></div>
+      <div><label>Name (English)<input name="title_en" required maxlength="120"></label></div>
+      <div><label>Name (Nepali)<input name="title_ne" maxlength="120"></label></div>
+      <div><label>Date (leave empty if not confirmed)<input name="start_date" type="date"></label></div>
+      <div><label>End date<input name="end_date" type="date"></label></div>
+      <div><label>Unique id (festivals, e.g. holi-hills-2028)<input name="slug" maxlength="60"></label></div>
+      <div><label>Start time<input name="start_time" placeholder="14:00"></label></div>
+      <div><label>Prefecture id (community, e.g. niigata)<input name="pref"></label></div>
+      <div><label>City<input name="city"></label></div>
+      <div><label>Venue<input name="venue"></label></div>
+      <div><label>Organiser<input name="organizer"></label></div>
+      <div class="full"><label>Official source link (https://)<input name="source_url"></label></div>
+      <div class="full"><label>Description (English)<textarea name="desc_en" rows="2"></textarea></label></div>
+      <div class="full"><label>Description (Nepali)<textarea name="desc_ne" rows="2"></textarea></label></div>
+      <div class="full row"><button class="pri" type="submit">Save</button><button type="reset" id="clear">Clear</button><span id="fmsg" role="status"></span></div>
+    </form>
+  </div>
+</div>
+<script>
+"use strict";
+const $=id=>document.getElementById(id),esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let CODE="";try{CODE=sessionStorage.getItem("adm")||""}catch(e){}
+let ALL=[];
+async function api(body){const r=await fetch("/api/events",{method:"POST",headers:{"content-type":"application/json","x-admin-code":CODE},body:JSON.stringify(body)});
+  if(r.status===401)throw new Error("Wrong admin code (or ADMIN_CODE not set in Vercel – it must be 12+ characters).");const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(j.error||("Error "+r.status));return j}
+async function refresh(){
+  try{const j=await api({action:"admin-list"});ALL=j.events||[];$("app").hidden=false;$("msg").textContent="";draw(j)}catch(e){$("msg").textContent=e.message;$("app").hidden=true}
+}
+const today=new Date(Date.now()+9*3600e3).toISOString().slice(0,10);
+function row(e,btns){return `<div class="card"><div class="row" style="justify-content:space-between"><b>${esc(e.title_en)} ${e.title_ne?`· ${esc(e.title_ne)}`:""}</b><span class="tag ${e.status}">${esc(e.status)}</span></div>
+  <div class="muted">${esc(e.start_date||"date not confirmed")}${e.end_date?" – "+esc(e.end_date):""}${e.start_time?" "+esc(e.start_time):""} ${e.pref?"· "+esc(e.pref):""} ${e.venue?"· "+esc(e.venue):""} ${e.organizer?"· "+esc(e.organizer):""}</div>
+  ${e.desc_en?`<div>${esc(e.desc_en)}</div>`:""}${e.source_url?`<div><a href="${esc(e.source_url)}" target="_blank" rel="noopener nofollow">${esc(e.source_url)}</a></div>`:""}
+  ${e.contact?`<div class="muted">Contact (private): ${esc(e.contact)}</div>`:""}
+  <div class="row" style="margin-top:8px">${btns}<button data-edit="${e.id}">Edit</button><button class="bad" data-del="${e.id}">Delete</button></div></div>`}
+function draw(j){
+  const pend=ALL.filter(e=>e.status==="pending"),fest=ALL.filter(e=>e.kind==="festival"&&e.status!=="rejected"),comm=ALL.filter(e=>e.kind==="community"&&["verified","unverified"].includes(e.status));
+  $("pending").innerHTML=pend.length?pend.map(e=>row(e,`<button class="pri" data-st="verified" data-id="${e.id}">Approve</button><button data-st="rejected" data-id="${e.id}">Reject</button>`)).join(""):'<p class="muted">Nothing waiting.</p>';
+  $("fests").innerHTML=fest.length?fest.map(e=>row(e,e.status!=="verified"?`<button class="pri" data-st="verified" data-id="${e.id}">Mark verified</button>`:`<button data-st="unverified" data-id="${e.id}">Mark expected</button>`)).join(""):'<p class="muted">No festivals yet.</p>';
+  $("comm").innerHTML=comm.length?comm.map(e=>row(e,`<button data-st="rejected" data-id="${e.id}">Hide</button>`)).join(""):'<p class="muted">None yet.</p>';
+  // Warnings: next year's festivals missing / unverified dates soon
+  const w=[],last=fest.filter(e=>e.start_date).map(e=>e.start_date).sort().at(-1)||"";
+  const soonUnver=fest.filter(e=>e.status==="unverified"&&e.start_date&&e.start_date>=today&&e.start_date<=addDays(today,30));
+  if(!last||last<addDays(today,150))w.push(`Festival dates run out on ${esc(last||"–")}. Add next year's dates when Nepal publishes the new holiday list (usually around March, after the Falgun gazette notice).`);
+  if(soonUnver.length)w.push(`${soonUnver.length} festival date(s) in the next 30 days are still “Expected”. Check them against the official list.`);
+  if(j.holidaysUntil)w.push(`Japanese holidays are loaded automatically until ${esc(j.holidaysUntil)} (Cabinet Office adds the next year every February).`);
+  $("warns").innerHTML=w.map(x=>`<div class="warn">${x}</div>`).join("");
+  document.querySelectorAll("[data-st]").forEach(b=>b.onclick=async()=>{try{await api({action:"admin-status",id:+b.dataset.id,status:b.dataset.st});refresh()}catch(e){alertMsg(e.message)}});
+  document.querySelectorAll("[data-del]").forEach(b=>b.onclick=async()=>{if(!confirm("Delete this event permanently?"))return;try{await api({action:"admin-delete",id:+b.dataset.del});refresh()}catch(e){alertMsg(e.message)}});
+  document.querySelectorAll("[data-edit]").forEach(b=>b.onclick=()=>{const e=ALL.find(x=>x.id===+b.dataset.edit);const f=$("form");for(const el of f.elements)if(el.name&&e[el.name]!=null)el.value=e[el.name];f.elements.id.value=e.id;$("formH").scrollIntoView({behavior:"smooth"})});
+}
+function addDays(d,n){const x=new Date(d+"T00:00:00Z");x.setUTCDate(x.getUTCDate()+n);return x.toISOString().slice(0,10)}
+function alertMsg(m){$("msg").textContent=m;window.scrollTo(0,0)}
+$("login").onclick=()=>{CODE=$("code").value.trim();try{sessionStorage.setItem("adm",CODE)}catch(e){}refresh()};
+$("form").onsubmit=async ev=>{ev.preventDefault();const v=Object.fromEntries(new FormData(ev.target).entries());const id=+v.id||0;delete v.id;
+  for(const k in v)if(v[k]==="")v[k]=null;
+  try{await api({action:"admin-save",id,event:v});$("fmsg").textContent="Saved.";ev.target.reset();ev.target.elements.id.value="";refresh()}catch(e){$("fmsg").textContent=e.message}};
+if(CODE){$("code").value=CODE;refresh()}
+</script>
+</body>
+</html>

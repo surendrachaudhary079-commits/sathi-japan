@@ -824,7 +824,7 @@ async function turnOff(){
   try{
     const reg=await navigator.serviceWorker.ready,sub=await reg.pushManager.getSubscription();
     // Keep the phone's push address if "My deadlines" or rate alerts still use it
-    if(sub){await fetch("/api/unsubscribe",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({endpoint:sub.endpoint})});if(store.get("dl_remind")!=="1"&&store.get("fx_on")!=="1")await sub.unsubscribe();}
+    if(sub){await fetch("/api/unsubscribe",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({endpoint:sub.endpoint})});if(store.get("dl_remind")!=="1"&&store.get("fx_on")!=="1"&&store.get("ev_on")!=="1")await sub.unsubscribe();}
   }catch(e){console.error(e)}
   store.set("remind","0");renderReminder();pstatus("pOff");
 }

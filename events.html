@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Upcoming Events in Japan – Nepali festivals, community events & holidays | Sathi Japan</title>
+<meta name="description" content="Dashain, Tihar, Holi and other Nepali festivals, Nepali community events across Japan, and Japan's national holidays – with countdowns, reminders and calendar files. English and Nepali.">
+<link rel="canonical" href="https://sathi-japan.vercel.app/events.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sathi Japan">
+<meta property="og:title" content="Upcoming Events in Japan – Sathi Japan">
+<meta property="og:description" content="Nepali festivals, community events and Japanese holidays in one place, with reminders.">
+<meta property="og:url" content="https://sathi-japan.vercel.app/events.html">
+<meta property="og:image" content="https://sathi-japan.vercel.app/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0F6B57">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="theme.css">
+<style>
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:80px}
+body{margin:0;background:var(--sx-paper);color:var(--sx-text);font:400 17px/1.6 var(--sx-f)}
+a{color:var(--sx-green)}
+:focus-visible{outline:3px solid var(--sx-blue);outline-offset:3px;border-radius:8px}
+[lang=ja]{font-family:var(--sx-jp)}
+[hidden]{display:none!important}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+h1{font-size:clamp(30px,6.5vw,46px);line-height:1.1;margin:24px 0 6px;color:var(--sx-green);font-weight:800;letter-spacing:-.02em}
+.intro{color:var(--sx-muted);margin:0 0 16px;max-width:62ch}
+h2.h{font-size:clamp(22px,4.4vw,28px);margin:34px 0 10px;font-weight:800}
+.card{background:var(--sx-card);border:1px solid var(--sx-line);border-radius:20px;box-shadow:var(--sx-shadow);padding:18px}
+/* Featured */
+.feat{border-radius:26px;overflow:hidden;background:linear-gradient(135deg,#B4233A 0%,#D9662B 55%,#F2B531 100%);color:#fff;padding:22px 20px;display:grid;gap:14px;position:relative}
+@media (min-width:860px){.feat{grid-template-columns:1.4fr 1fr;padding:32px;align-items:center}}
+.feat .k{font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;opacity:.92}
+.feat h2{margin:4px 0;font-size:clamp(26px,6vw,40px);line-height:1.1;font-weight:800}
+.feat p{margin:6px 0 0;opacity:.95;max-width:48ch}
+.cd{background:rgba(255,255,255,.16);border-radius:20px;padding:16px;text-align:center}
+.cd b{display:block;font-size:clamp(44px,12vw,68px);line-height:1;font-weight:800;font-variant-numeric:tabular-nums}
+.cd span{font-weight:600}
+.feat .acts .btn.pri{background:#fff;color:#8C1C2E}
+.feat .acts .btn.out{background:transparent;color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.6)}
+.flag{display:inline-block;font-size:12.5px;font-weight:700;border-radius:999px;padding:2px 10px;background:rgba(255,255,255,.22)}
+/* Filters */
+.filters{display:grid;gap:10px;margin-top:20px}
+@media (min-width:860px){.filters{display:flex;flex-wrap:wrap;gap:10px 18px}}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg{align-items:center}
+.seg button{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--sx-line);background:var(--sx-card);border-radius:999px;padding:7px 13px;font:600 15px var(--sx-f);cursor:pointer;color:var(--sx-text)}
+.seg .sx-ic{width:16px;height:16px}
+.filters{align-items:start}
+.seg button[aria-pressed=true]{background:var(--sx-green);border-color:var(--sx-green);color:#fff}
+@media (prefers-color-scheme:dark){.seg button[aria-pressed=true]{color:#0B1715}}
+select.in,input.in,textarea.in{width:100%;font:inherit;font-size:16px;padding:10px 12px;border:1px solid var(--sx-line);border-radius:12px;background:var(--sx-paper);color:var(--sx-text)}
+.scope{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.scope select{max-width:260px}
+.small{font-size:14px;color:var(--sx-muted)}
+/* List */
+.month{margin:24px 0 8px;font-size:15px;font-weight:800;color:var(--sx-teal);text-transform:uppercase;letter-spacing:.06em}
+.ev{display:grid;grid-template-columns:62px 1fr;gap:14px;padding:14px;border:1px solid var(--sx-line);border-radius:18px;background:var(--sx-card);margin-bottom:10px;box-shadow:var(--sx-shadow)}
+.date{text-align:center;border-radius:14px;overflow:hidden;border:1px solid var(--sx-line);align-self:start;line-height:1.1}
+.date .m{display:block;font-size:12px;font-weight:700;color:#fff;padding:3px 0}
+.date .d{display:block;font-size:24px;font-weight:800;padding:5px 0 1px}
+.date .w{display:block;font-size:12px;color:var(--sx-muted);padding-bottom:5px}
+.c-festival .date .m{background:#C2453A}.c-community .date .m{background:#0E7C86}.c-holiday .date .m{background:#2D6FA3}
+.ev h3{margin:0;font-size:18px;line-height:1.3}
+.ev h3 small{font-weight:500;color:var(--sx-muted);font-size:14px}
+.ev p{margin:4px 0 0;font-size:15.5px;color:var(--sx-muted)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:4px}
+.tag{font-size:12.5px;font-weight:700;border-radius:6px;padding:1px 8px}
+.t-festival{background:var(--sx-peach);color:#A3322A}.t-community{background:var(--sx-aqua);color:var(--sx-teal)}.t-holiday{background:var(--sx-sky);color:var(--sx-blue)}
+.t-ok{background:var(--sx-mint);color:var(--sx-green)}.t-un{background:var(--sx-butter);color:#7A4B00}.t-cd{background:var(--sx-paper);color:var(--sx-text);border:1px solid var(--sx-line)}
+@media (prefers-color-scheme:dark){.t-festival{color:#FFB4A8}.t-un{color:#FFE08A}}
+.meta{font-size:14.5px;margin-top:6px;display:flex;flex-wrap:wrap;gap:4px 14px;color:var(--sx-text)}
+.acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:42px;padding:0 14px;border-radius:12px;font-weight:700;font-size:15px;text-decoration:none;border:0;cursor:pointer;font-family:inherit}
+.btn .sx-ic{width:18px;height:18px}
+.btn.pri{background:var(--sx-green);color:#fff}
+@media (prefers-color-scheme:dark){.btn.pri{color:#0B1715}}
+.btn.out{background:var(--sx-card);color:var(--sx-green);box-shadow:inset 0 0 0 2px var(--sx-line)}
+.btn.on{background:var(--sx-mint);color:var(--sx-green);box-shadow:inset 0 0 0 2px var(--sx-green-2)}
+.empty{border:1px dashed var(--sx-line);border-radius:18px;padding:18px;color:var(--sx-muted);background:var(--sx-card)}
+.skel{height:86px;border-radius:18px;margin-bottom:10px;background:linear-gradient(90deg,var(--sx-mint) 0,var(--sx-card) 50%,var(--sx-mint) 100%);background-size:200% 100%;animation:sk 1.2s infinite linear}
+@keyframes sk{to{background-position:-200% 0}}
+@media (prefers-reduced-motion:reduce){.skel{animation:none}}
+.err{background:var(--sx-peach);border-radius:14px;padding:12px 14px}
+.hols{display:grid;gap:8px;grid-template-columns:1fr}
+@media (min-width:700px){.hols{grid-template-columns:1fr 1fr}}
+.hol{display:flex;gap:12px;align-items:center;border:1px solid var(--sx-line);border-radius:14px;padding:10px 12px;background:var(--sx-card)}
+.hol .dd{min-width:92px;font-weight:800;color:var(--sx-blue)}
+.hol small{display:block;color:var(--sx-muted)}
+/* Form */
+.form{display:grid;gap:12px}
+@media (min-width:700px){.form .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}}
+.form label{display:block;font-weight:600;font-size:15px;margin-bottom:4px}
+.form .hint{font-size:13.5px;color:var(--sx-muted);font-weight:400}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.status{margin-top:8px;font-weight:600}
+.status.bad{color:#B4233A}
+/* Sheet */
+.sheet{position:fixed;inset:0;background:rgba(6,25,18,.5);display:flex;align-items:flex-end;justify-content:center;z-index:60}
+.panel{background:var(--sx-card);width:100%;max-width:560px;max-height:92vh;overflow:auto;border-radius:22px 22px 0 0;padding:20px 18px calc(22px + env(safe-area-inset-bottom,0px))}
+@media (min-width:700px){.sheet{align-items:center}.panel{border-radius:22px}}
+.panel h2{margin:0 0 4px;font-size:22px}
+.checks{display:grid;gap:8px;margin:12px 0}
+.checks label{display:flex;gap:10px;align-items:center;border:1px solid var(--sx-line);border-radius:12px;padding:10px 12px;cursor:pointer}
+.checks input{width:20px;height:20px;accent-color:var(--sx-green)}
+details.help{margin-top:10px;font-size:15px}
+details.help summary{cursor:pointer;font-weight:700;color:var(--sx-green)}
+details.help ol{padding-left:20px;margin:8px 0 0}
+.note{font-size:14px;color:var(--sx-muted);margin-top:24px}
+</style>
+</head>
+<body>
+<a class="sx-sr" href="#main">Skip to content</a>
+<header id="sxHead"></header>
+<main class="wrap" id="main">
+  <h1 data-t="h1"></h1>
+  <p class="intro" data-t="intro"></p>
+
+  <div id="feat" aria-live="polite"><div class="skel" style="height:200px"></div></div>
+
+  <div class="filters" role="group" aria-label="Filters">
+    <div class="seg" id="catSeg"></div>
+    <div class="seg" id="rangeSeg"></div>
+    <div class="scope"><div class="seg" id="scopeSeg"></div><label class="sx-sr" for="pref" data-t="prefL"></label><select class="in" id="pref"></select></div>
+  </div>
+  <p class="small" id="scopeNote" role="status"></p>
+
+  <section aria-labelledby="listH"><h2 class="h" id="listH" data-t="listH"></h2><div id="list"><div class="skel"></div><div class="skel"></div><div class="skel"></div></div></section>
+
+  <section aria-labelledby="holH"><h2 class="h" id="holH" data-t="holH"></h2><p class="intro" data-t="holP" style="margin-top:-4px"></p><div class="hols" id="hols"></div></section>
+
+  <section aria-labelledby="subH">
+    <h2 class="h" id="subH" data-t="subH"></h2>
+    <p class="intro" data-t="subP" style="margin-top:-4px"></p>
+    <form class="card form" id="subForm" novalidate>
+      <div><label for="f_title" data-t="fTitle"></label><input class="in" id="f_title" name="title" maxlength="90" required></div>
+      <div class="two"><div><label for="f_date" data-t="fDate"></label><input class="in" id="f_date" name="date" type="date" required></div><div><label for="f_end"><span data-t="fEnd"></span> <span class="hint" data-t="opt"></span></label><input class="in" id="f_end" name="end" type="date"></div></div>
+      <div class="two"><div><label for="f_time"><span data-t="fTime"></span> <span class="hint" data-t="opt"></span></label><input class="in" id="f_time" name="time" type="time"></div><div><label for="f_pref" data-t="fPref"></label><select class="in" id="f_pref" name="pref" required></select></div></div>
+      <div class="two"><div><label for="f_city"><span data-t="fCity"></span> <span class="hint" data-t="opt"></span></label><input class="in" id="f_city" name="city" maxlength="60"></div><div><label for="f_venue" data-t="fVenue"></label><input class="in" id="f_venue" name="venue" maxlength="120" required></div></div>
+      <div class="two"><div><label for="f_org"><span data-t="fOrg"></span> <span class="hint" data-t="opt"></span></label><input class="in" id="f_org" name="organizer" maxlength="90"></div><div><label for="f_url"><span data-t="fUrl"></span> <span class="hint" data-t="opt"></span></label><input class="in" id="f_url" name="url" type="url" maxlength="300" placeholder="https://"></div></div>
+      <div><label for="f_desc"><span data-t="fDesc"></span> <span class="hint" data-t="opt"></span></label><textarea class="in" id="f_desc" name="desc" rows="3" maxlength="600"></textarea></div>
+      <div><label for="f_contact"><span data-t="fContact"></span> <span class="hint" data-t="fContactHint"></span></label><input class="in" id="f_contact" name="contact" maxlength="120"></div>
+      <div class="hp" aria-hidden="true"><label for="f_web">Website</label><input id="f_web" name="website" tabindex="-1" autocomplete="off"></div>
+      <label style="display:flex;gap:10px;align-items:flex-start;font-weight:400"><input type="checkbox" id="f_ok" required style="width:20px;height:20px;margin-top:3px;accent-color:var(--sx-green)"><span data-t="fOk"></span></label>
+      <div><button class="btn pri" type="submit" data-t="fSend"></button><p class="status" id="subStatus" role="status"></p></div>
+    </form>
+  </section>
+  <p class="note" id="srcNote"></p>
+</main>
+<footer id="sxFoot"></footer>
+
+<div class="sheet" id="remSheet" hidden role="dialog" aria-modal="true" aria-labelledby="remH">
+  <div class="panel">
+    <h2 id="remH"></h2>
+    <p class="small" id="remWhen"></p>
+    <fieldset style="border:0;padding:0;margin:0"><legend style="font-weight:700" data-t="remWhenL"></legend><div class="checks" id="remChecks"></div></fieldset>
+    <label for="remHour" style="font-weight:700;display:block;margin-bottom:4px" data-t="remHourL"></label><select class="in" id="remHour" style="max-width:240px"></select>
+    <div class="acts"><button class="btn pri" id="remSave" type="button"></button><button class="btn out" id="remDel" type="button" hidden></button><button class="btn out" id="remClose" type="button" data-t="close"></button></div>
+    <p class="status" id="remStatus" role="status"></p>
+    <details class="help" id="remHelp"><summary data-t="helpH"></summary><ol id="helpSteps"></ol></details>
+  </div>
+</div>
+
+<script src="site.js"></script>
+<script src="prefs.js"></script>
+<script>
+"use strict";
+const $=id=>document.getElementById(id),esc=Sathi.esc,ic=Sathi.icon,P=window.SATHI_PREFS;
+const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+let lang="en",DATA=null,cat="all",range=90,scope=store.get("ev_scope")||"all",pref=store.get("ev_pref")||"",nearPref=null,remKeys={};
+try{remKeys=JSON.parse(store.get("ev_keys")||"{}")}catch(e){}
+
+const T={
+en:{h1:"Upcoming Events in Japan",intro:"Nepali festivals, Nepali community events and Japan's national holidays in one place – with countdowns, reminders and calendar files.",
+ cats:{all:"All",festival:"Nepali festivals",community:"Community events",holiday:"Japanese holidays"},ranges:[[30,"30 days"],[90,"3 months"],[365,"12 months"]],
+ scopes:{near:"Near me",mine:"My prefecture",all:"All Japan"},prefL:"Prefecture",prefPh:"Choose prefecture…",
+ nearAsk:"We use your location once to guess your prefecture. It stays on your phone.",nearNo:"Location is not available. Please choose your prefecture.",nearIs:p=>`Near you: ${p} (approximate).`,
+ scopeNote:"Location filters apply to community events. Festivals and holidays are shown for everyone.",
+ listH:"What's coming up",holH:"Japanese public holidays",holP:"Official dates from the Cabinet Office (内閣府). Updated automatically when the government publishes the next year.",
+ festival:"Nepali festival",community:"Community event",holiday:"Japanese public holiday",
+ verified:"Verified",unverified:"Expected – awaiting official check",tbc:"Date not yet confirmed",
+ today:"Today!",tomorrow:"Tomorrow",inDays:n=>`in ${n} days`,ongoing:"Happening now",
+ startsIn:(name,n)=>n===0?`${name} is today`:n===1?`${name} is tomorrow`:`${name} in ${n} days`,
+ featK:"Next Nepali festival",featExp:"Expected date – the official Government of Nepal list has not been checked yet.",days:"days",day:"day",
+ remind:"Set reminder",remindOn:"Reminder on",cal:"Add to calendar",gcal:"Google Calendar",source:"Source",organizer:"By",
+ nepal:"Celebrated in Nepal and by Nepali communities everywhere",
+ empty:"No events match these filters yet.",emptyNear:p=>`No verified community events in ${p} yet. Showing events from all of Japan. Know one? Submit it below.`,
+ emptyComm:"No verified community events yet. Know one? Submit it below.",
+ loadErr:"Couldn't load events. Check your internet connection and try again.",retry:"Try again",holErr:"Japanese holidays could not be loaded right now.",evErr:"Festivals and community events could not be loaded right now.",
+ subH:"Submit a community event",subP:"Organising a Nepali event in Japan? Send it here. We check every event before it appears – nothing is public until it is approved.",
+ fTitle:"Event name",fDate:"Date",fEnd:"End date",fTime:"Start time",opt:"(optional)",fPref:"Prefecture",fCity:"City",fVenue:"Venue / place",fOrg:"Organiser",fUrl:"Official link (event page or post)",fDesc:"Short description",
+ fContact:"Your contact (email or phone)",fContactHint:"– only for our check, never shown",fOk:"I confirm this is a real event and the details are correct. It will be reviewed before it is published.",fSend:"Send for review",
+ sOk:"Thank you! We will check the event before it appears.",sBad:"Please fill in the name, date (today or later), prefecture and venue, and tick the box. Links must start with https://",sLimit:"You have sent 3 events today. Please try again tomorrow.",sErr:"Couldn't send. Please try again later.",
+ remH:n=>`Reminder: ${n}`,remWhenL:"Remind me",remOpts:[[7,"7 days before"],[3,"3 days before"],[1,"1 day before"],[0,"On the day"]],remHourL:"Time (Japan time)",save:"Save reminder",del:"Turn off",close:"Close",
+ rOk:"Reminder saved. A notification will come at the chosen time – even when this page is closed.",rDel:"Reminder turned off.",rPick:"Choose at least one option.",rBlocked:"Notifications are blocked. See “How to allow notifications” below.",
+ rNo:"This browser can't receive reminders. Use “Add to calendar” instead.",rErr:"Couldn't save the reminder. Please try again.",rServer:"Reminders are not set up on the server yet. Use “Add to calendar”.",rIos:"On iPhone, first add Sathi Japan to your Home Screen (Share □↑ → Add to Home Screen), open it from there, then set the reminder.",rPast:"This date has passed.",rTbc:"You can set a reminder once the date is confirmed.",
+ helpH:"How to allow notifications",help:["Android (Chrome): ⋮ → Settings → Site settings → Notifications → allow this site.","iPhone: add Sathi Japan to your Home Screen, open it from there, then allow notifications. If blocked: Settings → Notifications → Sathi.","Computer: click the icon left of the web address → Notifications → Allow."],
+ hh:h=>h<12?`${h}:00 AM`:`${h-12}:00 PM`,
+ src:'Japanese holidays: <a href="https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html" target="_blank" rel="noopener">Cabinet Office ↗</a>. Nepali festivals: Government of Nepal public holiday list (<a href="https://moha.gov.np/page/government-and-public-holidays-in-2083" target="_blank" rel="noopener">Ministry of Home Affairs ↗</a>). Dates marked “Expected” are from calendars that summarise this list and have not been checked against the official notice yet.',
+ months:["January","February","March","April","May","June","July","August","September","October","November","December"],wd:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],mshort:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]},
+ne:{h1:"जापानमा आउँदा कार्यक्रमहरू",intro:"नेपाली चाडपर्व, नेपाली समुदायका कार्यक्रम र जापानका सार्वजनिक बिदा एकै ठाउँमा – काउन्टडाउन, रिमाइन्डर र क्यालेन्डर फाइलसहित।",
+ cats:{all:"सबै",festival:"नेपाली चाडपर्व",community:"सामुदायिक कार्यक्रम",holiday:"जापानी बिदा"},ranges:[[30,"३० दिन"],[90,"३ महिना"],[365,"१२ महिना"]],
+ scopes:{near:"मेरो नजिक",mine:"मेरो प्रिफेक्चर",all:"सम्पूर्ण जापान"},prefL:"प्रिफेक्चर",prefPh:"प्रिफेक्चर छान्नुहोस्…",
+ nearAsk:"तपाईंको प्रिफेक्चर अनुमान गर्न एकपटक लोकेसन प्रयोग गर्छौं। यो फोनमै रहन्छ।",nearNo:"लोकेसन उपलब्ध छैन। प्रिफेक्चर छान्नुहोस्।",nearIs:p=>`तपाईंको नजिक: ${p} (अनुमानित)।`,
+ scopeNote:"स्थान फिल्टर सामुदायिक कार्यक्रममा मात्र लागू हुन्छ। चाडपर्व र बिदा सबैलाई देखिन्छ।",
+ listH:"आउँदा कार्यक्रम",holH:"जापानका सार्वजनिक बिदा",holP:"मन्त्रिपरिषद् कार्यालय (内閣府) का आधिकारिक मिति। सरकारले अर्को वर्षको प्रकाशित गरेपछि आफैं अपडेट हुन्छ।",
+ festival:"नेपाली चाडपर्व",community:"सामुदायिक कार्यक्रम",holiday:"जापानी सार्वजनिक बिदा",
+ verified:"पुष्टि भएको",unverified:"अपेक्षित – आधिकारिक जाँच बाँकी",tbc:"मिति अझै पक्का भएको छैन",
+ today:"आज!",tomorrow:"भोलि",inDays:n=>`${n} दिनमा`,ongoing:"अहिले चलिरहेको",
+ startsIn:(name,n)=>n===0?`${name} आज`:n===1?`${name} भोलि`:`${name} ${n} दिनमा`,
+ featK:"अर्को नेपाली चाड",featExp:"अपेक्षित मिति – नेपाल सरकारको आधिकारिक सूचीसँग अझै जाँचिएको छैन।",days:"दिन",day:"दिन",
+ remind:"रिमाइन्डर राख्नुहोस्",remindOn:"रिमाइन्डर सक्रिय",cal:"क्यालेन्डरमा थप्नुहोस्",gcal:"Google Calendar",source:"स्रोत",organizer:"आयोजक",
+ nepal:"नेपाल र विश्वभरका नेपाली समुदायमा मनाइन्छ",
+ empty:"यी फिल्टरमा अहिले कुनै कार्यक्रम छैन।",emptyNear:p=>`${p} मा अझै पुष्टि भएको सामुदायिक कार्यक्रम छैन। सम्पूर्ण जापानका कार्यक्रम देखाइँदैछ। थाहा छ? तल पठाउनुहोस्।`,
+ emptyComm:"अझै पुष्टि भएको सामुदायिक कार्यक्रम छैन। थाहा छ? तल पठाउनुहोस्।",
+ loadErr:"कार्यक्रम लोड भएन। इन्टरनेट जाँचेर फेरि प्रयास गर्नुहोस्।",retry:"फेरि प्रयास",holErr:"जापानी बिदा अहिले लोड हुन सकेन।",evErr:"चाडपर्व र कार्यक्रम अहिले लोड हुन सकेन।",
+ subH:"सामुदायिक कार्यक्रम पठाउनुहोस्",subP:"जापानमा नेपाली कार्यक्रम आयोजना गर्दै हुनुहुन्छ? यहाँ पठाउनुहोस्। हरेक कार्यक्रम देखाउनुअघि जाँच्छौं – स्वीकृत नभएसम्म सार्वजनिक हुँदैन।",
+ fTitle:"कार्यक्रमको नाम",fDate:"मिति",fEnd:"अन्तिम मिति",fTime:"सुरु हुने समय",opt:"(ऐच्छिक)",fPref:"प्रिफेक्चर",fCity:"सहर",fVenue:"स्थान",fOrg:"आयोजक",fUrl:"आधिकारिक लिंक (कार्यक्रम पेज वा पोस्ट)",fDesc:"छोटो विवरण",
+ fContact:"तपाईंको सम्पर्क (इमेल वा फोन)",fContactHint:"– जाँचका लागि मात्र, कहिल्यै देखाइँदैन",fOk:"यो वास्तविक कार्यक्रम हो र विवरण सही छ भनी पुष्टि गर्छु। प्रकाशनअघि जाँचिनेछ।",fSend:"जाँचका लागि पठाउनुहोस्",
+ sOk:"धन्यवाद! देखाउनुअघि हामी कार्यक्रम जाँच्नेछौं।",sBad:"नाम, मिति (आज वा पछि), प्रिफेक्चर र स्थान भर्नुहोस्, र बाकसमा चिन्ह लगाउनुहोस्। लिंक https:// बाट सुरु हुनुपर्छ।",sLimit:"आज ३ वटा कार्यक्रम पठाइसक्नुभयो। भोलि फेरि प्रयास गर्नुहोस्।",sErr:"पठाउन सकिएन। पछि फेरि प्रयास गर्नुहोस्।",
+ remH:n=>`रिमाइन्डर: ${n}`,remWhenL:"कहिले सम्झाउने",remOpts:[[7,"७ दिन अघि"],[3,"३ दिन अघि"],[1,"१ दिन अघि"],[0,"त्यही दिन"]],remHourL:"समय (जापान समय)",save:"रिमाइन्डर सेभ गर्नुहोस्",del:"बन्द गर्नुहोस्",close:"बन्द",
+ rOk:"रिमाइन्डर सेभ भयो। यो पेज बन्द भए पनि छानेको समयमा सूचना आउँछ।",rDel:"रिमाइन्डर बन्द भयो।",rPick:"कम्तीमा एउटा छान्नुहोस्।",rBlocked:"सूचना ब्लक छ। तल “सूचना कसरी खोल्ने” हेर्नुहोस्।",
+ rNo:"यो ब्राउजरले रिमाइन्डर पाउन सक्दैन। “क्यालेन्डरमा थप्नुहोस्” प्रयोग गर्नुहोस्।",rErr:"रिमाइन्डर सेभ भएन। फेरि प्रयास गर्नुहोस्।",rServer:"सर्भरमा रिमाइन्डर अझै तयार छैन। “क्यालेन्डरमा थप्नुहोस्” प्रयोग गर्नुहोस्।",rIos:"iPhone मा पहिले Sathi Japan लाई Home Screen मा थप्नुहोस् (Share □↑ → Add to Home Screen), त्यहाँबाट खोलेर रिमाइन्डर राख्नुहोस्।",rPast:"यो मिति बितिसक्यो।",rTbc:"मिति पक्का भएपछि रिमाइन्डर राख्न सकिन्छ।",
+ helpH:"सूचना (notification) कसरी खोल्ने",help:["Android (Chrome): ⋮ → Settings → Site settings → Notifications → यो साइटलाई Allow।","iPhone: Sathi Japan लाई Home Screen मा थपेर त्यहाँबाट खोल्नुहोस्, अनि सूचना Allow गर्नुहोस्। ब्लक भए: Settings → Notifications → Sathi।","कम्प्युटर: वेब ठेगानाको बायाँको चिन्ह → Notifications → Allow।"],
+ hh:h=>h<12?`बिहान ${h}:00`:`बेलुका ${h-12}:00`,
+ src:'जापानी बिदा: <a href="https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html" target="_blank" rel="noopener">मन्त्रिपरिषद् कार्यालय ↗</a>। नेपाली चाडपर्व: नेपाल सरकारको सार्वजनिक बिदा सूची (<a href="https://moha.gov.np/page/government-and-public-holidays-in-2083" target="_blank" rel="noopener">गृह मन्त्रालय ↗</a>)। “अपेक्षित” मिति यो सूचीको सारांश दिने पात्रोबाट लिइएका हुन्, आधिकारिक सूचनासँग अझै जाँचिएको छैन।',
+ months:["जनवरी","फेब्रुअरी","मार्च","अप्रिल","मे","जुन","जुलाई","अगस्ट","सेप्टेम्बर","अक्टोबर","नोभेम्बर","डिसेम्बर"],wd:["आइत","सोम","मंगल","बुध","बिही","शुक्र","शनि"],mshort:["जन","फेब","मार्च","अप्रि","मे","जुन","जुला","अग","सेप","अक्टो","नोभे","डिसे"]}
+};
+const todayJ=()=>new Date(Date.now()+9*3600e3).toISOString().slice(0,10);
+const diff=d=>Math.round((Date.parse(d+"T00:00:00Z")-Date.parse(todayJ()+"T00:00:00Z"))/864e5);
+const addDays=(d,n)=>{const x=new Date(d+"T00:00:00Z");x.setUTCDate(x.getUTCDate()+n);return x.toISOString().slice(0,10)};
+const prefName=id=>{const p=P.find(x=>x[0]===id);return p?(lang==="ne"?`${p[2]} (${p[1]})`:p[2]):""};
+const title=e=>e.cat==="holiday"?(lang==="ne"?e.ne:e.en):((lang==="ne"&&e.title_ne)||e.title_en);
+const sub=e=>e.cat==="holiday"?e.ja:(lang==="ne"?e.title_en:(e.title_ne||""));
+const desc=e=>e.cat==="holiday"?"":((lang==="ne"&&e.desc_ne)||e.desc_en||"");
+
+// ---------- Data ----------
+async function load(){
+  $("list").innerHTML='<div class="skel"></div><div class="skel"></div><div class="skel"></div>';
+  try{const r=await fetch("/api/events");if(!r.ok)throw new Error(r.status);DATA=await r.json();
+    DATA.items=[...(DATA.events||[]).map(e=>({...e,cat:e.kind,key:"e:"+e.id})),...(DATA.holidays||[]).map(h=>({...h,cat:"holiday",start_date:h.d,key:"h:"+h.d,status:"verified"}))];
+  }catch(e){console.error(e);DATA={failed:true}}
+  render();
+}
+function current(){ // items in range, filtered
+  if(!DATA||DATA.failed)return [];
+  const end=addDays(todayJ(),range),mp=scope==="near"?nearPref:scope==="mine"?pref:"";
+  return DATA.items.filter(e=>(cat==="all"||e.cat===cat)&&(!e.start_date||e.start_date<=end)&&(e.cat!=="community"||!mp||e.pref===mp))
+    .sort((a,b)=>(a.start_date||"9999")<(b.start_date||"9999")?-1:1);
+}
+
+// ---------- Render ----------
+function render(){
+  const t=T[lang];
+  document.querySelectorAll("[data-t]").forEach(el=>{const v=t[el.dataset.t];if(typeof v==="string")el.textContent=v});
+  $("catSeg").innerHTML=Object.entries(t.cats).map(([k,v])=>`<button type="button" data-k="${k}" aria-pressed="${k===cat}">${esc(v)}</button>`).join("");
+  $("rangeSeg").innerHTML=t.ranges.map(([n,v])=>`<button type="button" data-n="${n}" aria-pressed="${n===range}">${esc(v)}</button>`).join("");
+  $("scopeSeg").innerHTML=Object.entries(t.scopes).map(([k,v])=>`<button type="button" data-k="${k}" aria-pressed="${k===scope}">${k==="near"?ic("pin"):""}${esc(v)}</button>`).join("");
+  $("pref").innerHTML=`<option value="">${esc(t.prefPh)}</option>`+P.map(p=>`<option value="${p[0]}"${p[0]===pref?" selected":""}>${esc(lang==="ne"?`${p[2]} (${p[1]})`:`${p[2]} – ${p[1]}`)}</option>`).join("");
+  $("pref").hidden=scope!=="mine";
+  $("f_pref").innerHTML=`<option value="">${esc(t.prefPh)}</option>`+P.map(p=>`<option value="${p[0]}">${esc(p[2])} – ${esc(p[1])}</option>`).join("");
+  $("scopeNote").textContent=(scope==="near"&&nearPref?t.nearIs(prefName(nearPref))+" ":"")+t.scopeNote;
+  $("catSeg").querySelectorAll("button").forEach(b=>b.onclick=()=>{cat=b.dataset.k;render()});
+  $("rangeSeg").querySelectorAll("button").forEach(b=>b.onclick=()=>{range=+b.dataset.n;render()});
+  $("scopeSeg").querySelectorAll("button").forEach(b=>b.onclick=()=>setScope(b.dataset.k));
+  $("srcNote").innerHTML=t.src;
+  $("helpSteps").innerHTML=t.help.map(x=>`<li>${esc(x)}</li>`).join("");
+  if(!DATA)return;
+  if(DATA.failed){$("feat").innerHTML="";$("list").innerHTML=`<div class="err" role="alert">${esc(t.loadErr)} <button class="btn out" type="button" id="retry">${esc(t.retry)}</button></div>`;$("retry").onclick=load;$("hols").innerHTML="";return}
+  renderFeatured();renderList();renderHolidays();
+}
+function badge(e){const t=T[lang];return `<span class="tag t-${e.cat}">${esc(t[e.cat])}</span>`+(e.cat==="holiday"?"":e.start_date?`<span class="tag ${e.status==="verified"?"t-ok":"t-un"}">${esc(e.status==="verified"?t.verified:t.unverified)}</span>`:`<span class="tag t-un">${esc(t.tbc)}</span>`)}
+function rel(e){const t=T[lang];if(!e.start_date)return "";const n=diff(e.start_date),end=e.end_date||e.start_date;
+  if(n<0&&diff(end)>=0)return t.ongoing;return n===0?t.today:n===1?t.tomorrow:t.inDays(n)}
+function card(e){
+  const t=T[lang];
+  const d=e.start_date?new Date(e.start_date+"T00:00:00Z"):null;
+  const dateBox=d?`<div class="date" aria-hidden="true"><span class="m">${esc(t.mshort[d.getUTCMonth()])}</span><span class="d">${d.getUTCDate()}</span><span class="w">${esc(t.wd[d.getUTCDay()])}</span></div>`:`<div class="date" aria-hidden="true"><span class="m">?</span><span class="d">–</span><span class="w"></span></div>`;
+  const when=d?`${esc(t.wd[d.getUTCDay()])}, ${lang==="ne"?`${t.months[d.getUTCMonth()]} ${d.getUTCDate()}, ${d.getUTCFullYear()}`:`${d.getUTCDate()} ${t.months[d.getUTCMonth()]} ${d.getUTCFullYear()}`}${e.end_date&&e.end_date!==e.start_date?" – "+esc(e.end_date):""}${e.start_time?" · "+esc(e.start_time):""}`:esc(t.tbc);
+  const where=e.cat==="community"?[e.venue,e.city,prefName(e.pref)].filter(Boolean).join(", "):e.cat==="festival"?t.nepal:"";
+  const on=!!remKeys[e.key];
+  return `<article class="ev c-${e.cat}" aria-label="${esc(title(e))}">${dateBox}<div>
+    <div class="tags">${badge(e)}${e.start_date&&rel(e)?`<span class="tag t-cd">${esc(rel(e))}</span>`:""}</div>
+    <h3>${esc(title(e))}${sub(e)?` <small${e.cat==="holiday"?' lang="ja"':""}>${esc(sub(e))}</small>`:""}</h3>
+    <div class="meta"><span>📅 ${when}</span>${where?`<span>📍 ${esc(where)}</span>`:""}${e.organizer?`<span>👥 ${esc(t.organizer)}: ${esc(e.organizer)}</span>`:""}</div>
+    ${desc(e)?`<p>${esc(desc(e))}</p>`:""}
+    <div class="acts">${e.start_date&&diff(e.start_date)>=0?`<button class="btn ${on?"on":"pri"}" type="button" data-rem="${e.key}">${ic("bell")}${esc(on?t.remindOn:t.remind)}</button><button class="btn out" type="button" data-ics="${e.key}">${ic("cal")}${esc(t.cal)}</button><a class="btn out" href="${gcal(e)}" target="_blank" rel="noopener">${esc(t.gcal)} ↗</a>`:""}
+    ${e.source_url&&e.cat!=="holiday"?`<a class="btn out" href="${esc(e.source_url)}" target="_blank" rel="noopener nofollow">${esc(t.source)} ↗</a>`:""}</div></div></article>`;
+}
+function renderFeatured(){
+  const t=T[lang],fests=(DATA.items||[]).filter(e=>e.cat==="festival"&&e.start_date&&diff(e.end_date||e.start_date)>=0).sort((a,b)=>a.start_date<b.start_date?-1:1);
+  const f=fests[0];
+  if(!f){$("feat").innerHTML="";return}
+  const n=Math.max(0,diff(f.start_date)),exp=f.status!=="verified";
+  $("feat").innerHTML=`<section class="feat" aria-labelledby="featH"><div><span class="k">${esc(t.featK)}</span><h2 id="featH">${esc(title(f))}</h2>
+    <p>${esc(desc(f))}</p><p style="font-weight:700">📅 ${esc(lang==="ne"?`${t.months[+f.start_date.slice(5,7)-1]} ${+f.start_date.slice(8)}`:`${+f.start_date.slice(8)} ${t.months[+f.start_date.slice(5,7)-1]}`)} · ${esc(t.startsIn(title(f),n))}</p>
+    ${exp?`<p><span class="flag">⚠️ ${esc(t.featExp)}</span></p>`:""}
+    <div class="acts"><button class="btn pri" type="button" data-rem="${f.key}">${ic("bell")}${esc(remKeys[f.key]?t.remindOn:t.remind)}</button><button class="btn out" type="button" data-ics="${f.key}">${ic("cal")}${esc(t.cal)}</button></div></div>
+    <div class="cd" aria-hidden="true">${n===0?`<b style="font-size:clamp(34px,9vw,52px)">${esc(t.today)}</b>`:`<b>${n}</b><span>${esc(n===1?t.day:t.days)}</span>`}</div></section>`;
+  wire($("feat"));
+}
+function renderList(){
+  const t=T[lang];let items=current(),note="";
+  const mp=scope==="near"?nearPref:scope==="mine"?pref:"";
+  if(mp&&(cat==="all"||cat==="community")&&!items.some(e=>e.cat==="community")){
+    const all=DATA.items.filter(e=>e.cat==="community"&&(!e.start_date||e.start_date<=addDays(todayJ(),range)));
+    note=`<div class="empty" style="margin-bottom:10px">${esc(all.length?t.emptyNear(prefName(mp)):t.emptyComm)}</div>`;
+    if(all.length)items=items.concat(all).sort((a,b)=>(a.start_date||"9999")<(b.start_date||"9999")?-1:1);
+  }else if(cat==="community"&&!items.length)note=`<div class="empty">${esc(t.emptyComm)}</div>`;
+  if(DATA.evErr)note+=`<div class="err" style="margin-bottom:10px">${esc(t.evErr)}</div>`;
+  if(!items.length){$("list").innerHTML=note||`<div class="empty">${esc(t.empty)}</div>`;return}
+  let h="",m="";
+  for(const e of items){const mm=e.start_date?e.start_date.slice(0,7):"tbc";if(mm!==m){m=mm;h+=`<h3 class="month">${mm==="tbc"?esc(t.tbc):esc(t.months[+mm.slice(5)-1]+" "+mm.slice(0,4))}</h3>`}h+=card(e)}
+  $("list").innerHTML=note+h;wire($("list"));
+}
+function renderHolidays(){
+  const t=T[lang];
+  if(DATA.holErr){$("hols").innerHTML=`<div class="err">${esc(t.holErr)}</div>`;return}
+  $("hols").innerHTML=(DATA.holidays||[]).slice(0,16).map(h=>{const d=new Date(h.d+"T00:00:00Z");return `<div class="hol"><span class="dd">${esc(lang==="ne"?`${t.mshort[d.getUTCMonth()]} ${d.getUTCDate()}`:`${d.getUTCDate()} ${t.mshort[d.getUTCMonth()]}`)} <small>${esc(t.wd[d.getUTCDay()])}</small></span><span><b>${esc(lang==="ne"?h.ne:h.en)}</b><small lang="ja">${esc(h.ja)}</small></span></div>`}).join("");
+}
+function wire(root){
+  root.querySelectorAll("[data-rem]").forEach(b=>b.onclick=()=>openRem(b.dataset.rem));
+  root.querySelectorAll("[data-ics]").forEach(b=>b.onclick=()=>ics(b.dataset.ics));
+}
+const find=k=>DATA.items.find(e=>e.key===k);
+
+// ---------- Location scope ----------
+function setScope(k){
+  scope=k;store.set("ev_scope",k);
+  if(k==="near"&&!nearPref){
+    $("scopeNote").textContent=T[lang].nearAsk;
+    if(!("geolocation" in navigator)){$("scopeNote").textContent=T[lang].nearNo;scope="mine";render();return}
+    navigator.geolocation.getCurrentPosition(pos=>{const p=P.nearest(pos.coords.latitude,pos.coords.longitude);nearPref=p&&p[0];render()},
+      ()=>{scope="mine";store.set("ev_scope","mine");render();$("scopeNote").textContent=T[lang].nearNo},{maximumAge:3600e3,timeout:10000});
+    render();return;
+  }
+  render();
+}
+$("pref").onchange=e=>{pref=e.target.value;store.set("ev_pref",pref);render()};
+
+// ---------- Calendar ----------
+function fold(l){const enc=new TextEncoder();let o=[],c="";for(const ch of l){if(enc.encode(c+ch).length>74){o.push(c);c=" "+ch}else c+=ch}o.push(c);return o.join("\r\n")}
+const e2=s=>String(s||"").replace(/\\/g,"\\\\").replace(/;/g,"\\;").replace(/,/g,"\\,").replace(/\n/g,"\\n");
+function gcal(e){const s=e.start_date.replace(/-/g,""),en=addDays(e.end_date||e.start_date,1).replace(/-/g,"");
+  const q=new URLSearchParams({action:"TEMPLATE",text:title(e),dates:`${s}/${en}`,details:(desc(e)||"")+"\n\nSathi Japan – https://sathi-japan.vercel.app/events.html",location:e.cat==="community"?[e.venue,e.city,prefName(e.pref)].filter(Boolean).join(", "):"",ctz:"Asia/Tokyo"});
+  return "https://calendar.google.com/calendar/render?"+q.toString()}
+function ics(k){const e=find(k);if(!e||!e.start_date)return;
+  const s=e.start_date.replace(/-/g,""),en=addDays(e.end_date||e.start_date,1).replace(/-/g,""),stamp=new Date().toISOString().replace(/[-:]/g,"").slice(0,15)+"Z";
+  const L=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Sathi Japan//Events//EN","CALSCALE:GREGORIAN","BEGIN:VEVENT",`UID:${k.replace(":","-")}@sathijapan.com`,`DTSTAMP:${stamp}`,`DTSTART;VALUE=DATE:${s}`,`DTEND;VALUE=DATE:${en}`,
+    `SUMMARY:${e2(title(e))}`,`DESCRIPTION:${e2((desc(e)||"")+(e.source_url?"\n"+e.source_url:"")+"\nSathi Japan")}`];
+  if(e.cat==="community")L.push(`LOCATION:${e2([e.venue,e.city,prefName(e.pref)].filter(Boolean).join(", "))}`);
+  L.push("BEGIN:VALARM","ACTION:DISPLAY","TRIGGER:-P1D",`DESCRIPTION:${e2(title(e))}`,"END:VALARM","END:VEVENT","END:VCALENDAR");
+  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([L.map(fold).join("\r\n")+"\r\n"],{type:"text/calendar"}));a.download=`sathi-${k.replace(":","-")}.ics`;document.body.appendChild(a);a.click();a.remove();}
+
+// ---------- Reminders (Web Push – same notification permission as garbage reminders) ----------
+const pushOK="serviceWorker" in navigator&&"PushManager" in window&&"Notification" in window;
+const isIOS=/iPhone|iPad|iPod/.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
+const standalone=window.matchMedia("(display-mode: standalone)").matches||navigator.standalone===true;
+if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js").catch(()=>{});
+function keyBytes(b){const p="=".repeat((4-b.length%4)%4),s=atob((b+p).replace(/-/g,"+").replace(/_/g,"/"));return Uint8Array.from(s,c=>c.charCodeAt(0))}
+let remKey=null;
+function rs(k,bad){const v=T[lang][k];$("remStatus").textContent=v||"";$("remStatus").className="status"+(bad?" bad":"");if(k==="rBlocked")$("remHelp").open=true}
+function openRem(k){
+  const t=T[lang],e=find(k);if(!e)return;remKey=k;
+  $("remH").textContent=t.remH(title(e));
+  if(!e.start_date){$("remWhen").textContent=t.rTbc;}
+  else $("remWhen").textContent=`📅 ${e.start_date} · ${rel(e)}`;
+  const cur=remKeys[k]||{before:[1],hour:7};
+  $("remChecks").innerHTML=t.remOpts.map(([n,l])=>`<label><input type="checkbox" value="${n}"${cur.before.includes(n)?" checked":""}${diff(e.start_date)<n?" disabled":""}>${esc(l)}</label>`).join("");
+  $("remHour").innerHTML=[6,7,18,19,20,21,22].map(h=>`<option value="${h}"${h===cur.hour?" selected":""}>${esc(t.hh(h))}</option>`).join("");
+  $("remSave").textContent=t.save;$("remDel").textContent=t.del;$("remDel").hidden=!remKeys[k];
+  rs("");$("remSheet").hidden=false;$("remSave").focus();
+}
+function closeRem(){$("remSheet").hidden=true}
+$("remClose").onclick=closeRem;$("remSheet").onclick=ev=>{if(ev.target.id==="remSheet")closeRem()};
+document.addEventListener("keydown",ev=>{if(ev.key==="Escape"&&!$("remSheet").hidden)closeRem()});
+async function getSub(create){const reg=await navigator.serviceWorker.ready;let s=await reg.pushManager.getSubscription();
+  if(!s&&create){if(!DATA.publicKey)throw new Error("nokey");s=await reg.pushManager.subscribe({userVisibleOnly:true,applicationServerKey:keyBytes(DATA.publicKey)})}return s}
+function saveKeys(){store.set("ev_keys",JSON.stringify(remKeys));store.set("ev_on",Object.keys(remKeys).length?"1":"0")}
+$("remSave").onclick=async()=>{
+  const before=[...$("remChecks").querySelectorAll("input:checked")].map(x=>+x.value),hour=+$("remHour").value,e=find(remKey);
+  if(!e||!e.start_date)return rs("rTbc",1);if(diff(e.start_date)<0)return rs("rPast",1);if(!before.length)return rs("rPick",1);
+  if(!pushOK){if(isIOS&&!standalone)return rs("rIos",1);return rs("rNo",1)}
+  if(Notification.permission==="denied")return rs("rBlocked",1);
+  try{const perm=await Notification.requestPermission();if(perm!=="granted")return rs("rBlocked",1);
+    const s=await getSub(true);
+    const r=await fetch("/api/events",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({action:"remind",sub:s.toJSON(),key:remKey,before,hour,lang})});
+    if(!r.ok)throw new Error("save "+r.status);
+    remKeys[remKey]={before,hour};saveKeys();rs("rOk");$("remDel").hidden=false;render();
+  }catch(err){console.error(err);rs(String(err.message)==="nokey"?"rServer":"rErr",1)}
+};
+$("remDel").onclick=async()=>{
+  try{const s=await getSub(false);if(s)await fetch("/api/events",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({action:"unremind",sub:s.toJSON(),key:remKey})});
+    delete remKeys[remKey];saveKeys();
+    // keep the phone's push address if garbage / deadlines / rate alerts still use it
+    if(s&&!Object.keys(remKeys).length&&store.get("remind")!=="1"&&store.get("dl_remind")!=="1"&&store.get("fx_on")!=="1")await s.unsubscribe();
+    rs("rDel");$("remDel").hidden=true;render();
+  }catch(err){console.error(err);rs("rErr",1)}
+};
+// Sync which reminders this phone really has (e.g. after reinstalling)
+async function syncMine(){if(!pushOK)return;try{const reg=await navigator.serviceWorker.ready,s=await reg.pushManager.getSubscription();if(!s)return;
+  const r=await fetch("/api/events",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({action:"mine",sub:s.toJSON()})});if(!r.ok)return;
+  const j=await r.json();remKeys={};for(const x of j.items||[])remKeys[x.key]={before:x.before,hour:x.hour};saveKeys();render()}catch(e){}}
+
+// ---------- Submit a community event ----------
+$("subForm").onsubmit=async ev=>{
+  ev.preventDefault();const t=T[lang],f=ev.target,st=$("subStatus");
+  const v=Object.fromEntries(new FormData(f).entries());
+  if(!$("f_ok").checked||!v.title||v.title.trim().length<4||!v.date||v.date<todayJ()||!v.pref||!v.venue||(v.url&&!/^https:\/\//.test(v.url))){st.textContent=t.sBad;st.className="status bad";return}
+  try{const r=await fetch("/api/events",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({action:"submit",...v})});
+    if(r.status===429){st.textContent=t.sLimit;st.className="status bad";return}
+    if(!r.ok)throw new Error(r.status);st.textContent=t.sOk;st.className="status";f.reset();
+  }catch(e){console.error(e);st.textContent=t.sErr;st.className="status bad"}
+};
+
+Sathi.onLang(l=>{lang=l;document.title=(l==="ne"?"जापानमा आउँदा कार्यक्रम":"Upcoming Events in Japan")+" – Sathi Japan";render()});
+load().then(syncMine);
+</script>
+</body>
+</html>

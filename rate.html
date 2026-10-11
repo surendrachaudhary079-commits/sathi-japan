@@ -14,7 +14,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0B2E6B">
+<meta name="theme-color" content="#0F6B57">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icon-192.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -22,9 +22,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@500;700&display=swap" rel="stylesheet">
 <style>
-:root{--paper:#F5F7FB;--sheet:#FFFFFF;--ink:#0E1A33;--muted:#56637C;--line:#DCE2EE;--navy:#0B2E6B;--crimson:#C8102E;--tint:#E9EEF8;
+:root{--paper:#F3F9F7;--sheet:#FFFFFF;--ink:#0E1A33;--muted:#56637C;--line:#D3E6DE;--navy:#0F6B57;--crimson:#0E7C86;--tint:#E2F3EC;
   --good:#2A7D6F;--mid:#A86200;--f:"Mukta","Noto Sans Devanagari",system-ui,sans-serif;--jp:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif}
-@media (prefers-color-scheme:dark){:root{--paper:#0B1222;--sheet:#121C31;--ink:#E8EDF7;--muted:#9AA7BE;--line:#26334C;--navy:#A9C4F5;--crimson:#FF5A6E;--tint:#17233D;--good:#5BC9B5;--mid:#F2B24C;color-scheme:dark}}
+@media (prefers-color-scheme:dark){:root{--paper:#0B1715;--sheet:#12221F;--ink:#E8EDF7;--muted:#9AA7BE;--line:#24392F;--navy:#7FD8B9;--crimson:#5CC8D0;--tint:#16302A;--good:#5BC9B5;--mid:#F2B24C;color-scheme:dark}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font:400 18px/1.55 var(--f)}
 .wrap{max-width:680px;margin:0 auto;padding-inline:16px;padding-block:0 56px}
@@ -41,7 +41,7 @@ h2{font-size:21px;margin:28px 0 8px}
 .card{background:var(--sheet);border:1px solid var(--line);border-radius:16px;padding:18px 18px}
 /* Today */
 .today{background:var(--navy);color:var(--sheet);border-radius:16px;padding:20px 22px}
-@media (prefers-color-scheme:dark){.today{background:#1B2C52;color:#F3F6FC}}
+@media (prefers-color-scheme:dark){.today{background:#173A31;color:#F3F6FC}}
 .today .k{font-size:15px;opacity:.85}
 .today .big{font-size:clamp(34px,9vw,48px);font-weight:800;line-height:1.1;font-variant-numeric:tabular-nums;margin:4px 0}
 .today .big small{font-size:18px;font-weight:600;opacity:.85}
@@ -97,6 +97,7 @@ footer{margin-top:28px;font-size:14px;color:var(--muted)}
 .panel h2{margin:0 0 6px}.panel p{color:var(--muted);font-size:16px}
 [hidden]{display:none!important}
 </style>
+<link rel="stylesheet" href="theme.css">
 </head>
 <body>
 <div class="wrap">
@@ -283,7 +284,7 @@ async function save(){
 const readTarget=()=>{const v=Number(String($("target").value).replace(/[^\d.]/g,""));return v>10&&v<1000?+v.toFixed(2):null};
 $("alertBtn").onclick=async()=>{
   if(store.get("fx_on")==="1"){
-    try{const sub=await getSub(false);if(sub){await fetch("/api/fx",{method:"DELETE",headers:{"content-type":"application/json"},body:JSON.stringify({sub:sub.toJSON()})});if(store.get("remind")!=="1"&&store.get("dl_remind")!=="1")await sub.unsubscribe()}}catch(e){console.error(e)}
+    try{const sub=await getSub(false);if(sub){await fetch("/api/fx",{method:"DELETE",headers:{"content-type":"application/json"},body:JSON.stringify({sub:sub.toJSON()})});if(store.get("remind")!=="1"&&store.get("dl_remind")!=="1"&&store.get("ev_on")!=="1")await sub.unsubscribe()}}catch(e){console.error(e)}
     store.set("fx_on","0");pst("offd");return render();
   }
   const tg=readTarget();if(!tg)return pst("bad");
@@ -303,5 +304,6 @@ if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch
 render();
 fetch("/api/fx").then(r=>r.ok?r.json():Promise.reject(r.status)).then(j=>{rows=j.rows||[];if(!rows.length)rows.err=1;$("target").value="";render()}).catch(e=>{console.error(e);rows.err=1;render()});
 </script>
+<script src="site.js"></script>
 </body>
 </html>

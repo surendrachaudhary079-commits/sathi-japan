@@ -15,6 +15,11 @@ Server code is small Vercel functions in `api/`.
 | `index.html` | Home page: hero, 6 service cards, garbage preview for the saved area, "New to Japan", tools, help lines, trusted info |
 | `guides.html` + `guides-data.js` | Service guides: New to Japan, City office & paperwork, Healthcare & emergency, Banking & payments, Japanese learning, Daily life. **Only official, checked links – edit `guides-data.js` when something changes** |
 | `driving.html` + `driving-data.js` | **Driving licence guide**: path finder, exchange (外免切替), new licence, licence types, country exemption list, prefecture centres (Niigata in full), document checklists (printable), official fees, test practice, after-licence info. **All facts, fees and sources live in `driving-data.js`** |
+| `events.html` | **Events**: Nepali festivals (countdown), community events by prefecture / near me, Japanese holidays, reminders, calendar files, event submission form |
+| `events-admin.html` | Your private page to approve submissions and confirm festival dates (needs `ADMIN_CODE`) |
+| `api/events.js` | Events server: holidays from the Cabinet Office CSV, events from Supabase, reminders, submissions, admin |
+| `prefs.js` | The 47 prefectures (names + approximate capital position for "Near me") |
+| `supabase-events.sql` | Tables `events` and `event_reminders`, nightly clean-up, and the 2083 (2026–27) festival dates as "Expected" |
 | `about.html` | About, Contact (`#contact`) and Help/FAQ (`#help`) |
 | `site.js` | Shared header (logo, menu, EN/नेपाली switch – remembered on the phone), shared footer, icons. **Put your contact email in `CONTACT_EMAIL` at the top** |
 | `theme.css` | Shared colours (green/teal + blue, yellow, pastels), header and footer styles |
@@ -97,6 +102,13 @@ If notifications are blocked, the page shows how to allow them. "Add to calendar
 - Review every April, every October, and whenever police announce a change: open each source link, compare, edit the fact, set `checked` to the new date, upload `driving-data.js`.
 - Prefectures: only Niigata (full), Tokyo and Osaka (exchange page) are filled in. To add one, put it in `PREF_INFO` using only facts from that prefecture's police page.
 - Not verified (left out on purpose): Niigata's exchange fee amounts, 取得時講習 fee, learner-permit validity period, which licence classes the country exemption covers, driving-school prices.
+
+## 4c. Events: where dates come from
+
+- **Japanese holidays – automatic.** `api/events.js` reads the Cabinet Office CSV (https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv) and caches it. The government adds the next year every February, so new holidays appear by themselves.
+- **Nepali festivals – once a year, no code.** Nepal has no official data feed; dates are set each year in the Government of Nepal holiday list (Ministry of Home Affairs, usually around March). Open `events-admin.html`, add or correct the dates, and press "Mark verified" after checking them against the official list. Until then they show "Expected – awaiting official check". Missing dates show "Date not yet confirmed". The admin page warns you when dates are about to run out.
+- **Community events – reviewed by you.** Anyone can submit one on `events.html`. It is saved as "pending" and is invisible until you approve it. Max 3 submissions per person per day; a hidden field blocks simple bots. The submitter's contact is never shown publicly.
+- **Reminders** – the hourly job (`api/remind.js`) sends event reminders at the chosen time (7, 3, 1 days before or on the day). One row per phone per event; `last_sent` prevents duplicates; dates are read fresh each time, so corrections apply automatically.
 
 ## 4b. How the pages fit together
 

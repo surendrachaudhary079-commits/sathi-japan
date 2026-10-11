@@ -83,6 +83,28 @@ a.scard:hover{transform:translateY(-2px);box-shadow:0 2px 4px rgba(15,107,87,.08
 .scard .go .sx-ic{width:18px;height:18px}
 .bg-mint{background:var(--sx-mint)}.bg-aqua{background:var(--sx-aqua)}.bg-sky{background:var(--sx-sky)}.bg-butter{background:var(--sx-butter)}.bg-peach{background:var(--sx-peach)}.bg-lilac{background:var(--sx-lilac)}
 
+/* Events */
+.evgrid{display:grid;gap:14px}
+@media (min-width:880px){.evgrid{grid-template-columns:1fr 1.2fr}}
+.skel-ev{min-height:180px;background:linear-gradient(90deg,var(--sx-mint) 0,var(--sx-card) 50%,var(--sx-mint) 100%);background-size:200% 100%;animation:skev 1.2s infinite linear}
+@keyframes skev{to{background-position:-200% 0}}
+@media (prefers-reduced-motion:reduce){.skel-ev{animation:none}}
+.evfeat{background:linear-gradient(135deg,#B4233A 0%,#D9662B 55%,#F2B531 100%);color:#fff;border:0;padding:22px;display:flex;flex-direction:column;gap:8px}
+.evfeat .k{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;opacity:.92}
+.evfeat h3{margin:0;font-size:26px;line-height:1.15}
+.evfeat .cdn{font-size:52px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
+.evfeat .cdn small{font-size:18px;font-weight:600}
+.evfeat .fl{font-size:13px;background:rgba(255,255,255,.22);border-radius:999px;padding:2px 10px;align-self:flex-start}
+.evfeat a.btn{align-self:flex-start;background:#fff;color:#8C1C2E;margin-top:auto}
+.evlist{padding:8px 16px}
+.evrow{display:grid;grid-template-columns:72px 1fr;gap:10px;padding:10px 0;border-top:1px solid var(--sx-line);align-items:center}
+.evrow:first-child{border-top:0}
+.evrow .d{font-weight:800;color:var(--sx-green);line-height:1.15}
+.evrow .d small{display:block;font-weight:600;color:var(--sx-muted);font-size:13px}
+.evrow b{display:block;line-height:1.3}
+.evrow .tg{font-size:12px;font-weight:700;border-radius:6px;padding:0 6px}
+.tg-festival{background:var(--sx-peach);color:#A3322A}.tg-community{background:var(--sx-aqua);color:var(--sx-teal)}.tg-holiday{background:var(--sx-sky);color:var(--sx-blue)}
+.evlist .more{display:inline-flex;margin:8px 0 6px;font-weight:700}
 /* Garbage band */
 .gband{border-radius:28px;background:linear-gradient(135deg,#0F6B57 0%,#0E7C86 100%);color:#fff;padding:26px 20px;display:grid;gap:20px;overflow:hidden;position:relative}
 @media (prefers-color-scheme:dark){.gband{background:linear-gradient(135deg,#0E3B33,#0D3A40)}}
@@ -215,6 +237,14 @@ ol.steps span{color:var(--sx-muted);font-size:15.5px}
     <div class="svc" id="svc"></div>
   </section>
 
+  <!-- Upcoming events -->
+  <section id="events" aria-labelledby="evH">
+    <span class="eyebrow" data-t="evE"></span>
+    <h2 class="h" id="evH" data-t="evH"></h2>
+    <p class="sub" data-t="evP"></p>
+    <div class="evgrid" id="evBox" aria-live="polite"><div class="card evfeat skel-ev"></div><div class="card evlist skel-ev"></div></div>
+  </section>
+
   <!-- Garbage reminder -->
   <section class="gband" aria-labelledby="gH">
     <div>
@@ -275,6 +305,7 @@ en:{
  cta1:"Explore services",ctaGarb:"Garbage calendar",
  pills:["Free – no sign-up","English & नेपाली","Official sources"],
  art:"Illustration: Mount Fuji, a torii gate, a pagoda, a train and recycling bins by a river",
+ evE:"Events",evH:"Upcoming Events in Japan",evP:"Nepali festivals, community events and Japanese public holidays – with reminders.",evNext:"Next Nepali festival",evIn:n=>n===0?"Today":n===1?"Tomorrow":`in ${n} days`,evDays:"days",evExp:"Expected date – awaiting official check",evAll:"See all events",evErr:"Events could not be loaded right now.",evNone:"No upcoming events yet.",evCat:{festival:"Nepali festival",community:"Community",holiday:"Japanese holiday"},
  svcE:"Services",svcH:"Everything for daily life in one place",svcP:"Pick a topic. Each one gives you simple steps and the official page to check.",
  open:"Open",
  garbage:{t:"Garbage collection calendar",ne:"फोहोर संकलन क्यालेन्डर",d:"Your area's days, how to sort, and a phone reminder the evening before.",chips:["All of Niigata City","Shinjuku","Reminders"]},
@@ -286,7 +317,7 @@ en:{
  steps:[["Register your address within 14 days","At your city or ward office (区役所), with your residence card."],["Join health insurance and pension","If your job doesn't cover you, join National Health Insurance and – age 20–59 – National Pension at the same office."],["Learn your garbage days","Every area has its own calendar. Set a reminder once."],["Open a bank account and get a phone","Never sell, lend or give away your bank card or account – it is a crime."]],
  nLinksH:"Starter guides",stepsAll:"Full “Just arrived” checklist",nepali:"नेपाली",
  tE:"Tools",tH:"Free tools you can use today",
- tools:[["garbage.html","bin","Garbage calendar","Days, sorting, reminders"],["deadlines.html","cal","My deadlines","Card, passport, tax – reminders"],["visa.html","shield","Visa renewal","Documents, forms, fees"],["spouse.html","people","Spouse visa","Bring your family, step by step"],["checklists.html","check","Life checklists","Moving, new job, baby, leaving"],["letter.html","book","Letter explainer","Photo of a letter → plain words"],["rate.html","bank","Yen → Rupee rate","Official rate + alerts"],["driving.html","shield","Driving licence","Exchange, new licence, fees"],["guides.html","arrow","All guides","Health, money, Japanese, life"]],
+ tools:[["garbage.html","bin","Garbage calendar","Days, sorting, reminders"],["deadlines.html","cal","My deadlines","Card, passport, tax – reminders"],["visa.html","shield","Visa renewal","Documents, forms, fees"],["spouse.html","people","Spouse visa","Bring your family, step by step"],["checklists.html","check","Life checklists","Moving, new job, baby, leaving"],["letter.html","book","Letter explainer","Photo of a letter → plain words"],["rate.html","bank","Yen → Rupee rate","Official rate + alerts"],["driving.html","shield","Driving licence","Exchange, new licence, fees"],["events.html","cal","Events & festivals","Dashain, Tihar, holidays, reminders"],["guides.html","arrow","All guides","Health, money, Japanese, life"]],
  cE:"Community support",cH:"Help in your language",cP:"Free official help lines. Sathi Japan is not connected to these services – we only list them.",
  helpH:"Where to ask",src:"Source",
  lines:[["0570-013904","Immigration information center","Visa questions · weekdays 8:30–17:15 · Nepali available","https://www.moj.go.jp/isa/consultation/center/index.html"],["025-241-1881","NIA foreign residents consultation (Niigata)","Daily-life advice · Mon–Fri 10:00–17:00 · interpreting by tablet","https://www.niigata-ia.or.jp/foreign/"],["#7119","Night medical advice (Niigata, age 15+)","Mon–Sat 18:00–8:00 · Sun & holidays 24 h","https://www.pref.niigata.lg.jp/sec/chiikiiryo/1356882439151.html"]],
@@ -305,6 +336,7 @@ ne:{
  cta1:"सेवाहरू हेर्नुहोस्",ctaGarb:"फोहोर क्यालेन्डर",
  pills:["निःशुल्क – दर्ता चाहिँदैन","नेपाली र English","आधिकारिक स्रोत"],
  art:"चित्र: फुजी हिमाल, तोरी ढोका, प्यागोडा, रेल र नदी किनारमा रिसाइक्लिङ बिन",
+ evE:"कार्यक्रम",evH:"जापानमा आउँदा कार्यक्रमहरू",evP:"नेपाली चाडपर्व, सामुदायिक कार्यक्रम र जापानी सार्वजनिक बिदा – रिमाइन्डरसहित।",evNext:"अर्को नेपाली चाड",evIn:n=>n===0?"आज":n===1?"भोलि":`${n} दिनमा`,evDays:"दिन",evExp:"अपेक्षित मिति – आधिकारिक जाँच बाँकी",evAll:"सबै कार्यक्रम हेर्नुहोस्",evErr:"कार्यक्रम अहिले लोड हुन सकेन।",evNone:"अहिले कुनै आउँदा कार्यक्रम छैन।",evCat:{festival:"नेपाली चाड",community:"सामुदायिक",holiday:"जापानी बिदा"},
  svcE:"सेवाहरू",svcH:"दैनिक जीवनका लागि सबै कुरा एकै ठाउँमा",svcP:"विषय छान्नुहोस्। हरेकमा सजिला चरण र जाँच्नुपर्ने आधिकारिक पेज छ।",
  open:"खोल्नुहोस्",
  garbage:{t:"फोहोर संकलन क्यालेन्डर",ne:"Garbage collection calendar",d:"तपाईंको क्षेत्रको दिन, छुट्याउने तरिका, र अघिल्लो बेलुका फोनमा रिमाइन्डर।",chips:["सम्पूर्ण निगाता सिटी","सिन्जुकु","रिमाइन्डर"]},
@@ -316,7 +348,7 @@ ne:{
  steps:[["१४ दिनभित्र ठेगाना दर्ता गर्नुहोस्","आफ्नो सिटी वा वार्ड कार्यालय (区役所) मा, रेसिडेन्स कार्डसहित।"],["स्वास्थ्य बीमा र पेन्सनमा जोडिनुहोस्","कम्पनीले नसमेटे, उही कार्यालयमा राष्ट्रिय स्वास्थ्य बीमा र – २०–५९ वर्ष – राष्ट्रिय पेन्सनमा जोडिनुहोस्।"],["आफ्नो फोहोर दिन थाहा पाउनुहोस्","हरेक क्षेत्रको आफ्नै क्यालेन्डर हुन्छ। एकपटक रिमाइन्डर राख्नुहोस्।"],["बैंक खाता खोल्नुहोस् र फोन लिनुहोस्","बैंक कार्ड वा खाता कहिल्यै नबेच्नुहोस्, नदिनुहोस् – यो अपराध हो।"]],
  nLinksH:"सुरुवाती गाइड",stepsAll:"पूरा “भर्खर आउनुभयो” चेकलिस्ट",nepali:"नेपाली",
  tE:"सुविधाहरू",tH:"आजै प्रयोग गर्न मिल्ने निःशुल्क सुविधा",
- tools:[["garbage.html","bin","फोहोर क्यालेन्डर","दिन, छुट्याउने, रिमाइन्डर"],["deadlines.html","cal","मेरा अन्तिम मिति","कार्ड, पासपोर्ट, कर – रिमाइन्डर"],["visa.html","shield","भिसा नवीकरण","कागजात, फारम, शुल्क"],["spouse.html","people","श्रीमान/श्रीमती भिसा","परिवार बोलाउने, चरणबद्ध"],["checklists.html","check","जीवन चेकलिस्ट","घर सर्दा, नयाँ जागिर, बच्चा, फर्किंदा"],["letter.html","book","चिठी बुझाउने","चिठीको फोटो → सजिलो भाषा"],["rate.html","bank","येन → रुपैयाँ दर","आधिकारिक दर + सूचना"],["driving.html","shield","ड्राइभिङ लाइसेन्स","बदल्ने, नयाँ लाइसेन्स, शुल्क"],["guides.html","arrow","सबै गाइड","स्वास्थ्य, पैसा, जापानी, जीवन"]],
+ tools:[["garbage.html","bin","फोहोर क्यालेन्डर","दिन, छुट्याउने, रिमाइन्डर"],["deadlines.html","cal","मेरा अन्तिम मिति","कार्ड, पासपोर्ट, कर – रिमाइन्डर"],["visa.html","shield","भिसा नवीकरण","कागजात, फारम, शुल्क"],["spouse.html","people","श्रीमान/श्रीमती भिसा","परिवार बोलाउने, चरणबद्ध"],["checklists.html","check","जीवन चेकलिस्ट","घर सर्दा, नयाँ जागिर, बच्चा, फर्किंदा"],["letter.html","book","चिठी बुझाउने","चिठीको फोटो → सजिलो भाषा"],["rate.html","bank","येन → रुपैयाँ दर","आधिकारिक दर + सूचना"],["driving.html","shield","ड्राइभिङ लाइसेन्स","बदल्ने, नयाँ लाइसेन्स, शुल्क"],["events.html","cal","कार्यक्रम र चाडपर्व","दशैं, तिहार, बिदा, रिमाइन्डर"],["guides.html","arrow","सबै गाइड","स्वास्थ्य, पैसा, जापानी, जीवन"]],
  cE:"सामुदायिक सहयोग",cH:"तपाईंकै भाषामा मद्दत",cP:"निःशुल्क आधिकारिक सहायता लाइन। Sathi Japan यी सेवासँग जोडिएको छैन – हामी सूची मात्र दिन्छौं।",
  helpH:"कहाँ सोध्ने",src:"स्रोत",
  lines:[["0570-013904","इमिग्रेसन सूचना केन्द्र","भिसाबारे प्रश्न · कार्यदिन ८:३०–१७:१५ · नेपाली उपलब्ध","https://www.moj.go.jp/isa/consultation/center/index.html"],["025-241-1881","NIA विदेशी बासिन्दा परामर्श (निगाता)","दैनिक जीवन सल्लाह · सोम–शुक्र १०:००–१७:०० · ट्याब्लेट दोभाषे","https://www.niigata-ia.or.jp/foreign/"],["#7119","राति स्वास्थ्य सल्लाह (निगाता, १५ वर्ष+)","सोम–शनि १८:००–८:०० · आइतबार र बिदामा २४ घण्टा","https://www.pref.niigata.lg.jp/sec/chiikiiryo/1356882439151.html"]],
@@ -334,7 +366,7 @@ const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}}};
 const G=window.SATHI_GUIDES||[];
 let lang="en";
 
-function render(l){
+let render;render=function(l){
   lang=l;const t=T[lang];
   document.querySelectorAll("[data-t]").forEach(e=>{const v=t[e.dataset.t];if(typeof v==="string")e.textContent=v});
   $("heroArt").setAttribute("aria-label",t.art);
@@ -418,6 +450,23 @@ function renderMine(){
     if(days>=0) out.push(`<a href="visa.html"><span class="k">${esc(t.mineVisa)}</span><span class="v">${esc(t.visaLeft(days,days<=92))}</span></a>`)}
   $("mine").innerHTML=out.join("");$("mine").hidden=!out.length;
 }
+// ---------- Upcoming events (same data as events.html) ----------
+let EV=null;
+fetch("/api/events").then(r=>r.ok?r.json():Promise.reject(r.status)).then(j=>{EV=j;renderEvents()}).catch(e=>{console.error(e);EV={failed:1};renderEvents()});
+function renderEvents(){
+  if(!EV)return;const t=T[lang],box=$("evBox");
+  if(EV.failed){box.innerHTML=`<div class="card" style="padding:18px">${esc(t.evErr)} <a href="events.html">${esc(t.evAll)} →</a></div>`;return}
+  const today=jpISO(0),dd=d=>Math.round((Date.parse(d+"T00:00:00Z")-Date.parse(today+"T00:00:00Z"))/864e5);
+  const items=[...(EV.events||[]).filter(e=>e.start_date&&(e.end_date||e.start_date)>=today).map(e=>({cat:e.kind,d:e.start_date,n:(lang==="ne"&&e.title_ne)||e.title_en,st:e.status})),
+    ...(EV.holidays||[]).map(h=>({cat:"holiday",d:h.d,n:lang==="ne"?h.ne:h.en,ja:h.ja,st:"verified"}))].sort((a,b)=>a.d<b.d?-1:1);
+  const f=items.find(x=>x.cat==="festival");
+  const fmt=d=>{const x=new Date(d+"T00:00:00Z");return lang==="ne"?`${t.months[x.getUTCMonth()]} ${x.getUTCDate()}`:`${x.getUTCDate()} ${t.months[x.getUTCMonth()]}`};
+  const feat=f?`<a class="card evfeat" href="events.html" style="text-decoration:none"><span class="k">${esc(t.evNext)}</span><h3>${esc(f.n)}</h3><span>${esc(fmt(f.d))} · ${esc(t.evIn(Math.max(0,dd(f.d))))}</span>
+    ${dd(f.d)>0?`<span class="cdn">${dd(f.d)} <small>${esc(t.evDays)}</small></span>`:""}${f.st!=="verified"?`<span class="fl">⚠️ ${esc(t.evExp)}</span>`:""}<span class="btn">${esc(t.evAll)} →</span></a>`:"";
+  const list=items.filter(x=>x!==f).slice(0,5);
+  box.innerHTML=feat+`<div class="card evlist">${list.length?list.map(x=>`<div class="evrow"><span class="d">${esc(fmt(x.d))}<small>${esc(t.evIn(dd(x.d)))}</small></span><span><span class="tg tg-${x.cat}">${esc(t.evCat[x.cat])}</span><b>${esc(x.n)}</b>${x.ja?`<small lang="ja" style="color:var(--sx-muted)">${esc(x.ja)}</small>`:""}</span></div>`).join(""):`<p>${esc(t.evNone)}</p>`}<a class="more" href="events.html">${esc(t.evAll)} →</a></div>`;
+}
+const _render=render;render=function(l){_render(l);renderEvents()};
 Sathi.onLang(render);
 if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(()=>{});
 </script>
