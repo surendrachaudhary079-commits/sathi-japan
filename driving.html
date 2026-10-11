@@ -632,6 +632,7 @@ function markTab(){const ids=T[lang].tabs.map(x=>x[0]);let cur=ids[0];for(const 
 addEventListener("scroll",()=>requestAnimationFrame(markTab),{passive:true});
 
 $("cq").oninput=renderCountries;
+window.SATHI_SHARE={text:l=>l==="ne"?"जापानमा ड्राइभिङ लाइसेन्स: विदेशी लाइसेन्स बदल्ने, नयाँ लाइसेन्स, कागजात र शुल्क – नेपाली र अंग्रेजीमा:":"Driving licence in Japan: exchange a foreign licence, get a new one, documents and fees – in English and Nepali:"};
 Sathi.onLang(l=>{lang=l;document.title=(l==="ne"?"जापानमा ड्राइभिङ लाइसेन्स: पूर्ण गाइड":"Driving Licence in Japan: Complete Guide for Foreign Residents")+" – Sathi Japan";
   renderStatic();renderCountries();renderPrefs();renderChecklist();renderCardSel();renderCosts();renderWizard();markTab()});
 if(location.hash){const el=document.getElementById(location.hash.slice(1));if(el)setTimeout(()=>el.scrollIntoView(),60)}

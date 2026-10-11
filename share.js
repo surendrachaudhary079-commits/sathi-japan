@@ -21,7 +21,7 @@
 .ss-panel h2{margin:0 0 4px;font-size:20px}.ss-panel p{margin:0 0 14px;font-size:15px;opacity:.75}
 .ss-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .ss-grid a,.ss-grid button{display:flex;align-items:center;justify-content:center;min-height:48px;border-radius:12px;border:1px solid rgba(127,140,160,.35);background:transparent;color:inherit;font:inherit;font-weight:700;font-size:16px;text-decoration:none;cursor:pointer}
-.ss-grid .ss-copy{grid-column:1/-1;background:#0B2E6B;color:#fff;border:0}
+.ss-grid .ss-copy{grid-column:1/-1;background:#0F6B57;color:#fff;border:0}
 .ss-close{margin-top:12px;width:100%;min-height:44px;border:0;background:transparent;color:inherit;font:inherit;cursor:pointer;opacity:.75}`;
     document.head.appendChild(s);
   }

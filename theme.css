@@ -67,3 +67,12 @@ a.sx-backlogo .sx-logo{width:34px;height:34px}
 /* Skip link */
 a.sx-sr:focus{position:fixed;left:12px;top:12px;width:auto;height:auto;clip:auto;z-index:100;background:#fff;color:#0F6B57;padding:10px 14px;border-radius:10px;font-weight:700}
 @media (max-width:420px){.sx-head .sx-brand small{white-space:normal;line-height:1.2;font-size:12px}}
+
+/* Floating share button (all pages) */
+.sx-share{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:25;display:inline-flex;align-items:center;gap:8px;min-height:50px;padding:0 18px;border-radius:999px;border:0;background:#0F6B57;color:#fff;font:700 16px var(--sx-f);box-shadow:0 6px 18px rgba(15,107,87,.35);cursor:pointer}
+.sx-share .sx-ic{width:20px;height:20px}
+.sx-share:hover{background:#0B5948}
+.sx-share:focus-visible{outline:3px solid var(--sx-blue);outline-offset:3px}
+@media (prefers-color-scheme:dark){.sx-share{background:#7FD8B9;color:#0B1715}}
+.sx-foot{padding-bottom:70px}
+@media print{.sx-share{display:none!important}}

@@ -136,7 +136,37 @@
     esc: esc
   };
 
+  // Floating "Share" button on every page. Pages can set window.SATHI_SHARE = {text, url} for a better message.
+  var SHARE_TXT = {
+    en: { b: "Share", d: "Sathi Japan – life in Japan explained in English and Nepali. Free:" },
+    ne: { b: "सेयर", d: "Sathi Japan – जापानको जीवन नेपाली र अंग्रेजीमा। निःशुल्क:" }
+  };
+  function loadShare(cb) {
+    if (window.sathiShare) return cb();
+    var sc = document.createElement("script"); sc.src = "share.js"; sc.onload = cb; document.head.appendChild(sc);
+  }
+  function shareFab() {
+    if (document.body.getAttribute("data-sx-share") === "off" || document.getElementById("sxShare")) return;
+    var b = document.createElement("button");
+    b.id = "sxShare"; b.type = "button"; b.className = "sx-share noprint";
+    var paint = function () {
+      var l = (document.documentElement.lang || lang) === "ne" ? "ne" : "en";
+      b.innerHTML = icon("share", "sx-ic") + "<span>" + SHARE_TXT[l].b + "</span>";
+      b.setAttribute("aria-label", SHARE_TXT[l].b);
+    };
+    paint();
+    new MutationObserver(paint).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
+    b.onclick = function () {
+      var l = (document.documentElement.lang || lang) === "ne" ? "ne" : "en", c = window.SATHI_SHARE || {};
+      var text = (typeof c.text === "function" ? c.text(l) : c.text) || (document.title.replace(/^Sathi Japan\s*[–|-]\s*/, "").replace(/\s*[–|]\s*Sathi Japan.*$/, "").replace(/\s*\|.*$/, "") + " – " + SHARE_TXT[l].d);
+      var url = (typeof c.url === "function" ? c.url() : c.url) || location.href;
+      loadShare(function () { window.sathiShare({ text: text, url: url }); });
+    };
+    document.body.appendChild(b);
+  }
+
   function start() {
+    shareFab();
     if (document.getElementById("sxHead")) { document.documentElement.lang = lang; header(); footer(lang); }
     else enhanceOldPage();
     document.addEventListener("click", function (e) {

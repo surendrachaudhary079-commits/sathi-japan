@@ -189,7 +189,7 @@ en:{h1:"Upcoming Events in Japan",intro:"Nepali festivals, Nepali community even
  today:"Today!",tomorrow:"Tomorrow",inDays:n=>`in ${n} days`,ongoing:"Happening now",
  startsIn:(name,n)=>n===0?`${name} is today`:n===1?`${name} is tomorrow`:`${name} in ${n} days`,
  featK:"Next Nepali festival",featExp:"Expected date – the official Government of Nepal list has not been checked yet.",days:"days",day:"day",
- remind:"Set reminder",remindOn:"Reminder on",cal:"Add to calendar",gcal:"Google Calendar",source:"Source",organizer:"By",
+ share:"Share",shareEv:(n,d)=>`📅 ${n} – ${d}. See Nepali festivals, community events and Japanese holidays on Sathi Japan:`,sharePage:"Upcoming Nepali festivals, community events and Japanese holidays – with reminders. Sathi Japan:",remind:"Set reminder",remindOn:"Reminder on",cal:"Add to calendar",gcal:"Google Calendar",source:"Source",organizer:"By",
  nepal:"Celebrated in Nepal and by Nepali communities everywhere",
  empty:"No events match these filters yet.",emptyNear:p=>`No verified community events in ${p} yet. Showing events from all of Japan. Know one? Submit it below.`,
  emptyComm:"No verified community events yet. Know one? Submit it below.",
@@ -216,7 +216,7 @@ ne:{h1:"जापानमा आउँदा कार्यक्रमहर�
  today:"आज!",tomorrow:"भोलि",inDays:n=>`${n} दिनमा`,ongoing:"अहिले चलिरहेको",
  startsIn:(name,n)=>n===0?`${name} आज`:n===1?`${name} भोलि`:`${name} ${n} दिनमा`,
  featK:"अर्को नेपाली चाड",featExp:"अपेक्षित मिति – नेपाल सरकारको आधिकारिक सूचीसँग अझै जाँचिएको छैन।",days:"दिन",day:"दिन",
- remind:"रिमाइन्डर राख्नुहोस्",remindOn:"रिमाइन्डर सक्रिय",cal:"क्यालेन्डरमा थप्नुहोस्",gcal:"Google Calendar",source:"स्रोत",organizer:"आयोजक",
+ share:"सेयर",shareEv:(n,d)=>`📅 ${n} – ${d}। नेपाली चाडपर्व, सामुदायिक कार्यक्रम र जापानी बिदा Sathi Japan मा हेर्नुहोस्:`,sharePage:"आउँदा नेपाली चाडपर्व, सामुदायिक कार्यक्रम र जापानी बिदा – रिमाइन्डरसहित। Sathi Japan:",remind:"रिमाइन्डर राख्नुहोस्",remindOn:"रिमाइन्डर सक्रिय",cal:"क्यालेन्डरमा थप्नुहोस्",gcal:"Google Calendar",source:"स्रोत",organizer:"आयोजक",
  nepal:"नेपाल र विश्वभरका नेपाली समुदायमा मनाइन्छ",
  empty:"यी फिल्टरमा अहिले कुनै कार्यक्रम छैन।",emptyNear:p=>`${p} मा अझै पुष्टि भएको सामुदायिक कार्यक्रम छैन। सम्पूर्ण जापानका कार्यक्रम देखाइँदैछ। थाहा छ? तल पठाउनुहोस्।`,
  emptyComm:"अझै पुष्टि भएको सामुदायिक कार्यक्रम छैन। थाहा छ? तल पठाउनुहोस्।",
@@ -292,6 +292,7 @@ function card(e){
     <div class="meta"><span>📅 ${when}</span>${where?`<span>📍 ${esc(where)}</span>`:""}${e.organizer?`<span>👥 ${esc(t.organizer)}: ${esc(e.organizer)}</span>`:""}</div>
     ${desc(e)?`<p>${esc(desc(e))}</p>`:""}
     <div class="acts">${e.start_date&&diff(e.start_date)>=0?`<button class="btn ${on?"on":"pri"}" type="button" data-rem="${e.key}">${ic("bell")}${esc(on?t.remindOn:t.remind)}</button><button class="btn out" type="button" data-ics="${e.key}">${ic("cal")}${esc(t.cal)}</button><a class="btn out" href="${gcal(e)}" target="_blank" rel="noopener">${esc(t.gcal)} ↗</a>`:""}
+    <button class="btn out" type="button" data-share="${e.key}">${ic("share")}${esc(t.share)}</button>
     ${e.source_url&&e.cat!=="holiday"?`<a class="btn out" href="${esc(e.source_url)}" target="_blank" rel="noopener nofollow">${esc(t.source)} ↗</a>`:""}</div></div></article>`;
 }
 function renderFeatured(){
@@ -328,6 +329,10 @@ function renderHolidays(){
 function wire(root){
   root.querySelectorAll("[data-rem]").forEach(b=>b.onclick=()=>openRem(b.dataset.rem));
   root.querySelectorAll("[data-ics]").forEach(b=>b.onclick=()=>ics(b.dataset.ics));
+  root.querySelectorAll("[data-share]").forEach(b=>b.onclick=()=>{const e=find(b.dataset.share);if(!e)return;const t=T[lang];
+    const d=e.start_date?`${e.start_date}${e.cat==="community"?" · "+[e.venue,prefName(e.pref)].filter(Boolean).join(", "):""}`:t.tbc;
+    const go=()=>window.sathiShare({text:t.shareEv(title(e),d),url:location.origin+"/events.html"});
+    if(window.sathiShare)go();else{const sc=document.createElement("script");sc.src="share.js";sc.onload=go;document.head.appendChild(sc)}});
 }
 const find=k=>DATA.items.find(e=>e.key===k);
 
@@ -420,6 +425,7 @@ $("subForm").onsubmit=async ev=>{
   }catch(e){console.error(e);st.textContent=t.sErr;st.className="status bad"}
 };
 
+window.SATHI_SHARE={text:l=>T[l].sharePage};
 Sathi.onLang(l=>{lang=l;document.title=(l==="ne"?"जापानमा आउँदा कार्यक्रम":"Upcoming Events in Japan")+" – Sathi Japan";render()});
 load().then(syncMine);
 </script>
