@@ -55,6 +55,15 @@ async function json(r) { try { return await r.json(); } catch (_) { return null;
 
 async function handler(req, res) {
   try {
+    if (req.method === "GET" && req.query && req.query.lat) {
+      // "Near me" fallback for garbage.html: town name from GSI (国土地理院). Location is not stored or logged.
+      const lat = Number(req.query.lat), lon = Number(req.query.lon);
+      if (!(lat > 20 && lat < 46 && lon > 122 && lon < 154)) return res.status(400).json({ error: "bad_location" });
+      const r = await fetch(`https://mreversegeocoder.gsi.go.jp/reverse-geocoder/LonLatToAddress?lat=${lat.toFixed(5)}&lon=${lon.toFixed(5)}`);
+      if (!r.ok) return res.status(502).json({ error: "gsi_" + r.status });
+      res.setHeader("Cache-Control", "no-store");
+      return res.status(200).json(await r.json());
+    }
     if (req.method === "GET") {
       const today = jpDate(0), until = jpDate(400);
       let hol = [], holErr = false;
