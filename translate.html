@@ -1,0 +1,725 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Japanese helper – understand your boss, reply politely | Sathi Japan</title>
+<meta name="description" content="Hear Japanese at work and see it in Nepali and English with furigana. Turn your Nepali or English into polite Japanese. Save words and grammar and review them.">
+<link rel="canonical" href="https://sathi-japan.vercel.app/translate.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sathi Japan">
+<meta property="og:title" content="Japanese helper – Sathi Japan">
+<meta property="og:description" content="Japanese → Nepali + English with furigana, polite replies to your boss, and word practice.">
+<meta property="og:url" content="https://sathi-japan.vercel.app/translate.html">
+<meta property="og:image" content="https://sathi-japan.vercel.app/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0F6B57">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="theme.css">
+<style>
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--sx-paper);color:var(--sx-text);font:400 17px/1.6 var(--sx-f)}
+a{color:var(--sx-green)}
+:focus-visible{outline:3px solid var(--sx-blue);outline-offset:3px;border-radius:8px}
+[lang=ja],.ja{font-family:var(--sx-jp)}
+[hidden]{display:none!important}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px 80px}
+h1{font-size:clamp(30px,6.5vw,44px);line-height:1.1;margin:24px 0 6px;color:var(--sx-green);font-weight:800;letter-spacing:-.02em}
+.intro{color:var(--sx-muted);margin:0 0 14px}
+.card{background:var(--sx-card);border:1px solid var(--sx-line);border-radius:20px;box-shadow:var(--sx-shadow);padding:16px;margin-bottom:12px}
+.warn{background:var(--sx-butter);border-radius:16px;padding:12px 14px;font-size:15px;margin-bottom:14px}
+.warn summary{font-weight:700;cursor:pointer}
+.warn ul{margin:6px 0 0;padding-left:20px}
+.seg{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 14px}
+.seg button{border:1px solid var(--sx-line);background:var(--sx-card);border-radius:999px;padding:7px 13px;font:600 15px var(--sx-f);cursor:pointer;color:var(--sx-text)}
+.seg button[aria-pressed=true]{background:var(--sx-green);border-color:var(--sx-green);color:#fff}
+.seg.small button{padding:5px 11px;font-size:14px}
+@media (prefers-color-scheme:dark){.seg button[aria-pressed=true],.btn.pri{color:#0B1715}}
+textarea.in,input.in,select.in{width:100%;font:inherit;font-size:17px;padding:10px 12px;border:1px solid var(--sx-line);border-radius:12px;background:var(--sx-paper);color:var(--sx-text)}
+textarea.in{min-height:84px;resize:vertical}
+.acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:42px;padding:0 14px;border-radius:12px;font-weight:700;font-size:15px;border:0;cursor:pointer;font-family:inherit;background:var(--sx-card);color:var(--sx-green);box-shadow:inset 0 0 0 2px var(--sx-line)}
+.btn.pri{background:var(--sx-green);color:#fff;box-shadow:none}
+.btn.mini{min-height:34px;padding:0 10px;font-size:14px;border-radius:10px}
+.btn[disabled]{opacity:.55;cursor:default}
+.mic{width:100%;min-height:64px;font-size:19px;border-radius:18px}
+.mic.on{background:#B4233A;color:#fff;box-shadow:none}
+.live{min-height:24px;color:var(--sx-muted);font-family:var(--sx-jp);margin:8px 2px}
+.small{font-size:14px;color:var(--sx-muted)}
+.ja{font-size:21px;line-height:1.9;font-weight:500}
+.ne{font-size:18px;font-weight:600}
+.en{color:var(--sx-muted)}
+.tip{background:var(--sx-mint);border-radius:12px;padding:8px 12px;margin-top:8px;font-size:16px}
+.err{background:var(--sx-peach);border-radius:12px;padding:10px 12px;margin-top:8px}
+.pending{opacity:.75}
+ruby rt{font-size:.5em;color:var(--sx-teal)}
+ruby.kw{cursor:pointer;border-bottom:1px dotted var(--sx-green-2)}
+body.nofuri ruby rt{visibility:hidden}
+.words{display:grid;gap:6px;margin-top:10px}
+.wrow{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;padding:8px 10px;border:1px solid var(--sx-line);border-radius:12px;cursor:pointer;background:var(--sx-paper);text-align:left;font:inherit;color:inherit}
+.wrow b{font-family:var(--sx-jp);font-size:18px}
+.wrow small{color:var(--sx-muted);display:block}
+.tag{display:inline-block;font-size:12.5px;font-weight:700;border-radius:999px;padding:1px 9px;margin-right:4px;background:var(--sx-sky);color:var(--sx-blue)}
+.tag.ok{background:var(--sx-mint);color:var(--sx-green)}.tag.bad{background:var(--sx-peach);color:#A3322A}
+.empty{border:1px dashed var(--sx-line);border-radius:18px;padding:18px;color:var(--sx-muted);background:var(--sx-card)}
+.ex{border-left:3px solid var(--sx-line);padding:4px 10px;margin:8px 0}
+.ex .ja{font-size:18px}
+.rule{background:var(--sx-paper);border-radius:10px;padding:8px 10px;margin-top:6px;font-size:15px}
+details.day{margin-bottom:10px}
+details.day summary{font-weight:700;cursor:pointer;padding:8px 0}
+.flash{text-align:center;padding:26px 16px}
+.flash .big{font-family:var(--sx-jp);font-size:clamp(30px,9vw,46px);font-weight:700;line-height:1.3}
+.left{font-size:14px;color:var(--sx-muted);text-align:right;margin-top:6px}
+/* bottom sheets */
+.veil{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:60}
+.sheet{position:fixed;left:0;right:0;bottom:0;z-index:61;max-height:86vh;overflow:auto;background:var(--sx-card);border-radius:22px 22px 0 0;padding:16px 16px calc(20px + env(safe-area-inset-bottom));box-shadow:0 -10px 30px rgba(0,0,0,.18);max-width:760px;margin:0 auto}
+.sheet .x{float:right;font-size:22px;background:none;border:0;cursor:pointer;color:var(--sx-text)}
+.wbig{font-family:var(--sx-jp);font-size:34px;font-weight:700}
+.gp{border:1px solid var(--sx-line);border-radius:16px;padding:12px;margin-top:12px}
+.gpat{font-family:var(--sx-jp);font-size:22px;font-weight:700;color:var(--sx-teal)}
+#selBtn{position:fixed;left:50%;transform:translateX(-50%);bottom:90px;z-index:55}
+</style>
+</head>
+<body>
+<a class="sx-sr" href="#main">Skip to content</a>
+<header id="sxHead"></header>
+<main class="wrap" id="main">
+  <h1 data-t="h1"></h1>
+  <p class="intro" data-t="intro"></p>
+
+  <details class="warn" id="warn" open>
+    <summary data-t="warnH"></summary>
+    <ul id="warnList"></ul>
+  </details>
+
+  <div class="card" id="codeBox" hidden>
+    <label for="code" style="font-weight:700" data-t="codeL"></label>
+    <div class="acts" style="margin-top:6px"><input class="in" id="code" autocomplete="off" style="flex:1;min-width:0"><button class="btn pri" id="codeSave" data-t="codeSave"></button></div>
+  </div>
+
+  <div class="seg" id="tabs" role="tablist">
+    <button data-tab="boss" aria-pressed="true" data-t="tBoss"></button>
+    <button data-tab="reply" aria-pressed="false" data-t="tReply"></button>
+    <button data-tab="study" aria-pressed="false" data-t="tStudy"></button>
+    <button data-tab="notes" aria-pressed="false" data-t="tNotes"></button>
+    <button data-tab="review" aria-pressed="false" data-t="tReview"></button>
+  </div>
+
+  <!-- 1. Boss: Japanese → Nepali + English -->
+  <section data-panel="boss">
+    <div class="card">
+      <button class="btn pri mic" id="micBtn" hidden></button>
+      <div class="live" id="live" aria-live="polite"></div>
+      <label class="small" for="jaIn" data-t="jaInL"></label>
+      <textarea class="in" id="jaIn" lang="ja" maxlength="600"></textarea>
+      <div class="acts">
+        <button class="btn pri" id="jaGo" data-t="translate"></button>
+        <button class="btn mini" id="furiBtn"></button>
+        <button class="btn mini" id="clearFeed" data-t="clear"></button>
+      </div>
+      <p class="small" id="micHint" style="margin:8px 0 0"></p>
+      <div class="left" id="left1"></div>
+    </div>
+    <div id="feed"></div>
+  </section>
+
+  <!-- 2. Reply: Nepali / English → polite Japanese -->
+  <section data-panel="reply" hidden>
+    <div class="card">
+      <label class="small" for="myIn" data-t="myInL"></label>
+      <textarea class="in" id="myIn" maxlength="600"></textarea>
+      <div class="acts"><button class="btn pri" id="replyGo" data-t="makeJa"></button></div>
+      <div class="left" id="left2"></div>
+    </div>
+    <div id="rfeed"></div>
+  </section>
+
+  <!-- 3. Study a line -->
+  <section data-panel="study" hidden>
+    <div class="card">
+      <label class="small" for="stIn" data-t="stInL"></label>
+      <textarea class="in" id="stIn" lang="ja" maxlength="300"></textarea>
+      <div class="acts"><button class="btn pri" id="stGo" data-t="breakdown"></button></div>
+      <div class="left" id="left3"></div>
+    </div>
+    <div id="sfeed"></div>
+  </section>
+
+  <!-- 4. Notes: words / grammar / lines / history (saved on this phone only) -->
+  <section data-panel="notes" hidden>
+    <div class="seg small" id="nbMode">
+      <button data-nb="words" aria-pressed="true" data-t="nWords"></button>
+      <button data-nb="grammar" aria-pressed="false" data-t="nGrammar"></button>
+      <button data-nb="lines" aria-pressed="false" data-t="nLines"></button>
+      <button data-nb="history" aria-pressed="false" data-t="nHistory"></button>
+    </div>
+    <div class="card" id="addWordBox">
+      <div class="acts" style="margin:0"><input class="in" id="wAdd" lang="ja" maxlength="30" style="flex:1;min-width:0"><button class="btn pri" id="wAddBtn" data-t="lookUp"></button></div>
+    </div>
+    <input class="in" id="nFind" style="margin-bottom:12px">
+    <p class="small" data-t="phoneOnly"></p>
+    <div id="nList"></div>
+  </section>
+
+  <!-- 5. Review flashcards -->
+  <section data-panel="review" hidden>
+    <div class="seg small" id="rvMode">
+      <button data-rv="all" aria-pressed="true" data-t="rAll"></button>
+      <button data-rv="words" aria-pressed="false" data-t="nWords"></button>
+      <button data-rv="grammar" aria-pressed="false" data-t="nGrammar"></button>
+      <button data-rv="lines" aria-pressed="false" data-t="nLines"></button>
+    </div>
+    <div id="rvBox"></div>
+  </section>
+</main>
+<footer id="sxFoot"></footer>
+
+<button class="btn pri" id="selBtn" hidden></button>
+<div class="veil" id="veil" hidden></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" hidden></div>
+
+<script src="site.js"></script>
+<script>
+"use strict";
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+let lang = (window.Sathi && Sathi.lang) || "en";
+
+const T = {
+ en: {
+  h1: "Japanese helper", intro: "Understand what your boss or coworker says, reply politely, and learn the words you hear every day.",
+  warnH: "Before you use it",
+  warn: ["It is an AI translation and it can be wrong. For contracts, hospital, police, immigration or money matters, ask a real interpreter or the office.",
+         "Check your company rules first, and tell people you are using a translation app. Do not use it for secret company information.",
+         "Do not type your residence card number, My Number, bank or password details.",
+         "What you say is turned into text by your phone's browser (Google or Apple), and the text is sent to our AI provider (Anthropic). We do not save it. Your saved words stay on this phone."],
+  codeL: "Access code (ask Sathi Japan)", codeSave: "Save",
+  tBoss: "👂 Boss", tReply: "💬 Reply", tStudy: "📺 Study", tNotes: "📖 Notes", tReview: "⭐ Review",
+  micStart: "🎙 Start listening", micStop: "■ Stop listening", listening: "Listening… speak Japanese",
+  micHint: "No microphone button? Tap the 🎤 on your phone keyboard and speak Japanese into the box.",
+  micNo: "This browser cannot listen. Tap the 🎤 on your phone keyboard and speak Japanese into the box.",
+  micDenied: "Microphone is blocked. Allow it in your browser settings, or use the 🎤 on your keyboard.",
+  jaInL: "Or type / paste Japanese", translate: "Translate", clear: "Clear", furiOn: "ふりがな ON", furiOff: "ふりがな OFF",
+  myInL: "Write what you want to say (Nepali or English)", makeJa: "Make polite Japanese",
+  stInL: "One Japanese line you want to understand (from work, TV or anime)", breakdown: "Break it down",
+  working: "Translating…", say: "🔊", study: "📺 Study", grammar: "🧩 Grammar", saveLine: "☆ Save line", savedLine: "★ Saved",
+  copy: "Copy", copied: "Copied ✓", back: "Meaning check:", gramH: "Grammar", wordsH: "Words — tap one",
+  nWords: "Words", nGrammar: "Grammar", nLines: "Lines", nHistory: "History", rAll: "All",
+  lookUp: "Look up", find: "Search your notes", addPh: "Add a word, e.g. 締め切り",
+  phoneOnly: "Saved on this phone only. Clearing browser data deletes it.",
+  noWords: "No words yet. Tap a word with furigana in any card to save it.", noGram: "No grammar saved yet. Tap 🧩 Grammar on a card.",
+  noLines: "No lines saved yet. Tap ☆ Save line on a card.", noHist: "Nothing yet. Lines you translate in 👂 Boss appear here for 30 days.",
+  noMatch: "No match.", del: "🗑", delQ: "Delete?", delDay: "Delete day", today: "Today", yesterday: "Yesterday",
+  wordLoading: "Looking up…", saveWord: "⭐ Save word", addEx: "⭐ Add this sentence", savedW: "★ Saved", sentence: "Sentence",
+  gLoading: "Reading the sentence… (about 10 seconds)", natural: "🗣 In real life, say:", howTo: "How to make it",
+  daily: "✅ used in daily life", movie: "🎬 movie / old style", yourTurn: "✍️ Your turn", check: "Check", checking: "Checking…", showAns: "Show answer",
+  right: "✅ Correct!", fix: "✏️ Small fix", saveG: "☆ Save", savedG: "★ Saved",
+  rvEmpty: "Save some words, grammar or lines first. Then practise them here.", reveal: "Show answer", again: "Again", got: "I know it",
+  rvLeft: n => `${n} cards`, left: n => `${n} uses left today`, selLook: t => `🔍 Look up 「${t}」`,
+  e: { not_ready: "The Japanese helper is not switched on yet.", code: "Please type the access code above.", limit: "Daily limit reached. Please try again tomorrow.",
+       site: "Too many people used it today. Please try again tomorrow.", busy: "Too busy right now — try again in a minute.",
+       too_long: "Too long — please send a shorter part.", ai: "Could not translate. Try again.", net: "No internet connection?" },
+  share: "Japanese helper: understand your boss in Nepali, reply politely in Japanese – free on Sathi Japan"
+ },
+ ne: {
+  h1: "जापानी सहयोगी", intro: "हाकिम वा सहकर्मीले के भने बुझ्नुहोस्, नम्र जापानीमा जवाफ दिनुहोस्, र दैनिक सुनिने शब्द सिक्नुहोस्।",
+  warnH: "प्रयोग गर्नुअघि",
+  warn: ["यो AI अनुवाद हो, गल्ती हुन सक्छ। सम्झौता, अस्पताल, प्रहरी, इमिग्रेसन वा पैसाको कुरामा वास्तविक दोभाषे वा कार्यालयलाई सोध्नुहोस्।",
+         "पहिले आफ्नो कम्पनीको नियम हेर्नुहोस्, र अनुवाद एप प्रयोग गर्दैछु भनी बताउनुहोस्। कम्पनीको गोप्य कुरामा प्रयोग नगर्नुहोस्।",
+         "रेसिडेन्स कार्ड नम्बर, My Number, बैंक वा पासवर्ड नलेख्नुहोस्।",
+         "तपाईंले बोलेको कुरा फोनको ब्राउजर (Google वा Apple) ले अक्षरमा बदल्छ, र त्यो अक्षर हाम्रो AI प्रदायक (Anthropic) लाई पठाइन्छ। हामी सेभ गर्दैनौं। सेभ गरेका शब्द यही फोनमा मात्र रहन्छन्।"],
+  codeL: "पहुँच कोड (साथी जापानसँग माग्नुहोस्)", codeSave: "सेभ",
+  tBoss: "👂 हाकिम", tReply: "💬 जवाफ", tStudy: "📺 पढाइ", tNotes: "📖 नोट", tReview: "⭐ दोहोर्‍याउने",
+  micStart: "🎙 सुन्न सुरु गर्नुहोस्", micStop: "■ सुन्न रोक्नुहोस्", listening: "सुन्दैछ… जापानी बोल्नुहोस्",
+  micHint: "माइक बटन छैन? फोनको किबोर्डको 🎤 थिचेर बक्समा जापानी बोल्नुहोस्।",
+  micNo: "यो ब्राउजरले सुन्न सक्दैन। फोनको किबोर्डको 🎤 थिचेर बक्समा जापानी बोल्नुहोस्।",
+  micDenied: "माइक बन्द छ। ब्राउजर सेटिङमा अनुमति दिनुहोस्, वा किबोर्डको 🎤 प्रयोग गर्नुहोस्।",
+  jaInL: "वा जापानी टाइप / पेस्ट गर्नुहोस्", translate: "अनुवाद", clear: "हटाउनुहोस्", furiOn: "ふりがな ON", furiOff: "ふりがな OFF",
+  myInL: "भन्न चाहेको कुरा लेख्नुहोस् (नेपाली वा अंग्रेजी)", makeJa: "नम्र जापानी बनाउनुहोस्",
+  stInL: "बुझ्न चाहेको एउटा जापानी वाक्य (काम, टिभी वा एनिमेबाट)", breakdown: "टुक्रा टुक्रा गरी बुझाउनुहोस्",
+  working: "अनुवाद हुँदैछ…", say: "🔊", study: "📺 पढ्ने", grammar: "🧩 व्याकरण", saveLine: "☆ वाक्य सेभ", savedLine: "★ सेभ भयो",
+  copy: "कपी", copied: "कपी भयो ✓", back: "अर्थ जाँच:", gramH: "व्याकरण", wordsH: "शब्दहरू — एउटा थिच्नुहोस्",
+  nWords: "शब्द", nGrammar: "व्याकरण", nLines: "वाक्य", nHistory: "इतिहास", rAll: "सबै",
+  lookUp: "खोज्नुहोस्", find: "नोटमा खोज्नुहोस्", addPh: "शब्द थप्नुहोस्, जस्तै 締め切り",
+  phoneOnly: "यही फोनमा मात्र सेभ हुन्छ। ब्राउजर डाटा मेटाए यो पनि मेटिन्छ।",
+  noWords: "अहिलेसम्म शब्द छैन। कुनै कार्डमा ふりがな भएको शब्द थिचेर सेभ गर्नुहोस्।", noGram: "अहिलेसम्म व्याकरण सेभ छैन। कार्डमा 🧩 व्याकरण थिच्नुहोस्।",
+  noLines: "अहिलेसम्म वाक्य सेभ छैन। कार्डमा ☆ वाक्य सेभ थिच्नुहोस्।", noHist: "अहिले केही छैन। 👂 हाकिममा अनुवाद गरेका वाक्य यहाँ ३० दिन रहन्छन्।",
+  noMatch: "भेटिएन।", del: "🗑", delQ: "मेटाउने?", delDay: "दिन मेटाउने", today: "आज", yesterday: "हिजो",
+  wordLoading: "खोज्दैछ…", saveWord: "⭐ शब्द सेभ", addEx: "⭐ यो वाक्य थप्नुहोस्", savedW: "★ सेभ भयो", sentence: "वाक्य",
+  gLoading: "वाक्य पढ्दैछ… (करिब १० सेकेन्ड)", natural: "🗣 वास्तविक जीवनमा यसो भन्नुहोस्:", howTo: "कसरी बनाउने",
+  daily: "✅ दैनिक जीवनमा प्रयोग हुन्छ", movie: "🎬 फिल्म / पुरानो शैली", yourTurn: "✍️ तपाईंको पालो", check: "जाँच्नुहोस्", checking: "जाँच्दैछ…", showAns: "उत्तर हेर्नुहोस्",
+  right: "✅ सही!", fix: "✏️ अलि मिलाऔं", saveG: "☆ सेभ", savedG: "★ सेभ भयो",
+  rvEmpty: "पहिले केही शब्द, व्याकरण वा वाक्य सेभ गर्नुहोस्। अनि यहाँ अभ्यास गर्नुहोस्।", reveal: "उत्तर हेर्नुहोस्", again: "फेरि", got: "मलाई आउँछ",
+  rvLeft: n => `${n} कार्ड`, left: n => `आज ${n} पटक बाँकी`, selLook: t => `🔍 「${t}」 खोज्नुहोस्`,
+  e: { not_ready: "जापानी सहयोगी अहिले सुरु भएको छैन।", code: "माथि पहुँच कोड लेख्नुहोस्।", limit: "आजको सीमा पुग्यो। भोलि फेरि प्रयास गर्नुहोस्।",
+       site: "आज धेरै मानिसले प्रयोग गरे। भोलि फेरि प्रयास गर्नुहोस्।", busy: "अहिले धेरै व्यस्त छ — एक मिनेटपछि फेरि प्रयास गर्नुहोस्।",
+       too_long: "धेरै लामो भयो — छोटो भाग पठाउनुहोस्।", ai: "अनुवाद हुन सकेन। फेरि प्रयास गर्नुहोस्।", net: "इन्टरनेट छैन?" },
+  share: "जापानी सहयोगी: हाकिमको कुरा नेपालीमा बुझ्नुहोस्, नम्र जापानीमा जवाफ दिनुहोस् – साथी जापानमा निःशुल्क"
+ }
+};
+const t = () => T[lang];
+
+// ---------- storage (this phone only) ----------
+const store = {
+  get(k, d) { try { const v = JSON.parse(localStorage.getItem(k)); return v ?? d; } catch (_) { return d; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); return true; } catch (_) { return false; } }
+};
+let words = store.get("tr_words", []), gpoints = store.get("tr_gram", []), lines = store.get("tr_lines", []);
+let hist = store.get("tr_hist", []).filter(h => h.t > Date.now() - 30 * 864e5);
+const saveAll = () => { store.set("tr_words", words); store.set("tr_gram", gpoints); store.set("tr_lines", lines); store.set("tr_hist", hist.slice(-600)); };
+function hash(s) { let h = 0; for (const c of String(s)) h = (h * 31 + c.codePointAt(0)) >>> 0; return h.toString(36); }
+
+// ---------- server ----------
+async function api(mode, text, ctx) {
+  let r, d = {};
+  try {
+    r = await fetch("/api/translate", { method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ mode, text, ctx: ctx || null, code: store.get("tr_code", "") }) });
+    d = await r.json();
+  } catch (_) { throw r ? "ai" : "net"; }
+  if (typeof d.left === "number") showLeft(d.left);
+  if (!d.ok) { if (d.error === "code") $("codeBox").hidden = false; throw d.error === "limit" && d.site ? "site" : (d.error || "ai"); }
+  return d.out;
+}
+const errText = e => t().e[e] || t().e.ai;
+let leftN = null;
+function showLeft(n) { leftN = n; ["left1", "left2", "left3"].forEach(id => $(id).textContent = n <= 50 ? t().left(n) : ""); }
+
+// ---------- furigana ----------
+const KANJI = /[一-鿿㐀-䶿々]/;
+function furiHTML(furi, ja) {
+  try {
+    if (!Array.isArray(furi) || !furi.length) return esc(ja);
+    const p = furi.map(x => Array.isArray(x) ? x : [x?.t ?? x?.text ?? "", x?.r ?? x?.reading ?? ""]);
+    if (ja && p.map(x => x[0]).join("") !== ja) return esc(ja);
+    return p.map(([s, r]) => r && KANJI.test(s) ? `<ruby class="kw">${esc(s)}<rt>${esc(r)}</rt></ruby>` : esc(s)).join("");
+  } catch (_) { return esc(ja); }
+}
+let furiOn = store.get("tr_furi", true);
+function syncFuri() { document.body.classList.toggle("nofuri", !furiOn); $("furiBtn").textContent = furiOn ? t().furiOn : t().furiOff; }
+$("furiBtn").onclick = () => { furiOn = !furiOn; store.set("tr_furi", furiOn); syncFuri(); };
+
+// ---------- speaking Japanese aloud ----------
+function speakJa(text, rate = 0.9) {
+  if (!("speechSynthesis" in window) || !text) return;
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text); u.lang = "ja-JP"; u.rate = rate;
+  const v = speechSynthesis.getVoices().find(v => /^ja/i.test(v.lang)); if (v) u.voice = v;
+  speechSynthesis.speak(u);
+}
+function copy(text, btn) {
+  navigator.clipboard?.writeText(text).then(() => { btn.textContent = t().copied; setTimeout(() => btn.textContent = t().copy, 1300); }).catch(() => {});
+}
+
+// ---------- sentence registry (cards point here with data-ctx) ----------
+const ctxs = {};
+function reg(o) { const id = "c" + hash(o.ja + "|" + (o.en || "")); ctxs[id] = Object.assign(ctxs[id] || {}, o); return id; }
+
+function lineCard(o, opts = {}) {
+  const id = reg(o), saved = lines.some(l => l.id === "l-" + hash(o.ja));
+  return `<div class="card" data-ctx="${id}">
+    ${opts.time ? `<div class="small">${esc(opts.time)}</div>` : ""}
+    <div class="ja" lang="ja">${furiHTML(o.furi, o.ja)}</div>
+    ${o.ne ? `<div class="ne">${esc(o.ne)}</div>` : ""}${o.en ? `<div class="en">${esc(o.en)}</div>` : ""}
+    ${o.note ? `<div class="tip">💡 ${esc(o.note)}</div>` : ""}
+    <div class="acts">
+      <button class="btn mini" data-a="say" aria-label="Listen">🔊</button>
+      <button class="btn mini" data-a="study">${t().study}</button>
+      <button class="btn mini" data-a="gram">${t().grammar}</button>
+      <button class="btn mini" data-a="line">${saved ? t().savedLine : t().saveLine}</button>
+      ${opts.del ? `<button class="btn mini" data-a="ldel">${t().del}</button>` : ""}
+    </div></div>`;
+}
+function pendingCard(feed, text) {
+  const el = document.createElement("div");
+  el.innerHTML = `<div class="card pending"><div class="ja" lang="ja">${esc(text)}</div><div class="en">${t().working}</div></div>`;
+  feed.prepend(el); return el;
+}
+const fail = (el, e) => { el.querySelector(".card").classList.remove("pending"); el.querySelector(".en").outerHTML = `<div class="err">${esc(errText(e))}</div>`; };
+
+// ---------- 1. Boss ----------
+async function translateJa(text) {
+  text = text.trim(); if (!text) return;
+  const el = pendingCard($("feed"), text);
+  try {
+    const o = await api("boss", text.slice(0, 600));
+    const item = { ja: o.ja || text, furi: Array.isArray(o.furi) ? o.furi : null, en: o.en || "", ne: o.ne || "", note: o.note || "", t: Date.now() };
+    el.innerHTML = lineCard(item);
+    if (!hist.length || hist[hist.length - 1].ja !== item.ja) { hist.push(item); saveAll(); }
+  } catch (e) { fail(el, e); }
+}
+$("jaGo").onclick = () => { const v = $("jaIn").value; $("jaIn").value = ""; translateJa(v); };
+$("jaIn").addEventListener("keydown", e => { if (e.key === "Enter" && !e.shiftKey && !e.isComposing) { e.preventDefault(); $("jaGo").click(); } });
+$("clearFeed").onclick = () => { $("feed").innerHTML = ""; };
+
+// Listening with the browser's own speech recognition (free). Sends each finished sentence after a short pause.
+const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+let rec = null, listening = false, buf = "", pauseT = null;
+function syncMic() {
+  $("micBtn").hidden = !SR;
+  $("micBtn").textContent = listening ? t().micStop : t().micStart;
+  $("micBtn").classList.toggle("on", listening);
+  $("micHint").textContent = SR ? t().micHint : t().micNo;
+}
+function flush() { const s = buf.trim(); buf = ""; if (s) translateJa(s); }
+function startRec() {
+  rec = new SR(); rec.lang = "ja-JP"; rec.continuous = true; rec.interimResults = true;
+  rec.onresult = ev => {
+    let interim = "";
+    for (let i = ev.resultIndex; i < ev.results.length; i++) {
+      const r = ev.results[i];
+      if (r.isFinal) { buf += r[0].transcript; clearTimeout(pauseT); pauseT = setTimeout(flush, 1500); }
+      else interim += r[0].transcript;
+    }
+    $("live").textContent = (buf + interim) || t().listening;
+  };
+  rec.onerror = ev => {
+    if (ev.error === "not-allowed" || ev.error === "service-not-allowed") { listening = false; $("live").textContent = t().micDenied; syncMic(); }
+  };
+  rec.onend = () => { if (listening) { try { rec.start(); } catch (_) { setTimeout(() => listening && startRec(), 400); } } };
+  try { rec.start(); } catch (_) {}
+}
+$("micBtn").onclick = () => {
+  if (listening) { listening = false; try { rec && rec.stop(); } catch (_) {} clearTimeout(pauseT); flush(); $("live").textContent = ""; }
+  else { listening = true; $("live").textContent = t().listening; startRec(); }
+  syncMic();
+};
+
+// ---------- 2. Reply ----------
+$("replyGo").onclick = async () => {
+  const text = $("myIn").value.trim(); if (!text) return;
+  const el = pendingCard($("rfeed"), text);
+  try {
+    const o = await api("reply", text);
+    const id = reg({ ja: o.ja, furi: o.furi, en: o.back || "", ne: o.back_ne || "" });
+    el.innerHTML = `<div class="card" data-ctx="${id}">
+      <div class="small">${esc(text)}</div>
+      <div class="ja" lang="ja" style="font-size:24px">${furiHTML(o.furi, o.ja)}</div>
+      <div class="small" style="font-size:16px">${esc(o.romaji)}</div>
+      <div class="tip"><b>${t().back}</b> ${esc(lang === "ne" && o.back_ne ? o.back_ne : o.back)}</div>
+      <div class="acts"><button class="btn mini" data-a="say">🔊</button><button class="btn mini" data-a="copy">${t().copy}</button>
+        <button class="btn mini" data-a="line">${t().saveLine}</button></div></div>`;
+  } catch (e) { fail(el, e); }
+};
+
+// ---------- 3. Study ----------
+async function study(text) {
+  text = text.trim(); if (!text) return;
+  showTab("study");
+  const el = pendingCard($("sfeed"), text);
+  try {
+    const o = await api("study", text.slice(0, 300));
+    const id = reg({ ja: o.ja || text, furi: o.furi, en: o.en, ne: o.ne, words: Array.isArray(o.words) ? o.words : [] });
+    el.innerHTML = `<div class="card" data-ctx="${id}">
+      <div class="ja" lang="ja">${furiHTML(o.furi, o.ja)}</div>
+      <div class="small" lang="ja">${esc(o.kana)}</div><div class="small">${esc(o.romaji)}</div>
+      <div class="ne" style="margin-top:6px">${esc(o.ne)}</div><div class="en">${esc(o.en)}</div>
+      ${o.grammar ? `<div class="tip"><b>${t().gramH}:</b> ${esc(o.grammar)}</div>` : ""}
+      <div class="small" style="margin-top:10px;font-weight:700">${t().wordsH}</div>
+      <div class="words">${(ctxs[id].words || []).map((w, i) => `<button class="wrow" data-wopen="${id}:${i}"><b>${esc(w.w)}</b><span>${esc(w.r)}<small>${esc(w.ne)} · ${esc(w.en)}</small></span></button>`).join("")}</div>
+      <div class="acts"><button class="btn mini" data-a="say">🔊</button><button class="btn mini" data-a="gram">${t().grammar}</button><button class="btn mini" data-a="line">${t().saveLine}</button></div>
+    </div>`;
+  } catch (e) { fail(el, e); }
+}
+$("stGo").onclick = () => { const v = $("stIn").value; $("stIn").value = ""; study(v); };
+
+// ---------- bottom sheet ----------
+let sheetState = null;
+function openSheet(html) { $("sheet").innerHTML = `<button class="x" data-a="close" aria-label="Close">✕</button>` + html; $("sheet").hidden = false; $("veil").hidden = false; $("sheet").scrollTop = 0; }
+function closeSheet() { $("sheet").hidden = true; $("veil").hidden = true; sheetState = null; }
+$("veil").onclick = closeSheet;
+document.addEventListener("keydown", e => { if (e.key === "Escape" && !$("sheet").hidden) closeSheet(); });
+
+// ---------- word lookup ----------
+const wCache = {};
+async function openWord(text, ctxId) {
+  text = String(text || "").trim().slice(0, 30); if (!text) return;
+  const ctx = ctxId ? ctxs[ctxId] : null;
+  const st = sheetState = { kind: "word", text, ctx, info: null, err: "" };
+  renderWord();
+  const k = text + "|" + (ctx?.ja || "");
+  try {
+    const info = wCache[k] || await api("word", text, ctx ? { ja: ctx.ja } : null);
+    wCache[k] = info;
+    if (sheetState === st) { st.info = info; renderWord(); }
+  } catch (e) { if (sheetState === st) { st.err = errText(e); renderWord(); } }
+}
+function wordRuby(w) { return w.reading && KANJI.test(w.word) ? `<ruby>${esc(w.word)}<rt>${esc(w.reading)}</rt></ruby>` : esc(w.word); }
+function renderWord() {
+  const st = sheetState, i = st.info;
+  if (!i) return openSheet(`<div class="wbig" lang="ja">${esc(st.text)}</div><div class="${st.err ? "err" : "small"}">${esc(st.err || t().wordLoading)}</div>`);
+  const ex = words.find(w => w.id === "w-" + hash(i.word));
+  const hasEx = ex && st.ctx && (ex.examples || []).some(e => e.ja === st.ctx.ja);
+  const label = !ex ? t().saveWord : (st.ctx && !hasEx ? t().addEx : t().savedW);
+  openSheet(`<div class="wbig" lang="ja">${wordRuby(i)}</div>
+    <div>${i.pos ? `<span class="tag">${esc(i.pos)}</span>` : ""}${i.jlpt ? `<span class="tag ok">${esc(i.jlpt)}</span>` : ""}</div>
+    <div class="ne" style="font-size:20px;margin-top:6px">${esc(i.ne)}</div><div class="en">${esc(i.en)}</div>
+    ${i.note ? `<div class="tip">${esc(i.note)}</div>` : ""}
+    ${st.ctx ? `<div class="ex"><div class="small">${t().sentence}</div><div class="ja" lang="ja">${furiHTML(st.ctx.furi, st.ctx.ja)}</div><div class="small">${esc(st.ctx.ne || st.ctx.en)}</div></div>` : ""}
+    <div class="acts"><button class="btn" data-a="wsay">🔊</button><button class="btn pri" data-a="wsave" ${label === t().savedW ? "disabled" : ""}>${label}</button></div>`);
+}
+function saveWord(i, ctx) {
+  const id = "w-" + hash(i.word);
+  const ex = ctx && ctx.ja ? { ja: ctx.ja, furi: ctx.furi || null, en: ctx.en || "", ne: ctx.ne || "" } : null;
+  const w = words.find(x => x.id === id);
+  if (w) { if (ex && !(w.examples || []).some(e => e.ja === ex.ja)) w.examples = [ex, ...(w.examples || [])].slice(0, 12); }
+  else words.unshift({ id, word: i.word, reading: i.reading || "", en: i.en || "", ne: i.ne || "", pos: i.pos || "", jlpt: i.jlpt || "", note: i.note || "", examples: ex ? [ex] : [], t: Date.now(), score: 0 });
+  saveAll(); renderNotes();
+}
+
+// ---------- grammar explainer ----------
+const gCache = {};
+async function openGrammar(ctxId) {
+  const ctx = ctxs[ctxId]; if (!ctx) return;
+  const st = sheetState = { kind: "gram", ctx, data: gCache[ctx.ja] || null, err: "", checks: {} };
+  renderGrammar();
+  if (st.data) return;
+  try {
+    const d = await api("grammar", ctx.ja, { en: ctx.en, ne: ctx.ne });
+    if (!d || !Array.isArray(d.points)) throw "ai";
+    gCache[ctx.ja] = d;
+    if (sheetState === st) { st.data = d; renderGrammar(); }
+  } catch (e) { if (sheetState === st) { st.err = errText(e); renderGrammar(); } }
+}
+function renderGrammar(keepScroll) {
+  const st = sheetState, d = st.data, ctx = st.ctx, top = $("sheet").scrollTop;
+  const head = `<div style="font-weight:800;font-size:18px">🧩 ${t().gramH}</div><div class="ja" lang="ja">${furiHTML(ctx.furi, ctx.ja)}</div>`;
+  if (!d) return openSheet(head + `<div class="${st.err ? "err" : "small"}">${esc(st.err || t().gLoading)}</div>`);
+  const bad = /old|fiction|rough/.test(d.register || "");
+  const pts = d.points.map((p, i) => {
+    const saved = gpoints.some(g => g.id === "g-" + hash(p.pattern)), c = st.checks[i] || {};
+    return `<div class="gp">
+      <div style="display:flex;justify-content:space-between;gap:8px;align-items:start"><span class="gpat" lang="ja">${esc(p.pattern)}</span>
+        <button class="btn mini" data-gsave="${i}">${saved ? t().savedG : t().saveG}</button></div>
+      <div style="font-weight:700">${esc(p.name)}</div>
+      <div><span class="tag">${esc(p.level)}</span><span class="tag ${p.everyday === false ? "bad" : "ok"}">${p.everyday === false ? t().movie : t().daily}</span></div>
+      <div class="ne" style="margin-top:6px">${esc(p.ne)}</div><div class="en" style="font-size:15px">${esc(p.en)}</div>
+      <div class="rule"><b>${t().howTo}:</b> <span lang="ja">${esc(p.rule)}</span></div>
+      ${(p.examples || []).map((x, j) => `<div class="ex"><div class="ja" lang="ja">${esc(x.ja)} <button class="btn mini" data-gsay="${i}:${j}">🔊</button></div><div class="small">${esc(x.ne)} · ${esc(x.en)}</div></div>`).join("")}
+      ${p.practice ? `<div class="rule" style="margin-top:10px"><b>${t().yourTurn}</b>
+        <div class="ne" style="font-size:16px">${esc(p.practice.ne)}</div><div class="small">${esc(p.practice.en)}</div>
+        <textarea class="in" id="gIn-${i}" lang="ja" maxlength="300" placeholder="日本語で… (romaji OK)" style="min-height:60px;margin-top:6px">${esc(c.input || "")}</textarea>
+        <div class="acts"><button class="btn pri mini" data-gcheck="${i}" ${c.busy ? "disabled" : ""}>${c.busy ? t().checking : t().check}</button>
+          <button class="btn mini" data-gans="${i}">${t().showAns}</button></div>
+        ${c.show ? `<div class="ex ja" lang="ja">${esc(p.practice.answer)}</div>` : ""}
+        ${c.res ? `<div class="tip" style="background:${c.res.ok ? "var(--sx-mint)" : "var(--sx-butter)"}"><b>${c.res.ok ? t().right : t().fix}</b>
+          <div class="ja" lang="ja">${esc(c.res.corrected)}</div><div>${esc(lang === "ne" ? c.res.ne : c.res.en)}</div></div>` : ""}
+        ${c.err ? `<div class="err">${esc(c.err)}</div>` : ""}</div>` : ""}
+    </div>`;
+  }).join("");
+  openSheet(head + `
+    <div class="ne" style="font-size:16px">${esc(ctx.ne)}</div>
+    <div style="margin-top:6px">${d.register ? `<span class="tag ${bad ? "bad" : "ok"}">${esc(d.register)}</span>` : ""}<span>${esc(d.register_ne)}</span></div>
+    ${d.natural ? `<div class="tip"><b>${t().natural}</b><div class="ja" lang="ja">${esc(d.natural)} <button class="btn mini" data-a="natsay">🔊</button></div><div>${esc(d.natural_ne)}</div></div>` : ""}
+    ${pts}`);
+  if (keepScroll) $("sheet").scrollTop = top;
+}
+function keepInput(i) { const el = $("gIn-" + i); if (el && sheetState) sheetState.checks[i] = { ...(sheetState.checks[i] || {}), input: el.value }; }
+async function checkPractice(i) {
+  const st = sheetState, p = st.data.points[i];
+  keepInput(i);
+  const input = (st.checks[i]?.input || "").trim(); if (!input) return;
+  st.checks[i] = { ...st.checks[i], busy: true, err: "", res: null }; renderGrammar(true);
+  try {
+    const res = await api("check", input, { pattern: p.pattern, rule: p.rule, task: p.practice.en, answer: p.practice.answer });
+    if (sheetState === st) { st.checks[i] = { ...st.checks[i], busy: false, res }; renderGrammar(true); }
+  } catch (e) { if (sheetState === st) { st.checks[i] = { ...st.checks[i], busy: false, err: errText(e) }; renderGrammar(true); } }
+}
+function saveGrammar(p, ctx) {
+  const id = "g-" + hash(p.pattern);
+  const src = ctx?.ja ? { ja: ctx.ja, furi: ctx.furi || null, en: ctx.en || "", ne: ctx.ne || "" } : null;
+  const g = gpoints.find(x => x.id === id);
+  if (g) { if (src && !(g.sources || []).some(x => x.ja === src.ja)) g.sources = [src, ...(g.sources || [])].slice(0, 12); }
+  else gpoints.unshift({ id, pattern: p.pattern, name: p.name || "", level: p.level || "", everyday: p.everyday !== false, ne: p.ne || "", en: p.en || "",
+    rule: p.rule || "", examples: (p.examples || []).slice(0, 3), sources: src ? [src] : [], t: Date.now(), score: 0 });
+  saveAll(); renderNotes();
+}
+function toggleLine(ctx) {
+  const id = "l-" + hash(ctx.ja), i = lines.findIndex(l => l.id === id);
+  if (i >= 0) lines.splice(i, 1);
+  else lines.unshift({ id, ja: ctx.ja, furi: ctx.furi || null, en: ctx.en || "", ne: ctx.ne || "", t: Date.now(), score: 0 });
+  saveAll(); renderNotes();
+  return i < 0;
+}
+
+// ---------- one click handler for everything ----------
+document.addEventListener("click", e => {
+  const b = e.target.closest("button,[data-wopen],ruby.kw");
+  if (!b) return;
+  const card = b.closest("[data-ctx]"), ctxId = card?.dataset.ctx, ctx = ctxId && ctxs[ctxId];
+  const a = b.dataset.a, st = sheetState;
+  if (a === "close") return closeSheet();
+  if (b.matches("ruby.kw") && ctxId) { const c = b.cloneNode(true); c.querySelectorAll("rt").forEach(r => r.remove()); return openWord(c.textContent, ctxId); }
+  if (b.dataset.wopen) { const [cid, i] = b.dataset.wopen.split(":"); const w = ctxs[cid]?.words?.[+i]; if (w) openWord(w.w, cid); return; }
+  if (a === "say" && ctx) return speakJa(ctx.ja);
+  if (a === "copy" && ctx) return copy(ctx.ja, b);
+  if (a === "study" && ctx) return study(ctx.ja);
+  if (a === "gram" && ctx) return openGrammar(ctxId);
+  if (a === "line" && ctx) { b.textContent = toggleLine(ctx) ? t().savedLine : t().saveLine; return; }
+  if (a === "ldel" && ctx) { if (!armed(b)) return; toggleLine(ctx); return; }
+  if (a === "wsay" && st?.info) return speakJa(st.info.reading || st.info.word, 0.85);
+  if (a === "wsave" && st?.info) { saveWord(st.info, st.ctx); return renderWord(); }
+  if (a === "natsay" && st?.data) return speakJa(st.data.natural);
+  if (b.dataset.gsay && st?.data) { const [i, j] = b.dataset.gsay.split(":"); return speakJa(st.data.points[+i].examples[+j].ja); }
+  if (b.dataset.gsave && st?.data) { saveGrammar(st.data.points[+b.dataset.gsave], st.ctx); return renderGrammar(true); }
+  if (b.dataset.gans && st?.data) { const i = +b.dataset.gans; keepInput(i); st.checks[i] = { ...(st.checks[i] || {}), show: true }; return renderGrammar(true); }
+  if (b.dataset.gcheck && st?.data) return checkPractice(+b.dataset.gcheck);
+});
+function armed(b) {   // first tap asks "Delete?", second tap deletes
+  if (b.dataset.armed) return true;
+  b.dataset.armed = 1; const old = b.textContent; b.textContent = t().delQ;
+  setTimeout(() => { if (b.isConnected) { delete b.dataset.armed; b.textContent = old; } }, 2500);
+  return false;
+}
+
+// Select any Japanese text in a card (long-press) → "Look up"
+let selPending = null;
+document.addEventListener("selectionchange", () => {
+  const sel = getSelection();
+  if (!sel || sel.isCollapsed || !sel.rangeCount) { setTimeout(() => { if (!getSelection()?.toString()) { $("selBtn").hidden = true; selPending = null; } }, 300); return; }
+  const r = sel.getRangeAt(0), n = r.commonAncestorContainer;
+  const host = (n.nodeType === 1 ? n : n.parentElement)?.closest("[data-ctx]");
+  const f = r.cloneContents(); f.querySelectorAll?.("rt").forEach(x => x.remove());
+  const s = f.textContent.trim();
+  if (!host || !s || s.length > 15 || !/[぀-ヿ一-鿿]/.test(s)) { $("selBtn").hidden = true; return; }
+  selPending = { s, ctx: host.dataset.ctx };
+  $("selBtn").textContent = t().selLook(s); $("selBtn").hidden = false;
+});
+$("selBtn").addEventListener("click", e => { e.stopPropagation(); if (selPending) { const p = selPending; getSelection()?.removeAllRanges(); $("selBtn").hidden = true; openWord(p.s, p.ctx); } });
+
+// ---------- 4. Notes ----------
+let nbMode = "words";
+function dayLabel(ms) {
+  const d = new Date(ms), k = d.toDateString();
+  if (k === new Date().toDateString()) return t().today;
+  if (k === new Date(Date.now() - 864e5).toDateString()) return t().yesterday;
+  return d.toLocaleDateString(lang === "ne" ? "ne-NP" : "en-GB", { weekday: "short", day: "numeric", month: "short" });
+}
+function renderNotes() {
+  const q = $("nFind").value.trim().toLowerCase(), has = (...xs) => !q || xs.some(x => String(x || "").toLowerCase().includes(q));
+  $("addWordBox").hidden = nbMode !== "words";
+  let html = "";
+  if (nbMode === "words") {
+    const L = words.filter(w => has(w.word, w.reading, w.en, w.ne) || (w.examples || []).some(e => has(e.ja)));
+    html = L.map(w => `<div class="card">
+      <div style="display:flex;justify-content:space-between;gap:8px"><span class="wbig" lang="ja" style="font-size:28px">${wordRuby(w)}</span>
+        <span><button class="btn mini" data-nsay="${esc(w.reading || w.word)}">🔊</button> <button class="btn mini" data-wdel="${esc(w.id)}">${t().del}</button></span></div>
+      <div>${w.pos ? `<span class="tag">${esc(w.pos)}</span>` : ""}${w.jlpt ? `<span class="tag ok">${esc(w.jlpt)}</span>` : ""}</div>
+      <div class="ne">${esc(w.ne)}</div><div class="en">${esc(w.en)}</div>${w.note ? `<div class="tip">${esc(w.note)}</div>` : ""}
+      ${(w.examples || []).map(e => `<div class="ex" data-ctx="${reg(e)}"><div class="ja" lang="ja">${furiHTML(e.furi, e.ja)} <button class="btn mini" data-a="say">🔊</button></div><div class="small">${esc(e.ne)} · ${esc(e.en)}</div></div>`).join("")}
+    </div>`).join("") || `<div class="empty">${words.length ? t().noMatch : t().noWords}</div>`;
+  } else if (nbMode === "grammar") {
+    const L = gpoints.filter(g => has(g.pattern, g.name, g.ne, g.en, g.rule));
+    html = L.map(g => `<div class="card">
+      <div style="display:flex;justify-content:space-between;gap:8px"><span class="gpat" lang="ja">${esc(g.pattern)}</span><button class="btn mini" data-gdel="${esc(g.id)}">${t().del}</button></div>
+      <div style="font-weight:700">${esc(g.name)}</div>
+      <div><span class="tag">${esc(g.level)}</span><span class="tag ${g.everyday ? "ok" : "bad"}">${g.everyday ? t().daily : t().movie}</span></div>
+      <div class="ne" style="margin-top:6px">${esc(g.ne)}</div><div class="en" style="font-size:15px">${esc(g.en)}</div>
+      <div class="rule"><b>${t().howTo}:</b> <span lang="ja">${esc(g.rule)}</span></div>
+      ${[...(g.examples || []), ...(g.sources || [])].map(x => `<div class="ex" data-ctx="${reg(x)}"><div class="ja" lang="ja">${furiHTML(x.furi, x.ja)} <button class="btn mini" data-a="say">🔊</button></div><div class="small">${esc(x.ne)} · ${esc(x.en)}</div></div>`).join("")}
+    </div>`).join("") || `<div class="empty">${gpoints.length ? t().noMatch : t().noGram}</div>`;
+  } else if (nbMode === "lines") {
+    html = lines.filter(l => has(l.ja, l.en, l.ne)).map(l => lineCard(l, { del: true })).join("") || `<div class="empty">${lines.length ? t().noMatch : t().noLines}</div>`;
+  } else {
+    const days = {};
+    hist.filter(h => has(h.ja, h.en, h.ne)).forEach(h => { const k = new Date(h.t).toDateString(); (days[k] = days[k] || []).push(h); });
+    html = Object.entries(days).sort((a, b) => b[1][0].t - a[1][0].t).map(([k, items]) => `<details class="day"${items[0].t > Date.now() - 864e5 ? " open" : ""}>
+      <summary>${esc(dayLabel(items[0].t))} · ${items.length} <button class="btn mini" data-hdel="${esc(k)}" style="margin-left:8px">${t().delDay}</button></summary>
+      ${items.slice().reverse().map(h => lineCard(h, { time: new Date(h.t).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) })).join("")}</details>`).join("")
+      || `<div class="empty">${hist.length ? t().noMatch : t().noHist}</div>`;
+  }
+  $("nList").innerHTML = html;
+}
+$("nList").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  if (b.dataset.nsay) return speakJa(b.dataset.nsay, 0.85);
+  if (b.dataset.wdel && armed(b)) { words = words.filter(w => w.id !== b.dataset.wdel); saveAll(); renderNotes(); }
+  if (b.dataset.gdel && armed(b)) { gpoints = gpoints.filter(g => g.id !== b.dataset.gdel); saveAll(); renderNotes(); }
+  if (b.dataset.hdel) { e.preventDefault(); if (armed(b)) { hist = hist.filter(h => new Date(h.t).toDateString() !== b.dataset.hdel); saveAll(); renderNotes(); } }
+});
+$("nFind").addEventListener("input", renderNotes);
+$("nbMode").onclick = e => { const b = e.target.closest("[data-nb]"); if (!b) return; nbMode = b.dataset.nb; pressOne("nbMode", b); renderNotes(); };
+$("wAddBtn").onclick = () => { const v = $("wAdd").value.trim(); if (v) { $("wAdd").value = ""; openWord(v, null); } };
+$("wAdd").addEventListener("keydown", e => { if (e.key === "Enter" && !e.isComposing) { e.preventDefault(); $("wAddBtn").click(); } });
+
+// ---------- 5. Review (flashcards) ----------
+let rvMode = "all", rvCard = null, rvShow = false;
+function deck() {
+  const d = [];
+  if (rvMode === "all" || rvMode === "words") words.forEach(w => d.push({ k: "w", o: w }));
+  if (rvMode === "all" || rvMode === "grammar") gpoints.forEach(g => d.push({ k: "g", o: g }));
+  if (rvMode === "all" || rvMode === "lines") lines.forEach(l => d.push({ k: "l", o: l }));
+  return d;
+}
+function nextCard() {
+  const d = deck(); if (!d.length) { rvCard = null; return; }
+  const min = Math.min(...d.map(c => c.o.score || 0));
+  const pool = d.filter(c => (c.o.score || 0) <= min + 1 && c.o !== rvCard?.o);
+  rvCard = (pool.length ? pool : d)[Math.floor(Math.random() * (pool.length || d.length))]; rvShow = false;
+}
+function renderReview() {
+  const d = deck();
+  if (!d.length) { $("rvBox").innerHTML = `<div class="empty">${t().rvEmpty}</div>`; return; }
+  if (!rvCard || !d.some(c => c.o === rvCard.o)) nextCard();
+  const { k, o } = rvCard;
+  const front = k === "w" ? esc(o.word) : k === "g" ? esc(o.pattern) : esc(o.ja);
+  const back = k === "w" ? `<div class="ja" lang="ja">${esc(o.reading)}</div><div class="ne">${esc(o.ne)}</div><div class="en">${esc(o.en)}</div>`
+    : k === "g" ? `<div style="font-weight:700">${esc(o.name)}</div><div class="ne">${esc(o.ne)}</div><div class="rule" lang="ja">${esc(o.rule)}</div>`
+    : `<div class="ja" lang="ja">${furiHTML(o.furi, o.ja)}</div><div class="ne">${esc(o.ne)}</div><div class="en">${esc(o.en)}</div>`;
+  $("rvBox").innerHTML = `<div class="small">${t().rvLeft(d.length)}</div><div class="card flash">
+    <div class="big" lang="ja"${k === "l" ? ' style="font-size:24px"' : ""}>${front}</div>
+    ${rvShow ? `<div style="margin-top:12px">${back}</div>` : ""}
+    <div class="acts" style="justify-content:center;margin-top:16px">
+      <button class="btn" id="rvSay">🔊</button>
+      ${rvShow ? `<button class="btn" id="rvAgain">${t().again}</button><button class="btn pri" id="rvGot">${t().got}</button>`
+               : `<button class="btn pri" id="rvShowBtn">${t().reveal}</button>`}
+    </div></div>`;
+  $("rvSay").onclick = () => speakJa(k === "w" ? (o.reading || o.word) : k === "g" ? (o.examples?.[0]?.ja || o.pattern) : o.ja);
+  if (rvShow) {
+    $("rvAgain").onclick = () => { o.score = Math.max(0, (o.score || 0) - 1); saveAll(); nextCard(); renderReview(); };
+    $("rvGot").onclick = () => { o.score = (o.score || 0) + 1; saveAll(); nextCard(); renderReview(); };
+  } else $("rvShowBtn").onclick = () => { rvShow = true; renderReview(); };
+}
+$("rvMode").onclick = e => { const b = e.target.closest("[data-rv]"); if (!b) return; rvMode = b.dataset.rv; rvCard = null; pressOne("rvMode", b); renderReview(); };
+
+// ---------- tabs, language, code ----------
+function pressOne(groupId, btn) { $(groupId).querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === btn ? "true" : "false")); }
+function showTab(name) {
+  document.querySelectorAll("[data-panel]").forEach(p => p.hidden = p.dataset.panel !== name);
+  pressOne("tabs", $("tabs").querySelector(`[data-tab="${name}"]`));
+  if (name === "notes") renderNotes();
+  if (name === "review") renderReview();
+  try { history.replaceState(null, "", "#" + name); } catch (_) {}
+}
+$("tabs").onclick = e => { const b = e.target.closest("[data-tab]"); if (b) showTab(b.dataset.tab); };
+$("codeSave").onclick = () => { store.set("tr_code", $("code").value.trim()); $("codeBox").hidden = true; };
+$("code").value = store.get("tr_code", "");
+
+function applyLang() {
+  document.querySelectorAll("[data-t]").forEach(el => { const v = t()[el.dataset.t]; if (typeof v === "string") el.textContent = v; });
+  $("warnList").innerHTML = t().warn.map(x => `<li>${esc(x)}</li>`).join("");
+  $("nFind").placeholder = t().find; $("wAdd").placeholder = t().addPh;
+  $("jaIn").placeholder = "例：明日は8時に来てください"; $("myIn").placeholder = lang === "ne" ? "जस्तै: आज म अलि ढिलो आउँछु" : "e.g. I will be a little late today";
+  $("stIn").placeholder = "例：何やってんの？";
+  document.title = t().h1 + " – Sathi Japan";
+  syncMic(); syncFuri();
+  if (leftN !== null) showLeft(leftN);
+  if (!document.querySelector('[data-panel="notes"]').hidden) renderNotes();
+  if (!document.querySelector('[data-panel="review"]').hidden) renderReview();
+}
+window.SATHI_SHARE = { text: l => T[l].share };
+if (window.Sathi && Sathi.onLang) Sathi.onLang(l => { lang = l; applyLang(); }); else applyLang();
+applyLang();
+if (store.get("tr_warn_seen", false)) $("warn").open = false;
+$("warn").addEventListener("toggle", () => { if (!$("warn").open) store.set("tr_warn_seen", true); });
+const start = (location.hash || "").slice(1);
+if (["boss", "reply", "study", "notes", "review"].includes(start)) showTab(start);
+</script>
+</body>
+</html>
