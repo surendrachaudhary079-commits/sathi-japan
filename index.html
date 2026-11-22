@@ -62,7 +62,19 @@ p.sub{margin:0 0 22px;color:var(--sx-muted);max-width:60ch}
 .pills li{display:inline-flex;align-items:center;gap:6px;background:var(--sx-card);border:1px solid var(--sx-line);border-radius:999px;padding:4px 12px;font-size:14.5px;font-weight:600;color:var(--sx-green)}
 .pills .sx-ic{width:16px;height:16px}
 .hero .art{display:block;width:100%;height:auto}
-@media (min-width:880px){.hero{grid-template-columns:1.02fr 1fr;align-items:end;min-height:440px}.hero .txt{padding:52px 44px 48px}.hero .art{align-self:end}}
+/* 3D hero: layers move with tilt / mouse, real 3D Mount Fuji drawn between the sky and the town */
+.artwrap{position:relative;overflow:hidden}
+.artwrap .front{position:absolute;inset:0;pointer-events:none}
+.artwrap .ly{transform-box:view-box;transform-origin:50% 60%;will-change:transform}
+#fuji3d{position:absolute;left:24%;top:4%;width:52%;height:66%;pointer-events:none;opacity:0;transition:opacity .8s}
+#fuji3d.on{opacity:1}
+#fuji2d{transition:opacity .8s}
+#fuji2d.off{opacity:0}
+/* 3D cards */
+.tilt{transform-style:preserve-3d;transition:transform .25s ease,box-shadow .25s ease;will-change:transform}
+.tilt.lift{box-shadow:0 18px 36px rgba(15,107,87,.18)}
+@media (prefers-reduced-motion:reduce){.tilt{transition:none}#fuji3d{display:none}}
+@media (min-width:880px){.hero{grid-template-columns:1.02fr 1fr;align-items:end;min-height:440px}.hero .txt{padding:52px 44px 48px}.hero .artwrap{align-self:end}}
 
 /* Services */
 .svc{display:grid;gap:14px;grid-template-columns:1fr}
@@ -200,17 +212,22 @@ ol.steps span{color:var(--sx-muted);font-size:15.5px}
       </div>
       <ul class="pills" id="pills"></ul>
     </div>
+    <div class="artwrap" id="artWrap">
     <svg class="art" viewBox="0 0 560 330" role="img" id="heroArt">
+      <g class="ly" data-d="0.25"><circle cx="440" cy="70" r="30" fill="#E8505B" opacity=".9"/><g fill="#fff" opacity=".85"><ellipse cx="120" cy="62" rx="34" ry="10"/><ellipse cx="150" cy="54" rx="24" ry="10"/><ellipse cx="330" cy="40" rx="28" ry="8"/></g></g>
+      <g class="ly" data-d="0.45" id="fuji2d"><path d="M190 210 L285 92 L380 210Z" fill="#8FB7D3"/><path d="M262 120 L285 92 L308 120 L298 116 L290 124 L282 115 L272 124Z" fill="#fff"/></g>
+    </svg>
+    <canvas id="fuji3d" aria-hidden="true"></canvas>
+    <svg class="art front" viewBox="0 0 560 330" aria-hidden="true">
       <defs><linearGradient id="riv" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#7CC6E8"/><stop offset="1" stop-color="#5DB3DC"/></linearGradient></defs>
-      <circle cx="440" cy="70" r="30" fill="#E8505B" opacity=".9"/>
-      <g fill="#fff" opacity=".85"><ellipse cx="120" cy="62" rx="34" ry="10"/><ellipse cx="150" cy="54" rx="24" ry="10"/><ellipse cx="330" cy="40" rx="28" ry="8"/></g>
-      <path d="M190 210 L285 92 L380 210Z" fill="#8FB7D3"/>
-      <path d="M262 120 L285 92 L308 120 L298 116 L290 124 L282 115 L272 124Z" fill="#fff"/>
+      <g class="ly" data-d="0.7">
       <path d="M0 210 C80 180 140 196 200 186 S330 170 400 188 S520 176 560 186 V330 H0Z" fill="#A9DCBF"/>
       <!-- skyline -->
       <g fill="#6FA7C9"><rect x="70" y="140" width="26" height="80" rx="2"/><rect x="100" y="118" width="30" height="102" rx="2"/><rect x="134" y="150" width="22" height="70" rx="2"/><rect x="390" y="132" width="28" height="88" rx="2"/><rect x="422" y="150" width="22" height="70" rx="2"/></g>
       <path d="M50 220 L58 100 L66 220Z" fill="#E8505B"/><path d="M52 160h12M54 130h8" stroke="#fff" stroke-width="3"/>
       <g fill="#fff" opacity=".6"><rect x="106" y="128" width="5" height="7"/><rect x="117" y="128" width="5" height="7"/><rect x="106" y="144" width="5" height="7"/><rect x="117" y="144" width="5" height="7"/><rect x="396" y="142" width="5" height="7"/><rect x="408" y="142" width="5" height="7"/><rect x="396" y="158" width="5" height="7"/><rect x="408" y="158" width="5" height="7"/></g>
+      </g>
+      <g class="ly" data-d="1">
       <!-- pagoda -->
       <g transform="translate(468 112)" fill="#C8553D"><path d="M-6 0h44l-8 10H2z"/><rect x="6" y="10" width="20" height="16"/><path d="M-8 26h48l-8 10H0z"/><rect x="5" y="36" width="22" height="18"/><path d="M-10 54h52l-8 10H-2z"/><rect x="4" y="64" width="24" height="44"/><path d="M15 -14v14" stroke="#C8553D" stroke-width="3"/></g>
       <!-- torii -->
@@ -226,7 +243,9 @@ ol.steps span{color:var(--sx-muted);font-size:15.5px}
       <g transform="translate(530 206)"><path d="M0 34V8" stroke="#7A5136" stroke-width="5" stroke-linecap="round"/><circle cx="-10" cy="4" r="13" fill="#F7B6C8"/><circle cx="8" cy="-1" r="14" fill="#F9C8D5"/></g>
       <!-- recycling bins -->
       <g transform="translate(24 270)"><rect x="0" y="10" width="26" height="34" rx="4" fill="#1E9E6E"/><rect x="-2" y="5" width="30" height="7" rx="2" fill="#0F6B57"/><rect x="34" y="10" width="26" height="34" rx="4" fill="#3A8FD0"/><rect x="32" y="5" width="30" height="7" rx="2" fill="#2D6FA3"/><rect x="68" y="10" width="26" height="34" rx="4" fill="#F2B531"/><rect x="66" y="5" width="30" height="7" rx="2" fill="#D9A21B"/></g>
+      </g>
     </svg>
+    </div>
   </section>
 
   <!-- Services -->
@@ -470,5 +489,6 @@ const _render=render;render=function(l){_render(l);renderEvents()};
 Sathi.onLang(render);
 if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(()=>{});
 </script>
+<script src="home3d.js" defer></script>
 </body>
 </html>
