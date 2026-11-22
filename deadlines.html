@@ -155,7 +155,7 @@ const SRC={niigataTax:"https://www.city.niigata.lg.jp/kurashi/zei/sizei_noufu/no
  pension:"https://www.nenkin.go.jp/service/kokunen/hokenryo/20150313-02.html",visa:"visa.html",reentry:"https://www.moj.go.jp/isa/applications/procedures/16-4.html"};
 const NIIGATA={rt:["2026-06-30","2026-08-31","2026-11-02","2027-02-01"],
  nhi:["2026-07-31","2026-08-31","2026-09-30","2026-11-02","2026-11-30","2026-12-28","2027-02-01","2027-03-01","2027-03-31"],kei:["2026-06-01"]};
-const KINDS={rc:{b:[90,30,14,1],icon:"🪪"},mn:{b:[30,7],icon:"🆔"},pp:{b:[180,90,30],icon:"📘"},dl:{b:[45,14,1],icon:"🚗"},re:{b:[30,7,1],icon:"✈️"},
+const KINDS={rc:{b:[90,30,14,1],icon:"🪪"},mn:{b:[30,7],icon:"🆔"},pp:{b:[180,90,30],icon:"📘"},dl:{b:[60,30,7,1],icon:"🚗"},re:{b:[30,7,1],icon:"✈️"},
  rt:{b:[7,1],icon:"🏛️",multi:1},nhi:{b:[7,1],icon:"🏥",multi:1},pen:{b:[7,1],icon:"🧓",multi:1},kei:{b:[7,1],icon:"🛵"},cu:{b:[7,1],icon:"📌"}};
 const REM={def:null,w1:[7,1],m1:[30,7,1],d1:[1]};
 
@@ -182,7 +182,7 @@ en:{
   rc:"The date on the front of your card. You can apply to renew from 3 months before (for stays of 6 months or more). We remind you 3 months, 1 month, 2 weeks and 1 day before.",
   mn:"For foreign residents, the My Number card ends when your period of stay ends. After you get your new residence card, take both cards to your city office and update the My Number card before this date. Use your residence card expiry date.",
   pp:"The expiry date in your passport. Many countries and airlines need at least 6 months left, and renewing at the Embassy of Nepal in Tokyo takes time – so we remind you 6 months before.",
-  dl:"The date on your licence (いつまで有効). You can renew from 1 month before your birthday.",
+  dl:"The date on your licence (〇年〇月〇日まで有効) – it is 1 month after your birthday. You can renew from 1 month before your birthday until this date. We remind you when renewal opens (about 2 months before), then 1 month, 1 week and 1 day before.",
   re:"Leaving Japan with special re-entry (みなし再入国)? You must come back within 1 year, and before your residence card expires – otherwise your status ends. Enter the last day you can return.",
   rt:"If you pay resident tax yourself with payment slips (not taken from your salary), it is paid in 4 parts. These are Niigata City's dates. Living elsewhere? Change them to the dates on your slips.",
   nhi:"National Health Insurance paid with slips: 9 parts, July to March. These are Niigata City's dates – other cities differ, so check your slips.",
@@ -217,7 +217,7 @@ ne:{
   rc:"कार्डको अगाडि लेखिएको मिति। ६ महिना वा बढीको बसाइमा म्याद सकिनुभन्दा ३ महिना अघिदेखि नवीकरण गर्न सकिन्छ। ३ महिना, १ महिना, २ हप्ता र १ दिन अघि सम्झाउँछौं।",
   mn:"विदेशी बासिन्दाको My Number कार्ड बसाइ अवधिसँगै सकिन्छ। नयाँ रेसिडेन्स कार्ड पाएपछि दुवै कार्ड लिएर सिटी अफिसमा यो मितिअघि My Number कार्ड अपडेट गर्नुहोस्। रेसिडेन्स कार्डको म्यादको मिति राख्नुहोस्।",
   pp:"पासपोर्टमा लेखिएको म्याद। धेरै देश र एयरलाइनलाई कम्तीमा ६ महिना बाँकी चाहिन्छ, र टोकियोस्थित नेपाली दूतावासमा नवीकरणमा समय लाग्छ – त्यसैले ६ महिना अघि सम्झाउँछौं।",
-  dl:"लाइसेन्समा लेखिएको मिति (いつまで有効)। जन्मदिनको १ महिना अघिदेखि नवीकरण गर्न सकिन्छ।",
+  dl:"लाइसेन्समा लेखिएको मिति (〇年〇月〇日まで有効) – यो जन्मदिनको १ महिनापछि हुन्छ। जन्मदिनको १ महिना अघिदेखि यो मितिसम्म नवीकरण गर्न सकिन्छ। नवीकरण सुरु हुँदा (करिब २ महिना अघि), अनि १ महिना, १ हप्ता र १ दिन अघि सम्झाउँछौं।",
   re:"みなし再入国 मा जापान छोड्दै हुनुहुन्छ? १ वर्षभित्र र रेसिडेन्स कार्डको म्याद सकिनुअघि फर्किनुपर्छ – नत्र स्टेटस सकिन्छ। फर्किन मिल्ने अन्तिम दिन राख्नुहोस्।",
   rt:"तलबबाट नकाटिई भुक्तानी पर्चीबाट आफैं नगर कर तिर्नुहुन्छ भने ४ किस्तामा तिरिन्छ। यी निगाता सिटीका मिति हुन्। अन्यत्र बस्नुहुन्छ भने पर्चीको मिति राख्नुहोस्।",
   nhi:"पर्चीबाट तिर्ने राष्ट्रिय स्वास्थ्य बीमा: जुलाईदेखि मार्चसम्म ९ किस्ता। यी निगाता सिटीका मिति हुन् – अरू सिटीमा फरक हुन्छ, पर्ची जाँच्नुहोस्।",
@@ -378,6 +378,10 @@ if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch
   if(q.get("add")==="cu"&&/^\d{4}-\d{2}-\d{2}$/.test(d||"")&&d>=today()){
     const l=(q.get("l")||"").replace(/\d{6,}/g,"…").slice(0,40);
     if(!list.some(x=>x.k==="cu"&&x.d===d&&x.l===l)){list.push({id:uid(),k:"cu",d,l,b:[7,1]});save()}
+    history.replaceState(null,"","deadlines.html")}
+  // Coming from the driving licence guide: ?add=dl&d=YYYY-MM-DD (one licence, so a new date replaces the old one)
+  if(q.get("add")==="dl"&&/^\d{4}-\d{2}-\d{2}$/.test(d||"")&&d>=today()){
+    if(!list.some(x=>x.k==="dl"&&x.d===d&&!x.done)){list=list.filter(x=>!(x.k==="dl"&&!x.done));list.push({id:uid(),k:"dl",d,b:KINDS.dl.b.slice()});save()}
     history.replaceState(null,"","deadlines.html")}})();
 render();
 </script>

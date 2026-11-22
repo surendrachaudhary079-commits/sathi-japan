@@ -238,6 +238,21 @@ details.faq p{margin:8px 0 0;color:var(--sx-muted)}
   <section class="sec" id="study" aria-labelledby="stH"><div id="stBody"></div></section>
   <section class="sec" id="after" aria-labelledby="afH"><div id="afBody"></div></section>
 
+  <!-- Renewal reminder: adds the licence date to My deadlines (phone reminders are turned on there) -->
+  <section class="sec" id="remind" aria-labelledby="rmH">
+    <h2 class="h" id="rmH"></h2>
+    <div class="card">
+      <p id="rmP" style="margin-top:0"></p>
+      <label for="rmDate" style="font-weight:700;display:block;margin-bottom:6px" id="rmL"></label>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+        <input type="date" id="rmDate" style="font:inherit;font-size:17px;padding:10px 12px;border:1px solid var(--sx-line);border-radius:12px;background:var(--sx-paper);color:var(--sx-text);min-height:46px">
+        <button class="btn pri" id="rmGo"></button>
+      </div>
+      <div id="rmOut" aria-live="polite"></div>
+      <p class="rmSrc" style="font-size:14px;color:var(--sx-muted);margin:12px 0 0"><span id="rmSrcT"></span> <a href="https://www.npa.go.jp/policies/application/license_renewal/japan.html" target="_blank" rel="noopener">National Police Agency (警察庁)</a></p>
+    </div>
+  </section>
+
   <section class="sec" id="faq" aria-labelledby="fqH">
     <h2 class="h" id="fqH" data-t="fqH"></h2>
     <div class="card" id="faqBody"></div>
@@ -269,7 +284,7 @@ en:{
  lead:"How to exchange a foreign licence, how to get a Japanese licence from scratch, which documents to bring, the official fees, and how to prepare for the tests. Every rule links to the official police page.",
  checked:d=>`Last verified ${d}`,official:"Official sources only",langs:"English · नेपाली",
  notice:"Rules depend on your licence, the country that issued it, your prefecture and your situation – and they changed on 1 October 2025. Use this guide to prepare, then confirm with your driver's licence centre. JapanMates is not a government service.",
- tabs:[["start","Start"],["guide","Find my path"],["exchange","Exchange"],["new","New licence"],["types","Licence types"],["countries","Countries"],["centres","Licence centres"],["checklist","Checklist"],["costs","Costs"],["study","Test practice"],["after","After you get it"],["faq","FAQ"],["sources","Sources"]],
+ tabs:[["start","Start"],["guide","Find my path"],["exchange","Exchange"],["new","New licence"],["types","Licence types"],["countries","Countries"],["centres","Licence centres"],["checklist","Checklist"],["costs","Costs"],["study","Test practice"],["after","After you get it"],["remind","🔔 Renewal reminder"],["faq","FAQ"],["sources","Sources"]],
  startH:"Which situation are you in?",startP:"Pick the one that fits you, or answer a few questions in “Find my path”.",
  paths:[["exchange","swap","mint","I have a foreign licence","Exchange it for a Japanese licence (外免切替)"],["new","car","sky","I have no licence","Get a Japanese licence from scratch"],["after","cal","butter","I have a Japanese licence","Renewal, address change, lost licence"],["countries","globe","aqua","Check my country","Test exemption for your licence country"],["centres","pin","lilac","Find my licence centre","Official page for your prefecture"],["study","book","peach","Prepare for the test","Rules, Japanese terms and a practice quiz"]],
  guideH:"Find my path",guideP:"Answer a few questions. We show the likely route, your checklist and the official pages. This is not a final decision – only the licence centre can decide.",
@@ -355,7 +370,7 @@ ne:{
  lead:"विदेशी लाइसेन्स कसरी बदल्ने, सुरुदेखि जापानी लाइसेन्स कसरी लिने, कुन कागजात लैजाने, आधिकारिक शुल्क, र परीक्षाको तयारी। हरेक नियममा प्रहरीको आधिकारिक पेजको लिंक छ।",
  checked:d=>`अन्तिम जाँच ${d}`,official:"आधिकारिक स्रोत मात्र",langs:"English · नेपाली",
  notice:"नियम तपाईंको लाइसेन्स, त्यो दिने देश, तपाईंको प्रिफेक्चर र अवस्थामा भर पर्छ – र २०२५ अक्टोबर १ मा बदलियो। यो गाइडले तयारी गर्नुहोस्, अनि आफ्नो लाइसेन्स केन्द्रमा पक्का गर्नुहोस्। JapanMates सरकारी सेवा होइन।",
- tabs:[["start","सुरु"],["guide","मेरो बाटो"],["exchange","लाइसेन्स बदल्ने"],["new","नयाँ लाइसेन्स"],["types","लाइसेन्सका प्रकार"],["countries","देशहरू"],["centres","लाइसेन्स केन्द्र"],["checklist","चेकलिस्ट"],["costs","खर्च"],["study","परीक्षा अभ्यास"],["after","लाइसेन्सपछि"],["faq","प्रश्नोत्तर"],["sources","स्रोत"]],
+ tabs:[["start","सुरु"],["guide","मेरो बाटो"],["exchange","लाइसेन्स बदल्ने"],["new","नयाँ लाइसेन्स"],["types","लाइसेन्सका प्रकार"],["countries","देशहरू"],["centres","लाइसेन्स केन्द्र"],["checklist","चेकलिस्ट"],["costs","खर्च"],["study","परीक्षा अभ्यास"],["after","लाइसेन्सपछि"],["remind","🔔 नवीकरण रिमाइन्डर"],["faq","प्रश्नोत्तर"],["sources","स्रोत"]],
  startH:"तपाईं कुन अवस्थामा हुनुहुन्छ?",startP:"आफूलाई मिल्ने छान्नुहोस्, वा “मेरो बाटो” मा केही प्रश्नको जवाफ दिनुहोस्।",
  paths:[["exchange","swap","mint","मसँग विदेशी लाइसेन्स छ","जापानी लाइसेन्समा बदल्नुहोस् (外免切替)"],["new","car","sky","मसँग लाइसेन्स छैन","सुरुदेखि जापानी लाइसेन्स लिनुहोस्"],["after","cal","butter","मसँग जापानी लाइसेन्स छ","नवीकरण, ठेगाना परिवर्तन, हराएको लाइसेन्स"],["countries","globe","aqua","मेरो देश जाँच्नुहोस्","तपाईंको लाइसेन्स देशको परीक्षा छुट"],["centres","pin","lilac","मेरो लाइसेन्स केन्द्र","तपाईंको प्रिफेक्चरको आधिकारिक पेज"],["study","book","peach","परीक्षाको तयारी","नियम, जापानी शब्द र अभ्यास प्रश्न"]],
  guideH:"मेरो बाटो पत्ता लगाउनुहोस्",guideP:"केही प्रश्नको जवाफ दिनुहोस्। हामी सम्भावित बाटो, चेकलिस्ट र आधिकारिक पेज देखाउँछौं। यो अन्तिम निर्णय होइन – लाइसेन्स केन्द्रले मात्र निर्णय गर्छ।",
@@ -636,6 +651,54 @@ window.SATHI_SHARE={text:l=>l==="ne"?"जापानमा ड्राइभ�
 Sathi.onLang(l=>{lang=l;document.title=(l==="ne"?"जापानमा ड्राइभिङ लाइसेन्स: पूर्ण गाइड":"Driving Licence in Japan: Complete Guide for Foreign Residents")+" – JapanMates";
   renderStatic();renderCountries();renderPrefs();renderChecklist();renderCardSel();renderCosts();renderWizard();markTab()});
 if(location.hash){const el=document.getElementById(location.hash.slice(1));if(el)setTimeout(()=>el.scrollIntoView(),60)}
+</script>
+<script>
+// ---------- Renewal reminder ----------
+(function () {
+  var R = {
+    en: { h: "🔔 Licence renewal reminder", p: "Your licence is valid until 1 month after your birthday. You can renew from 1 month before your birthday until that date. Type the date printed on your licence and we will remind you on your phone.",
+          l: "Valid until (〇年〇月〇日まで有効)", go: "Remind me", bad: "Please choose the date printed on your licence (in the future).",
+          win: function (a, b) { return "Renewal period: " + a + " → " + b; }, open: "Renewal is open now – go soon!",
+          add: "Add to My deadlines and turn on reminders →", note: "Reminders: when renewal opens (about 2 months before), then 1 month, 1 week and 1 day before. Nothing is saved until you add it.",
+          src: "Rule:" },
+    ne: { h: "🔔 लाइसेन्स नवीकरण रिमाइन्डर", p: "तपाईंको लाइसेन्स जन्मदिनको १ महिनापछिसम्म मान्य हुन्छ। जन्मदिनको १ महिना अघिदेखि त्यो मितिसम्म नवीकरण गर्न सकिन्छ। लाइसेन्समा छापिएको मिति लेख्नुहोस्, हामी फोनमा सम्झाउँछौं।",
+          l: "मान्य मिति (〇年〇月〇日まで有効)", go: "सम्झाउनुहोस्", bad: "लाइसेन्समा छापिएको (भविष्यको) मिति छान्नुहोस्।",
+          win: function (a, b) { return "नवीकरण अवधि: " + a + " → " + b; }, open: "नवीकरण अहिले खुला छ – चाँडै जानुहोस्!",
+          add: "My deadlines मा थपेर रिमाइन्डर सक्रिय गर्नुहोस् →", note: "रिमाइन्डर: नवीकरण खुल्दा (करिब २ महिना अघि), अनि १ महिना, १ हप्ता र १ दिन अघि। तपाईंले थप्नुभएसम्म केही सेभ हुँदैन।",
+          src: "नियम:" }
+  };
+  var $ = function (id) { return document.getElementById(id); };
+  var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
+  var L = function () { return document.documentElement.lang === "ne" ? "ne" : "en"; };
+  var today = function () { return new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 10); };
+  function minus2Months(d) {   // same day 2 months earlier (= 1 month before the birthday)
+    var x = new Date(d + "T00:00:00Z"), day = x.getUTCDate();
+    x.setUTCDate(1); x.setUTCMonth(x.getUTCMonth() - 2);
+    var last = new Date(Date.UTC(x.getUTCFullYear(), x.getUTCMonth() + 1, 0)).getUTCDate();
+    x.setUTCDate(Math.min(day, last)); return x.toISOString().slice(0, 10);
+  }
+  function fmt(d) { var x = new Date(d + "T00:00:00Z"); return L() === "ne" ? x.getUTCFullYear() + "/" + (x.getUTCMonth() + 1) + "/" + x.getUTCDate() : x.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" }); }
+  function show() {
+    var t = R[L()], d = $("rmDate").value;
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(d) || d < today()) { $("rmOut").innerHTML = d ? '<div class="status st-warn">' + esc(t.bad) + "</div>" : ""; return; }
+    try { localStorage.setItem("drv_exp", d); } catch (e) {}
+    var a = minus2Months(d);
+    $("rmOut").innerHTML = '<div class="status st-ok"><b>' + esc(t.win(fmt(a), fmt(d))) + "</b>" + (a <= today() ? esc(t.open) : "") +
+      '</div><p style="margin:12px 0 6px"><a class="btn pri" href="deadlines.html?add=dl&d=' + d + '">' + esc(t.add) + "</a></p>" +
+      '<p style="font-size:14px;color:var(--sx-muted);margin:0">' + esc(t.note) + "</p>";
+  }
+  function text() {
+    var t = R[L()];
+    $("rmH").textContent = t.h; $("rmP").textContent = t.p; $("rmL").textContent = t.l; $("rmGo").textContent = t.go; $("rmSrcT").textContent = t.src;
+    if ($("rmDate").value) show();
+  }
+  $("rmDate").min = today();
+  try { var saved = localStorage.getItem("drv_exp"); if (saved && saved >= today()) $("rmDate").value = saved; } catch (e) {}
+  $("rmGo").onclick = show;
+  $("rmDate").addEventListener("change", show);
+  text();
+  if (window.Sathi && Sathi.onLang) Sathi.onLang(function () { setTimeout(text, 0); });
+})();
 </script>
 </body>
 </html>
