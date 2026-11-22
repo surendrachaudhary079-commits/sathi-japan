@@ -1,7 +1,7 @@
-# Sathi Japan
+# JapanMates
 
 Life-in-Japan tools for foreign residents, in English and Nepali.
-Website: https://sathi-japan.vercel.app · Hosting: Vercel (Hobby) · Database: Supabase (Tokyo)
+Website: https://www.japanmates.com · Hosting: Vercel (Hobby) · Database: Supabase (Tokyo)
 
 Plain HTML, CSS and JavaScript pages – no framework, no build step needed to deploy.
 Server code is small Vercel functions in `api/`.
@@ -142,7 +142,7 @@ cp data-src/garbage.tpl.html garbage.html                              # page so
 
 ## 7. Legal reminders
 
-- Sathi Japan is not an official city service and never fills in or submits applications (行政書士 work).
+- JapanMates is not an official city service and never fills in or submits applications (行政書士 work).
 - No money transfer, job matching or real-estate features without a licence.
 - Before earning money: check your 在留資格 (資格外活動許可) and your company's side-job rules;
   Vercel Hobby is for non-commercial use (upgrade to Pro before charging); add a 特定商取引法 page;

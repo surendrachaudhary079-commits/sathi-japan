@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sathi Japan – Visa Renewal Guide</title>
+<title>JapanMates – Visa Renewal Guide</title>
 <meta name="description" content="When to apply, every document by name for your visa type, the official forms and the new fees – in Nepali and English.">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Sathi Japan">
-<meta property="og:title" content="Visa renewal guide – Sathi Japan">
+<meta property="og:site_name" content="JapanMates">
+<meta property="og:title" content="Visa renewal guide – JapanMates">
 <meta property="og:description" content="When to apply, every document by name for your visa type, the official forms and the new fees – in Nepali and English.">
-<meta property="og:url" content="https://sathi-japan.vercel.app/visa.html">
-<meta property="og:image" content="https://sathi-japan.vercel.app/og.png">
+<meta property="og:url" content="https://www.japanmates.com/visa.html">
+<meta property="og:image" content="https://www.japanmates.com/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -227,7 +227,7 @@ en:{
  helpP:"The Immigration Services Agency information center answers questions in Nepali, English and other languages. Weekdays 8:30–17:15.",
  call:"📞 Call 0570-013904",
  office:"Niigata Prefecture: Niigata Branch Office, Niigata Airport Terminal Building, 3710 Matsuhama-cho, Higashi-ku, Niigata · 025-275-4735 · weekdays 9:00–16:00.",
- legal:"Sathi Japan explains and reminds only. We do not fill in or submit applications. For paid help with your application, use a licensed gyoseishoshi (行政書士) or immigration lawyer.",
+ legal:"JapanMates explains and reminds only. We do not fill in or submit applications. For paid help with your application, use a licensed gyoseishoshi (行政書士) or immigration lawyer.",
  disclaimer:"General information, not immigration or legal advice. Rules and fees can change – always check the Immigration Services Agency website. Checked: 7 Oct 2026.",
  ics:["Visa renewal: applications open","Visa renewal: apply now (1 month left)","Visa renewal: LAST 2 WEEKS"]
 },
@@ -282,7 +282,7 @@ ne:{
  helpP:"इमिग्रेसनको सूचना केन्द्रले नेपाली, अंग्रेजी र अन्य भाषामा प्रश्नको जवाफ दिन्छ। कार्यदिन ८:३०–१७:१५।",
  call:"📞 0570-013904 मा फोन गर्नुहोस्",
  office:"निगाता प्रिफेक्चर: निगाता शाखा कार्यालय, निगाता एयरपोर्ट टर्मिनल भवन, 3710 Matsuhama-cho, Higashi-ku, Niigata · 025-275-4735 · कार्यदिन ९:००–१६:००।",
- legal:"Sathi Japan ले बुझाउने र सम्झाउने काम मात्र गर्छ। हामी आवेदन भर्दैनौं वा बुझाउँदैनौं। आवेदनमा सशुल्क मद्दत चाहिए लाइसेन्स भएका 行政書士 वा इमिग्रेसन वकिल प्रयोग गर्नुहोस्।",
+ legal:"JapanMates ले बुझाउने र सम्झाउने काम मात्र गर्छ। हामी आवेदन भर्दैनौं वा बुझाउँदैनौं। आवेदनमा सशुल्क मद्दत चाहिए लाइसेन्स भएका 行政書士 वा इमिग्रेसन वकिल प्रयोग गर्नुहोस्।",
  disclaimer:"सामान्य जानकारी मात्र, भिसा वा कानुनी सल्लाह होइन। नियम र शुल्क बदलिन सक्छन् – सधैं इमिग्रेसनको वेबसाइट जाँच गर्नुहोस्। जाँच गरिएको: २०२६ अक्टोबर ७।",
  ics:["भिसा नवीकरण: आवेदन खुल्यो","भिसा नवीकरण: अहिले आवेदन दिनुहोस् (१ महिना बाँकी)","भिसा नवीकरण: अन्तिम २ हप्ता"]
 }};
@@ -421,13 +421,13 @@ function ics(){
   const t=T[lang], ymd=d=>d.toISOString().slice(0,10).replace(/-/g,"");
   const stamp=new Date().toISOString().replace(/[-:]/g,"").slice(0,15)+"Z";
   const ev=[[x.open,t.ics[0]],[x.rec,t.ics[1]],[x.urgent,t.ics[2]]].filter(e=>e[0]&&e[0]>=jpToday());
-  const L=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Sathi Japan//Visa Reminder//EN","CALSCALE:GREGORIAN"];
+  const L=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//JapanMates//Visa Reminder//EN","CALSCALE:GREGORIAN"];
   ev.forEach((e,i)=>L.push("BEGIN:VEVENT",`UID:visa-${ymd(x.exp)}-${i}@sathijapan.com`,`DTSTAMP:${stamp}`,
     `DTSTART;VALUE=DATE:${ymd(e[0])}`,`DTEND;VALUE=DATE:${ymd(addD(e[0],1))}`,`SUMMARY:🪪 ${e[1]}`,
     `DESCRIPTION:Expiry ${ymd(x.exp)} – ${SRC}`,"BEGIN:VALARM","ACTION:DISPLAY","TRIGGER:PT9H",`DESCRIPTION:${e[1]}`,"END:VALARM","END:VEVENT"));
   L.push("END:VCALENDAR");
   const blob=new Blob([L.join("\r\n")+"\r\n"],{type:"text/calendar"});
-  const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="sathi-visa-reminder.ics";document.body.appendChild(a);a.click();a.remove();
+  const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="japanmates-visa-reminder.ics";document.body.appendChild(a);a.click();a.remove();
 }
 $("ics").onclick=ics;
 $("shareBtn").onclick=()=>sathiShare({text:T[lang].shareMsg,url:location.origin+"/visa.html"});

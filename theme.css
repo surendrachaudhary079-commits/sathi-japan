@@ -1,4 +1,4 @@
-/* Sathi Japan – shared design tokens + header/footer component. Green & teal with blue, yellow and pastel accents. */
+/* JapanMates – shared design tokens + header/footer component. Green & teal with blue, yellow and pastel accents. */
 :root{
   --sx-paper:#F3F9F7;--sx-card:#FFFFFF;--sx-text:#14302A;--sx-muted:#4B625B;--sx-line:#D3E6DE;
   --sx-green:#0F6B57;--sx-green-2:#1E9E6E;--sx-teal:#0E7C86;--sx-blue:#2D6FA3;--sx-yellow:#F2B531;
@@ -28,6 +28,16 @@
 .sx-nav a{display:block;padding:8px 11px;border-radius:10px;text-decoration:none;color:var(--sx-text);font-weight:600;font-size:15.5px}
 .sx-nav a:hover{background:var(--sx-mint)}
 .sx-nav a[aria-current=page]{color:var(--sx-green);background:var(--sx-mint)}
+/* Tools list in the menu (numbered) */
+.sx-tools{position:relative}
+.sx-tbtn{display:block;border:0;background:none;padding:8px 11px;border-radius:10px;font:600 15.5px var(--sx-f);color:var(--sx-text);cursor:pointer}
+.sx-tbtn:hover{background:var(--sx-mint)}
+.sx-tools ol{list-style:none;margin:0;padding:6px;display:none;position:absolute;top:100%;left:0;min-width:290px;background:var(--sx-card);border:1px solid var(--sx-line);border-radius:16px;box-shadow:var(--sx-shadow);z-index:40}
+.sx-tools.open ol{display:block}
+.sx-tools ol a{display:flex;align-items:center;gap:10px}
+.sx-num{flex:none;display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--sx-mint);color:var(--sx-green);font-size:14px;font-weight:800}
+.sx-tools a[aria-current=page] .sx-num{background:var(--sx-green);color:#fff}
+.sx-all{color:var(--sx-green)!important}
 .sx-lang{display:flex;background:var(--sx-mint);border-radius:999px;padding:3px;flex:none}
 .sx-lang button{border:0;background:transparent;font:600 14px var(--sx-f);padding:5px 11px;border-radius:999px;cursor:pointer;color:var(--sx-green)}
 .sx-lang button[aria-pressed=true]{background:var(--sx-green);color:#fff}
@@ -40,6 +50,11 @@
   .sx-nav.open{display:block}
   .sx-nav ul{flex-direction:column}
   .sx-nav a{padding:12px 14px;font-size:17px}
+  .sx-nav.open{max-height:calc(100vh - 84px);overflow:auto}
+  .sx-tbtn{pointer-events:none;font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--sx-muted);padding:10px 14px 2px}
+  .sx-tbtn span{display:none}
+  .sx-tools ol{display:block;position:static;min-width:0;border:0;box-shadow:none;padding:0 0 6px;margin:0 0 6px;border-bottom:1px solid var(--sx-line);border-radius:0;background:none}
+  .sx-tools ol a{padding:9px 14px}
 }
 .sx-head :focus-visible,.sx-foot :focus-visible{outline:3px solid var(--sx-blue);outline-offset:2px;border-radius:8px}
 
@@ -76,3 +91,4 @@ a.sx-sr:focus{position:fixed;left:12px;top:12px;width:auto;height:auto;clip:auto
 @media (prefers-color-scheme:dark){.sx-share{background:#7FD8B9;color:#0B1715}}
 .sx-foot{padding-bottom:70px}
 @media print{.sx-share{display:none!important}}
+

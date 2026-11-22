@@ -1,12 +1,12 @@
 {
-  "name": "Sathi Japan",
-  "short_name": "Sathi",
+  "name": "JapanMates",
+  "short_name": "JapanMates",
   "description": "Garbage days, visa reminders and life checklists in Nepali and English.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#F4F6FA",
-  "theme_color": "#0B2E6B",
+  "background_color": "#F3F9F7",
+  "theme_color": "#0F6B57",
   "icons": [
     { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
     { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }

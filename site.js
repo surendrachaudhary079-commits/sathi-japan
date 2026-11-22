@@ -1,4 +1,4 @@
-/* Sathi Japan – shared site parts: header (logo, navigation, language switch), footer, language memory.
+/* JapanMates – shared site parts: header (logo, navigation, language switch), footer, language memory.
    New pages:  <header id="sxHead"></header> ... <footer id="sxFoot"></footer>, then call Sathi.onLang(render).
    Older tool pages keep their own header/language buttons; this file only adds the logo and the shared footer. */
 (function () {
@@ -10,29 +10,32 @@
     get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
     set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
   };
+  // "We moved" banner + settings transfer from the old address lives in move.js
+  (function () { var sc = document.createElement("script"); sc.src = "move.js"; document.head.appendChild(sc); })();
+
   var listeners = [];
   var lang = store.get("lang") === "ne" ? "ne" : "en";
 
   var TXT = {
     en: {
       tag: "Together for a Better Tomorrow", menu: "Menu", lang: "Language",
-      nav: [["./", "Home"], ["./#services", "Services"], ["garbage.html", "Garbage calendar"], ["events.html", "Events"], ["guides.html#newcomer", "New to Japan"], ["about.html", "About"], ["about.html#help", "Help"]],
-      aboutH: "About", about: "Sathi Japan explains life in Japan simply, in English and Nepali. Made in Niigata by a Nepali resident.",
-      linksH: "Sathi Japan", links: [["about.html", "About us"], ["about.html#contact", "Contact"], ["privacy.html", "Privacy policy"], ["about.html#help", "Help"]],
-      toolsH: "Tools", tools: [["garbage.html", "Garbage calendar"], ["deadlines.html", "My deadlines"], ["visa.html", "Visa renewal"], ["letter.html", "Letter explainer"], ["translate.html", "Japanese helper"], ["driving.html", "Driving licence"], ["events.html", "Events & festivals"], ["rate.html", "Yen → Rupee rate"]],
+      nav: [["./", "Home"], ["guides.html#newcomer", "New to Japan"], ["about.html", "About"], ["about.html#help", "Help"]], allTools: "All services",
+      aboutH: "About", about: "JapanMates explains life in Japan simply, in English and Nepali. Made in Niigata by a Nepali resident.",
+      linksH: "JapanMates", links: [["about.html", "About us"], ["about.html#contact", "Contact"], ["privacy.html", "Privacy policy"], ["about.html#help", "Help"]],
+      toolsH: "Tools", tools: [["garbage.html", "Garbage calendar"], ["translate.html", "Japanese boss translator"], ["events.html", "Events & festivals"], ["rate.html", "Yen → Rupee rate"], ["deadlines.html", "My deadlines"], ["visa.html", "Visa renewal"], ["letter.html", "Letter explainer"], ["driving.html", "Driving licence"]],
       sosH: "Emergency", sos: "Fire / ambulance <b>119</b> · Police <b>110</b>",
-      note: "Sathi Japan is not a government or city service. Always check the official page linked on each tool.",
-      year: "© Sathi Japan"
+      note: "JapanMates is not a government or city service. Always check the official page linked on each tool.",
+      year: "© JapanMates"
     },
     ne: {
       tag: "उज्यालो भोलिका लागि सँगै", menu: "मेनु", lang: "भाषा",
-      nav: [["./", "गृहपृष्ठ"], ["./#services", "सेवाहरू"], ["garbage.html", "फोहोर क्यालेन्डर"], ["events.html", "कार्यक्रम"], ["guides.html#newcomer", "जापानमा नयाँ"], ["about.html", "हाम्रोबारे"], ["about.html#help", "मद्दत"]],
-      aboutH: "हाम्रोबारे", about: "Sathi Japan ले जापानको जीवन नेपाली र अंग्रेजीमा सजिलो गरी बुझाउँछ। निगातामा बस्ने एक नेपालीले बनाएको।",
-      linksH: "Sathi Japan", links: [["about.html", "हाम्रोबारे"], ["about.html#contact", "सम्पर्क"], ["privacy.html", "गोपनीयता नीति"], ["about.html#help", "मद्दत"]],
-      toolsH: "सुविधाहरू", tools: [["garbage.html", "फोहोर क्यालेन्डर"], ["deadlines.html", "मेरा अन्तिम मिति"], ["visa.html", "भिसा नवीकरण"], ["letter.html", "चिठी बुझाउने"], ["translate.html", "जापानी सहयोगी"], ["driving.html", "ड्राइभिङ लाइसेन्स"], ["events.html", "कार्यक्रम र चाडपर्व"], ["rate.html", "येन → रुपैयाँ दर"]],
+      nav: [["./", "गृहपृष्ठ"], ["guides.html#newcomer", "जापानमा नयाँ"], ["about.html", "हाम्रोबारे"], ["about.html#help", "मद्दत"]], allTools: "सबै सेवाहरू",
+      aboutH: "हाम्रोबारे", about: "JapanMates ले जापानको जीवन नेपाली र अंग्रेजीमा सजिलो गरी बुझाउँछ। निगातामा बस्ने एक नेपालीले बनाएको।",
+      linksH: "JapanMates", links: [["about.html", "हाम्रोबारे"], ["about.html#contact", "सम्पर्क"], ["privacy.html", "गोपनीयता नीति"], ["about.html#help", "मद्दत"]],
+      toolsH: "सुविधाहरू", tools: [["garbage.html", "फोहोर क्यालेन्डर"], ["translate.html", "हाकिमको जापानी अनुवादक"], ["events.html", "कार्यक्रम र चाडपर्व"], ["rate.html", "येन → रुपैयाँ दर"], ["deadlines.html", "मेरा अन्तिम मिति"], ["visa.html", "भिसा नवीकरण"], ["letter.html", "चिठी बुझाउने"], ["driving.html", "ड्राइभिङ लाइसेन्स"]],
       sosH: "आपतकाल", sos: "आगो / एम्बुलेन्स <b>119</b> · प्रहरी <b>110</b>",
-      note: "Sathi Japan सरकार वा सिटीको सेवा होइन। हरेक सुविधामा दिइएको आधिकारिक पेज सधैं जाँच्नुहोस्।",
-      year: "© Sathi Japan"
+      note: "JapanMates सरकार वा सिटीको सेवा होइन। हरेक सुविधामा दिइएको आधिकारिक पेज सधैं जाँच्नुहोस्।",
+      year: "© JapanMates"
     }
   };
 
@@ -46,15 +49,21 @@
     return p.slice(-f.length) === f;
   }
 
+  function navLi(n) { return '<li><a href="' + n[0] + '"' + (here(n[0]) ? ' aria-current="page"' : "") + '>' + esc(n[1]) + '</a></li>'; }
   function header() {
     var el = document.getElementById("sxHead"); if (!el) return;
     var t = TXT[lang];
     el.className = "sx-head";
     el.innerHTML =
       '<div class="sx-in">' +
-        '<a class="sx-brand" href="./">' + LOGO + '<span><b>Sathi Japan <span lang="ne">साथी जापान</span></b><small>' + esc(t.tag) + '</small></span></a>' +
+        '<a class="sx-brand" href="./">' + LOGO + '<span><b>JapanMates</b><small>' + esc(t.tag) + '</small></span></a>' +
         '<nav class="sx-nav" id="sxNav" aria-label="' + esc(t.menu) + '"><ul>' +
-          t.nav.map(function (n) { return '<li><a href="' + n[0] + '"' + (here(n[0]) ? ' aria-current="page"' : "") + '>' + esc(n[1]) + '</a></li>'; }).join("") +
+          navLi(t.nav[0]) +
+          '<li class="sx-tools"><button type="button" class="sx-tbtn" aria-expanded="false">' + esc(t.toolsH) + ' <span aria-hidden="true">▾</span></button><ol>' +
+            t.tools.map(function (n, i) { return '<li><a href="' + n[0] + '"' + (here(n[0]) ? ' aria-current="page"' : "") + '><span class="sx-num">' + (i + 1) + '</span>' + esc(n[1]) + '</a></li>'; }).join("") +
+            '<li><a class="sx-all" href="./#services">' + esc(t.allTools) + ' →</a></li>' +
+          '</ol></li>' +
+          t.nav.slice(1).map(navLi).join("") +
         '</ul></nav>' +
         '<div class="sx-lang" role="group" aria-label="' + esc(t.lang) + ' / भाषा">' +
           '<button type="button" data-l="en" aria-pressed="' + (lang === "en") + '">EN</button>' +
@@ -66,6 +75,9 @@
     el.querySelectorAll(".sx-lang button").forEach(function (b) { b.onclick = function () { setLang(b.getAttribute("data-l")); }; });
     var menu = document.getElementById("sxMenu"), nav = document.getElementById("sxNav");
     menu.onclick = function (e) { e.stopPropagation(); var open = !nav.classList.contains("open"); nav.classList.toggle("open", open); menu.setAttribute("aria-expanded", open); };
+    var tb = nav.querySelector(".sx-tbtn");
+    tb.onclick = function (e) { e.stopPropagation(); var o = tb.parentNode.classList.toggle("open"); tb.setAttribute("aria-expanded", o); };
+    document.addEventListener("click", function (e) { if (!tb.parentNode.contains(e.target)) { tb.parentNode.classList.remove("open"); tb.setAttribute("aria-expanded", "false"); } });
     nav.querySelectorAll("a").forEach(function (a) { a.onclick = function () { nav.classList.remove("open"); menu.setAttribute("aria-expanded", "false"); }; });
   }
 
@@ -76,7 +88,7 @@
     el.className = "sx-foot";
     el.innerHTML =
       '<div class="sx-in sx-cols">' +
-        '<div class="sx-c1"><a class="sx-brand light" href="./">' + LOGO + '<span><b>Sathi Japan</b><small>' + esc(t.tag) + '</small></span></a><p>' + esc(t.about) + '</p></div>' +
+        '<div class="sx-c1"><a class="sx-brand light" href="./">' + LOGO + '<span><b>JapanMates</b><small>' + esc(t.tag) + '</small></span></a><p>' + esc(t.about) + '</p></div>' +
         '<div><h2>' + esc(t.linksH) + '</h2><ul>' + t.links.map(function (n) { return '<li><a href="' + n[0] + '">' + esc(n[1]) + '</a></li>'; }).join("") + '</ul></div>' +
         '<div><h2>' + esc(t.toolsH) + '</h2><ul>' + t.tools.map(function (n) { return '<li><a href="' + n[0] + '">' + esc(n[1]) + '</a></li>'; }).join("") + '</ul></div>' +
         '<div><h2>' + esc(t.sosH) + '</h2><p class="sx-sos">' + t.sos + '</p><p class="sx-note">' + esc(t.note) + '</p></div>' +
@@ -91,13 +103,13 @@
     listeners.forEach(function (fn) { try { fn(lang); } catch (e) { console.error(e); } });
   }
 
-  // Older pages: add the logo to their "‹ Sathi Japan" link and follow their own language switch
+  // Older pages: add the logo to their "‹ JapanMates" link and follow their own language switch
   function enhanceOldPage() {
     if (document.getElementById("sxHead")) return;
     var back = document.querySelector("a.back,a.brand");
-    if (back && !back.querySelector(".sx-logo") && /Sathi/.test(back.textContent)) {
+    if (back && !back.querySelector(".sx-logo") && /JapanMates|JapanMates/.test(back.textContent)) {
       back.classList.add("sx-backlogo");
-      back.innerHTML = LOGO + "<span>Sathi Japan</span>";
+      back.innerHTML = LOGO + "<span>JapanMates</span>";
     }
     var follow = function () { footer(document.documentElement.lang === "ne" ? "ne" : "en"); };
     follow();
@@ -138,8 +150,8 @@
 
   // Floating "Share" button on every page. Pages can set window.SATHI_SHARE = {text, url} for a better message.
   var SHARE_TXT = {
-    en: { b: "Share", d: "Sathi Japan – life in Japan explained in English and Nepali. Free:" },
-    ne: { b: "सेयर", d: "Sathi Japan – जापानको जीवन नेपाली र अंग्रेजीमा। निःशुल्क:" }
+    en: { b: "Share", d: "JapanMates – life in Japan explained in English and Nepali. Free:" },
+    ne: { b: "सेयर", d: "JapanMates – जापानको जीवन नेपाली र अंग्रेजीमा। निःशुल्क:" }
   };
   function loadShare(cb) {
     if (window.sathiShare) return cb();
@@ -158,7 +170,7 @@
     new MutationObserver(paint).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
     b.onclick = function () {
       var l = (document.documentElement.lang || lang) === "ne" ? "ne" : "en", c = window.SATHI_SHARE || {};
-      var text = (typeof c.text === "function" ? c.text(l) : c.text) || (document.title.replace(/^Sathi Japan\s*[–|-]\s*/, "").replace(/\s*[–|]\s*Sathi Japan.*$/, "").replace(/\s*\|.*$/, "") + " – " + SHARE_TXT[l].d);
+      var text = (typeof c.text === "function" ? c.text(l) : c.text) || (document.title.replace(/^JapanMates\s*[–|-]\s*/, "").replace(/\s*[–|]\s*JapanMates.*$/, "").replace(/\s*\|.*$/, "") + " – " + SHARE_TXT[l].d);
       var url = (typeof c.url === "function" ? c.url() : c.url) || location.href;
       loadShare(function () { window.sathiShare({ text: text, url: url }); });
     };

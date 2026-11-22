@@ -1,4 +1,4 @@
-// Sathi Japan – Driving licence guide data.
+// JapanMates – Driving licence guide data.
 // EVERY rule, fee and number here was checked on the official page in SRC on the date shown (`checked`).
 // The page shows "Review due" automatically when a source is older than REVIEW_DAYS.
 // To update: open the source page, change the fact, and set `checked` to today's date.
@@ -127,7 +127,7 @@ CLASSES:[
  {k:"daini",ja:"第二種免許",en:"Class 2 (paid passenger transport, e.g. taxi)",ne:"दोस्रो श्रेणी (भाडामा यात्रु बोक्ने, जस्तै ट्याक्सी)",age:{en:"21+ with 3 years of experience (special course: 19+ with 1 year)",ne:"२१ वर्ष+ र ३ वर्ष अनुभव (विशेष कोर्स: १९+ र १ वर्ष)"},veh:null,src:["niigataExam"]}
 ],
 
-// ---- Practice quiz: ORIGINAL questions written by Sathi Japan from the official rules below. Not real exam questions. ----
+// ---- Practice quiz: ORIGINAL questions written by JapanMates from the official rules below. Not real exam questions. ----
 QUIZ:[
  {q:{en:"Which side of the road do cars drive on in Japan?",ne:"जापानमा कारहरू सडकको कुन भागमा चल्छन्?"},o:[{en:"Left",ne:"बायाँ"},{en:"Right",ne:"दायाँ"},{en:"Either side",ne:"जुनसुकै"}],a:0,
   e:{en:"Japan drives on the left.",ne:"जापानमा बायाँ भागमा चलाइन्छ।"},src:"wakayamaEn"},

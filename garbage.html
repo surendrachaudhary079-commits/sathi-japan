@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Garbage Calendar – Sathi Japan</title>
+<title>Garbage Calendar – JapanMates</title>
 <meta name="description" content="Garbage days for your area in Nepali and English, with a phone reminder the evening before. All of Niigata City and Shinjuku. Free.">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Sathi Japan">
-<meta property="og:title" content="Garbage days for your area – Sathi Japan">
+<meta property="og:site_name" content="JapanMates">
+<meta property="og:title" content="Garbage days for your area – JapanMates">
 <meta property="og:description" content="What to put out and when, in Nepali and English, with a phone reminder the evening before. Free.">
-<meta property="og:url" content="https://sathi-japan.vercel.app/garbage.html">
-<meta property="og:image" content="https://sathi-japan.vercel.app/og.png">
+<meta property="og:url" content="https://www.japanmates.com/garbage.html">
+<meta property="og:image" content="https://www.japanmates.com/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -19,12 +19,12 @@
 <link rel="icon" href="icon-192.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Sathi">
+<meta name="apple-mobile-web-app-title" content="JapanMates">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@500;700&display=swap" rel="stylesheet">
 <style>
-/* Sathi Japan – Garbage calendar. Green recycling theme: mint, sky, sun. */
+/* JapanMates – Garbage calendar. Green recycling theme: mint, sky, sun. */
 :root{
   --paper:#F3F9F6;--surface:#FFFFFF;--text:#16302A;--muted:#4C635C;--line:#D3E5DB;
   --green:#0F6B57;--green-d:#0E5636;--mint:#E3F4EA;--mint-2:#CDEBD9;--sky:#E8F3FB;--sky-d:#2D6FA3;--sun:#FFF4CF;--sun-b:#EBC34B;
@@ -274,7 +274,7 @@ ol.steps li{margin:0 0 10px}
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="./"><svg aria-hidden="true"><use href="#logo"/></svg><span><b>Sathi Japan</b><small data-t="tagline"></small></span></a>
+    <a class="brand" href="./"><svg aria-hidden="true"><use href="#logo"/></svg><span><b>JapanMates</b><small data-t="tagline"></small></span></a>
     <button class="areachip" id="areaChip" hidden><svg aria-hidden="true"><use href="#i-pin"/></svg><span id="areaChipTxt"></span></button>
     <div class="lang" role="group" aria-label="Language / भाषा">
       <button data-l="en" aria-pressed="true">EN</button>
@@ -379,7 +379,7 @@ ol.steps li{margin:0 0 10px}
     <div class="notes" id="notes"></div>
   </section>
 
-  <section class="feats" aria-label="Sathi Japan">
+  <section class="feats" aria-label="JapanMates">
     <div class="feat"><svg aria-hidden="true"><use href="#i-phone"/></svg><div><b data-t="f1"></b><small data-t="f1s"></small></div></div>
     <div class="feat"><svg aria-hidden="true"><use href="#i-pin"/></svg><div><b data-t="f2"></b><small data-t="f2s"></small></div></div>
     <div class="feat"><svg aria-hidden="true"><use href="#i-chat"/></svg><div><b data-t="f3"></b><small data-t="f3s"></small></div></div>
@@ -389,7 +389,7 @@ ol.steps li{margin:0 0 10px}
 
 <footer class="foot">
   <div class="wrap">
-    <div class="fb"><svg aria-hidden="true"><use href="#logo"/></svg>Sathi Japan</div>
+    <div class="fb"><svg aria-hidden="true"><use href="#logo"/></svg>JapanMates</div>
     <p style="margin:0" data-t="foot1"></p>
     <p style="margin:0" id="srcLine"></p>
     <p style="margin:0"><a href="./" data-t="home"></a> · <a href="about.html" data-t="aboutL"></a> · <a href="about.html#contact" data-t="contactL"></a> · <a href="privacy.html" data-t="privacy"></a> · <a href="about.html#help" data-t="helpL"></a></p>
@@ -422,10 +422,11 @@ ol.steps li{margin:0 0 10px}
 
 <script src="areas.js"></script>
 <script src="share.js"></script>
+<script src="move.js"></script>
 <script>
 "use strict";
 // =====================================================================
-// Sathi Japan – Garbage calendar
+// JapanMates – Garbage calendar
 // Data: areas.js (window.SATHI_AREAS), built from the cities' official calendars (see data-src/).
 // The date rules below are the SAME as api/_lib.js (calIds / idsFor) so the page and the
 // phone reminders always agree. Never put hand-typed dates here.
@@ -442,7 +443,7 @@ en:{
  locNotCovered:"Your location is outside the areas we cover (all of Niigata City and Shinjuku). Here are official pages for other cities.",
  locDenied:"Location is blocked or unavailable. Please allow location for this site, or choose your area yourself.",
  locErr:"Couldn't find your area right now. Please choose it yourself.",locNoGeo:"This browser can't share location. Please choose your area yourself.",
- locPrivacy:"Your location is used once to find your town name (with Japan's mapping agency, GSI) and is not saved by Sathi Japan.",showAll:"Show all towns in this ward",
+ locPrivacy:"Your location is used once to find your town name (with Japan's mapping agency, GSI) and is not saved by JapanMates.",showAll:"Show all towns in this ward",
  nextH:"Next Garbage Collection",remH:"Get a reminder on your phone",todayH:"Today's Schedule",schH:"Collection Schedule",guideH:"How to sort and put out",
  guideP:"From the city's official sorting rules. Tap a type to see how to put it out.",
  today:"Today",tomorrow:"Tomorrow",thisMorning:"This morning",
@@ -460,9 +461,9 @@ en:{
  pNo:"This browser can't receive reminders. Use “Add to calendar” instead.",pErr:"Couldn't turn on reminders. Check your internet and try again.",pWait:"Asking your phone for permission…",
  pServer:"The reminder server is not set up yet. Use “Add to calendar” for now.",
  helpH:"How to allow notifications",
- help:["Android (Chrome): tap the ⋮ menu → Settings → Site settings → Notifications → find this site → Allow.","iPhone: first add Sathi Japan to your Home Screen (Safari → Share □↑ → Add to Home Screen), open it from there, then tap “Set reminder”. If you blocked it: Settings → Notifications → Sathi → Allow Notifications.","Computer (Chrome / Edge): click the icon left of the web address → Notifications → Allow, then reload the page."],
+ help:["Android (Chrome): tap the ⋮ menu → Settings → Site settings → Notifications → find this site → Allow.","iPhone: first add JapanMates to your Home Screen (Safari → Share □↑ → Add to Home Screen), open it from there, then tap “Set reminder”. If you blocked it: Settings → Notifications → JapanMates → Allow Notifications.","Computer (Chrome / Edge): click the icon left of the web address → Notifications → Allow, then reload the page."],
  remFine:"Reminders work even when this page is closed. We save only your area, language, time and your phone's push address.",privacy:"What we save",
- ics:"Add to calendar",share:"Share with neighbours",shareShort:"Share",sharePage:"Garbage days for your area in English and Nepali, with a reminder the evening before. Free – Sathi Japan:",
+ ics:"Add to calendar",share:"Share with neighbours",shareShort:"Share",sharePage:"Garbage days for your area in English and Nepali, with a reminder the evening before. Free – JapanMates:",
  icsDone:"Calendar file downloaded. Open it to add the dates (with a reminder) to your calendar app.",icsNone:"No dates to add.",
  more:"Show the next 4 weeks",less:"Show fewer days",
  hol:"Collection also happens on public holidays. No collection 1–3 January; on 31 December only burnable garbage.",
@@ -479,11 +480,11 @@ en:{
  search:"Type your town, e.g. Okubo or 大久保",searchNig:"Type your town in Japanese (as on your residence card), e.g. 大通西, or your calendar number, e.g. 13-1",
  noMatch:"No town found. Check the spelling or try the Japanese name.",otherH:"Other city",otherP:"We don't cover your city yet. Here is your city's official garbage page:",otherS:"Official garbage pages for other cities",
  notCovered:"Your town is not on the list? Use the city's official page:",wardAll:"All wards",calNo:"Calendar",more2:n=>`${n} more – type to narrow the list.`,several:"several calendars",
- iosH:"iPhone: one more step",iosP:"iPhone only sends website reminders after you add Sathi Japan to your Home Screen.",
- iosSteps:["In Safari, tap the Share button (□↑).","Tap “Add to Home Screen”, then “Add”.","Open Sathi Japan from your Home Screen.","Tap “Set reminder” again and allow notifications."],iosNote:"Needs iOS 16.4 or newer.",
+ iosH:"iPhone: one more step",iosP:"iPhone only sends website reminders after you add JapanMates to your Home Screen.",
+ iosSteps:["In Safari, tap the Share button (□↑).","Tap “Add to Home Screen”, then “Add”.","Open JapanMates from your Home Screen.","Tap “Set reminder” again and allow notifications."],iosNote:"Needs iOS 16.4 or newer.",
  errData:"Couldn't load the garbage data. Check your internet connection and reload the page.",reload:"Reload",
  f1:"Phone reminder",f1s:"The evening before your collection day.",f2:"Area-wise schedule",f2s:"From your city's official calendar.",f3:"English & नेपाली",f3s:"With the Japanese names on the bags.",f4:"Cleaner community",f4s:"Small steps make a big difference!",
- foot1:"Sathi Japan is not an official city service. Always follow the notices at your collection point. Made in Niigata.",
+ foot1:"JapanMates is not an official city service. Always follow the notices at your collection point. Made in Niigata.",
  times:{"08:00":"8:00 AM","08:30":"8:30 AM","12:00":"noon"},
  days:["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],dshort:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],months:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
  nav:[["./","🏠","Home"],["garbage.html","🗑️","Garbage days"],["deadlines.html","⏰","My deadlines"],["visa.html","🪪","Visa renewal"],["spouse.html","💍","Spouse visa"],["checklists.html","✅","Life checklists"],["letter.html","✉️","Letter explainer"],["rate.html","💱","Yen → Rupee rate"],["guides.html","📚","All guides"],["about.html","ℹ️","About & help"]]
@@ -499,7 +500,7 @@ ne:{
  locNotCovered:"तपाईंको लोकेसन हामीले समेटेका क्षेत्र (सम्पूर्ण निगाता सिटी र सिन्जुकु) बाहिर छ। अन्य सिटीका आधिकारिक पेज यहाँ छन्।",
  locDenied:"लोकेसन ब्लक छ वा उपलब्ध छैन। यो साइटलाई लोकेसन अनुमति दिनुहोस्, वा आफैं क्षेत्र छान्नुहोस्।",
  locErr:"अहिले क्षेत्र भेटिएन। आफैं छान्नुहोस्।",locNoGeo:"यो ब्राउजरले लोकेसन दिन सक्दैन। आफैं क्षेत्र छान्नुहोस्।",
- locPrivacy:"तपाईंको लोकेसन एकपटक टाउनको नाम पत्ता लगाउन (जापानको नक्सा निकाय GSI मार्फत) प्रयोग हुन्छ, Sathi Japan ले सेभ गर्दैन।",showAll:"यो वार्डका सबै टाउन देखाउनुहोस्",
+ locPrivacy:"तपाईंको लोकेसन एकपटक टाउनको नाम पत्ता लगाउन (जापानको नक्सा निकाय GSI मार्फत) प्रयोग हुन्छ, JapanMates ले सेभ गर्दैन।",showAll:"यो वार्डका सबै टाउन देखाउनुहोस्",
  nextH:"अर्को फोहोर संकलन",remH:"फोनमा रिमाइन्डर पाउनुहोस्",todayH:"आजको तालिका",schH:"संकलन तालिका",guideH:"कसरी छुट्याउने र फाल्ने",
  guideP:"सिटीको आधिकारिक नियमबाट। कसरी फाल्ने हेर्न प्रकारमा थिच्नुहोस्।",
  today:"आज",tomorrow:"भोलि",thisMorning:"आज बिहान",
@@ -517,9 +518,9 @@ ne:{
  pNo:"यो ब्राउजरले रिमाइन्डर पाउन सक्दैन। “क्यालेन्डरमा थप्नुहोस्” प्रयोग गर्नुहोस्।",pErr:"रिमाइन्डर सक्रिय गर्न सकिएन। इन्टरनेट जाँचेर फेरि प्रयास गर्नुहोस्।",pWait:"फोनसँग अनुमति माग्दै…",
  pServer:"रिमाइन्डर सर्भर अझै तयार छैन। अहिलेलाई “क्यालेन्डरमा थप्नुहोस्” प्रयोग गर्नुहोस्।",
  helpH:"सूचना (notification) कसरी खोल्ने",
- help:["Android (Chrome): ⋮ मेनु → Settings → Site settings → Notifications → यो साइट → Allow।","iPhone: पहिले Sathi Japan लाई Home Screen मा थप्नुहोस् (Safari → Share □↑ → Add to Home Screen), त्यहाँबाट खोल्नुहोस्, अनि “रिमाइन्डर राख्नुहोस्” थिच्नुहोस्। पहिले रोक्नुभएको छ भने: Settings → Notifications → Sathi → Allow Notifications।","कम्प्युटर (Chrome / Edge): वेब ठेगानाको बायाँको चिन्ह → Notifications → Allow, अनि पेज रिलोड गर्नुहोस्।"],
+ help:["Android (Chrome): ⋮ मेनु → Settings → Site settings → Notifications → यो साइट → Allow।","iPhone: पहिले JapanMates लाई Home Screen मा थप्नुहोस् (Safari → Share □↑ → Add to Home Screen), त्यहाँबाट खोल्नुहोस्, अनि “रिमाइन्डर राख्नुहोस्” थिच्नुहोस्। पहिले रोक्नुभएको छ भने: Settings → Notifications → JapanMates → Allow Notifications।","कम्प्युटर (Chrome / Edge): वेब ठेगानाको बायाँको चिन्ह → Notifications → Allow, अनि पेज रिलोड गर्नुहोस्।"],
  remFine:"यो पेज बन्द भए पनि रिमाइन्डर आउँछ। हामी तपाईंको क्षेत्र, भाषा, समय र फोनको push ठेगाना मात्र सेभ गर्छौं।",privacy:"हामी के सेभ गर्छौं",
- ics:"क्यालेन्डरमा थप्नुहोस्",share:"छिमेकीसँग सेयर गर्नुहोस्",shareShort:"सेयर",sharePage:"तपाईंको क्षेत्रको फोहोर फाल्ने दिन नेपाली र अंग्रेजीमा, अघिल्लो बेलुका रिमाइन्डरसहित। निःशुल्क – Sathi Japan:",
+ ics:"क्यालेन्डरमा थप्नुहोस्",share:"छिमेकीसँग सेयर गर्नुहोस्",shareShort:"सेयर",sharePage:"तपाईंको क्षेत्रको फोहोर फाल्ने दिन नेपाली र अंग्रेजीमा, अघिल्लो बेलुका रिमाइन्डरसहित। निःशुल्क – JapanMates:",
  icsDone:"क्यालेन्डर फाइल डाउनलोड भयो। मिति (रिमाइन्डरसहित) थप्न फाइल खोल्नुहोस्।",icsNone:"थप्ने मिति छैन।",
  more:"अर्को ४ हप्ता देखाउनुहोस्",less:"कम दिन देखाउनुहोस्",
  hol:"सार्वजनिक बिदामा पनि संकलन हुन्छ। जनवरी १–३ संकलन हुँदैन; डिसेम्बर ३१ मा जल्ने फोहोर मात्र।",
@@ -536,11 +537,11 @@ ne:{
  search:"टाउनको नाम लेख्नुहोस्, जस्तै Okubo वा 大久保",searchNig:"टाउनको नाम जापानीमा लेख्नुहोस् (रेसिडेन्स कार्डमा जस्तै), जस्तै 大通西, वा क्यालेन्डर नम्बर, जस्तै 13-1",
  noMatch:"टाउन भेटिएन। हिज्जे जाँच्नुहोस् वा जापानी नाम प्रयोग गर्नुहोस्।",otherH:"अन्य सिटी",otherP:"हामीले तपाईंको सिटी अझै समेटेका छैनौं। तपाईंको सिटीको आधिकारिक फोहोर पेज:",otherS:"अन्य सिटीका आधिकारिक फोहोर पेज",
  notCovered:"तपाईंको टाउन सूचीमा छैन? सिटीको आधिकारिक पेज हेर्नुहोस्:",wardAll:"सबै वार्ड",calNo:"क्यालेन्डर",more2:n=>`अरू ${n} – सूची छोट्याउन टाइप गर्नुहोस्।`,several:"धेरै क्यालेन्डर",
- iosH:"iPhone: अर्को एक चरण",iosP:"iPhone ले Sathi Japan लाई Home Screen मा थपेपछि मात्र वेबसाइटको रिमाइन्डर पठाउँछ।",
- iosSteps:["Safari मा Share बटन (□↑) थिच्नुहोस्।","“Add to Home Screen” अनि “Add” थिच्नुहोस्।","Home Screen बाट Sathi Japan खोल्नुहोस्।","फेरि “रिमाइन्डर राख्नुहोस्” थिचेर notification लाई अनुमति दिनुहोस्।"],iosNote:"iOS 16.4 वा नयाँ चाहिन्छ।",
+ iosH:"iPhone: अर्को एक चरण",iosP:"iPhone ले JapanMates लाई Home Screen मा थपेपछि मात्र वेबसाइटको रिमाइन्डर पठाउँछ।",
+ iosSteps:["Safari मा Share बटन (□↑) थिच्नुहोस्।","“Add to Home Screen” अनि “Add” थिच्नुहोस्।","Home Screen बाट JapanMates खोल्नुहोस्।","फेरि “रिमाइन्डर राख्नुहोस्” थिचेर notification लाई अनुमति दिनुहोस्।"],iosNote:"iOS 16.4 वा नयाँ चाहिन्छ।",
  errData:"फोहोर डाटा लोड हुन सकेन। इन्टरनेट जाँचेर पेज रिलोड गर्नुहोस्।",reload:"रिलोड",
  f1:"फोन रिमाइन्डर",f1s:"संकलनको अघिल्लो बेलुका।",f2:"क्षेत्र अनुसार तालिका",f2s:"तपाईंको सिटीको आधिकारिक क्यालेन्डरबाट।",f3:"नेपाली र English",f3s:"झोलामा लेखिने जापानी नामसहित।",f4:"सफा समुदाय",f4s:"सानो कदम, ठूलो फरक!",
- foot1:"Sathi Japan सिटीको आधिकारिक सेवा होइन। सधैं आफ्नो संकलन स्थलको सूचना पालना गर्नुहोस्। निगातामा बनाइएको।",
+ foot1:"JapanMates सिटीको आधिकारिक सेवा होइन। सधैं आफ्नो संकलन स्थलको सूचना पालना गर्नुहोस्। निगातामा बनाइएको।",
  times:{"08:00":"बिहान ८:००","08:30":"बिहान ८:३०","12:00":"दिउँसो १२:००"},
  days:["आइतबार","सोमबार","मंगलबार","बुधबार","बिहीबार","शुक्रबार","शनिबार"],dshort:["आइत","सोम","मंगल","बुध","बिही","शुक्र","शनि"],months:["जनवरी","फेब्रुअरी","मार्च","अप्रिल","मे","जुन","जुलाई","अगस्ट","सेप्टेम्बर","अक्टोबर","नोभेम्बर","डिसेम्बर"],
  nav:[["./","🏠","गृहपृष्ठ"],["garbage.html","🗑️","फोहोर फाल्ने दिन"],["deadlines.html","⏰","मेरा अन्तिम मिति"],["visa.html","🪪","भिसा नवीकरण"],["spouse.html","💍","श्रीमान/श्रीमती भिसा"],["checklists.html","✅","जीवन चेकलिस्ट"],["letter.html","✉️","चिठी बुझाउने"],["rate.html","💱","येन → रुपैयाँ दर"],["guides.html","📚","सबै गाइड"],["about.html","ℹ️","हाम्रोबारे र मद्दत"]]
@@ -860,13 +861,13 @@ function downloadIcs(){
   const area=`${areaLabel(c,tw)}, ${c.name.en} (${c.name.ja})`,src=c.type==="cal"?c.calendars[tw.cal].url:c.source,pt=putTime(),h=remindHour();
   // Alarm at the chosen reminder time: evening → the day before; morning → the same day
   const trig=h>=12?`-PT${24-h}H`:`PT${h}H`;
-  const L=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Sathi Japan//Garbage//EN","CALSCALE:GREGORIAN","METHOD:PUBLISH",`X-WR-CALNAME:${e2("Sathi – Garbage "+areaLabel(c,tw))}`,"X-WR-TIMEZONE:Asia/Tokyo"];
+  const L=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//JapanMates//Garbage//EN","CALSCALE:GREGORIAN","METHOD:PUBLISH",`X-WR-CALNAME:${e2("JapanMates – Garbage "+areaLabel(c,tw))}`,"X-WR-TIMEZONE:Asia/Tokyo"];
   let n=0;
   for(let i=0;i<220;i++){
     const k=iso(i),x=idsFor(k);if(x===null)break;if(!x.length)continue;n++;
     const ymd=k.replace(/-/g,""),nd=new Date(k+"T00:00:00Z");nd.setUTCDate(nd.getUTCDate()+1);
     const sum="🗑 "+x.map(id=>catOf(c,id).en).join(" + ");
-    const desc=x.map(id=>{const cg=catOf(c,id);return `${cg.en} / ${cg.ne} / ${cg.ja}`}).join("\n")+`\n\nPut out by ${T.en.times[pt]||pt} / ${T.ne.times[pt]||pt} भित्र.\nArea: ${area}\nOfficial calendar: ${src}\nFrom Sathi Japan – always follow your collection point's notices.`;
+    const desc=x.map(id=>{const cg=catOf(c,id);return `${cg.en} / ${cg.ne} / ${cg.ja}`}).join("\n")+`\n\nPut out by ${T.en.times[pt]||pt} / ${T.ne.times[pt]||pt} भित्र.\nArea: ${area}\nOfficial calendar: ${src}\nFrom JapanMates – always follow your collection point's notices.`;
     L.push("BEGIN:VEVENT",`UID:${c.id}-${sel.t}-${ymd}@sathijapan.com`,`DTSTAMP:${stamp}`,`DTSTART;VALUE=DATE:${ymd}`,`DTEND;VALUE=DATE:${nd.toISOString().slice(0,10).replace(/-/g,"")}`,
       `SUMMARY:${e2(sum)}`,`DESCRIPTION:${e2(desc)}`,`LOCATION:${e2(area)}`,"TRANSP:TRANSPARENT",
       "BEGIN:VALARM","ACTION:DISPLAY",`TRIGGER:${trig}`,`DESCRIPTION:${e2(sum)}`,"END:VALARM","END:VEVENT");
@@ -875,7 +876,7 @@ function downloadIcs(){
   const st=$("icsStatus");st.className="pstatus";
   if(!n){st.textContent=T[lang].icsNone;return}
   const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([L.map(fold).join("\r\n")+"\r\n"],{type:"text/calendar;charset=utf-8"}));
-  a.download=`sathi-garbage-${c.id}-${sel.t}.ics`;document.body.appendChild(a);a.click();a.remove();
+  a.download=`japanmates-garbage-${c.id}-${sel.t}.ics`;document.body.appendChild(a);a.click();a.remove();
   st.textContent=T[lang].icsDone;
 }
 

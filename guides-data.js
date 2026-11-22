@@ -1,6 +1,6 @@
-// Sathi Japan – service guides. ONLY official facts and links, each checked on the source page (10 Oct 2026).
+// JapanMates – service guides. ONLY official facts and links, each checked on the source page (10 Oct 2026).
 // Edit here when something changes; the guides page and home page read this file.
-// item: {t:{en,ne}, d:{en,ne}, url, src (who publishes it), tel?, in? (true = a Sathi tool)}
+// item: {t:{en,ne}, d:{en,ne}, url, src (who publishes it), tel?, in? (true = a JapanMates tool)}
 window.SATHI_GUIDES = [
  { id:"newcomer", icon:"plane", color:"#1E9E6E", bg:"mint",
    title:{en:"New to Japan?",ne:"जापानमा नयाँ हुनुहुन्छ?"},

@@ -1,7 +1,7 @@
-// Sathi Japan – one-tap sharing (Viber, Messenger, WhatsApp, LINE, Facebook, copy link).
+// JapanMates – one-tap sharing (Viber, Messenger, WhatsApp, LINE, Facebook, copy link).
 // Usage: sathiShare({ text: "message", url: "https://…" }). Nothing is sent to our server.
 (function () {
-  const SITE = "https://sathi-japan.vercel.app";
+  const SITE = "https://www.japanmates.com";
   const L = {
     en: { title: "Share", copy: "Copy link", copied: "Link copied ✓", close: "Close", fb: "Facebook", hint: "Send it to your building, work or family group." },
     ne: { title: "सेयर गर्नुहोस्", copy: "लिंक कपी गर्नुहोस्", copied: "लिंक कपी भयो ✓", close: "बन्द गर्नुहोस्", fb: "Facebook", hint: "आफ्नो भवन, कामको वा परिवारको समूहमा पठाउनुहोस्।" }

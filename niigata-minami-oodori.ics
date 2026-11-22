@@ -1,9 +1,9 @@
 BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//Sathi Japan//Garbage Reminder//EN
+PRODID:-//JapanMates//Garbage Reminder//EN
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:Sathi Japan - Garbage (Oodori (calendar code 74))
+X-WR-CALNAME:JapanMates - Garbage (Oodori (calendar code 74))
 X-WR-TIMEZONE:Asia/Tokyo
 BEGIN:VEVENT
 UID:niigata-minami-oodori-20260928@sathijapan.com

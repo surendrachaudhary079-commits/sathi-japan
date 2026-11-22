@@ -14,7 +14,7 @@ async function loadAreas(host) {
     try { code = fs.readFileSync(p, "utf8"); break; } catch (_) {}
   }
   if (!code) {
-    const base = host ? `https://${host}` : `https://${env("VERCEL_PROJECT_PRODUCTION_URL") || "sathi-japan.vercel.app"}`;
+    const base = host ? `https://${host}` : `https://${env("VERCEL_PROJECT_PRODUCTION_URL") || "www.japanmates.com"}`;
     const r = await fetch(`${base}/areas.js`);
     if (!r.ok) throw new Error("cannot load areas.js: " + r.status);
     code = await r.text();
@@ -182,7 +182,7 @@ function dlMessage(rows, lang, today) {
     const when = k <= 0 ? (ne ? "आज" : "today") : k === 1 ? (ne ? "भोलि" : "tomorrow") : (ne ? `${k} दिनमा` : `in ${k} days`);
     return `${name} – ${when} (${r.due})`;
   };
-  return { title: ne ? "⏰ Sathi: अन्तिम मिति नजिकियो" : "⏰ Sathi: deadline coming up", body: rows.map(line).join("\n") };
+  return { title: ne ? "⏰ JapanMates: अन्तिम मिति नजिकियो" : "⏰ JapanMates: deadline coming up", body: rows.map(line).join("\n") };
 }
 
 module.exports = { DL, dlMessage, calIds, HOURS, env, keyKind, loadAreas, areas, findTown, idsFor, jpDate, message, sendPush, encrypt, vapidHeader, sb, validSub, b64u, unb64u };

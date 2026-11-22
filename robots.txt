@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 Disallow: /events-admin.html
-Sitemap: https://sathi-japan.vercel.app/sitemap.xml
+Sitemap: https://www.japanmates.com/sitemap.xml

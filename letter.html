@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Letter explainer – Sathi Japan</title>
+<title>Letter explainer – JapanMates</title>
 <meta name="description" content="Photograph a Japanese letter and get it explained in Nepali or English: what it is, what to do, and by when.">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Sathi Japan">
-<meta property="og:title" content="Letter explainer – Sathi Japan">
+<meta property="og:site_name" content="JapanMates">
+<meta property="og:title" content="Letter explainer – JapanMates">
 <meta property="og:description" content="Photograph a Japanese letter and get it explained in Nepali or English: what it is, what to do, and by when.">
-<meta property="og:url" content="https://sathi-japan.vercel.app/letter.html">
-<meta property="og:image" content="https://sathi-japan.vercel.app/og.png">
+<meta property="og:url" content="https://www.japanmates.com/letter.html">
+<meta property="og:image" content="https://www.japanmates.com/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -86,7 +86,7 @@ h3{font-size:17px;margin:16px 0 4px}
 <body>
 <div class="wrap">
   <header class="top">
-    <a class="back" href="./">‹ Sathi Japan</a>
+    <a class="back" href="./">‹ JapanMates</a>
     <div class="lang" role="group" aria-label="Language">
       <button data-l="en" aria-pressed="true">English</button>
       <button data-l="ne" aria-pressed="false">नेपाली</button>
@@ -129,9 +129,9 @@ en:{
  pages:(n,m)=>n?`${n} of ${m} pages added. Add the back side or the next page if it has writing.`:`Up to ${m} pages (front, back, next page).`,
  page:n=>`Page ${n}`,remove:"Remove page",
  tips:["Put the letter on a flat table in good light.","Fit the whole page in the photo, straight on.","Cover your My Number and bank numbers with your finger or paper first."],
- codeL:"Beta code (ask Sathi Japan)",go:"Explain this letter",
+ codeL:"Beta code (ask JapanMates)",go:"Explain this letter",
  working:"Reading your letter… this takes about 15–30 seconds.",
- err:{wrong_code:"That beta code is not right. Check it and try again.",limit:n=>`You have used today's ${n} free explanations. Try again tomorrow.`,busy:"Many people are using Sathi today. Please try again tomorrow.",
+ err:{wrong_code:"That beta code is not right. Check it and try again.",limit:n=>`You have used today's ${n} free explanations. Try again tomorrow.`,busy:"Many people are using JapanMates today. Please try again tomorrow.",
   not_ready:"The letter explainer is not switched on yet.",photo_big:"The photo is too large. Take it again a little further away.",photo_type:"Please use a JPG or PNG photo.",
   ai:"The AI service did not answer. Please try again in a minute.",net:"No connection. Check your internet and try again.",other:"Something went wrong. Please try again."},
  urg:{high:"Act soon",medium:"Action needed",low:"For information"},
@@ -149,9 +149,9 @@ ne:{
  pages:(n,m)=>n?`${m} मध्ये ${n} पाना थपियो। पछाडि वा अर्को पानामा लेखिएको छ भने त्यो पनि थप्नुहोस्।`:`बढीमा ${m} पाना (अगाडि, पछाडि, अर्को पाना)।`,
  page:n=>`पाना ${n}`,remove:"पाना हटाउनुहोस्",
  tips:["चिठी राम्रो उज्यालोमा समतल टेबलमा राख्नुहोस्।","पूरा पाना सिधा फोटोमा अटाउनुहोस्।","पहिले My Number र बैंक नम्बर औंला वा कागजले छोप्नुहोस्।"],
- codeL:"बिटा कोड (Sathi Japan लाई सोध्नुहोस्)",go:"यो चिठी बुझाउनुहोस्",
+ codeL:"बिटा कोड (JapanMates लाई सोध्नुहोस्)",go:"यो चिठी बुझाउनुहोस्",
  working:"चिठी पढ्दै… करिब १५–३० सेकेन्ड लाग्छ।",
- err:{wrong_code:"बिटा कोड मिलेन। जाँचेर फेरि प्रयास गर्नुहोस्।",limit:n=>`आजका ${n} वटा निःशुल्क व्याख्या सकिए। भोलि फेरि प्रयास गर्नुहोस्।`,busy:"आज धेरैले Sathi प्रयोग गरिरहेका छन्। भोलि फेरि प्रयास गर्नुहोस्।",
+ err:{wrong_code:"बिटा कोड मिलेन। जाँचेर फेरि प्रयास गर्नुहोस्।",limit:n=>`आजका ${n} वटा निःशुल्क व्याख्या सकिए। भोलि फेरि प्रयास गर्नुहोस्।`,busy:"आज धेरैले JapanMates प्रयोग गरिरहेका छन्। भोलि फेरि प्रयास गर्नुहोस्।",
   not_ready:"चिठी बुझाउने सुविधा अझै सुरु भएको छैन।",photo_big:"फोटो धेरै ठूलो भयो। अलि टाढाबाट फेरि खिच्नुहोस्।",photo_type:"JPG वा PNG फोटो प्रयोग गर्नुहोस्।",
   ai:"AI सेवाले जवाफ दिएन। एक मिनेटपछि फेरि प्रयास गर्नुहोस्।",net:"इन्टरनेट छैन। जाँचेर फेरि प्रयास गर्नुहोस्।",other:"केही गडबड भयो। फेरि प्रयास गर्नुहोस्।"},
  urg:{high:"चाँडै गर्नुहोस्",medium:"काम गर्नुपर्छ",low:"जानकारी मात्र"},
@@ -197,11 +197,11 @@ $("go").onclick=go;
 function ics(){
   const d=last.deadline_iso.replace(/-/g,""),n=new Date(last.deadline_iso+"T00:00:00Z");n.setUTCDate(n.getUTCDate()+1);
   const e=s=>String(s||"").replace(/\\/g,"\\\\").replace(/;/g,"\\;").replace(/,/g,"\\,").replace(/\n/g,"\\n");
-  const L=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Sathi Japan//Letter//EN","BEGIN:VEVENT",`UID:letter-${d}-${Date.now()}@sathijapan.com`,
+  const L=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//JapanMates//Letter//EN","BEGIN:VEVENT",`UID:letter-${d}-${Date.now()}@sathijapan.com`,
    `DTSTAMP:${new Date().toISOString().replace(/[-:]/g,"").slice(0,15)}Z`,`DTSTART;VALUE=DATE:${d}`,`DTEND;VALUE=DATE:${n.toISOString().slice(0,10).replace(/-/g,"")}`,
    `SUMMARY:${e("📮 "+T[lang].icsTitle+": "+(last.type||""))}`,`DESCRIPTION:${e((last.steps||[]).join("\n"))}`,
    "BEGIN:VALARM","ACTION:DISPLAY","TRIGGER:-P3D",`DESCRIPTION:${e(T[lang].icsTitle)}`,"END:VALARM","END:VEVENT","END:VCALENDAR"];
-  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([L.join("\r\n")+"\r\n"],{type:"text/calendar"}));a.download="sathi-letter-deadline.ics";document.body.appendChild(a);a.click();a.remove();
+  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([L.join("\r\n")+"\r\n"],{type:"text/calendar"}));a.download="japanmates-letter-deadline.ics";document.body.appendChild(a);a.click();a.remove();
 }
 
 function render(){

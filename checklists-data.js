@@ -1,4 +1,4 @@
-// Sathi Japan – life checklists. offset = days from the key date (null = no deadline).
+// JapanMates – life checklists. offset = days from the key date (null = no deadline).
 // forms: official forms / online links. Checked 2026-10-03. Re-check every April.
 window.CHECKLISTS = [
  {

@@ -33,7 +33,7 @@ async function eventReminders(hour, today) {
     const ne = list[0].lang === "ne";
     const when = d => d === 0 ? (ne ? "आज" : "today") : d === 1 ? (ne ? "भोलि" : "tomorrow") : (ne ? `${d} दिनमा` : `in ${d} days`);
     const fmt = d => { const x = new Date(d + "T00:00:00Z"); return ne ? `${x.getUTCMonth() + 1}/${x.getUTCDate()}` : x.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short", timeZone: "UTC" }); };
-    const msg = { title: ne ? "📅 Sathi: कार्यक्रम आउँदैछ" : "📅 Sathi: event coming up",
+    const msg = { title: ne ? "📅 JapanMates: कार्यक्रम आउँदैछ" : "📅 JapanMates: event coming up",
       body: list.map(x => `${x.name} – ${when(x.days)} (${fmt(x.date)})`).join("\n"), url: "/events.html" };
     try {
       const st = await sendPush(list[0], msg);
