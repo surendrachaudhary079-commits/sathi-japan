@@ -125,6 +125,22 @@ footer{margin-top:28px;font-size:14px;color:var(--muted)}
     <p class="fine" data-t="calcNote"></p>
   </div>
 
+  <h2 data-t="appH"></h2>
+  <div class="card">
+    <p style="margin:0 0 10px" data-t="appP"></p>
+    <div class="calc">
+      <div><label for="appCo" data-t="appCo"></label><select id="appCo" style="width:100%;font-size:18px;font-weight:700;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink)"></select></div>
+      <div class="eq"></div>
+      <div><label for="appRate" data-t="appRate"></label><input id="appRate" inputmode="decimal" placeholder="0.93" autocomplete="off"></div>
+    </div>
+    <div class="calc" style="margin-top:10px">
+      <div><label for="appFee" data-t="appFee"></label><input id="appFee" inputmode="numeric" placeholder="0" autocomplete="off"></div>
+      <div class="eq"></div><div></div>
+    </div>
+    <div id="appOut" aria-live="polite"></div>
+    <p class="fine" data-t="appNote"></p>
+  </div>
+
   <h2 data-t="chartH"></h2>
   <div class="card">
     <div class="tabs" id="tabs"><button data-d="30" aria-pressed="false">30</button><button data-d="90" aria-pressed="true">90</button></div>
@@ -161,7 +177,7 @@ footer{margin-top:28px;font-size:14px;color:var(--muted)}
 <script>
 // ---- Sources (checked 8 Oct 2026) ----
 // Rate: Nepal Rastra Bank forex API, JPY quoted per 10 yen – https://www.nrb.org.np/forex/
-// Companies: FSA register of funds transfer service providers (資金移動業者登録一覧), as of 31 Aug 2026 – https://www.fsa.go.jp/menkyo/menkyoj/shikin_idou.pdf
+// Companies: FSA register of funds transfer service providers (資金移動業者登録一覧), as of 31 Aug 2026 (Smiles / 株式会社デジタルワレット No. 00044 checked on the list as of 31 Oct 2026) – https://www.fsa.go.jp/menkyo/menkyoj/shikin_idou.pdf
 // Warning text: FSA "Living in Japan: How to Open a Bank Account and Send Money" (Sep 2024) – https://www.fsa.go.jp/en/user/03.english_2024.pdf
 // Only companies on that register that send to Nepal are listed, in alphabetical order. No paid placement.
 const FSA="https://www.fsa.go.jp/menkyo/menkyoj/shikin_idou.pdf";
@@ -170,6 +186,7 @@ const COS=[
  {n:"City Express",j:"CITY EXPRESS MONEY TRANSFER JAPAN株式会社",r:"00025",u:"https://cityremit.com/"},
  {n:"Japan Remit Finance",j:"ジャパンレミットファイナンス株式会社",r:"00024",u:"https://www.jpremit.com/"},
  {n:"SBI Remit",j:"SBIレミット株式会社",r:"00008",u:"https://www.remit.co.jp/"},
+ {n:"Smiles",j:"株式会社デジタルワレット",r:"00044",u:"https://www.smileswallet.com/japan/"},
  {n:"Western Union",j:"ウエスタンユニオンジャパン株式会社",r:"00039",u:"https://www.westernunion.com/jp/ja/home.html"},
  {n:"Wise",j:"ワイズ・ペイメンツ・ジャパン株式会社",r:"00040",u:"https://wise.com/jp/"}
 ];
@@ -178,7 +195,7 @@ en:{title:"Yen → Rupee rate",intro:"Today's official rate from Nepal Rastra Ba
  loading:"Loading today's rate…",fail:"Could not load the rate right now. Please try again later.",
  todayK:d=>`Official rate · Nepal Rastra Bank · ${d}`,per:"¥100 =",vs:(c,a)=>`${c} since the previous day · 90-day average Rs ${a}`,
  v:{good:"Good – near the 3-month high",mid:"Average for the last 3 months",low:"Low – near the 3-month low"},
- calcH:"How much will arrive?",send:"You send (yen)",get:"About (rupees)",calcNote:"Estimate at the official rate. Companies pay a little less than this and may add a fee – compare the final amount you receive on each company's app.",
+ calcH:"How much will arrive?",appH:"Compare your app’s rate",appP:"Open your remittance app (for example Smiles), look at today’s rate, and type it here. We compare it with the official rate for the amount above.",appCo:"App",appRate:"¥1 = ? rupees",appFee:"Fee (yen, if any)",other:"Other app",appRes:(co,a,o,d,p)=>`<b>${co}: about Rs ${a}</b> arrives · official rate: Rs ${o}<br>${d<=0?"You get <b>Rs "+nf(-d)+" less</b> ("+p+"% below official, fee included)":"You get Rs "+nf(d)+" more than the official rate"}`,appBad:"Type the rate as rupees for ¥1, e.g. 0.93.",appNote:"The rate you type stays on this phone only. JapanMates does not take a fee, get paid by any company, or send money. Rates change during the day – the app shows the final amount before you pay.",send:"You send (yen)",get:"About (rupees)",calcNote:"Estimate at the official rate. Companies pay a little less than this and may add a fee – compare the final amount you receive on each company's app.",
  chartH:"Last months",days:d=>`${d} days`,hi:"High",lo:"Low",avg:"Average",
  alertH:"Alert me when the rate is good",alertP:(r)=>`We check the official rate every evening. When ¥100 is worth your target or more, your phone gets a notification – at most once a week (today: Rs ${r}).`,
  target:"Target: Rs for ¥100",on:"Turn on alert",off:"Turn off alert",save:"Update target",isOn:t=>`✓ Alert is on: Rs ${t} or more`,
@@ -193,7 +210,7 @@ ne:{title:"येन → रुपैयाँ दर",intro:"नेपाल �
  loading:"आजको दर लोड हुँदैछ…",fail:"अहिले दर लोड भएन। केही बेरपछि फेरि प्रयास गर्नुहोस्।",
  todayK:d=>`आधिकारिक दर · नेपाल राष्ट्र बैंक · ${d}`,per:"¥१०० =",vs:(c,a)=>`अघिल्लो दिनभन्दा ${c} · ९० दिनको औसत रु ${a}`,
  v:{good:"राम्रो – ३ महिनाको उच्च नजिक",mid:"पछिल्लो ३ महिनाको औसत",low:"कम – ३ महिनाको न्यून नजिक"},
- calcH:"कति पुग्छ?",send:"तपाईं पठाउने (येन)",get:"लगभग (रुपैयाँ)",calcNote:"आधिकारिक दरमा अनुमान। कम्पनीहरूले यसभन्दा अलि कम दिन्छन् र शुल्क लाग्न सक्छ – हरेक कम्पनीको एपमा अन्तिम रकम तुलना गर्नुहोस्।",
+ calcH:"कति पुग्छ?",appH:"तपाईंको एपको दर तुलना",appP:"आफ्नो रेमिट्यान्स एप (जस्तै Smiles) खोलेर आजको दर हेर्नुहोस्, अनि यहाँ लेख्नुहोस्। माथिको रकमका लागि आधिकारिक दरसँग तुलना गर्छौं।",appCo:"एप",appRate:"¥1 = कति रुपैयाँ?",appFee:"शुल्क (येन, भए)",other:"अरू एप",appRes:(co,a,o,d,p)=>`<b>${co}: करिब Rs ${a}</b> पुग्छ · आधिकारिक दर: Rs ${o}<br>${d<=0?"तपाईंले <b>Rs "+nf(-d)+" कम</b> पाउनुहुन्छ (आधिकारिक भन्दा "+p+"% कम, शुल्कसहित)":"आधिकारिक दरभन्दा Rs "+nf(d)+" बढी पाउनुहुन्छ"}`,appBad:"¥1 बराबर रुपैयाँ लेख्नुहोस्, जस्तै 0.93।",appNote:"तपाईंले लेखेको दर यही फोनमा मात्र रहन्छ। JapanMates ले कुनै शुल्क लिँदैन, कुनै कम्पनीबाट पैसा पाउँदैन, र पैसा पठाउँदैन। दर दिनभर बदलिन्छ – तिर्नुअघि एपले अन्तिम रकम देखाउँछ।",send:"तपाईं पठाउने (येन)",get:"लगभग (रुपैयाँ)",calcNote:"आधिकारिक दरमा अनुमान। कम्पनीहरूले यसभन्दा अलि कम दिन्छन् र शुल्क लाग्न सक्छ – हरेक कम्पनीको एपमा अन्तिम रकम तुलना गर्नुहोस्।",
  chartH:"पछिल्ला महिनाहरू",days:d=>`${d} दिन`,hi:"उच्च",lo:"न्यून",avg:"औसत",
  alertH:"दर राम्रो हुँदा सूचना दिनुहोस्",alertP:(r)=>`हामी हरेक साँझ आधिकारिक दर जाँच्छौं। ¥१०० को मूल्य तपाईंको लक्ष्य वा बढी भयो भने फोनमा सूचना आउँछ – हप्तामा बढीमा एक पटक (आज: रु ${r})।`,
  target:"लक्ष्य: ¥१०० बराबर रु",on:"सूचना सक्रिय गर्नुहोस्",off:"सूचना बन्द गर्नुहोस्",save:"लक्ष्य अपडेट गर्नुहोस्",isOn:t=>`✓ सूचना सक्रिय: रु ${t} वा बढी`,
@@ -224,7 +241,22 @@ function renderToday(){
   const chs=(ch>0?"▲ +":ch<0?"▼ ":"± ")+nf(ch,2);
   $("today").innerHTML=`<span class="k">${esc(t.todayK(fmtD(L.d)))}</span><div class="big"><small>${t.per}</small> Rs ${nf(L.buy,2)}</div><div class="sub">${esc(t.vs(chs,nf(avg(win(90)),2)))}</div><span class="verdict ${v}">${esc(t.v[v])}</span>`;
 }
-function renderCalc(){const y=Number(String($("yen").value).replace(/[^\d.]/g,""))||0;$("npr").textContent=rows.length&&y?"Rs "+nf(y*last().buy/100):"–"}
+function renderCalc(){const y=Number(String($("yen").value).replace(/[^\d.]/g,""))||0;$("npr").textContent=rows.length&&y?"Rs "+nf(y*last().buy/100):"–";renderApp()}
+// Compare the rate the user sees in their own app with the official rate (nothing is sent anywhere)
+function renderApp(){
+  const t=T[lang],sel=$("appCo"),cur=sel.value||store.get("fx_app_co")||"Smiles";
+  sel.innerHTML=COS.map(c=>`<option>${esc(c.n)}</option>`).join("")+`<option value="other">${esc(t.other)}</option>`;sel.value=cur;
+  const raw=String($("appRate").value).replace(/[^\d.]/g,""),r=Number(raw),fee=Number(String($("appFee").value).replace(/[^\d]/g,""))||0;
+  const y=Number(String($("yen").value).replace(/[^\d.]/g,""))||0,out=$("appOut");
+  if(!raw||!rows.length||!y){out.innerHTML="";return}
+  if(!(r>0.3&&r<3)){out.innerHTML=`<p class="fine" style="color:var(--low,#B4233A)">${esc(t.appBad)}</p>`;return}
+  const off=y*last().buy/100,app=Math.max(0,y-fee)*r,d=app-off,p=off?Math.abs(d/off*100).toFixed(1):"0";
+  const co=sel.value==="other"?t.other:sel.value;
+  out.innerHTML=`<div style="margin-top:12px;padding:12px 14px;border-radius:12px;background:var(--tint);color:var(--ink);line-height:1.5">${t.appRes(esc(co),nf(app),nf(off),d,p)}</div>`;
+}
+(function(){try{const v=localStorage.getItem("fx_app_rate");if(v)$("appRate").value=v;const f=localStorage.getItem("fx_app_fee");if(f)$("appFee").value=f}catch(e){}})();
+["appRate","appFee"].forEach(id=>$(id).addEventListener("input",()=>{store.set(id==="appRate"?"fx_app_rate":"fx_app_fee",$(id).value);renderApp()}));
+$("appCo").addEventListener("change",()=>{store.set("fx_app_co",$("appCo").value);renderApp()});
 function renderChart(){
   const t=T[lang];if(!rows.length){$("chart").innerHTML="";$("stats").innerHTML="";return}
   const w=win(span),W=640,H=260,pl=58,pr=10,pt=12,pb=26,vals=w.map(x=>x.buy);
