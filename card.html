@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Card copy – scan, hide, share | JapanMates</title>
+<meta name="description" content="Make a clean copy of your residence card, driving licence or other card (front and back on one page), hide numbers you don't need to send, add a 'for … only' mark, then share or save as JPG or PDF. Nothing is uploaded.">
+<link rel="canonical" href="https://www.japanmates.com/card.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="JapanMates">
+<meta property="og:title" content="Card copy – JapanMates">
+<meta property="og:description" content="Scan both sides of a card, hide numbers, add a 'for … only' mark and share it. Stays on your phone.">
+<meta property="og:url" content="https://www.japanmates.com/card.html">
+<meta property="og:image" content="https://www.japanmates.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0F6B57">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="theme.css">
+<style>
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--sx-paper);color:var(--sx-text);font:400 17px/1.6 var(--sx-f)}
+a{color:var(--sx-green)}
+:focus-visible{outline:3px solid var(--sx-blue);outline-offset:3px;border-radius:8px}
+[hidden]{display:none!important}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px 90px}
+h1{font-size:clamp(30px,6.5vw,44px);line-height:1.1;margin:24px 0 6px;color:var(--sx-green);font-weight:800;letter-spacing:-.02em}
+h2{font-size:21px;margin:24px 0 10px;display:flex;align-items:center;gap:10px}
+h2 .n{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--sx-green);color:#fff;font-size:16px;flex:none}
+.intro{color:var(--sx-muted);margin:0 0 14px}
+.card{background:var(--sx-card);border:1px solid var(--sx-line);border-radius:20px;box-shadow:var(--sx-shadow);padding:16px;margin-bottom:12px}
+.safe{background:var(--sx-mint);border-radius:16px;padding:12px 14px;font-size:15.5px;margin-bottom:12px}
+.warn{background:var(--sx-butter);border-radius:16px;padding:12px 14px;font-size:15px;margin-bottom:12px}
+.warn summary{font-weight:700;cursor:pointer}
+.warn ul{margin:6px 0 0;padding-left:20px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{border:1px solid var(--sx-line);background:var(--sx-card);border-radius:999px;padding:8px 14px;font:600 15px var(--sx-f);cursor:pointer;color:var(--sx-text)}
+.chips button[aria-pressed=true]{background:var(--sx-green);border-color:var(--sx-green);color:#fff}
+.tip{font-size:15px;margin:10px 0 0;color:var(--sx-muted)}
+.tip.red{color:#A3322A;font-weight:600}
+.sides{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:560px){.sides{grid-template-columns:1fr}}
+.side{border:2px dashed var(--sx-line);border-radius:16px;padding:12px;text-align:center;background:var(--sx-paper)}
+.side h3{margin:0 0 8px;font-size:17px}
+.side .thumb{display:block;width:100%;aspect-ratio:85.6/54;object-fit:contain;border-radius:10px;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.side .empty{aspect-ratio:85.6/54;display:grid;place-items:center;border-radius:10px;background:var(--sx-card);color:var(--sx-muted);font-size:40px}
+.row{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:0 14px;border-radius:12px;font-weight:700;font-size:15px;border:0;cursor:pointer;font-family:inherit;background:var(--sx-card);color:var(--sx-green);box-shadow:inset 0 0 0 2px var(--sx-line);text-decoration:none}
+.btn.pri{background:var(--sx-green);color:#fff;box-shadow:none}
+.btn.mini{min-height:36px;padding:0 10px;font-size:14px;border-radius:10px}
+.btn[disabled]{opacity:.5;cursor:default}
+@media (prefers-color-scheme:dark){.btn.pri,.chips button[aria-pressed=true]{color:#0B1715}}
+label.f{display:block;font-weight:700;margin:4px 0 6px}
+input.in{width:100%;font:inherit;font-size:17px;padding:10px 12px;border:1px solid var(--sx-line);border-radius:12px;background:var(--sx-paper);color:var(--sx-text)}
+.check{display:flex;gap:10px;align-items:center;margin-top:10px;font-size:16px}
+.check input{width:22px;height:22px;accent-color:var(--sx-green)}
+#preview{display:block;width:100%;border-radius:12px;border:1px solid var(--sx-line);background:#fff}
+.big{width:100%;min-height:54px;font-size:18px}
+.src{font-size:14px;color:var(--sx-muted)}
+/* full-screen editor */
+.ed{position:fixed;inset:0;z-index:70;background:#0E1513;color:#fff;display:flex;flex-direction:column}
+.ed header{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 12px calc(10px) 12px;padding-top:calc(10px + env(safe-area-inset-top))}
+.ed header b{font-size:17px}
+.ed .stage{flex:1;position:relative;display:grid;place-items:center;overflow:hidden;touch-action:none}
+.ed .box{position:relative;touch-action:none}
+.ed canvas{display:block;max-width:100%;max-height:100%}
+.ed svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.ed .h{position:absolute;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;background:rgba(15,107,87,.25);border:3px solid #7FD8B9;touch-action:none;cursor:grab}
+.ed .h::after{content:"";position:absolute;left:50%;top:50%;width:8px;height:8px;margin:-4px;border-radius:50%;background:#fff}
+.ed footer{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:12px 12px calc(14px + env(safe-area-inset-bottom))}
+.ed .hint{text-align:center;font-size:15px;color:#CFE3DC;padding:0 16px 6px}
+.ed .btn{background:#1C2B27;color:#fff;box-shadow:inset 0 0 0 2px #2E443E}
+.ed .btn.pri{background:#7FD8B9;color:#0B1715;box-shadow:none}
+</style>
+</head>
+<body>
+<a class="sx-sr" href="#main">Skip to content</a>
+<header id="sxHead"></header>
+<main class="wrap" id="main">
+  <h1 data-t="h1"></h1>
+  <p class="intro" data-t="intro"></p>
+  <div class="safe" data-t="safe"></div>
+
+  <details class="warn" id="warn" open>
+    <summary data-t="warnH"></summary>
+    <ul id="warnList"></ul>
+  </details>
+
+  <h2><span class="n">1</span><span data-t="s1"></span></h2>
+  <div class="card">
+    <div class="chips" id="types"></div>
+    <p class="tip" id="typeTip"></p>
+  </div>
+
+  <h2><span class="n">2</span><span data-t="s2"></span></h2>
+  <div class="card">
+    <div class="sides">
+      <div class="side" data-side="front"></div>
+      <div class="side" data-side="back"></div>
+    </div>
+    <p class="tip" data-t="photoTip"></p>
+  </div>
+
+  <h2><span class="n">3</span><span data-t="s3"></span></h2>
+  <div class="card">
+    <label class="f" for="who" data-t="whoL"></label>
+    <input class="in" id="who" maxlength="40" autocomplete="off">
+    <p class="tip" data-t="whoTip"></p>
+    <label class="check"><input type="checkbox" id="dateOn" checked><span data-t="dateL"></span></label>
+    <label class="check"><input type="checkbox" id="clearOn" checked><span data-t="clearL"></span></label>
+  </div>
+
+  <h2><span class="n">4</span><span data-t="s4"></span></h2>
+  <div class="card">
+    <canvas id="preview" hidden></canvas>
+    <p class="tip" id="noPrev" data-t="noPrev"></p>
+    <div class="chips" id="fmt" style="margin-top:12px">
+      <button data-f="jpg" aria-pressed="true">JPG</button>
+      <button data-f="pdf" aria-pressed="false">PDF</button>
+    </div>
+    <div class="row" style="justify-content:stretch">
+      <button class="btn pri big" id="shareBtn" disabled></button>
+      <button class="btn big" id="saveBtn" disabled></button>
+    </div>
+    <div class="row"><button class="btn mini" id="clearAll" data-t="clearAll"></button></div>
+  </div>
+
+  <p class="src"><span data-t="srcL"></span>
+    <a href="https://www.ppc.go.jp/legal/policy/my_number_guideline_jigyosha/" target="_blank" rel="noopener">個人情報保護委員会 – My Number guideline</a> ·
+    <a href="https://www.moj.go.jp/isa/" target="_blank" rel="noopener">出入国在留管理庁 (ISA)</a></p>
+</main>
+<footer id="sxFoot"></footer>
+
+<input type="file" id="fileCam" accept="image/*" capture="environment" hidden>
+<input type="file" id="fileGal" accept="image/*" hidden>
+
+<div class="ed" id="ed" hidden role="dialog" aria-modal="true">
+  <header><b id="edTitle"></b><button class="btn mini" id="edCancel"></button></header>
+  <div class="hint" id="edHint"></div>
+  <div class="stage" id="stage"><div class="box" id="box"><canvas id="edCv"></canvas><svg id="edSvg"></svg></div></div>
+  <footer id="edFoot"></footer>
+</div>
+
+<script src="site.js"></script>
+<script>
+"use strict";
+/* Card copy. Everything happens inside this phone's browser: photos are never uploaded or saved.
+   Steps: choose card → photo of front/back → drag 4 corners → straightened copy → optional black boxes
+   → "for … only" mark + date → JPG or PDF → share / save. */
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+let lang = (window.Sathi && Sathi.lang) || "en";
+
+const TYPES = [
+  { id: "zairyu", en: "Residence card", ne: "रेसिडेन्स कार्ड", ja: "在留カード", file: "residence-card" },
+  { id: "license", en: "Driving licence", ne: "ड्राइभिङ लाइसेन्स", ja: "運転免許証", file: "driving-licence" },
+  { id: "mynumber", en: "My Number card", ne: "माइ नम्बर कार्ड", ja: "マイナンバーカード", file: "my-number-card" },
+  { id: "health", en: "Health insurance", ne: "स्वास्थ्य बीमा", ja: "保険証・資格確認書", file: "health-insurance" },
+  { id: "student", en: "Student / staff ID", ne: "विद्यार्थी / कर्मचारी कार्ड", ja: "学生証・社員証", file: "id-card" },
+  { id: "other", en: "Other card", ne: "अरू कार्ड", ja: "その他", file: "card" }
+];
+const T = {
+ en: {
+  h1: "Card copy", intro: "Make a clean copy of your card – front and back on one page – hide what the other side doesn't need, mark who it is for, then share or save it.",
+  safe: "🔒 Your photos never leave this phone. They are not uploaded and not saved – closing this page deletes them.",
+  warnH: "Before you send a card copy",
+  warn: ["Send it only to places that really need it: your employer, city office, bank, school, real estate agent, phone company.",
+         "Never send card photos to people you met on Facebook, TikTok or a job ad. Scammers (闇バイト) use them to open bank accounts and phone lines in your name.",
+         "My Number card: companies may ask for your 12-digit number only for tax, social insurance and similar legal reasons. If they don't need it, send only the front, or hide the number.",
+         "Never give or lend the card itself to anyone. Showing or copying it for a real purpose is normal.",
+         "This makes a photo copy. It does not read the IC chip – to check if a residence card is real, the official ISA app (在留カード等読取アプリケーション) is used."],
+  s1: "Which card?", s2: "Take photos", s3: "Who is it for? (recommended)", s4: "Check, then share or save",
+  tips: { mynumber: "Tip: most places need only the front. The back has your 12-digit My Number – hide it with ⬛ unless it is for tax or social insurance.",
+          zairyu: "Tip: send both sides – the back shows address changes and work permission (資格外活動許可).",
+          license: "Tip: send both sides – the back shows address changes.",
+          health: "Tip: hide the insurer number (保険者番号) and symbol/number (記号・番号) if the place doesn't need them.", student: "", other: "" },
+  front: "Front (表)", back: "Back (裏)", camera: "📷 Camera", gallery: "🖼 Photo", redo: "Change", hide: "⬛ Hide parts", noBack: "Not needed",
+  photoTip: "Put the card on a dark table, take the photo from straight above, no flash glare. Then drag the 4 circles to the card corners.",
+  whoL: "Copy for (company or office name)", whoTip: "We write \"For … only\" across the card in light red. If someone steals the copy, they can't easily reuse it for something else.",
+  dateL: "Add today's date", clearL: "Make it clearer (contrast)",
+  noPrev: "Your page appears here after you add a photo.", share: "Share", save: "Save to phone", clearAll: "Delete everything",
+  edCorners: "Drag the 4 circles to the card corners", edHide: "Drag over anything you want to hide", cancel: "Cancel", rotate: "↻ Rotate", use: "Use this ✓",
+  undo: "↶ Undo", done: "Done ✓", forOnly: w => `For ${w} only`, copy: "COPY", readErr: "Could not open this photo. Try another one.",
+  shareTitle: "Card copy", srcL: "Rules:", share2: "Card copy: scan both sides of your residence card or licence, hide numbers, share safely – free on JapanMates"
+ },
+ ne: {
+  h1: "कार्ड कपी", intro: "आफ्नो कार्डको सफा कपी बनाउनुहोस् – अगाडि र पछाडि एउटै पेजमा – नचाहिने कुरा लुकाउनुहोस्, कसका लागि हो लेख्नुहोस्, अनि सेयर वा सेभ गर्नुहोस्।",
+  safe: "🔒 तपाईंका फोटो यो फोनबाट बाहिर जाँदैनन्। अपलोड हुँदैनन्, सेभ हुँदैनन् – यो पेज बन्द गरेपछि मेटिन्छन्।",
+  warnH: "कार्डको कपी पठाउनुअघि",
+  warn: ["साँच्चै चाहिने ठाउँमा मात्र पठाउनुहोस्: कम्पनी, सिटी अफिस, बैंक, स्कुल, घर एजेन्ट, फोन कम्पनी।",
+         "Facebook, TikTok वा कामको विज्ञापनमा भेटेका मानिसलाई कहिल्यै कार्डको फोटो नपठाउनुहोस्। ठगहरूले (闇バイト) तपाईंको नाममा बैंक खाता र फोन खोल्छन्।",
+         "माइ नम्बर कार्ड: कम्पनीले कर, सामाजिक बीमा जस्ता कानुनी कामका लागि मात्र १२ अंकको नम्बर माग्न सक्छ। नचाहिने भए अगाडि मात्र पठाउनुहोस्, वा नम्बर लुकाउनुहोस्।",
+         "कार्ड आफैं कसैलाई नदिनुहोस्, सापट नदिनुहोस्। वास्तविक कामका लागि देखाउनु वा कपी दिनु सामान्य हो।",
+         "यसले फोटो कपी बनाउँछ। IC चिप पढ्दैन – रेसिडेन्स कार्ड सक्कली हो कि जाँच्न ISA को आधिकारिक एप (在留カード等読取アプリケーション) प्रयोग हुन्छ।"],
+  s1: "कुन कार्ड?", s2: "फोटो खिच्नुहोस्", s3: "कसका लागि? (सिफारिस)", s4: "हेरेर सेयर वा सेभ गर्नुहोस्",
+  tips: { mynumber: "सुझाव: धेरै ठाउँमा अगाडि मात्र चाहिन्छ। पछाडि १२ अंकको माइ नम्बर हुन्छ – कर वा सामाजिक बीमाका लागि नभए ⬛ ले लुकाउनुहोस्।",
+          zairyu: "सुझाव: दुवैतर्फ पठाउनुहोस् – पछाडि ठेगाना परिवर्तन र काम गर्ने अनुमति (資格外活動許可) हुन्छ।",
+          license: "सुझाव: दुवैतर्फ पठाउनुहोस् – पछाडि ठेगाना परिवर्तन हुन्छ।",
+          health: "सुझाव: नचाहिने भए बीमाकर्ता नम्बर (保険者番号) र 記号・番号 लुकाउनुहोस्।", student: "", other: "" },
+  front: "अगाडि (表)", back: "पछाडि (裏)", camera: "📷 क्यामेरा", gallery: "🖼 फोटो", redo: "बदल्ने", hide: "⬛ लुकाउने", noBack: "चाहिँदैन",
+  photoTip: "कार्डलाई कालो टेबलमा राखेर ठीक माथिबाट, फ्ल्यासको चमक बिना फोटो खिच्नुहोस्। अनि ४ वटा गोलो कार्डको कुनामा तान्नुहोस्।",
+  whoL: "कसका लागि कपी (कम्पनी वा कार्यालयको नाम)", whoTip: "कार्डमाथि हल्का रातोमा \"For … only\" लेख्छौं। कसैले कपी चोरे पनि अरू काममा सजिलै प्रयोग गर्न सक्दैन।",
+  dateL: "आजको मिति थप्ने", clearL: "अझ प्रस्ट बनाउने (कन्ट्रास्ट)",
+  noPrev: "फोटो थपेपछि तपाईंको पेज यहाँ देखिन्छ।", share: "सेयर", save: "फोनमा सेभ", clearAll: "सबै मेटाउनुहोस्",
+  edCorners: "४ वटा गोलो कार्डको कुनामा तान्नुहोस्", edHide: "लुकाउन चाहेको भागमाथि औंला तान्नुहोस्", cancel: "रद्द", rotate: "↻ घुमाउने", use: "यही प्रयोग ✓",
+  undo: "↶ फिर्ता", done: "सकियो ✓", forOnly: w => `For ${w} only`, copy: "COPY", readErr: "यो फोटो खोल्न सकिएन। अर्को प्रयास गर्नुहोस्।",
+  shareTitle: "कार्ड कपी", srcL: "नियम:", share2: "कार्ड कपी: रेसिडेन्स कार्ड वा लाइसेन्सको दुवैतर्फ स्क्यान, नम्बर लुकाउने, सुरक्षित सेयर – JapanMates मा निःशुल्क"
+ }
+};
+const t = () => T[lang];
+
+// ---------- state (memory only) ----------
+let type = "zairyu", fmt = "jpg";
+const sides = { front: null, back: null };   // { src: canvas, quad: [[x,y]×4], out: canvas, boxes: [[x,y,w,h]] }
+let noBack = false, pending = "front";
+const OUT_W = 1200, OUT_H = Math.round(OUT_W * 54 / 85.6);
+
+// ---------- step 1 ----------
+function renderTypes() {
+  $("types").innerHTML = TYPES.map(x => `<button data-type="${x.id}" aria-pressed="${x.id === type}">${esc(x[lang])} <span lang="ja" style="opacity:.75;font-size:13px">${esc(x.ja)}</span></button>`).join("");
+  const tip = t().tips[type] || "";
+  $("typeTip").textContent = tip; $("typeTip").className = "tip" + (type === "mynumber" ? " red" : "");
+}
+$("types").onclick = e => { const b = e.target.closest("[data-type]"); if (!b) return; type = b.dataset.type; renderTypes(); compose(); };
+
+// ---------- step 2: photo slots ----------
+function renderSides() {
+  document.querySelectorAll(".side").forEach(el => {
+    const k = el.dataset.side, s = sides[k];
+    const off = k === "back" && noBack;
+    el.innerHTML = `<h3>${esc(t()[k])}</h3>` +
+      (s ? `<img class="thumb" alt="" src="${s.thumb}">` : `<div class="empty" aria-hidden="true">${off ? "—" : "🪪"}</div>`) +
+      `<div class="row">` +
+      (s ? `<button class="btn mini" data-act="redo" data-k="${k}">${esc(t().redo)}</button><button class="btn mini" data-act="hide" data-k="${k}">${esc(t().hide)}</button>` +
+           (k === "back" ? `<button class="btn mini" data-act="drop" data-k="back">✕</button>` : "")
+         : off ? `<button class="btn mini" data-act="unskip">+ ${esc(t().back)}</button>`
+         : `<button class="btn mini pri" data-act="cam" data-k="${k}">${esc(t().camera)}</button><button class="btn mini" data-act="gal" data-k="${k}">${esc(t().gallery)}</button>` +
+           (k === "back" ? `<button class="btn mini" data-act="skip">${esc(t().noBack)}</button>` : "")) +
+      `</div>`;
+  });
+}
+document.querySelector(".sides").onclick = e => {
+  const b = e.target.closest("[data-act]"); if (!b) return;
+  const a = b.dataset.act, k = b.dataset.k;
+  if (a === "cam" || a === "gal") { pending = k; (a === "cam" ? $("fileCam") : $("fileGal")).click(); }
+  if (a === "redo") openCorners(k);
+  if (a === "hide") openHide(k);
+  if (a === "skip") { noBack = true; renderSides(); compose(); }
+  if (a === "unskip") { noBack = false; renderSides(); }
+  if (a === "drop") { sides.back = null; renderSides(); compose(); }
+};
+[$("fileCam"), $("fileGal")].forEach(inp => inp.onchange = () => {
+  const f = inp.files && inp.files[0]; inp.value = "";
+  if (!f) return;
+  const url = URL.createObjectURL(f), img = new Image();
+  img.onload = () => {
+    URL.revokeObjectURL(url);
+    const max = 2400, sc = Math.min(1, max / Math.max(img.naturalWidth, img.naturalHeight));
+    const c = document.createElement("canvas"); c.width = Math.round(img.naturalWidth * sc); c.height = Math.round(img.naturalHeight * sc);
+    c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+    sides[pending] = { src: c, quad: defaultQuad(c), out: null, boxes: [], thumb: "" };
+    openCorners(pending);
+  };
+  img.onerror = () => { URL.revokeObjectURL(url); alertMsg(t().readErr); };
+  img.src = url;
+});
+function alertMsg(m) { $("noPrev").hidden = false; $("noPrev").textContent = m; }
+function defaultQuad(c) {      // a card-shaped box in the middle of the photo
+  const w = c.width, h = c.height, ar = 85.6 / 54;
+  let cw = w * 0.84, ch = cw / ar; if (ch > h * 0.84) { ch = h * 0.84; cw = ch * ar; }
+  const x = (w - cw) / 2, y = (h - ch) / 2;
+  return [[x, y], [x + cw, y], [x + cw, y + ch], [x, y + ch]];
+}
+function rotateSrc(s) {
+  const c = document.createElement("canvas"), o = s.src; c.width = o.height; c.height = o.width;
+  const g = c.getContext("2d"); g.translate(c.width, 0); g.rotate(Math.PI / 2); g.drawImage(o, 0, 0);
+  s.src = c; s.quad = defaultQuad(c);
+}
+
+// ---------- perspective straightening ----------
+function solve(A, b) {           // Gaussian elimination, 8x8
+  const n = b.length;
+  for (let i = 0; i < n; i++) {
+    let p = i; for (let r = i + 1; r < n; r++) if (Math.abs(A[r][i]) > Math.abs(A[p][i])) p = r;
+    [A[i], A[p]] = [A[p], A[i]]; [b[i], b[p]] = [b[p], b[i]];
+    for (let r = i + 1; r < n; r++) { const f = A[r][i] / A[i][i]; for (let c = i; c < n; c++) A[r][c] -= f * A[i][c]; b[r] -= f * b[i]; }
+  }
+  const x = new Array(n);
+  for (let i = n - 1; i >= 0; i--) { let s = b[i]; for (let c = i + 1; c < n; c++) s -= A[i][c] * x[c]; x[i] = s / A[i][i]; }
+  return x;
+}
+function homography(from, to) {  // maps from[i] → to[i]
+  const A = [], b = [];
+  for (let i = 0; i < 4; i++) {
+    const [x, y] = from[i], [u, v] = to[i];
+    A.push([x, y, 1, 0, 0, 0, -u * x, -u * y]); b.push(u);
+    A.push([0, 0, 0, x, y, 1, -v * x, -v * y]); b.push(v);
+  }
+  const h = solve(A, b); h.push(1); return h;
+}
+function straighten(s) {
+  const W = OUT_W, H = OUT_H, src = s.src, sw = src.width, sh = src.height;
+  const Hm = homography([[0, 0], [W, 0], [W, H], [0, H]], s.quad);
+  const sd = src.getContext("2d").getImageData(0, 0, sw, sh).data;
+  const out = document.createElement("canvas"); out.width = W; out.height = H;
+  const og = out.getContext("2d"), od = og.createImageData(W, H), o = od.data;
+  for (let v = 0; v < H; v++) for (let u = 0; u < W; u++) {
+    const z = Hm[6] * u + Hm[7] * v + 1, x = (Hm[0] * u + Hm[1] * v + Hm[2]) / z, y = (Hm[3] * u + Hm[4] * v + Hm[5]) / z;
+    const x0 = Math.floor(x), y0 = Math.floor(y), i = (v * W + u) * 4;
+    if (x0 < 0 || y0 < 0 || x0 >= sw - 1 || y0 >= sh - 1) { o[i] = o[i + 1] = o[i + 2] = 255; o[i + 3] = 255; continue; }
+    const fx = x - x0, fy = y - y0, p = (y0 * sw + x0) * 4, q = p + sw * 4;
+    for (let c = 0; c < 3; c++)
+      o[i + c] = (sd[p + c] * (1 - fx) + sd[p + 4 + c] * fx) * (1 - fy) + (sd[q + c] * (1 - fx) + sd[q + 4 + c] * fx) * fy;
+    o[i + 3] = 255;
+  }
+  og.putImageData(od, 0, 0);
+  s.out = out; updateThumb(s);
+}
+function sideImage(s) {          // straightened card + black boxes
+  const c = document.createElement("canvas"); c.width = OUT_W; c.height = OUT_H;
+  const g = c.getContext("2d"); g.drawImage(s.out, 0, 0); g.fillStyle = "#000";
+  s.boxes.forEach(b => g.fillRect(b[0], b[1], b[2], b[3]));
+  return c;
+}
+function updateThumb(s) { s.thumb = sideImage(s).toDataURL("image/jpeg", 0.7); }
+
+// ---------- editor (corners / hide) ----------
+let edMode = null, edKey = null, drag = null, temp = null;
+function edScale() { const s = sides[edKey], cv = $("edCv"); return cv.clientWidth / (edMode === "corners" ? s.src.width : OUT_W); }
+function openEditor(mode, k) {
+  edMode = mode; edKey = k; $("ed").hidden = false; document.body.style.overflow = "hidden";
+  $("edTitle").textContent = t()[k]; $("edCancel").textContent = t().cancel;
+  $("edHint").textContent = mode === "corners" ? t().edCorners : t().edHide;
+  $("edFoot").innerHTML = mode === "corners"
+    ? `<button class="btn" id="edRot">${esc(t().rotate)}</button><button class="btn pri" id="edUse">${esc(t().use)}</button>`
+    : `<button class="btn" id="edUndo">${esc(t().undo)}</button><button class="btn pri" id="edDone">${esc(t().done)}</button>`;
+  drawEditor();
+  if (mode === "corners") {
+    $("edRot").onclick = () => { rotateSrc(sides[edKey]); drawEditor(); };
+    $("edUse").onclick = () => { const s = sides[edKey]; s.boxes = []; straighten(s); closeEditor(); };
+  } else {
+    $("edUndo").onclick = () => { sides[edKey].boxes.pop(); drawEditor(); };
+    $("edDone").onclick = () => { updateThumb(sides[edKey]); closeEditor(); };
+  }
+}
+function openCorners(k) { openEditor("corners", k); }
+function openHide(k) { openEditor("hide", k); }
+function closeEditor() { $("ed").hidden = true; document.body.style.overflow = ""; edMode = null; $("box").querySelectorAll(".h").forEach(h => h.remove()); renderSides(); compose(); }
+$("edCancel").onclick = () => { const s = sides[edKey]; if (s && !s.out) sides[edKey] = null; closeEditor(); };
+function drawEditor() {
+  const s = sides[edKey], cv = $("edCv"), stage = $("stage");
+  const img = edMode === "corners" ? s.src : sideImage(s);
+  const maxW = stage.clientWidth - 24, maxH = stage.clientHeight - 24, sc = Math.min(maxW / img.width, maxH / img.height);
+  cv.width = img.width; cv.height = img.height; cv.style.width = Math.round(img.width * sc) + "px"; cv.style.height = Math.round(img.height * sc) + "px";
+  const g = cv.getContext("2d"); g.drawImage(img, 0, 0);
+  if (edMode === "hide" && temp) { g.fillStyle = "rgba(0,0,0,.7)"; g.fillRect(temp[0], temp[1], temp[2], temp[3]); }
+  const box = $("box"); box.querySelectorAll(".h").forEach(h => h.remove());
+  const svg = $("edSvg");
+  if (edMode === "corners") {
+    const k = sc;
+    svg.setAttribute("viewBox", `0 0 ${cv.clientWidth} ${cv.clientHeight}`);
+    svg.innerHTML = `<polygon points="${s.quad.map(p => p[0] * k + "," + p[1] * k).join(" ")}" fill="rgba(127,216,185,.18)" stroke="#7FD8B9" stroke-width="3"/>`;
+    s.quad.forEach((p, i) => { const h = document.createElement("div"); h.className = "h"; h.dataset.i = i; h.style.left = p[0] * k + "px"; h.style.top = p[1] * k + "px"; box.appendChild(h); });
+  } else svg.innerHTML = "";
+}
+function boxPoint(e) { const r = $("edCv").getBoundingClientRect(), sc = edScale(); return [(e.clientX - r.left) / sc, (e.clientY - r.top) / sc]; }
+$("stage").addEventListener("pointerdown", e => {
+  if (!edMode) return;
+  if (edMode === "corners") { const h = e.target.closest(".h"); if (!h) return; drag = { i: +h.dataset.i }; h.setPointerCapture(e.pointerId); }
+  else { const p = boxPoint(e); drag = { start: p }; temp = [p[0], p[1], 0, 0]; $("stage").setPointerCapture(e.pointerId); }
+  e.preventDefault();
+});
+$("stage").addEventListener("pointermove", e => {
+  if (!drag) return;
+  const s = sides[edKey], p = boxPoint(e);
+  if (edMode === "corners") {
+    s.quad[drag.i] = [Math.max(0, Math.min(s.src.width, p[0])), Math.max(0, Math.min(s.src.height, p[1]))];
+    const k = edScale(), h = $("box").querySelector(`.h[data-i="${drag.i}"]`);
+    h.style.left = s.quad[drag.i][0] * k + "px"; h.style.top = s.quad[drag.i][1] * k + "px";
+    $("edSvg").querySelector("polygon").setAttribute("points", s.quad.map(q => q[0] * k + "," + q[1] * k).join(" "));
+  } else {
+    const a = drag.start; temp = [Math.min(a[0], p[0]), Math.min(a[1], p[1]), Math.abs(p[0] - a[0]), Math.abs(p[1] - a[1])]; drawEditor();
+  }
+});
+["pointerup", "pointercancel"].forEach(n => $("stage").addEventListener(n, () => {
+  if (drag && edMode === "hide" && temp && temp[2] > 8 && temp[3] > 8) sides[edKey].boxes.push(temp.map(Math.round));
+  drag = null; temp = null; if (edMode === "hide") drawEditor();
+}));
+window.addEventListener("resize", () => { if (edMode) drawEditor(); });
+
+// ---------- step 3/4: page with both sides, mark, date ----------
+const PW = 1240, PH = 1754;      // A4 at 150 dpi
+function today() { const d = new Date(); return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, "0")}.${String(d.getDate()).padStart(2, "0")}`; }
+function compose() {
+  const list = ["front", "back"].filter(k => sides[k] && sides[k].out);
+  const prev = $("preview");
+  $("shareBtn").disabled = $("saveBtn").disabled = !list.length;
+  if (!list.length) { prev.hidden = true; $("noPrev").hidden = false; $("noPrev").textContent = t().noPrev; return null; }
+  prev.hidden = false; $("noPrev").hidden = true;
+  const ty = TYPES.find(x => x.id === type), who = $("who").value.trim(), dateOn = $("dateOn").checked;
+  const cw = 1000, ch = Math.round(cw * 54 / 85.6), x0 = (PW - cw) / 2;
+  const top = 150, gap = 110, H = top + list.length * ch + (list.length - 1) * gap + 130;
+  const c = document.createElement("canvas"); c.width = PW; c.height = fmt === "pdf" ? PH : H;
+  const g = c.getContext("2d");
+  g.fillStyle = "#fff"; g.fillRect(0, 0, c.width, c.height);
+  g.fillStyle = "#111"; g.font = "700 40px 'Noto Sans JP', sans-serif"; g.textBaseline = "alphabetic";
+  g.fillText(`${ty.ja}  ${ty.en}`, x0, 90);
+  if (dateOn) { g.font = "500 28px 'Noto Sans JP', sans-serif"; g.textAlign = "right"; g.fillText(today(), x0 + cw, 90); g.textAlign = "left"; }
+  list.forEach((k, i) => {
+    const y = top + i * (ch + gap);
+    g.font = "600 26px 'Noto Sans JP', sans-serif"; g.fillStyle = "#555"; g.fillText(k === "front" ? "表 / Front" : "裏 / Back", x0, y - 14);
+    g.save();
+    if ($("clearOn").checked && "filter" in g) g.filter = "contrast(1.18) brightness(1.04) saturate(1.05)";
+    g.drawImage(sideImage(sides[k]), x0, y, cw, ch);
+    g.restore();
+    g.strokeStyle = "#ccc"; g.lineWidth = 2; g.strokeRect(x0, y, cw, ch);
+    if (who) mark(g, x0, y, cw, ch, `${t().forOnly(who)} · ${who} 提出用${dateOn ? " · " + today() : ""}`);
+  });
+  g.font = "500 20px sans-serif"; g.fillStyle = "#999";
+  g.fillText(who ? `${t().copy} – ${t().forOnly(who)}` : t().copy, x0, H - 50);
+  prev.width = c.width; prev.height = c.height; prev.getContext("2d").drawImage(c, 0, 0);
+  return c;
+}
+function mark(g, x, y, w, h, text) {   // light red repeated diagonal text over the card
+  g.save(); g.beginPath(); g.rect(x, y, w, h); g.clip();
+  g.translate(x + w / 2, y + h / 2); g.rotate(-0.42);
+  g.font = "700 34px 'Noto Sans JP', sans-serif"; g.fillStyle = "rgba(220,30,40,.30)"; g.textAlign = "center";
+  const step = 92, tw = g.measureText(text).width + 70;
+  for (let yy = -h; yy <= h; yy += step) for (let xx = -w - tw; xx <= w + tw; xx += tw) g.fillText(text, xx + ((yy / step) % 2 ? tw / 2 : 0), yy);
+  g.restore();
+}
+["who", "dateOn", "clearOn"].forEach(id => $(id).addEventListener("input", compose));
+$("fmt").onclick = e => { const b = e.target.closest("[data-f]"); if (!b) return; fmt = b.dataset.f; $("fmt").querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === b)); compose(); };
+
+// ---------- JPG / PDF file ----------
+function toBlob(c, q) { return new Promise(r => c.toBlob(r, "image/jpeg", q)); }
+async function pdfFrom(c) {      // one A4 page with the JPEG inside (simple PDF writer)
+  const jpg = new Uint8Array(await (await toBlob(c, 0.9)).arrayBuffer());
+  const enc = new TextEncoder(), parts = [], offs = []; let len = 0;
+  const add = x => { const b = typeof x === "string" ? enc.encode(x) : x; parts.push(b); len += b.length; };
+  const content = `q 595.28 0 0 841.89 0 0 cm /Im0 Do Q`;
+  add("%PDF-1.4\n%\xE2\xE3\xCF\xD3\n");
+  const obj = (n, body) => { offs[n] = len; add(`${n} 0 obj\n`); body(); add("\nendobj\n"); };
+  obj(1, () => add("<< /Type /Catalog /Pages 2 0 R >>"));
+  obj(2, () => add("<< /Type /Pages /Kids [3 0 R] /Count 1 >>"));
+  obj(3, () => add("<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /XObject << /Im0 4 0 R >> >> /Contents 5 0 R >>"));
+  obj(4, () => { add(`<< /Type /XObject /Subtype /Image /Width ${c.width} /Height ${c.height} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${jpg.length} >>\nstream\n`); add(jpg); add("\nendstream"); });
+  obj(5, () => add(`<< /Length ${content.length} >>\nstream\n${content}\nendstream`));
+  const xref = len;
+  add(`xref\n0 6\n0000000000 65535 f \n${[1, 2, 3, 4, 5].map(n => String(offs[n]).padStart(10, "0") + " 00000 n \n").join("")}trailer\n<< /Size 6 /Root 1 0 R >>\nstartxref\n${xref}\n%%EOF`);
+  return new Blob(parts, { type: "application/pdf" });
+}
+async function makeFile() {
+  const c = compose(); if (!c) return null;
+  const ty = TYPES.find(x => x.id === type), d = today().replace(/\./g, "-");
+  const blob = fmt === "pdf" ? await pdfFrom(c) : await toBlob(c, 0.9);
+  return new File([blob], `${ty.file}-${d}.${fmt}`, { type: blob.type });
+}
+$("shareBtn").onclick = async () => {
+  const f = await makeFile(); if (!f) return;
+  if (navigator.canShare && navigator.canShare({ files: [f] })) {
+    try { await navigator.share({ files: [f], title: t().shareTitle }); } catch (_) {}
+  } else download(f);
+};
+$("saveBtn").onclick = async () => { const f = await makeFile(); if (f) download(f); };
+function download(f) { const u = URL.createObjectURL(f), a = document.createElement("a"); a.href = u; a.download = f.name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(u), 4000); }
+$("clearAll").onclick = () => { sides.front = sides.back = null; noBack = false; $("who").value = ""; renderSides(); compose(); };
+
+// ---------- language ----------
+function applyLang() {
+  document.querySelectorAll("[data-t]").forEach(el => { const v = t()[el.dataset.t]; if (typeof v === "string") el.textContent = v; });
+  $("warnList").innerHTML = t().warn.map(x => `<li>${esc(x)}</li>`).join("");
+  $("who").placeholder = lang === "ne" ? "जस्तै: ABC不動産" : "e.g. ABC Real Estate / ABC不動産";
+  $("shareBtn").textContent = t().share; $("saveBtn").textContent = t().save;
+  document.title = t().h1 + " – JapanMates";
+  renderTypes(); renderSides(); compose();
+}
+window.SATHI_SHARE = { text: l => T[l].share2 };
+if (window.Sathi && Sathi.onLang) Sathi.onLang(l => { lang = l; applyLang(); });
+applyLang();
+</script>
+</body>
+</html>

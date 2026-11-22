@@ -22,7 +22,7 @@
       nav: [["./", "Home"], ["guides.html#newcomer", "New to Japan"], ["about.html", "About"], ["about.html#help", "Help"]], allTools: "All services",
       aboutH: "About", about: "JapanMates explains life in Japan simply, in English and Nepali. Made in Niigata by a Nepali resident.",
       linksH: "JapanMates", links: [["about.html", "About us"], ["about.html#contact", "Contact"], ["privacy.html", "Privacy policy"], ["about.html#help", "Help"]],
-      toolsH: "Tools", tools: [["garbage.html", "Garbage calendar"], ["translate.html", "Japanese boss translator"], ["events.html", "Events & festivals"], ["rate.html", "Yen → Rupee rate"], ["deadlines.html", "My deadlines"], ["visa.html", "Visa renewal"], ["letter.html", "Letter explainer"], ["driving.html", "Driving licence"]],
+      toolsH: "Tools", tools: [["garbage.html", "Garbage calendar"], ["translate.html", "Japanese boss translator"], ["events.html", "Events & festivals"], ["rate.html", "Yen → Rupee rate"], ["deadlines.html", "My deadlines"], ["visa.html", "Visa renewal"], ["letter.html", "Letter explainer"], ["driving.html", "Driving licence"], ["card.html", "Card copy (scan & share)"]],
       sosH: "Emergency", sos: "Fire / ambulance <b>119</b> · Police <b>110</b>",
       note: "JapanMates is not a government or city service. Always check the official page linked on each tool.",
       year: "© JapanMates"
@@ -32,7 +32,7 @@
       nav: [["./", "गृहपृष्ठ"], ["guides.html#newcomer", "जापानमा नयाँ"], ["about.html", "हाम्रोबारे"], ["about.html#help", "मद्दत"]], allTools: "सबै सेवाहरू",
       aboutH: "हाम्रोबारे", about: "JapanMates ले जापानको जीवन नेपाली र अंग्रेजीमा सजिलो गरी बुझाउँछ। निगातामा बस्ने एक नेपालीले बनाएको।",
       linksH: "JapanMates", links: [["about.html", "हाम्रोबारे"], ["about.html#contact", "सम्पर्क"], ["privacy.html", "गोपनीयता नीति"], ["about.html#help", "मद्दत"]],
-      toolsH: "सुविधाहरू", tools: [["garbage.html", "फोहोर क्यालेन्डर"], ["translate.html", "हाकिमको जापानी अनुवादक"], ["events.html", "कार्यक्रम र चाडपर्व"], ["rate.html", "येन → रुपैयाँ दर"], ["deadlines.html", "मेरा अन्तिम मिति"], ["visa.html", "भिसा नवीकरण"], ["letter.html", "चिठी बुझाउने"], ["driving.html", "ड्राइभिङ लाइसेन्स"]],
+      toolsH: "सुविधाहरू", tools: [["garbage.html", "फोहोर क्यालेन्डर"], ["translate.html", "हाकिमको जापानी अनुवादक"], ["events.html", "कार्यक्रम र चाडपर्व"], ["rate.html", "येन → रुपैयाँ दर"], ["deadlines.html", "मेरा अन्तिम मिति"], ["visa.html", "भिसा नवीकरण"], ["letter.html", "चिठी बुझाउने"], ["driving.html", "ड्राइभिङ लाइसेन्स"], ["card.html", "कार्ड कपी (स्क्यान र सेयर)"]],
       sosH: "आपतकाल", sos: "आगो / एम्बुलेन्स <b>119</b> · प्रहरी <b>110</b>",
       note: "JapanMates सरकार वा सिटीको सेवा होइन। हरेक सुविधामा दिइएको आधिकारिक पेज सधैं जाँच्नुहोस्।",
       year: "© JapanMates"
@@ -118,6 +118,7 @@
 
   // Line icons used by the home and guide pages (24×24, drawn with currentColor)
   var IC = {
+    card: '<rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="11" r="2"/><path d="M5.5 16c.8-1.6 5.2-1.6 6 0M14 10h4M14 13h4"/>',
     bin: '<path d="M4 7h16M10 7V4h4v3M6 7l1 13h10l1-13M10 11v6M14 11v6"/>',
     plane: '<path d="M3 11l18-7-5 17-4-7z"/><path d="M12 14l9-10"/>',
     building: '<path d="M4 21V8l8-5 8 5v13M2 21h20M9 21v-5h6v5M8 11h.01M12 11h.01M16 11h.01"/>',
